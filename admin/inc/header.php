@@ -72,7 +72,7 @@
 					<div class="pointer dropdown-toggle d-flex align-items-center" role="button" id="dropdownMenuButton1"
 						data-bs-toggle="dropdown" aria-expanded="false">
 						<span class="profile-nav-img">
-							<img src="../assets/files/f1wopRAnc9Sza4L6.png" alt="IMAGE">
+							<img src="./assets/files/f1wopRAnc9Sza4L6.png" alt="IMAGE">
 						</span>
 						<p class="ms-1 hide_small admin--profile--notification"><?php echo $admin_info['nickname'] ?></p>
 					</div>

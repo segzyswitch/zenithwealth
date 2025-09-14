@@ -2,7 +2,7 @@
 	<div class="sidebar-top mb-4">
 		<div class="site-logo">
 			<a href="../admin/dashboard">
-				<img src="../assets/files/main-logo.png" class="mx-auto" alt="White Logo">
+				<img src="./assets/files/main-logo.png" class="mx-auto" alt="White Logo">
 			</a>
 		</div>
 	</div>

@@ -7,20 +7,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mooninvests - Manage Users</title>
-	<link rel="shortcut icon" href="../assets/files/main-icon.png" type="image/x-icon">
-	<link rel="stylesheet" href="../assets/theme/global/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/line-awesome.min.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/bootstrap-icons.min.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/select2.min.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/toaster.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/apexcharts.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/datepicker.min.css" />
-	<link rel="stylesheet" href="../assets/theme/admin/css/style.css" />
-	<link rel="stylesheet" href="../assets/theme/admin/css/simple-bar.css" />
-	<link rel="stylesheet" href="../assets/theme/admin/css/responsive.css" />
-	<link rel="stylesheet" href="../assets/theme/admin/css/summernote-lite.min.css" />
-	<link rel="stylesheet" href="../assets/theme/admin/css/spectrum.css" />
+	<link rel="shortcut icon" href="./assets/files/main-icon.png" type="image/x-icon">
+	<link rel="stylesheet" href="./assets/theme/global/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/line-awesome.min.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/bootstrap-icons.min.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/select2.min.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/toaster.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/apexcharts.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/datepicker.min.css" />
+	<link rel="stylesheet" href="./assets/theme/admin/css/style.css" />
+	<link rel="stylesheet" href="./assets/theme/admin/css/simple-bar.css" />
+	<link rel="stylesheet" href="./assets/theme/admin/css/responsive.css" />
+	<link rel="stylesheet" href="./assets/theme/admin/css/summernote-lite.min.css" />
+	<link rel="stylesheet" href="./assets/theme/admin/css/spectrum.css" />
 </head>
 
 <body>
@@ -86,19 +86,19 @@
 		</div>
 	</div>
 
-	<script src="../assets/theme/global/js/jquery-3.7.1.min.js"></script>
-	<script src="../assets/theme/global/js/bootstrap.bundle.min.js"></script>
-	<script src="../assets/theme/global/js/select2.min.js"></script>
-	<script src="../assets/theme/global/js/toaster.js"></script>
-	<script src="../assets/theme/global/js/swiper-bundle.min.js"></script>
-	<script src="../assets/theme/global/js/apexcharts.js"></script>
-	<script src="../assets/theme/global/js/datepicker.min.js"></script>
-	<script src="../assets/theme/global/js/datepicker.en.js"></script>
-	<script src="../assets/theme/admin/js/ckd.js"></script>
-	<script src="../assets/theme/admin/js/simple-bar.min.js"></script>
-	<script src="../assets/theme/admin/js/script.js"></script>
-	<script src="../assets/theme/admin/js/summernote-lite.min.js"></script>
-	<script src="../assets/theme/admin/js/spectrum.js"></script>
+	<script src="./assets/theme/global/js/jquery-3.7.1.min.js"></script>
+	<script src="./assets/theme/global/js/bootstrap.bundle.min.js"></script>
+	<script src="./assets/theme/global/js/select2.min.js"></script>
+	<script src="./assets/theme/global/js/toaster.js"></script>
+	<script src="./assets/theme/global/js/swiper-bundle.min.js"></script>
+	<script src="./assets/theme/global/js/apexcharts.js"></script>
+	<script src="./assets/theme/global/js/datepicker.min.js"></script>
+	<script src="./assets/theme/global/js/datepicker.en.js"></script>
+	<script src="./assets/theme/admin/js/ckd.js"></script>
+	<script src="./assets/theme/admin/js/simple-bar.min.js"></script>
+	<script src="./assets/theme/admin/js/script.js"></script>
+	<script src="./assets/theme/admin/js/summernote-lite.min.js"></script>
+	<script src="./assets/theme/admin/js/spectrum.js"></script>
 	<script>
 		"use strict";
 		function notify(status, message) {

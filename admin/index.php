@@ -11,16 +11,16 @@ if ( isset($_SESSION["aave_auth_login_id"]) && isset($_SESSION["admin_status"]) 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mooninvests - Admin Login</title>
-	<link rel="shortcut icon" href="../assets/files/main-icon.png" type="image/x-icon">
-	<link rel="stylesheet" href="../assets/theme/global/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/line-awesome.min.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/bootstrap-icons.min.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/select2.min.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/toaster.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/apexcharts.css" />
-	<link rel="stylesheet" href="../assets/theme/global/css/datepicker.min.css" />
-	<link rel="stylesheet" href="../assets/theme/admin/auth/css/style.css" />
+	<link rel="shortcut icon" href="./assets/files/main-icon.png" type="image/x-icon">
+	<link rel="stylesheet" href="./assets/theme/global/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/line-awesome.min.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/bootstrap-icons.min.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/select2.min.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/toaster.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/apexcharts.css" />
+	<link rel="stylesheet" href="./assets/theme/global/css/datepicker.min.css" />
+	<link rel="stylesheet" href="./assets/theme/admin/auth/css/style.css" />
 </head>
 <body>
 	<section class="admin-form">
@@ -29,7 +29,7 @@ if ( isset($_SESSION["aave_auth_login_id"]) && isset($_SESSION["admin_status"]) 
 				<div class="col-xl-5 col-lg-6 order-lg-2 order-1">
 					<div class="form-wrapper-one bg-dark text-white flex-column rounded-4">
 						<div class="logo-area text-center mb-40">
-							<img src="../assets/files/main-logo.png" alt="MOONINV" border="0">
+							<img src="./assets/files/main-logo.png" alt="MOONINV" border="0">
 							<h4><i class="bi bi-lock-fill"></i> ADMIN</h4>
 						</div>
 						<form action="#" id="loginForm" method="POST">
@@ -57,7 +57,7 @@ if ( isset($_SESSION["aave_auth_login_id"]) && isset($_SESSION["admin_status"]) 
 	<div class="squire-container">
 		<ul class="squares"></ul>
 	</div>
-	<script src="../assets/theme/global/js/jquery-3.7.1.min.js"></script>
+	<script src="./assets/theme/global/js/jquery-3.7.1.min.js"></script>
 	<script>
 		"use strict";
 		function notify(status, message) {
@@ -96,12 +96,12 @@ if ( isset($_SESSION["aave_auth_login_id"]) && isset($_SESSION["admin_status"]) 
 	  });
 	});
 	</script>
-	<script src="../assets/theme/global/js/bootstrap.bundle.min.js"></script>
-	<script src="../assets/theme/global/js/select2.min.js"></script>
-	<script src="../assets/theme/global/js/toaster.js"></script>
-	<script src="../assets/theme/global/js/swiper-bundle.min.js"></script>
-	<script src="../assets/theme/global/js/apexcharts.js"></script>
-	<script src="../assets/theme/global/js/datepicker.min.js"></script>
-	<script src="../assets/theme/global/js/datepicker.en.js"></script>
+	<script src="./assets/theme/global/js/bootstrap.bundle.min.js"></script>
+	<script src="./assets/theme/global/js/select2.min.js"></script>
+	<script src="./assets/theme/global/js/toaster.js"></script>
+	<script src="./assets/theme/global/js/swiper-bundle.min.js"></script>
+	<script src="./assets/theme/global/js/apexcharts.js"></script>
+	<script src="./assets/theme/global/js/datepicker.min.js"></script>
+	<script src="./assets/theme/global/js/datepicker.en.js"></script>
 </body>
 </html>
