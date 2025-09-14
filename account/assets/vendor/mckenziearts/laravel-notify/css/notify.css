@@ -1,6 +1,7 @@
 .notify-container {
   /* container set up via JS for position */
   width: auto;
+  max-width: 320px;
 }
 
 .notify {
