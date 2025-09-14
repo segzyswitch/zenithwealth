@@ -1,0 +1,70 @@
+.notify-container {
+  /* container set up via JS for position */
+  width: auto;
+}
+
+.notify {
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  min-width: 200px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.notify-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notify-hide {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.notify-success {
+  border-left: 4px solid #28a745;
+}
+
+.notify-error {
+  border-left: 4px solid #dc3545;
+}
+
+.notify-warning {
+  border-left: 4px solid #ffc107;
+}
+
+.notify-info {
+  border-left: 4px solid #17a2b8;
+}
+
+.notify-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.notify-close {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.notify-theme-dark .notify {
+  background-color: #333;
+  color: #f9f9f9;
+}
+
+.notify-theme-dark .notify-close {
+  color: #ddd;
+}
