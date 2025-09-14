@@ -19,19 +19,19 @@ $(document).ready(function() {
 	    success: function(data) {
 		    $("#registerForm .submit-btn").html("Sign Up");
 		    if ( data.search('success') !== -1 ) {
-          notify('success', data);
+          notifySuccess(data);
 		    	$("#registerForm input").val('');
 		    	$("#registerForm select").val('');
           $('#registerForm .submit-btn').prop('disabled', false);
 		    }else {
           $('#registerForm .submit-btn').prop('disabled', false);
-          notify('warning', data);
+          notifyWarning(data);
 		    }
 	    },
 	    error: function() {
         $('#registerForm .submit-btn').prop('disabled', false);
 		    $("#registerForm .submit-btn").html("Sign Up");
-        notify('warning', 'An error occured, try again!');
+        notifyWarning('An error occured, try again!');
 	    }
 	  });
 	});

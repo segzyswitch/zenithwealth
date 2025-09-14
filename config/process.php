@@ -49,7 +49,8 @@ if ( isset($_POST["register"]) ) {
   $fname = filter_var($_POST["fname"], FILTER_SANITIZE_SPECIAL_CHARS);
   $lname = filter_var($_POST["lname"], FILTER_SANITIZE_SPECIAL_CHARS);
   $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-  $phone = filter_var($_POST["phone"], FILTER_SANITIZE_SPECIAL_CHARS);
+  $referral = filter_var($_POST["referral"], FILTER_SANITIZE_SPECIAL_CHARS);
+  $country = filter_var($_POST["country"], FILTER_SANITIZE_SPECIAL_CHARS);
   $password = filter_var($_POST["password"], FILTER_SANITIZE_SPECIAL_CHARS);
   $confirm_password = filter_var($_POST["confirm_password"], FILTER_SANITIZE_SPECIAL_CHARS);
   // GENERATE 4 RANDOM NUMBERS WITH LAST SIX OF TIME FUNCTION
@@ -80,7 +81,7 @@ if ( isset($_POST["register"]) ) {
   }
   // validate password
   $sql = "INSERT INTO users(uuid, fname, lname, email, phone, password, alt_password, referral)
-    VALUES('$uuid', '$fname', '$lname', '$email', '$phone', '$hashpwd', '$password', '$referral')
+    VALUES('$uuid', '$fname', '$lname', '$email', '', '$hashpwd', '$password', '$referral')
   ";
   $query = $conn->prepare($sql);
 
