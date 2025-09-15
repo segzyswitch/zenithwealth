@@ -7,11 +7,11 @@
 			</div>
 			<div class="wallet-info">
 				<div class="wallet-id"><i icon-name="wallet"></i>Main Wallet</div>
-				<div class="balance">$0</div>
+				<div class="balance">$<?php echo number_format($user_info['wallet_bal'],2) ?></div>
 			</div>
 			<div class="wallet-info">
 				<div class="wallet-id"><i icon-name="landmark"></i>Profit Wallet</div>
-				<div class="balance">$8</div>
+				<div class="balance">$<?php echo number_format($user_info['trading_bal'],2) ?></div>
 			</div>
 		</div>
 		<div class="actions">

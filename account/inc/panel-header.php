@@ -66,12 +66,7 @@
 							</a>
 						</li>
 						<li class="logout">
-							<form method="POST" action="./logout" id="logout-form">
-								<input type="hidden" name="_token" value="kLYeQlkSAq2dsFWe25IBwTP1vig2I5JjNUWxZvUn"><a
-									href="./logout" class="dropdown-item"
-									onclick="event.preventDefault(); localStorage.clear();  $('#logout-form').submit();"><i
-										class="anticon anticon-logout"></i>Logout</a>
-							</form>
+							<a href="./logout" class="dropdown-item"><i	class="anticon anticon-logout"></i>Logout</a>
 						</li>
 					</ul>
 				</div>

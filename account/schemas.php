@@ -67,36 +67,38 @@ require '../config/session.php';
 									</div>
 									<div class="site-card-body">
 										<div class="row">
+											<?php
+											foreach ($Controller->Plans() as $key => $value) {
+											?>
 											<div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 												<div class="single-investment-plan">
-													<img class="investment-plan-icon"
-														src="./assets/global/images/qHO0xXvfRTXFj3ZiLTq5.png"
-														alt="" />
-													<div class="feature-plan">A</div>
+													<img class="investment-plan-icon" src="./assets/global/images/qHO0xXvfRTXFj3ZiLTq5.png" />
+													<?php if($value['recomend']==1) echo "<small class='feature-plan d-block'>Recomended</small>"; ?>
 
-													<h3>Starter Plan</h3>
-													<p>Daily 10%</p>
+													<h3><?php echo $value['name'] ?> plan</h3>
+													<p>Daily <?php echo $value['interest'] ?>%</p>
 													<ul>
-														<li>Investment <span class="special">
-																$100
+														<li> 	Investment Limit <span class="special">
+																<?php echo "$".$value['min_limit']." - $".$value['max_limit'] ?>
 															</span></li>
 														<li>Capital Back
 															<span>Yes</span>
 														</li>
-														<li>Return Type <span>Period</span>
+														<li>Duration <span><?php echo $value['duration'] ?></span>
 														</li>
-														<li>Number of Period
-															<span>1 Time</span>
-														</li>
-														<li>Profit Withdraw <span>Anytime</span></li>
+														<!-- <li>Profit Withdraw <span>Anytime</span></li> -->
 														<li>Cancel <span> No</span></li>
 													</ul>
 													<div class="holidays"><span class="star">*</span> No Profit Holidays</div>
-													<a href="./user/schema-preview/1"
+													<a href="./schema-preview?plan=<?php echo $value['id'] ?>"
 														class="site-btn grad-btn w-100 centered"><i class="anticon anticon-check"></i>Invest Now</a>
 												</div>
 											</div>
+											<?php
+											}
+											?>
 
+											<!--
 											<div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 												<div class="single-investment-plan">
 													<img class="investment-plan-icon"
@@ -126,7 +128,6 @@ require '../config/session.php';
 														class="site-btn grad-btn w-100 centered"><i class="anticon anticon-check"></i>Invest Now</a>
 												</div>
 											</div>
-
 											<div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 												<div class="single-investment-plan">
 													<img class="investment-plan-icon"
@@ -156,7 +157,6 @@ require '../config/session.php';
 														class="site-btn grad-btn w-100 centered"><i class="anticon anticon-check"></i>Invest Now</a>
 												</div>
 											</div>
-
 											<div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 												<div class="single-investment-plan">
 													<img class="investment-plan-icon"
@@ -186,7 +186,6 @@ require '../config/session.php';
 														class="site-btn grad-btn w-100 centered"><i class="anticon anticon-check"></i>Invest Now</a>
 												</div>
 											</div>
-
 											<div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 												<div class="single-investment-plan">
 													<img class="investment-plan-icon"
@@ -216,7 +215,6 @@ require '../config/session.php';
 														class="site-btn grad-btn w-100 centered"><i class="anticon anticon-check"></i>Invest Now</a>
 												</div>
 											</div>
-
 											<div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 												<div class="single-investment-plan">
 													<img class="investment-plan-icon"
@@ -246,6 +244,7 @@ require '../config/session.php';
 														class="site-btn grad-btn w-100 centered"><i class="anticon anticon-check"></i>Invest Now</a>
 												</div>
 											</div>
+											-->
 										</div>
 									</div>
 								</div>

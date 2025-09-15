@@ -24,7 +24,6 @@ class Controller
       //echo "Connected successfully";
     } catch(PDOException $e) {
       echo "Connection failed: " . $e->getMessage();
-      return false;
     }
   }
 

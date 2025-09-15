@@ -284,17 +284,17 @@ if ( isset($_POST["invest_now"]) ) {
 
   // Check wallet balance
   if ( $amount > $user_info['wallet_bal'] ) {
-    echo "Insufficient balance, <a class='text-primary' href='deposit'>fund your wallet</a> and try again!";
+    echo "Insufficient balance, fund your wallet and try again!";
     return false;
   }
   // Check min trade
   if ( $amount < $plan_info['min_limit'] ) {
-    echo "Minimum amount for <b>".$plan_name."</b> plan is <b>$".$plan_min."</b>, choose a different plan!";
+    echo "Minimum amount for ".$plan_name." plan is $".$plan_min.", choose a different plan!";
     return false;
   }
   // Check max trade
   if ( $amount > $plan_info['max_limit'] ) {
-    echo "Maximun amount for <b>".$plan_name."</b> plan is <b>$".$plan_min."</b>, choose a different plan!";
+    echo "Maximun amount for ".$plan_name." plan is $".$plan_min.", choose a different plan!";
     return false;
   }
 

@@ -1,3 +1,6 @@
+<?php
+require '../config/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,32 +65,6 @@
 			<div class="main-content">
 				<div class="section-gap">
 					<div class="container-fluid">
-
-						<div class="row desktop-screen-show">
-							<div class="col">
-								<div class="alert site-alert alert-dismissible fade show" role="alert">
-									<div class="content">
-										<div class="icon"><i class="anticon anticon-warning"></i></div>
-										You need to submit your
-										<strong>KYC and Other Documents</strong> before proceed to the system.
-									</div>
-									<div class="action">
-										<a href="./user/kyc" class="site-btn-sm grad-btn"><i
-												class="anticon anticon-info-circle"></i>Submit Now</a>
-										<a href="" class="site-btn-sm red-btn ms-2" type="button" data-bs-dismiss="alert"
-											aria-label="Close"><i class="anticon anticon-close"></i>Later</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row mobile-screen-show">
-							<div class="col-12">
-								<div class="user-kyc-mobile">
-									<i icon-name="fingerprint" class="kyc-star"></i>
-									Please Verify Your Identity <a href="./user/kyc">Submit Now</a>
-								</div>
-							</div>
-						</div>
 						<!--Page Content-->
 						<div class="row">
 							<div class="col-xl-12">
@@ -102,16 +79,61 @@
 													<table id="dataTable" class="display data-table">
 														<thead>
 															<tr>
-																<th>Icon</th>
-																<th>Schema</th>
-																<th>ROI</th>
-																<th>Profit</th>
-																<th>Period Remaining</th>
-																<th>Capital Back</th>
-																<th>Timeline</th>
+																<th scope="col">Initiated At</th>
+																<th scope="col">Plan</th>
+																<th scope="col">Amount</th>
+																<th scope="col">Days</th>
+																<th scope="col">Profit</th>
+																<th scope="col">Payout</th>
+																<th scope="col">Payout date</th>
+																<th scope="col">Status</th>
 															</tr>
 														</thead>
 														<tbody>
+															<?php
+															if ( count($Controller->Trades(50)) <= 0 ) {
+															?>
+																<tr>
+																	<td colspan="5" class="text-center">
+																		<h5>No data found</h5>
+																	</td>
+																</tr>
+															<?php
+															}
+															foreach ($Controller->Trades(50) as $key => $value) {
+																?>
+																<tr>
+																	<td data-label="Initiated At">
+																		<?php echo date("Y-m-d H:i", strtotime($value['start_date'])); ?>
+																	</td>
+																	<td data-label="Plan">
+																		<?php echo $value['plan_name']; ?>
+																	</td>
+																	<td data-label="Amount">
+																		$<?php echo number_format($value['amount'],2); ?>
+																	</td>
+																	<td data-label="Period">
+																		<?php echo $value['period']; ?>
+																	</td>
+																	<td data-label="Profit">
+																		$<?php echo number_format($value['profit'],2); ?>
+																	</td>
+																	<td data-label="Outcome">
+																			$<?php echo number_format($value['returns'],2); ?>
+																	</td>
+																	<td data-label="Payback date">
+																		<?php echo date("Y-m-d H:i", strtotime($value['start_date'])); ?>
+																	</td>
+																	<td data-label="Status" class="text-capitalize">
+																		<?php
+																		if ( $value['status'] == 'completed') echo '<div class="site-badge success">Completed</div>';
+																		else echo '<div class="site-badge bg-warning">'.$value["status"].'</div>';
+																		?>
+																	</td>
+																</tr>
+																<?php
+															}
+															?>
 														</tbody>
 													</table>
 												</div>

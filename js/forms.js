@@ -143,8 +143,9 @@ $(document).ready(function() {
 
 
 	// investForm
-	$("#investForm").on('submit', function(){
-	  event.preventDefault();
+	$("#investForm").on('submit', function(ev){
+	  ev.preventDefault();
+
 	  $.ajax({
 	    url: "../config/process.php",
 	    type: "POST",
@@ -157,22 +158,23 @@ $(document).ready(function() {
 		    $("#investForm .submit-btn").addClass("disabled");
 	    },
 	    success: function(data) {
-		    $("#investForm .submit-btn").html("Invest Now");
+		    $("#investForm .submit-btn").html("Start investment");
 		    $("#investForm .submit-btn").removeClass("disabled");
 		    if ( data.search('success') !== -1 ) {
 		    	// $("#depositForm .feedback").html(data);
-		    	notify('success', data);
-		    	$('.modal').modal('hide');
-		    	window.location.href = "trades?message="+data;
+		    	notifySuccess(data);
+					setTimeout( function() {
+						window.location.href = "./invest-logs?message="+data;
+					}, 3500);
 		    }else {
-		    	notify('warning', data);
+		    	notifyWarning(data);
 		      // $("#investForm .feedback").html(data);
 		    }
 	    },
 	    error: function(error) {
-		    $("#investForm .submit-btn").html("Invest Now");
+		    $("#investForm .submit-btn").html("Start investment");
 		    $("#investForm .submit-btn").removeClass("disabled");
-	    	notify('warning', 'An error occured, check your connection and try again');
+	    	notifyWarning('An error occured, check your connection and try again');
 	    	// $("#investForm .feedback").html("<div class='alert alert-danger'>An error occured, try again!</div>");
 	    }
 	  });

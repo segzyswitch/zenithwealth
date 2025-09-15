@@ -1,3 +1,6 @@
+<?php
+require '../config/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,25 +11,25 @@
 	<meta name="csrf-token" content="0PBnSGpBOeU6uMyjETolsJPb2ENYjKaQCWd9mtKF">
 	<meta name="keywords" content="Zenith Wealth">
 	<meta name="description" content="Zenith Wealth">
-	<link rel="canonical" href="https://zenithwealthpro.com/account/user/schema-preview/1" />
-	<link rel="shortcut icon" href="https://zenithwealthpro.com/account/assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
+	<link rel="canonical" href="./user/schema-preview/1" />
+	<link rel="shortcut icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
 		type="image/x-icon" />
 
-	<link rel="icon" href="https://zenithwealthpro.com/account/assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
+	<link rel="icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
 		type="image/x-icon" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/global/css/fontawesome.min.css" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/frontend/css/vendor/bootstrap.min.css" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/frontend/css/animate.css" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/frontend/css/owl.carousel.min.css" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/global/css/nice-select.css" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/global/css/datatables.min.css" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/global/css/simple-notify.min.css" />
+	<link rel="stylesheet" href="./assets/global/css/fontawesome.min.css" />
+	<link rel="stylesheet" href="./assets/frontend/css/vendor/bootstrap.min.css" />
+	<link rel="stylesheet" href="./assets/frontend/css/animate.css" />
+	<link rel="stylesheet" href="./assets/frontend/css/owl.carousel.min.css" />
+	<link rel="stylesheet" href="./assets/global/css/nice-select.css" />
+	<link rel="stylesheet" href="./assets/global/css/datatables.min.css" />
+	<link rel="stylesheet" href="./assets/global/css/simple-notify.min.css" />
 	<link rel="stylesheet" type="text/css"
-		href="https://zenithwealthpro.com/account/assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/global/css/custom.css" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/frontend/css/magnific-popup.css" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/frontend/css/aos.css" />
-	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/frontend/css/styles.css?var=2.1" />
+		href="./assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
+	<link rel="stylesheet" href="./assets/global/css/custom.css" />
+	<link rel="stylesheet" href="./assets/frontend/css/magnific-popup.css" />
+	<link rel="stylesheet" href="./assets/frontend/css/aos.css" />
+	<link rel="stylesheet" href="./assets/frontend/css/styles.css?var=2.1" />
 
 	<style>
 		//The Custom CSS will be added on the site head tag 
@@ -51,359 +54,183 @@
 	<!--Full Layout-->
 	<div class="panel-layout">
 		<!--Header-->
-		<div class="panel-header">
-			<div class="logo">
-				<a href="https://zenithwealthpro.com/account">
-					<img class="logo-unfold"
-						src="https://zenithwealthpro.com/account/assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="Logo" />
-					<img class="logo-fold" src="https://zenithwealthpro.com/account/assets/global/images/DAISWlCl4In2YZKgI2fr.png"
-						alt="Logo" />
-				</a>
-			</div>
-			<div class="nav-wrap">
-				<div class="nav-left">
-					<button class="sidebar-toggle">
-						<i class="anticon anticon-arrow-left"></i>
-					</button>
-					<div class="mob-logo">
-						<a href="https://zenithwealthpro.com/account">
-							<img src="https://zenithwealthpro.com/account/assets/global/images/DAISWlCl4In2YZKgI2fr.png"
-								alt="Site Name" />
-						</a>
-					</div>
-				</div>
-				<div class="nav-right">
-					<div class="single-nav-right">
-
-						<div class="single-right">
-							<div class="color-switcher">
-								<i icon-name="moon" class="dark-icon" data-mode="dark"></i>
-								<i icon-name="sun" class="light-icon" data-mode="light"></i>
-							</div>
-						</div>
-
-
-						<div class="single-nav-right user-notifications62">
-							<button type="button" class="item notification-dot" data-bs-toggle="dropdown" aria-expanded="false">
-								<i icon-name="bell-ring" class=""></i>
-								<div class="number">0</div>
-							</button>
-							<div class="dropdown-menu dropdown-menu-end notification-pop">
-								<div class="noti-head">Notifications <span>0</span></div>
-								<div class="all-noti">
-
-									<p>Notification Not Found</p>
-								</div>
-
-							</div>
-
-
-						</div>
-
-
-						<div class="single-right">
-							<select name="language" id="" class="site-nice-select"
-								onchange="window.location.href=this.options[this.selectedIndex].value;">
-								<option value="https://zenithwealthpro.com/account/language-update?name=en" selected>English</option>
-								<option value="https://zenithwealthpro.com/account/language-update?name=es">Spanish</option>
-								<option value="https://zenithwealthpro.com/account/language-update?name=fr">Franch</option>
-							</select>
-						</div>
-						<div class="single-right">
-							<button type="button" class="item" data-bs-toggle="dropdown" aria-expanded="false">
-								<i class="anticon anticon-user"></i>
-							</button>
-							<ul class="dropdown-menu dropdown-menu-end">
-								<li>
-									<a href="https://zenithwealthpro.com/account/user/settings" class="dropdown-item" type="button"><i
-											class="anticon anticon-setting"></i>Settings</a>
-								</li>
-								<li>
-									<a href="https://zenithwealthpro.com/account/user/change-password" class="dropdown-item"
-										type="button">
-										<i class="anticon anticon-lock"></i>Change Password
-									</a>
-								</li>
-								<li>
-									<a href="https://zenithwealthpro.com/account/user/support-ticket/index" class="dropdown-item"
-										type="button">
-										<i class="anticon anticon-customer-service"></i>Support Tickets
-									</a>
-								</li>
-								<li class="logout">
-									<form method="POST" action="https://zenithwealthpro.com/account/logout" id="logout-form">
-										<input type="hidden" name="_token" value="0PBnSGpBOeU6uMyjETolsJPb2ENYjKaQCWd9mtKF"> <a
-											href="https://zenithwealthpro.com/account/logout" class="dropdown-item"
-											onclick="event.preventDefault(); localStorage.clear();  $('#logout-form').submit();"><i
-												class="anticon anticon-logout"></i>Logout</a>
-									</form>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php include 'inc/panel-header.php'; ?>
 		<!--/Header-->
 
 		<div class="desktop-screen-show">
-			<div class="side-nav">
-				<div class="side-wallet-box default-wallet mb-0">
-					<div class="user-balance-card">
-						<div class="wallet-name">
-							<div class="name">Account Balance</div>
-							<div class="default">Wallet</div>
-						</div>
-						<div class="wallet-info">
-							<div class="wallet-id"><i icon-name="wallet"></i>Main Wallet</div>
-							<div class="balance">$5</div>
-						</div>
-						<div class="wallet-info">
-							<div class="wallet-id"><i icon-name="landmark"></i>Profit Wallet</div>
-							<div class="balance">$3</div>
-						</div>
-					</div>
-					<div class="actions">
-						<a href="https://zenithwealthpro.com/account/user/deposit" class="user-sidebar-btn"><i
-								class="anticon anticon-file-add"></i>Deposit</a>
-						<a href="https://zenithwealthpro.com/account/user/schemas" class="user-sidebar-btn red-btn"><i
-								class="anticon anticon-export"></i>Invest Now</a>
-					</div>
-				</div>
-				<div class="side-nav-inside">
-					<ul class="side-nav-menu">
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/dashboard"><i
-									class="anticon anticon-appstore"></i><span>Dashboard</span></a>
-						</li>
-
-						<li class="side-nav-item active">
-							<a href="https://zenithwealthpro.com/account/user/schemas"><i
-									class="anticon anticon-check-square"></i><span>All Schema</span></a>
-						</li>
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/invest-logs"><i
-									class="anticon anticon-copy"></i><span>Schema Logs</span></a>
-						</li>
-
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/transactions"><i
-									class="anticon anticon-inbox"></i><span>All Transactions</span></a>
-						</li>
-
-
-						<li class="side-nav-item   ">
-							<a href="https://zenithwealthpro.com/account/user/deposit"><i
-									class="anticon anticon-file-add"></i><span>Add Money</span></a>
-						</li>
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/deposit/log"><i
-									class="anticon anticon-folder-add"></i><span>Add Money Log</span></a>
-						</li>
-
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/wallet-exchange"><i
-									class="anticon anticon-transaction"></i><span>Wallet Exchange</span></a>
-						</li>
-
-						<li class="side-nav-item   ">
-							<a href="https://zenithwealthpro.com/account/user/send-money"><i
-									class="anticon anticon-export"></i><span>Send Money</span></a>
-						</li>
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/send-money/log"><i
-									class="anticon anticon-cloud"></i><span>Send Money Log</span></a>
-						</li>
-
-						<li class="side-nav-item   ">
-							<a href="https://zenithwealthpro.com/account/user/withdraw"><i
-									class="anticon anticon-bank"></i><span>Withdraw</span></a>
-						</li>
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/withdraw/log"><i
-									class="anticon anticon-credit-card"></i><span>Withdraw Log</span></a>
-						</li>
-
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/ranking-badge"><i
-									class="anticon anticon-star"></i><span>Ranking Badge</span></a>
-						</li>
-
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/referral"><i
-									class="anticon anticon-usergroup-add"></i><span>Referral</span></a>
-						</li>
-
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/settings"><i
-									class="anticon anticon-setting"></i><span>Settings</span></a>
-						</li>
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/support-ticket/index"><i
-									class="anticon anticon-tool"></i><span>Support Tickets</span></a>
-						</li>
-
-						<li class="side-nav-item ">
-							<a href="https://zenithwealthpro.com/account/user/notification/all"><i
-									class="anticon anticon-notification"></i><span>Notifications</span></a>
-						</li>
-
-						<li class="side-nav-item">
-							<!-- Authentication -->
-							<form method="POST" action="https://zenithwealthpro.com/account/logout">
-								<input type="hidden" name="_token" value="0PBnSGpBOeU6uMyjETolsJPb2ENYjKaQCWd9mtKF"> <button
-									type="submit" class="site-btn grad-btn w-100">
-									<i class="anticon anticon-logout"></i><span>Logout</span>
-								</button>
-							</form>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<?php include 'inc/sidebar.php'; ?>
 		</div>
 
 		<div class="page-container">
 			<div class="main-content">
 				<div class="section-gap">
 					<div class="container-fluid">
-
-						<div class="row desktop-screen-show">
-							<div class="col">
-								<div class="alert site-alert alert-dismissible fade show" role="alert">
-									<div class="content">
-										<div class="icon"><i class="anticon anticon-warning"></i></div>
-										<strong>KYC Pending</strong>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row mobile-screen-show">
-							<div class="col-12">
-								<div class="user-kyc-mobile">
-									<i icon-name="fingerprint" class="kyc-star"></i>
-									KYC Pending
-								</div>
-							</div>
-						</div>
 						<!--Page Content-->
 						<div class="row justify-content-center">
-							<div class="col-xl-10 col-lg-12 col-md-12">
+							<div class="col-sm-10">
 								<div class="site-card">
+									<div class="site-card-body">
+										<!-- GRAPH -->
+										<div class="w-100" style="height:100%;width:100%">
+											<div id="technical-analysis-chart-demo" style="height:400px;width:100%"></div>
+											<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+											<script type="text/javascript">
+												new TradingView.widget(
+													{
+														"container_id": "technical-analysis-chart-demo",
+														"width": "100%",
+														"autosize": true,
+														"symbol": "BTC",
+														"interval": "D",
+														"timezone": "exchange",
+														"theme": "dark",
+														"style": "1",
+														"withdateranges": true,
+														"hide_side_toolbar": false,
+														"allow_symbol_change": true,
+														"save_image": false,
+														"studies": [
+															"ROC@tv-basicstudies",
+															"StochasticRSI@tv-basicstudies",
+															"MASimple@tv-basicstudies"
+														],
+														"show_popup_button": true,
+														"popup_width": "1000",
+														"popup_height": "650",
+														"support_host": "https://www.tradingview.com",
+														"locale": "en"
+													}
+												);
+											</script>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-10" id="enterPlan">
+								<div class="site-card h-100">
 									<div class="site-card-header">
-										<h3 class="title">Review and Confirm Investment</h3>
+										<h3 class="title">Start Investment</h3>
 									</div>
 									<div class="site-card-body">
-										<form action="https://zenithwealthpro.com/account/user/invest-now" method="post"
-											enctype="multipart/form-data">
-											<input type="hidden" name="_token" value="0PBnSGpBOeU6uMyjETolsJPb2ENYjKaQCWd9mtKF">
-											<div class="progress-steps-form">
-												<div class="transaction-list table-responsive">
-													<table class="table preview-table">
-														<tbody>
-															<tr>
-																<td><strong>Select Schema:</strong></td>
-																<td>
-																	<div class="input-group mb-0">
-																		<select class="site-nice-select" aria-label="Default select example"
-																			id="select-schema" name="schema_id" required>
-																			<option value="1" selected>Starter Plan</option>
-																			<option value="2">Standard Plan</option>
-																			<option value="3">Advanced Plan</option>
-																			<option value="4">Pro Plan</option>
-																			<option value="5">Gold Plan</option>
-																			<option value="6">Diamond Plans</option>
-																		</select>
-																	</div>
-																</td>
-															</tr>
-
-															<tr>
-																<td><strong>Profit Holiday:</strong></td>
-																<td id="holiday">
-																	No </td>
-															</tr>
-
-															<tr>
-																<td><strong>Amount:</strong></td>
-																<td id="amount">
-																	100 USD
-																</td>
-															</tr>
-
-															<tr>
-																<td><strong>Enter Amount:</strong></td>
-																<td>
-																	<div class="input-group mb-0">
-																		<input type="text" class="form-control" value="100" readonly
-																			placeholder="Enter Amount" oninput="this.value = validateDouble(this.value)"
-																			aria-label="Amount" name="invest_amount" id="enter-amount"
-																			aria-describedby="basic-addon1" required>
-																		<span class="input-group-text" id="basic-addon1">USD</span>
-																	</div>
-																</td>
-															</tr>
-
-															<tr>
-																<td><strong>Select Wallet:</strong></td>
-																<td>
-																	<div class="input-group mb-0">
-																		<select class="site-nice-select" aria-label="Default select example" name="wallet"
-																			required id="selectWallet">
-																			<option value="main">Main Wallet ( 5 USD
-																				)
-																			</option>
-																			<option value="profit">Profit Wallet ( 3 USD
-																				)
-																			</option>
-																			<option value="gateway">Direct Gateway</option>
-																		</select>
-																	</div>
-
-																</td>
-															</tr>
-
-															<tr class="gatewaySelect">
-
-															</tr>
-
-															<tr>
-																<td colspan="2">
-																	<div class="row manual-row"></div>
-																</td>
-															</tr>
-
-															<tr>
-																<td><strong>Return of Interest:</strong></td>
-																<td id="return-interest">10% (Daily)</td>
-															</tr>
-															<tr>
-																<td><strong>Number of Period:</strong></td>
-																<td id="number-period">1 Time </td>
-															</tr>
-															<tr>
-																<td><strong>Capital Back:</strong></td>
-																<td id="capital_back">Yes</td>
-															</tr>
-															<tr>
-																<td><strong>Total Investment Amount:</strong></td>
-																<td><span id="total-amount"> 100</span> USD
-																</td>
-															</tr>
-														</tbody>
-													</table>
+										<form class="w-100 progress-steps-form" id="calculate_profit" action="#">
+											<div class="row">
+												<div class="col-lg-12">
+													<div class="form-inner">
+														<label for="select_plan" class="mb-1">Select Plan</label>
+														<div class="input-group">
+															<select class="nice-select site-nice-select" id="select_plan" required>
+																<option selected value="">Select Plan</option>
+																<?php
+																if ( isset($_GET['plan']) ) {
+																	$value = $Controller->singlePlan($_GET['plan']);
+																	?>
+																<option value="<?php echo $value['id'] ?>"
+																	data-name="<?php echo $value['name'] ?>"
+																	data-interest="<?php echo $value['interest'] ?>"
+																	data-interest_return_type="2"
+																	data-recapture_type="1"
+																	data-day="Days"
+																	data-terms="<?php echo $value['description'] ?>"
+																	data-duration="<?php echo $value['duration'] ?>"
+																	selected>
+																	<?php echo $value['name']." - Interest ".($value['interest'])."%" ?>
+																</option>
+																	<?php
+																}
+																foreach ($Controller->Plans() as $key => $value) {
+																	?>
+																<option value="<?php echo $value['id'] ?>"
+																	data-name="<?php echo $value['name'] ?>"
+																	data-interest="<?php echo $value['interest'] ?>"
+																	data-interest_return_type="2"
+																	data-recapture_type="1"
+																	data-day="Days"
+																	data-terms="<?php echo $value['description'] ?>"
+																	data-duration="<?php echo $value['duration'] ?>">
+																	<?php echo $value['name']." - Interest ".($value['interest'])."%" ?>
+																</option>
+																	<?php
+																}
+																?>
+															</select>
+														</div>
+													</div>
 												</div>
-												<div class="button">
-													<button type="submit" class="site-btn primary-btn me-3">
-														<i class="anticon anticon-check"></i>Invest Now
-													</button>
-													<a href="https://zenithwealthpro.com/account/user/schemas" class="site-btn black-btn">
-														<i class="anticon anticon-stop"></i>Cancel
-													</a>
+												<div class="col-lg-12">
+													<div class="form-inner">
+														<label for="invest_amount" class="mb-1">Amount</label>
+														<div class="input-group mb-1">
+															<input type="text" id="invest_amount_item"
+																class="form-control"
+																value="<?php if (isset($_GET['amount'])) echo $_GET['amount']; ?>"
+																placeholder="Enter Amount"
+																required
+															/>
+														</div>
+														<?php
+														if ( isset($_GET['plan']) ) {
+															$value = $Controller->singlePlan($_GET['plan']);
+															echo "<p class='text-muted mb-4'>$".$value['min_limit']." - $".$value['max_limit']."</p>";
+														}
+														?>
+													</div>
 												</div>
+												<div class="col-lg-12 mb-2">
+													<button type="submit" class="site-btn blue-btn">Review investment</button>
+												</div>
+												<small class="d-block col-lg-12" id="plan-terms"></small>
 											</div>
 										</form>
-
 									</div>
+								</div>
+							</div>
+							<div class="col-sm-10 d-none" id="reviewPlan">
+								<div class="site-card h-100">
+									<div class="site-card-header">
+										<h3 class="title">Review and Confirm</h3>
+									</div>
+									<form method="POST" id="investForm" class="site-card-body">
+										<ul class="profit-list">
+											<li class="mb-3 d-flex w-100">
+												<span>Plan</span>
+												<b class="ms-auto" id="plan_name">N/A</b>
+											</li>
+											<li class="mb-3 d-flex w-100">
+												<span>Amount</span>
+												<b class="ms-auto" id="cal_amount">N/A</b>
+											</li>
+											<li class="mb-3 d-flex w-100">
+												<span>Payment Interval</span>
+												<b class="ms-auto" id="payment_interval">N/A</b>
+											</li>
+											<li class="mb-3 d-flex w-100">
+												<span>Profit</span>
+												<b class="ms-auto" id="profit">N/A</b>
+											</li>
+											<li class="mb-3 d-flex w-100">
+												<span>Capital Back</span>
+												<b class="ms-auto" id="capital_back">N/A</b>
+											</li>
+											<li class="mb-3 d-flex w-100">
+												<span>Total</span>
+												<b class="ms-auto" id="total_invest">N/A</b>
+											</li>
+										</ul>
+										<div class="hidden-form">
+											<input type="hidden" name="plan_id">
+											<input type="hidden" name="amount">
+											<input type="hidden" name="invest_now" value="invest">
+										</div>
+										<h6 id="invest-total-return" class="text-muted mb-5"></h6>
+										<div class="row mb-0">
+											<div class="col-6">
+												<button type="button" id="backToInput" class="site-btn w-100">Back</button>
+											</div>
+											<div class="col-6">
+												<button type="submit" class="site-btn blue-btn w-100 submit-btn">Start investment</button>
+											</div>
+										</div>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -415,26 +242,7 @@
 
 
 		<!-- Show in 575px in Mobile Screen -->
-		<div class="mobile-screen-show">
-			<div class="bottom-appbar">
-				<a href="https://zenithwealthpro.com/account/user/dashboard" class="">
-					<i icon-name="layout-dashboard"></i>
-				</a>
-				<a href="https://zenithwealthpro.com/account/user/deposit" class="">
-					<i icon-name="download"></i>
-				</a>
-				<a href="https://zenithwealthpro.com/account/user/schemas" class="active">
-					<i icon-name="box"></i>
-				</a>
-				<a href="https://zenithwealthpro.com/account/user/referral" class="">
-					<i icon-name="gift"></i>
-				</a>
-				<a href="https://zenithwealthpro.com/account/user/settings" class="">
-					<i icon-name="settings"></i>
-				</a>
-			</div>
-		</div>
-
+		<?php include 'inc/mobile-menu.php'; ?>
 		<!-- Show in 575px in Mobile Screen End -->
 
 		<!-- Automatic Popup -->
@@ -443,85 +251,113 @@
 	</div>
 	<!--/Full Layout-->
 
-	<script src="https://zenithwealthpro.com/account/assets/global/js/jquery.min.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/global/js/jquery-migrate.js"></script>
+	<script src="./assets/global/js/jquery.min.js"></script>
+	<script src="./assets/global/js/jquery-migrate.js"></script>
+	<script src="./assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
+	<script src="../js/forms.js"></script>
+  <script>
+    "use strict";
+    $(document).ready(function () {
+      var planName = "";
+      var interestRate = 0;
+      var day = "";
+      var duration = 1;
+      var recapture_type = 1;
+      var interest_return_type = 2;
 
-	<script src="https://zenithwealthpro.com/account/assets/frontend/js/bootstrap.bundle.min.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/frontend/js/scrollUp.min.js"></script>
+      function updateMinMax() {
+        const selectedOption = $('#select_plan option:selected');
+        planName = selectedOption.data('name');
+        interestRate = selectedOption.data('interest');
+        day = selectedOption.data('day');
+        duration = selectedOption.data('duration');
+        recapture_type = selectedOption.data('recapture_type');
+        interest_return_type = selectedOption.data('interest_return_type');
+        $("#methodTitle").html(selectedOption.data('name')+" Profit Calculation");
+      }
 
-	<script src="https://zenithwealthpro.com/account/assets/frontend/js/owl.carousel.min.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/global/js/waypoints.min.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/frontend/js/jquery.counterup.min.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/global/js/jquery.nice-select.min.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/global/js/lucide.min.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/frontend/js/magnific-popup.min.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/frontend/js/aos.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/global/js/datatables.min.js" type="text/javascript"
+      function updateTotalReturn(amount) {
+        var parsedAmount = parseFloat(amount);
+        if (isNaN(parsedAmount)) {
+          $("#invest-total-return").text("");
+          return;
+        }
+        const selectedOption = $('#select_plan option:selected');
+
+        $(".hidden-form input[name='plan_id']").val(selectedOption.val());
+        $(".hidden-form input[name='amount']").val(parsedAmount);
+
+        var currency = "$";
+        var returnAmount = parsedAmount * interestRate / 100;
+        $("#invest-total-return").text("Return " + currency + returnAmount.toFixed(2) + " Every " + day + " for " + duration + " Periods");
+
+        var totalProfit = returnAmount * duration;
+
+        if (recapture_type == 2) {
+          var total = totalProfit;
+          var capitalBack = 0;
+        } else {
+          var total = totalProfit + parsedAmount;
+          var capitalBack = parsedAmount;
+        }
+
+        if (interest_return_type == 2) {
+          var investProfit = currency + totalProfit.toFixed(2);
+          var returnType = "";
+        } else {
+          var investProfit = "LifeTime";
+          var returnType = " + " + "LifeTime";
+        }
+
+        $("#plan_name").text(planName);
+        $("#cal_amount").text(currency + parsedAmount.toFixed(2));
+        $("#payment_interval").text(duration + " Periods");
+        $("#profit").text(investProfit);
+        $("#capital_back").text(currency + capitalBack.toFixed(2));
+        $("#total_invest").text(currency + total.toFixed(2) + returnType);
+      }
+
+      updateMinMax();
+
+      $('#select_plan').change(function () {
+        updateMinMax();
+      });
+			// backToInput
+			$('#backToInput').click(function () {
+				$("#enterPlan").removeClass('d-none');
+				$("#reviewPlan").removeClass('d-block');
+				$("#reviewPlan").addClass('d-none');
+      });
+
+      $('#calculate_profit').submit(function (ev) {
+        ev.preventDefault();
+        var amount = $('#invest_amount_item').val();
+        updateTotalReturn(amount);
+        // $("#exampleModal").modal('show');
+				// $("#enterPlan").removeClass('col-sm-10');
+				$("#enterPlan").addClass('d-none');
+				$("#reviewPlan").removeClass('d-none');
+				$("#reviewPlan").addClass('d-block');
+      });
+    });
+  </script>
+
+	<script src="./assets/frontend/js/bootstrap.bundle.min.js"></script>
+	<script src="./assets/frontend/js/scrollUp.min.js"></script>
+
+	<script src="./assets/frontend/js/owl.carousel.min.js"></script>
+	<script src="./assets/global/js/waypoints.min.js"></script>
+	<script src="./assets/frontend/js/jquery.counterup.min.js"></script>
+	<script src="./assets/global/js/jquery.nice-select.min.js"></script>
+	<script src="./assets/global/js/lucide.min.js"></script>
+	<script src="./assets/frontend/js/magnific-popup.min.js"></script>
+	<script src="./assets/frontend/js/aos.js"></script>
+	<script src="./assets/global/js/datatables.min.js" type="text/javascript"
 		charset="utf8"></script>
-	<script src="https://zenithwealthpro.com/account/assets/global/js/simple-notify.min.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/frontend/js/main.js?var=5"></script>
-	<script src="https://zenithwealthpro.com/account/assets/frontend/js/cookie.js"></script>
-	<script src="https://zenithwealthpro.com/account/assets/global/js/custom.js?var=5"></script>
-	<script src="https://zenithwealthpro.com/account/assets/global/js/pusher.min.js"></script>
-	<script>
-			(function ($) {
-				'use strict';
-
-				let pusherAppKey = "";
-				let pusherAppCluster = "mt1";
-				let soundUrl = "https://zenithwealthpro.com/account/notification-tune";
-
-				var notification = new Pusher(pusherAppKey, {
-					encrypted: true,
-					cluster: pusherAppCluster,
-				});
-				var channel = notification.subscribe('user-notification62');
-				channel.bind('notification-event', function (result) {
-					playSound();
-					latestNotification();
-					notifyToast(result);
-				});
-
-				function latestNotification() {
-					$.get('https://zenithwealthpro.com/account/user/latest-notification', function (data) {
-						$('.user-notifications62').html(data);
-					})
-				}
-
-				function notifyToast(data) {
-					new Notify({
-						status: 'info',
-						title: data.data.title,
-						text: data.data.notice,
-						effect: 'slide',
-						speed: 300,
-						customClass: '',
-						customIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-megaphone"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>',
-						showIcon: true,
-						showCloseButton: true,
-						autoclose: true,
-						autotimeout: 9000,
-						gap: 20,
-						distance: 20,
-						type: 1,
-						position: 'right bottom',
-						customWrapper: '<div><a href="' + data.data.action_url + '" class="learn-more-link">Explore<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="external-link" class="lucide lucide-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" x2="21" y1="14" y2="3"></line></svg></a></div>',
-					})
-
-				}
-
-				function playSound() {
-					$.get(soundUrl, function (data) {
-						var audio = new Audio(data);
-						audio.play();
-						audio.muted = false;
-					});
-				}
-
-
-
-			})(jQuery);
-	</script>
+	<script src="./assets/global/js/simple-notify.min.js"></script>
+	<script src="./assets/frontend/js/main.js?var=5"></script>
+	<script src="./assets/frontend/js/cookie.js"></script>
+	<script src="./assets/global/js/custom.js?var=5"></script>
 	<script>
 		(function ($) {
 			'use strict';
@@ -542,8 +378,7 @@
 		})(jQuery);
 	</script>
 
-	<script type="text/javascript"
-		src="https://zenithwealthpro.com/account/assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
+	<!--
 	<script>
 		$("#select-schema").on('change', function (e) {
 			"use strict";
@@ -554,7 +389,7 @@
 			invest_amount.val('');
 			invest_amount.attr('readonly', false);
 
-			var url = 'https://zenithwealthpro.com/account/schema-select/:id';
+			var url = './schema-select/:id';
 			url = url.replace(':id', id);
 
 			$.ajax({
@@ -586,7 +421,7 @@
 			$('.manual-row').empty();
 			var wallet = $(this).val();
 			if (wallet === 'gateway') {
-				$.get('https://zenithwealthpro.com/account/gateway-list', function (data) {
+				$.get('./gateway-list', function (data) {
 					$('.gatewaySelect').append(data)
 					$('select').niceSelect();
 
@@ -602,7 +437,7 @@
 
 			var code = $(this).val()
 
-			var url = 'https://zenithwealthpro.com/account/user/deposit/gateway/:code';
+			var url = './user/deposit/gateway/:code';
 			url = url.replace(':code', code);
 			$.get(url, function (data) {
 
@@ -627,16 +462,15 @@
 
 				$('.total').text((Number(amount) + Number(charge)) + ' ' + currency)
 			})
-
-
 		});
 	</script>
+	-->
 	<script>
 		// Color Switcher
 		$(".color-switcher").on('click', function () {
 			"use strict"
 			$("body").toggleClass("dark-theme");
-			var url = 'https://zenithwealthpro.com/account/theme-mode';
+			var url = './theme-mode';
 			$.get(url)
 		});
 	</script>

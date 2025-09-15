@@ -58,37 +58,10 @@ require '../config/session.php';
 			<div class="main-content">
 				<div class="section-gap">
 					<div class="container-fluid">
-
-						<div class="row desktop-screen-show">
-							<div class="col">
-								<div class="alert site-alert alert-dismissible fade show" role="alert">
-									<div class="content">
-										<div class="icon"><i class="anticon anticon-warning"></i></div>
-										You need to submit your
-										<strong>KYC and Other Documents</strong> before proceed to the system.
-									</div>
-									<div class="action">
-										<a href="./user/kyc" class="site-btn-sm grad-btn"><i
-												class="anticon anticon-info-circle"></i>Submit Now</a>
-										<a href="" class="site-btn-sm red-btn ms-2" type="button" data-bs-dismiss="alert"
-											aria-label="Close"><i class="anticon anticon-close"></i>Later</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row mobile-screen-show">
-							<div class="col-12">
-								<div class="user-kyc-mobile">
-									<i icon-name="fingerprint" class="kyc-star"></i>
-									Please Verify Your Identity <a href="./user/kyc">Submit Now</a>
-								</div>
-							</div>
-						</div>
 						<!--Page Content-->
-
 						<div class="desktop-screen-show">
 
-							<div class="row">
+							<div class="row d-none">
 								<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="user-ranking">
 										<h4>Level 1</h4>
@@ -122,9 +95,7 @@ require '../config/session.php';
 										</div>
 									</div>
 								</div>
-
 							</div>
-
 
 							<div class="row user-cards ">
 								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -239,7 +210,6 @@ require '../config/session.php';
 								</div>
 							</div>
 
-
 							<div class="row">
 								<div class="col-xl-12">
 									<div class="site-card">
@@ -303,20 +273,16 @@ require '../config/session.php';
 							</div>
 						</div>
 
-
 						<div class="mobile-screen-show">
 							<div class="row">
 								<div class="col-12">
 									<div class="user-ranking-mobile">
-										<div class="icon"><img src="./assets/global/materials/user.png"
-												alt="" /></div>
+										<div class="icon"><img src="./assets/global/materials/user.png" alt="user" /></div>
 										<div class="name">
-											<h4>Hi, Ronald Hoymme</h4>
+											<h4>Hi, <?php echo $Controller->fullName(); ?></h4>
 											<p>Hyip Member - <span>Level 1</span></p>
 										</div>
-										<div class="rank-badge"><img
-												src="./assets/global/images/sCQgIyl0OKzFiO73nmWF.svg"
-												alt="" /></div>
+										<div class="rank-badge"><img src="./assets/global/images/sCQgIyl0OKzFiO73nmWF.svg" alt="" /></div>
 									</div>
 									<div class="user-wallets-mobile">
 										<img src="./assets/frontend/materials/wallet-shadow.png" alt=""
@@ -324,212 +290,29 @@ require '../config/session.php';
 										<div class="head">All Wallets in USD</div>
 										<div class="one">
 											<div class="balance">
-
-												<span class="symbol">$</span>0<span class="after-dot">.00 </span>
+												<span class="symbol">$</span><?php echo number_format($user_info['wallet_bal']) ?><span class="after-dot">.00 </span>
 											</div>
 											<div class="wallet">Main Wallet</div>
 										</div>
-
-
 										<div class="one p-wal">
 											<div class="balance">
-												<span class="symbol">$</span>8<span class="after-dot">.00 </span>
+												<span class="symbol">$</span><?php echo number_format($user_info['trading_bal']) ?><span class="after-dot">.00 </span>
 											</div>
 											<div class="wallet">Profit Wallet</div>
-										</div>
-										<div class="info">
-											<i icon-name="info"></i>You Earned 0 USD This Week
 										</div>
 									</div>
 								</div>
 
 								<div class="col-12">
 									<div class="mob-shortcut-btn">
-										<a href="./user/deposit"><i icon-name="download"></i> Deposit</a>
-										<a href="./user/schemas"><i icon-name="box"></i> Investment</a>
-										<a href="./user/withdraw"><i icon-name="send"></i> Withdraw</a>
+										<a href="./deposit"><i icon-name="download"></i> Deposit</a>
+										<a href="./schemas"><i icon-name="box"></i> Investment</a>
+										<a href="./send-money"><i icon-name="send"></i> Withdraw</a>
 									</div>
 								</div>
 
 
 								<div class="col-12">
-									<!-- all navigation -->
-									<div class="all-feature-mobile mb-3 mobile-screen-show">
-										<div class="title">All Navigations</div>
-										<div class="contents row">
-											<div class="col-4">
-												<div class="single">
-													<a href="./user/schemas">
-														<div class="icon"><img
-																src="./assets/frontend/materials/schema.png" alt="">
-														</div>
-														<div class="name">Schemas</div>
-													</a>
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="single">
-													<a href="./user/invest-logs">
-														<div class="icon"><img
-																src="./assets/frontend/materials/schema-log.png"
-																alt="">
-														</div>
-														<div class="name">Investment</div>
-													</a>
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="single">
-													<a href="./user/transactions">
-														<div class="icon"><img
-																src="./assets/frontend/materials/transactions.png"
-																alt="">
-														</div>
-														<div class="name">Transactions</div>
-													</a>
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="single">
-													<a href="./user/deposit">
-														<div class="icon"><img
-																src="./assets/frontend/materials/deposit.png" alt="">
-														</div>
-														<div class="name">Deposit</div>
-													</a>
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="single">
-													<a href="./user/deposit/log">
-														<div class="icon"><img
-																src="./assets/frontend/materials/deposit-log.png"
-																alt="">
-														</div>
-														<div class="name">Deposit Log</div>
-													</a>
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="single">
-													<a href="./user/wallet-exchange">
-														<div class="icon"><img
-																src="./assets/frontend/materials/wallet-exchange.png"
-																alt="">
-														</div>
-														<div class="name">Wallet Exch.</div>
-													</a>
-												</div>
-											</div>
-										</div>
-										<div class="moretext">
-											<div class="row contents">
-												<div class="col-4">
-													<div class="single">
-														<a href="./user/send-money">
-															<div class="icon"><img
-																	src="./assets/frontend/materials/transfer.png"
-																	alt="">
-															</div>
-															<div class="name">Transfer</div>
-														</a>
-													</div>
-												</div>
-												<div class="col-4">
-													<div class="single">
-														<a href="./user/send-money/log">
-															<div class="icon"><img
-																	src="./assets/frontend/materials/transfer-log.png"
-																	alt="">
-															</div>
-															<div class="name">Transfer Log</div>
-														</a>
-													</div>
-												</div>
-												<div class="col-4">
-													<div class="single">
-														<a href="./user/withdraw">
-															<div class="icon"><img
-																	src="./assets/frontend/materials/withdraw.png"
-																	alt="">
-															</div>
-															<div class="name">Withdraw</div>
-														</a>
-													</div>
-												</div>
-												<div class="col-4">
-													<div class="single">
-														<a href="./user/withdraw/log">
-															<div class="icon"><img
-																	src="./assets/frontend/materials/withdraw-log.png"
-																	alt="">
-															</div>
-															<div class="name">Withdraw Log</div>
-														</a>
-													</div>
-												</div>
-												<div class="col-4">
-													<div class="single">
-														<a href="./user/ranking-badge">
-															<div class="icon"><img
-																	src="./assets/frontend/materials/ranking.png"
-																	alt="">
-															</div>
-															<div class="name">Ranking Badge</div>
-														</a>
-													</div>
-												</div>
-												<div class="col-4">
-													<div class="single">
-														<a href="./user/referral">
-															<div class="icon"><img
-																	src="./assets/frontend/materials/referral.png"
-																	alt="">
-															</div>
-															<div class="name">Referral</div>
-														</a>
-													</div>
-												</div>
-												<div class="col-4">
-													<div class="single">
-														<a href="./user/settings">
-															<div class="icon"><img
-																	src="./assets/frontend/materials/settings.png"
-																	alt="">
-															</div>
-															<div class="name">Settings</div>
-														</a>
-													</div>
-												</div>
-												<div class="col-4">
-													<div class="single">
-														<a href="./user/support-ticket/index">
-															<div class="icon"><img
-																	src="./assets/frontend/materials/support-ticket.png"
-																	alt="">
-															</div>
-															<div class="name">Support Ticket</div>
-														</a>
-													</div>
-												</div>
-												<div class="col-4">
-													<div class="single">
-														<a href="./user/notification/all">
-															<div class="icon"><img
-																	src="./assets/frontend/materials/profile.png"
-																	alt="">
-															</div>
-															<div class="name">Notifications</div>
-														</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="centered">
-											<button class="moreless-button site-btn-sm grad-btn">Load more</button>
-										</div>
-									</div>
-
 									<!-- all Statistic -->
 									<div class="all-feature-mobile mb-3 mobile-screen-show">
 										<div class="title">All Statistic</div>
@@ -541,7 +324,7 @@ require '../config/session.php';
 															<div class="single-card">
 																<div class="icon"><i icon-name="arrow-left-right"></i></div>
 																<div class="content">
-																	<div class="amount count">1</div>
+																	<div class="amount count"><?php echo count($Controller->Transactions(50)) ?></div>
 																	<div class="name">All Transactions</div>
 																</div>
 															</div>
@@ -550,7 +333,7 @@ require '../config/session.php';
 															<div class="single-card">
 																<div class="icon"><i icon-name="download"></i></div>
 																<div class="content">
-																	<div class="amount">$<span class="count">0</span>
+																	<div class="amount"><span><?php echo $Controller->totalDeposits()['sum']; ?></span>
 																	</div>
 																	<div class="name">Total Deposit</div>
 																</div>
@@ -712,8 +495,6 @@ require '../config/session.php';
 								</div>
 							</div>
 						</div>
-
-
 						<!--Page Content-->
 					</div>
 				</div>
@@ -743,21 +524,12 @@ require '../config/session.php';
 	<script src="./assets/global/js/jquery.nice-select.min.js"></script>
 	<script src="./assets/global/js/lucide.min.js"></script>
 	<script src="./assets/frontend/js/magnific-popup.min.js"></script>
-	<script src="./assets/frontend/js/aos.js"></script>
-	<script src="./assets/global/js/datatables.min.js" type="text/javascript" charset="utf8"></script>
 	<script src="./assets/global/js/simple-notify.min.js"></script>
 	<script src="./assets/frontend/js/main.js?var=5"></script>
 	<script src="./assets/frontend/js/cookie.js"></script>
 	<script src="./assets/global/js/custom.js?var=5"></script>
 	<script src="./assets/global/js/pusher.min.js"></script>
 
-	<script>
-		(function ($) {
-			'use strict';
-			// AOS initialization
-			AOS.init();
-		})(jQuery);
-	</script>
 	<script>
 		(function ($) {
 			'use strict';
