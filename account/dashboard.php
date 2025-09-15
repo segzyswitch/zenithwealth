@@ -60,7 +60,6 @@ require '../config/session.php';
 					<div class="container-fluid">
 						<!--Page Content-->
 						<div class="desktop-screen-show">
-
 							<div class="row d-none">
 								<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="user-ranking">
@@ -98,52 +97,43 @@ require '../config/session.php';
 							</div>
 
 							<div class="row user-cards ">
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="single">
 										<div class="icon"><i class="anticon anticon-inbox"></i></div>
 										<div class="content">
-											<h4><span class="count">1</span></h4>
+											<h4><span class="count"><?php echo count($Controller->Transactions(50)) ?></span></h4>
 											<p>All Transactions</p>
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="single">
 										<div class="icon"><i class="anticon anticon-file-add"></i></div>
 										<div class="content">
-											<h4><b>$</b><span class="count">0</span></h4>
+											<h4><b>$</b><span><?php echo $Controller->totalDeposits()['sum']; ?></span></h4>
 											<p>Total Deposit</p>
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="single">
 										<div class="icon"><i class="anticon anticon-check-square"></i></div>
 										<div class="content">
-											<h4><b>$</b><span class="count">0</span></h4>
+											<h4><b>$</b><span><?php echo $Controller->totalInvested(); ?></span></h4>
 											<p>Total Investment</p>
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="single">
 										<div class="icon"><i class="anticon anticon-credit-card"></i></div>
 										<div class="content">
-											<h4><b>$</b><span class="count">8</span></h4>
+											<h4><b>$</b><span><?php echo $Controller->totalProfit(); ?></span></h4>
 											<p>Total Profit</p>
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-arrow-right"></i></div>
-										<div class="content">
-											<h4><b>$</b><span class="count">0</span></h4>
-											<p>Total Transfer </p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="single">
 										<div class="icon"><i class="anticon anticon-money-collect"></i></div>
 										<div class="content">
@@ -152,59 +142,12 @@ require '../config/session.php';
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="single">
-										<div class="icon"><i class="anticon anticon-gift"></i></div>
-										<div class="content">
-											<h4><b>$</b><span class="count">0</span>
-											</h4>
-											<p>Referral Bonus</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-account-book"></i></div>
+										<div class="icon"><i class="anticon anticon-arrow-right"></i></div>
 										<div class="content">
 											<h4><b>$</b><span class="count">0</span></h4>
-											<p>Deposit Bonus</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-gold"></i></div>
-										<div class="content">
-											<h4><b>$</b><span class="count">0</span></h4>
-											<p>Investment Bonus</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-inbox"></i></div>
-										<div class="content">
-											<h4 class="count">0</h4>
-											<p>Total Referral</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-radar-chart"></i></div>
-										<div class="content">
-											<h4 class="count">1</h4>
-											<p>Rank Achieved</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-question"></i></div>
-										<div class="content">
-											<h4 class="count">0</h4>
-											<p>Total Ticket</p>
+											<p>Total Transfer </p>
 										</div>
 									</div>
 								</div>
@@ -227,43 +170,49 @@ require '../config/session.php';
 															<th>Amount</th>
 															<th>Fee</th>
 															<th>Status</th>
-															<th>Gateway</th>
+															<th>Source</th>
 														</tr>
 													</thead>
 													<tbody>
+														<?php
+														if ( count($Controller->Transactions(10)) <= 0 ) {
+															echo 'No data found';
+														}
+														foreach ($Controller->Transactions(10) as $key => $value) {
+															?>
 														<tr>
 															<td>
 																<div class="table-description">
 																	<div class="icon">
-																		<i icon-name="backpack
-																				 ">
-																		</i>
+																		<!-- config icons -->
+																		<i icon-name="backpack"></i>
 																	</div>
-
-
 																	<div class="description">
-																		<strong>Signup Bonus </strong>
-																		<div class="date">Aug 20 2025 05:08</div>
+																		<strong><?php echo $value['details'] ?></strong>
+																		<div class="date"><?php echo date('M d Y H:i', strtotime($value['createdat'])) ?></div>
 																	</div>
 																</div>
 															</td>
-															<td><strong>TRXNHMD7ENRGG</strong></td>
+															<td><strong><?php echo $value['invoice'] ?></strong></td>
 															<td>
-																<div class="site-badge primary-bg">Signup bonus</div>
+																<div class="site-badge bg-primary text-capitalize"><?php echo $value['type'] ?></div>
 															</td>
-
-															<td><strong class="">8 USD</strong>
-															</td>
-															<td><strong>0 USD</strong></td>
 															<td>
-
-
-																<div class="site-badge success">Success</div>
+																<strong>$<?php echo number_format($value['amount'],2) ?></strong>
 															</td>
-															<td><strong>System</strong></td>
+															<td><strong>$0</strong></td>
+															<td>
+																<?php
+																if ( $value['status'] == 'success') echo '<div class="site-badge success">Completed</div>';
+																elseif ( $value['status'] == 'failed') echo '<div class="site-badge bg-danger">Failed</div>';
+																else echo '<div class="site-badge bg-warning">'.$value["status"].'</div>';
+																?>
+															</td>
+															<td><strong><?php echo $value['source'] ?></strong></td>
 														</tr>
-
-
+														<?php
+														}
+														?>
 													</tbody>
 												</table>
 											</div>
@@ -310,7 +259,6 @@ require '../config/session.php';
 										<a href="./send-money"><i icon-name="send"></i> Withdraw</a>
 									</div>
 								</div>
-
 
 								<div class="col-12">
 									<!-- all Statistic -->
@@ -364,16 +312,6 @@ require '../config/session.php';
 															</div>
 															<div class="col-12">
 																<div class="single-card">
-																	<div class="icon"><i icon-name="log-in"></i></div>
-																	<div class="content">
-																		<div class="amount">$<span class="count">0</span>
-																		</div>
-																		<div class="name">Total Transfer</div>
-																	</div>
-																</div>
-															</div>
-															<div class="col-12">
-																<div class="single-card">
 																	<div class="icon"><i icon-name="send"></i></div>
 																	<div class="content">
 																		<div class="amount"> $<span class="count">0</span>
@@ -384,59 +322,11 @@ require '../config/session.php';
 															</div>
 															<div class="col-12">
 																<div class="single-card">
-																	<div class="icon"><i icon-name="users-2"></i></div>
-																	<div class="content">
-																		<div class="amount"> $<span class="count">0</span>
-																		</div>
-																		<div class="name">Referral Bonus</div>
-																	</div>
-																</div>
-															</div>
-															<div class="col-12">
-																<div class="single-card">
-																	<div class="icon"><i icon-name="anchor"></i></div>
+																	<div class="icon"><i icon-name="log-in"></i></div>
 																	<div class="content">
 																		<div class="amount">$<span class="count">0</span>
 																		</div>
-																		<div class="name">Deposit Bonus</div>
-																	</div>
-																</div>
-															</div>
-															<div class="col-12">
-																<div class="single-card">
-																	<div class="icon"><i icon-name="archive"></i></div>
-																	<div class="content">
-																		<div class="amount">$<span class="count">0</span>
-																		</div>
-																		<div class="name"> Investment Bonus</div>
-																	</div>
-																</div>
-															</div>
-															<div class="col-12">
-																<div class="single-card">
-																	<div class="icon"><i icon-name="gift"></i></div>
-																	<div class="content">
-																		<div class="amount count">0</div>
-																		<div class="name"> Total Referral</div>
-																	</div>
-																</div>
-															</div>
-															<div class="col-12">
-																<div class="single-card">
-																	<div class="icon"><i icon-name="award"></i></div>
-																	<div class="content">
-																		<div class="amount count"> 1</div>
-																		<div class="name">Rank Achieved</div>
-																	</div>
-																</div>
-															</div>
-															<div class="col-12">
-																<div class="single-card">
-																	<div class="icon"><i icon-name="alert-triangle"></i>
-																	</div>
-																	<div class="content">
-																		<div class="amount count">0</div>
-																		<div class="name"> Total Ticket</div>
+																		<div class="name">Total Transfer</div>
 																	</div>
 																</div>
 															</div>
@@ -455,23 +345,23 @@ require '../config/session.php';
 										<div class="title">Recent Transactions</div>
 										<div class="contents">
 											<?php
-											if ( count($Controller->Transactions(100)) <= 0 ) {
+											if ( count($Controller->Transactions(10)) <= 0 ) {
 												echo 'No data found';
 											}
-											foreach ($Controller->Transactions(100) as $key => $value) {
+											foreach ($Controller->Transactions(10) as $key => $value) {
 												?>
 											<div class="single-transaction">
 												<div class="transaction-left">
 													<div class="transaction-des">
 														<div class="transaction-title"><?php echo $value['details'] ?></div>
-														<div class="transaction-id">#<?php echo $value['invoice'] ?></div>
+														<div class="transaction-id"><?php echo $value['invoice'] ?></div>
 														<div class="transaction-date"><?php echo date('M d Y H:i', strtotime($value['createdat'])) ?></div>
 													</div>
 												</div>
 												<div class="transaction-right">
 													<div class="transaction-amount">$<?php echo number_format($value['amount'],2) ?></div>
-													<div class="transaction-fee sub">-0 USD Fee </div>
-													<!-- <div class="transaction-gateway">System</div> -->
+													<!-- <div class="transaction-fee sub">-0 USD Fee </div> -->
+													<div class="transaction-gateway"><?php echo $value['source'] ?></div>
 													<?php
 													if ( $value['status'] == 'success') echo '<div class="transaction-status success">Completed</div>';
 													elseif ( $value['status'] == 'failed') echo '<div class="transaction-status bg-danger">Failed</div>';

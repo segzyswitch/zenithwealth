@@ -77,10 +77,10 @@ require '../config/session.php';
 											<div class="table-filter">
 												<div class="filter">
 													<form action="./user/transactions" method="get">
-														<div class="search">
+														<div class="search w-100">
 															<input type="text" id="search" placeholder="Search" value="" name="query" />
-															<input type="date" name="date" value="" />
-															<button type="submit" class="apply-btn"><i icon-name="search"></i>Search</button>
+															<!-- <input type="date" name="date" value="" /> -->
+															<!-- <button type="submit" class="apply-btn"><i icon-name="search"></i>Search</button> -->
 														</div>
 													</form>
 												</div>
@@ -95,36 +95,49 @@ require '../config/session.php';
 															<th>Amount</th>
 															<th>Fee</th>
 															<th>Status</th>
-															<th>Method</th>
+															<th>Source</th>
 														</tr>
 													</thead>
 													<tbody>
+														<?php
+														if ( count($Controller->Transactions(10)) <= 0 ) {
+															echo 'No data found';
+														}
+														foreach ($Controller->Transactions(10) as $key => $value) {
+															?>
 														<tr>
 															<td>
 																<div class="table-description">
 																	<div class="icon">
-																		<i icon-name="backpack
-																																				">
-																		</i>
+																		<!-- config icons -->
+																		<i icon-name="backpack"></i>
 																	</div>
 																	<div class="description">
-																		<strong>Signup Bonus</strong>
-																		<div class="date">Aug 20 2025 05:08</div>
+																		<strong><?php echo $value['details'] ?></strong>
+																		<div class="date"><?php echo date('M d Y H:i', strtotime($value['createdat'])) ?></div>
 																	</div>
 																</div>
 															</td>
-															<td><strong>TRXNHMD7ENRGG</strong></td>
+															<td><strong><?php echo $value['invoice'] ?></strong></td>
 															<td>
-																<div class="site-badge primary-bg">signup bonus</div>
+																<div class="site-badge bg-primary text-capitalize"><?php echo $value['type'] ?></div>
 															</td>
-															<td><strong class="green-color">+8 </strong>
-															</td>
-															<td><strong>0 USD</strong></td>
 															<td>
-																<div class="site-badge success">Success</div>
+																<strong>$<?php echo number_format($value['amount'],2) ?></strong>
 															</td>
-															<td><strong>System</strong></td>
+															<td><strong>$0</strong></td>
+															<td>
+																<?php
+																if ( $value['status'] == 'success') echo '<div class="site-badge success">Completed</div>';
+																elseif ( $value['status'] == 'failed') echo '<div class="site-badge bg-danger">Failed</div>';
+																else echo '<div class="site-badge bg-warning">'.$value["status"].'</div>';
+																?>
+															</td>
+															<td><strong><?php echo $value['source'] ?></strong></td>
 														</tr>
+														<?php
+														}
+														?>
 													</tbody>
 												</table>
 
@@ -193,7 +206,6 @@ require '../config/session.php';
 
 		<!-- Show in 575px in Mobile Screen -->
 		<?php include 'inc/mobile-menu.php'; ?>
-
 		<!-- Show in 575px in Mobile Screen End -->
 
 		<!-- Automatic Popup -->

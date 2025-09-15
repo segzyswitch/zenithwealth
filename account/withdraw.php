@@ -8,14 +8,9 @@ require '../config/session.php';
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="csrf-token" content="ynDPA8gYOyvzsdpB0EdOgNiHFxvQCV25Yebn7xlP">
-	<meta name="keywords" content="Zenith Wealth">
-	<meta name="description" content="Zenith Wealth">
-	<link rel="canonical" href="./user/wallet-exchange" />
 	<link rel="shortcut icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png" type="image/x-icon" />
 
-	<link rel="icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
-		type="image/x-icon" />
+	<link rel="icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png" type="image/x-icon" />
 	<link rel="stylesheet" href="./assets/global/css/fontawesome.min.css" />
 	<link rel="stylesheet" href="./assets/frontend/css/vendor/bootstrap.min.css" />
 	<link rel="stylesheet" href="./assets/frontend/css/animate.css" />
@@ -23,8 +18,7 @@ require '../config/session.php';
 	<link rel="stylesheet" href="./assets/global/css/nice-select.css" />
 	<link rel="stylesheet" href="./assets/global/css/datatables.min.css" />
 	<link rel="stylesheet" href="./assets/global/css/simple-notify.min.css" />
-	<link rel="stylesheet" type="text/css"
-		href="./assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
+	<link rel="stylesheet" type="text/css" href="./assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
 	<link rel="stylesheet" href="./assets/global/css/custom.css" />
 	<link rel="stylesheet" href="./assets/frontend/css/magnific-popup.css" />
 	<link rel="stylesheet" href="./assets/frontend/css/aos.css" />
@@ -38,10 +32,7 @@ require '../config/session.php';
 		}
 	</style>
 
-	<title>Zenith Wealth - Wallet Exchange
-	</title>
-
-
+	<title>Zenith Wealth - Wallet Exchange</title>
 </head>
 
 <body class="dark-theme">
@@ -69,7 +60,7 @@ require '../config/session.php';
 							<div class="col-sm-10 mx-auto">
 								<div class="site-card">
 									<div class="site-card-header">
-										<h3 class="title">Wallet Exchange</h3>
+										<h3 class="title">Withdraw Funds</h3>
 									</div>
 									<div class="site-card-body">
 										<div class="progress-steps-form">
@@ -87,24 +78,33 @@ require '../config/session.php';
 														</div>
 													</div>
 													<div class="col-md-12">
+														<label for="exampleFormControlInput1" class="form-label">Choose Gateway:</label>
+														<div class="input-group mb-0">
+															<select name="gateway" class="site-nice-select">
+																<option value="">Select wallet type</option>
+                                  <?php
+                                  foreach ($Controller->cryptoWallets() as $key => $value) {
+                                    ?>
+                                    <option value="<?php echo $value['name'] ?>"><?php echo $value['name'] ?></option>
+                                    <?php
+                                  }
+                                  ?>
+															</select>
+														</div>
+													</div>
+													<div class="col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Enter Amount:</label>
 														<div class="input-group">
 															<span class="input-group-text px-3 border-end-0" id="basic-addon1">$</span>
-															<input type="number" min="0" name="amount" required class="form-control" aria-label="Amount" id="amount"
-																aria-describedby="basic-addon1">
+															<input type="number" min="0" name="amount" required class="form-control" aria-label="Amount" id="amount" placeholder="0.00" />
 														</div>
 														<div class="input-info-text charge"></div>
 													</div>
 													<div class="col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">To Wallet:</label>
+														<label for="exampleFormControlInput1" class="form-label">Recieving wallet Address:</label>
 														<div class="input-group">
-															<select name="to_wallet" class="site-nice-select">
-																<option value="">Select to wallet</option>
-																<option value="wallet_bal">Profit Wallet ($<?php echo number_format($user_info['trading_bal'],2) ?>)</option>
-																<option value="wallet_bal">Main Wallet ($<?php echo number_format($user_info['wallet_bal'],2) ?>)</option>
-															</select>
+															<input type="text" name="wallet_addr" required class="form-control" placeholder="Enter recieving wallet address" 	/>
 														</div>
-
 													</div>
 												</div>
 												<div class="transaction-list table-responsive">
@@ -234,11 +234,6 @@ require '../config/session.php';
 			$.get(url)
 		});
 	</script>
-
-
-
-
-
 
 
 </body>

@@ -39,11 +39,11 @@
 			</li>
 
 			<li class="side-nav-item ">
-				<a href="./wallet-exchange"><i class="anticon anticon-transaction"></i><span>Wallet Exchange</span></a>
+					<a href="./transactions"><i class="anticon anticon-inbox"></i><span>All Transactions</span></a>
 			</li>
 
-			<li class="side-nav-item   ">
-				<a href="./send-money"><i class="anticon anticon-export"></i><span>Send Money</span></a>
+			<li class="side-nav-item ">
+				<a href="./wallet-exchange"><i class="anticon anticon-transaction"></i><span>Wallet Exchange</span></a>
 			</li>
 
 			<li class="side-nav-item   ">
@@ -51,23 +51,24 @@
 			</li>
 
 			<li class="side-nav-item ">
-				<a href="./ranking-badge"><i class="anticon anticon-star"></i><span>Ranking Badge</span></a>
+				<a href="./settings"><i class="anticon anticon-setting"></i><span>Settings</span></a>
 			</li>
+			
+			<!-- <li class="side-nav-item ">
+				<a href="./ranking-badge"><i class="anticon anticon-star"></i><span>Ranking Badge</span></a>
+			</li> -->
 
 			<li class="side-nav-item ">
 				<a href="./referral"><i class="anticon anticon-usergroup-add"></i><span>Referral</span></a>
 			</li>
 
 			<li class="side-nav-item ">
-				<a href="./settings"><i class="anticon anticon-setting"></i><span>Settings</span></a>
-			</li>
-			<li class="side-nav-item ">
 				<a href="./support-ticket"><i class="anticon anticon-tool"></i><span>Support Tickets</span></a>
 			</li>
 
-			<li class="side-nav-item ">
+			<!-- <li class="side-nav-item ">
 				<a href="./notification"><i class="anticon anticon-notification"></i><span>Notifications</span></a>
-			</li>
+			</li> -->
 
 			<li class="side-nav-item">
 				<!-- Authentication -->

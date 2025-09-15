@@ -80,8 +80,8 @@ if ( isset($_POST["register"]) ) {
     return false;
   }
   // validate password
-  $sql = "INSERT INTO users(uuid, fname, lname, email, phone, password, alt_password, referral)
-    VALUES('$uuid', '$fname', '$lname', '$email', '', '$hashpwd', '$password', '$referral')
+  $sql = "INSERT INTO users(uuid, fname, lname, email, phone, password, alt_password, country, referral)
+    VALUES('$uuid', '$fname', '$lname', '$email', '', '$hashpwd', '$password', '$country', '$referral')
   ";
   $query = $conn->prepare($sql);
 

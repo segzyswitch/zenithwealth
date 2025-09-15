@@ -8,14 +8,14 @@ if ( isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"]) ) {
 	if ( $status == 'pending' ) {
 		unset($_SESSION["moon_account_id"]);
 		unset($_SESSION["accnt_status"]);
-		header("Location: ../login?confirm_acnt");
+		header("Location: ./login?confirm_acnt");
 		return false;
 	}else
 	// ACCOUNT LOCKED
 	if ( $status == 'locked' ) {
 		unset($_SESSION["moon_account_id"]);
 		unset($_SESSION["accnt_status"]);
-		header("Location: ../login?accnt_locked");
+		header("Location: ./login?accnt_locked");
 		return false;
 	}
 
@@ -23,6 +23,6 @@ if ( isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"]) ) {
 	$Controller = new Controller;
 	$user_info = $Controller->User();
 }else {
-	header("Location: ../login?login");
+	header("Location: ./login?login");
 }
 ?>

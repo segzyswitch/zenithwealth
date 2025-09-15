@@ -66,9 +66,9 @@ require '../config/session.php';
 										<h3 class="title">Profile Settings</h3>
 									</div>
 									<div class="site-card-body">
-										<form action="./user/settings/profile-update" method="post" enctype="multipart/form-data">
-											<input type="hidden" name="_token" value="0PBnSGpBOeU6uMyjETolsJPb2ENYjKaQCWd9mtKF">
-											<div class="row">
+										<form action="javascript:void(0)" method="post" enctype="multipart/form-data">
+											<input type="hidden" name="update_user" value="0PBnSGpBOeU6uMyjETolsJPb2ENYjKaQCWd9mtKF">
+											<!-- <div class="row">
 												<div class="col-xl-3">
 													<div class="mb-3">
 														<div class="body-title">Avatar:</div>
@@ -81,7 +81,7 @@ require '../config/session.php';
 														</div>
 													</div>
 												</div>
-											</div>
+											</div> -->
 											<div class="progress-steps-form">
 												<div class="row">
 													<div class="col-xl-6 col-md-12">
@@ -98,80 +98,73 @@ require '../config/session.php';
 													<div class="col-xl-6 col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Last Name</label>
 														<div class="input-group">
-															<input type="text" class="form-control" name="last_name" value="Hoymme"
+															<input type="text"
+																class="form-control" name="lname"
+																value="<?php echo $user_info['lname']; ?>"
 																placeholder="Last Name" />
 														</div>
 													</div>
 													<div class="col-xl-6 col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Username</label>
 														<div class="input-group">
-															<input type="text" class="form-control" name="username" value="RonaldHoymme4125"
+															<input type="text"
+																class="form-control" name="username"
+																value="<?php echo $user_info['email']; ?>"
 																placeholder="Username" />
 														</div>
 													</div>
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Gender</label>
-														<div class="input-group">
-															<select name="gender" id="kycTypeSelect" class="nice-select site-nice-select" required>
-																<option value="male">male</option>
-																<option value="female">female</option>
-																<option value="other">other</option>
-															</select>
-														</div>
-													</div>
-
-													<div class="col-xl-6 col-md-12">
+													<!-- <div class="col-xl-6 col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Date of Birth</label>
 														<div class="input-group">
 															<input type="date" name="date_of_birth" class="form-control" value=""
 																placeholder="Date of Birth" />
 														</div>
 													</div>
-
 													<div class="col-xl-6 col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Email Address</label>
 														<div class="input-group">
 															<input type="email" disabled class="form-control disabled" value="ronaldhoymme@gmail.com"
 																placeholder="Email Address" />
 														</div>
-													</div>
+													</div> -->
 													<div class="col-xl-6 col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Phone</label>
 														<div class="input-group">
-															<input type="text" class="form-control" name="phone" value="+234 " placeholder="Phone" />
+															<input type="text"
+																class="form-control" name="phone"
+																value="<?php echo $user_info['phone']; ?>"
+																placeholder="Phone"
+															/>
 														</div>
 													</div>
 													<div class="col-xl-6 col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Country</label>
 														<div class="input-group">
-															<input type="text" class="form-control disabled" value="United States"
-																placeholder="Country" disabled />
+															<input type="text" class="form-control disabled"
+																value="<?php echo $user_info['country']; ?>"  disabled />
 														</div>
 													</div>
 
 													<div class="col-xl-6 col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">City</label>
 														<div class="input-group">
-															<input type="text" class="form-control" name="city" value="" placeholder="City" />
+															<input type="text"
+																class="form-control" name="city"
+																value="<?php echo $user_info['city']; ?>"
+																placeholder="City"
+															/>
 														</div>
 													</div>
 													<div class="col-xl-6 col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Zip</label>
 														<div class="input-group">
-															<input type="text" class="form-control" name="zip_code" value="" placeholder="Zip" />
+															<input type="text" class="form-control" name="zip" value="<?php echo $user_info['zip']; ?>" placeholder="Zip" />
 														</div>
 													</div>
 													<div class="col-xl-6 col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Address</label>
 														<div class="input-group">
-															<input type="text" class="form-control" name="address" value="" placeholder="Address" />
-														</div>
-													</div>
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Joining Date</label>
-														<div class="input-group">
-															<input type="text" class="form-control disabled" value="Wed, Aug 20, 2025 5:08 PM"
-																placeholder="Joining Date" disabled />
+															<input type="text" class="form-control" name="address" value="<?php echo $user_info['address']; ?>" placeholder="Address" />
 														</div>
 													</div>
 
@@ -186,7 +179,6 @@ require '../config/session.php';
 								</div>
 							</div>
 						</div>
-
 						<div class="row">
 							<div class="col-xl-6 col-lg-6 col-md-6 col-12">
 								<div class="site-card">
@@ -210,14 +202,12 @@ require '../config/session.php';
 									</div>
 								</div>
 							</div>
-							</div>
 						</div>
 						<!--Page Content-->
 					</div>
 				</div>
 			</div>
 		</div>
-
 
 		<!-- Show in 575px in Mobile Screen -->
 		<?php include 'inc/mobile-menu.php'; ?>
