@@ -343,7 +343,7 @@ require '../config/session.php';
 															<div class="single-card">
 																<div class="icon"><i icon-name="box"></i></div>
 																<div class="content">
-																	<div class="amount">$<span class="count">0</span>
+																	<div class="amount"><span><?php echo $Controller->totalInvested(); ?></span>
 																	</div>
 																	<div class="name">Total Investment</div>
 																</div>
@@ -356,7 +356,7 @@ require '../config/session.php';
 																<div class="single-card">
 																	<div class="icon"><i icon-name="credit-card"></i></div>
 																	<div class="content">
-																		<div class="amount"> $<span class="count">8</span>
+																		<div class="amount"> <span><?php echo $Controller->totalProfit(); ?></span>
 																		</div>
 																		<div class="name">Total Profit</div>
 																	</div>
@@ -454,31 +454,37 @@ require '../config/session.php';
 									<div class="all-feature-mobile mobile-transactions mb-3 mobile-screen-show">
 										<div class="title">Recent Transactions</div>
 										<div class="contents">
-
+											<?php
+											if ( count($Controller->Transactions(100)) <= 0 ) {
+												echo 'No data found';
+											}
+											foreach ($Controller->Transactions(100) as $key => $value) {
+												?>
 											<div class="single-transaction">
 												<div class="transaction-left">
 													<div class="transaction-des">
-														<div class="transaction-title">Signup Bonus
-														</div>
-														<div class="transaction-id">TRXNHMD7ENRGG</div>
-														<div class="transaction-date">Aug 20 2025 05:08</div>
+														<div class="transaction-title"><?php echo $value['details'] ?></div>
+														<div class="transaction-id"><?php echo $value['invoice'] ?></div>
+														<div class="transaction-date"><?php echo date('M d Y H:i', strtotime($value['createdat'])) ?></div>
 													</div>
 												</div>
 												<div class="transaction-right">
-													<div class="transaction-amount ">
-														8 USD</div>
+													<div class="transaction-amount">$<?php echo number_format($value['amount'],2) ?></div>
 													<div class="transaction-fee sub">-0 USD Fee </div>
-													<div class="transaction-gateway">System</div>
+													<!-- <div class="transaction-gateway">System</div> -->
 
 
 													<div class="transaction-status success">Success</div>
 												</div>
 											</div>
+											<?php
+											}
+											?>
 										</div>
 									</div>
 								</div>
 
-								<div class="col-12">
+								<div class="col-12 d-none">
 									<div class="mobile-ref-url mb-4">
 										<div class="all-feature-mobile">
 											<div class="title">Referral URL</div>

@@ -184,8 +184,7 @@ $user_info = $Authroller->userByUUID($uuid);
 											<div class="col-lg-6">
 												<div class="form-item">
 													<label for="phone" class="form-label">Phone</label>
-													<input type="text" name="phone" id="phone" class="form-control" value="<?php echo $user_info['phone']; ?>" placeholder="<?php echo $user_info['phone']; ?>"
-														required>
+													<input type="text" name="phone" id="phone" class="form-control" value="<?php echo $user_info['phone']; ?>" placeholder="<?php echo $user_info['phone']; ?>" />
 												</div>
 											</div>
 											<div class="col-lg-6">
