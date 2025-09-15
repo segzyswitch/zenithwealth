@@ -1,3 +1,6 @@
+<?php
+require '../config/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,99 +54,7 @@
 	<!--Full Layout-->
 	<div class="panel-layout">
 		<!--Header-->
-		<div class="panel-header">
-			<div class="logo">
-				<a href="https://zenithwealthpro.com/account">
-					<img class="logo-unfold"
-						src="./assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="Logo" />
-					<img class="logo-fold" src="./assets/global/images/DAISWlCl4In2YZKgI2fr.png"
-						alt="Logo" />
-				</a>
-			</div>
-			<div class="nav-wrap">
-				<div class="nav-left">
-					<button class="sidebar-toggle">
-						<i class="anticon anticon-arrow-left"></i>
-					</button>
-					<div class="mob-logo">
-						<a href="https://zenithwealthpro.com/account">
-							<img src="./assets/global/images/DAISWlCl4In2YZKgI2fr.png"
-								alt="Site Name" />
-						</a>
-					</div>
-				</div>
-				<div class="nav-right">
-					<div class="single-nav-right">
-
-						<div class="single-right">
-							<div class="color-switcher">
-								<i icon-name="moon" class="dark-icon" data-mode="dark"></i>
-								<i icon-name="sun" class="light-icon" data-mode="light"></i>
-							</div>
-						</div>
-
-
-						<div class="single-nav-right user-notifications62">
-							<button type="button" class="item notification-dot" data-bs-toggle="dropdown" aria-expanded="false">
-								<i icon-name="bell-ring" class=""></i>
-								<div class="number">0</div>
-							</button>
-							<div class="dropdown-menu dropdown-menu-end notification-pop">
-								<div class="noti-head">Notifications <span>0</span></div>
-								<div class="all-noti">
-
-									<p>Notification Not Found</p>
-								</div>
-
-							</div>
-
-
-						</div>
-
-
-						<div class="single-right">
-							<select name="language" id="" class="site-nice-select"
-								onchange="window.location.href=this.options[this.selectedIndex].value;">
-								<option value="./language-update?name=en" selected>English</option>
-								<option value="./language-update?name=es">Spanish</option>
-								<option value="./language-update?name=fr">Franch</option>
-							</select>
-						</div>
-						<div class="single-right">
-							<button type="button" class="item" data-bs-toggle="dropdown" aria-expanded="false">
-								<i class="anticon anticon-user"></i>
-							</button>
-							<ul class="dropdown-menu dropdown-menu-end">
-								<li>
-									<a href="./user/settings" class="dropdown-item" type="button"><i
-											class="anticon anticon-setting"></i>Settings</a>
-								</li>
-								<li>
-									<a href="./user/change-password" class="dropdown-item"
-										type="button">
-										<i class="anticon anticon-lock"></i>Change Password
-									</a>
-								</li>
-								<li>
-									<a href="./user/support-ticket/index" class="dropdown-item"
-										type="button">
-										<i class="anticon anticon-customer-service"></i>Support Tickets
-									</a>
-								</li>
-								<li class="logout">
-									<form method="POST" action="./logout" id="logout-form">
-										<input type="hidden" name="_token" value="kLYeQlkSAq2dsFWe25IBwTP1vig2I5JjNUWxZvUn"> <a
-											href="./logout" class="dropdown-item"
-											onclick="event.preventDefault(); localStorage.clear();  $('#logout-form').submit();"><i
-												class="anticon anticon-logout"></i>Logout</a>
-									</form>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php include 'inc/panel-header.php'; ?>
 		<!--/Header-->
 
 		<div class="desktop-screen-show">
@@ -154,32 +65,6 @@
 			<div class="main-content">
 				<div class="section-gap">
 					<div class="container-fluid">
-
-						<div class="row desktop-screen-show">
-							<div class="col">
-								<div class="alert site-alert alert-dismissible fade show" role="alert">
-									<div class="content">
-										<div class="icon"><i class="anticon anticon-warning"></i></div>
-										You need to submit your
-										<strong>KYC and Other Documents</strong> before proceed to the system.
-									</div>
-									<div class="action">
-										<a href="./user/kyc" class="site-btn-sm grad-btn"><i
-												class="anticon anticon-info-circle"></i>Submit Now</a>
-										<a href="" class="site-btn-sm red-btn ms-2" type="button" data-bs-dismiss="alert"
-											aria-label="Close"><i class="anticon anticon-close"></i>Later</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row mobile-screen-show">
-							<div class="col-12">
-								<div class="user-kyc-mobile">
-									<i icon-name="fingerprint" class="kyc-star"></i>
-									Please Verify Your Identity <a href="./user/kyc">Submit Now</a>
-								</div>
-							</div>
-						</div>
 						<!--Page Content-->
 						<div class="row">
 							<div class="col-xl-12 desktop-screen-show">
@@ -254,38 +139,45 @@
 								<div class="all-feature-mobile mobile-transactions mb-3">
 									<div class="title">All Transactions</div>
 									<div class="mobile-transaction-filter">
-										<div class="filter">
-											<form action="./user/transactions" method="get">
-												<div class="search">
-
-													<input type="text" placeholder="Search" value="" name="query" />
-													<input type="date" name="date" value="" />
-													<button type="submit" class="apply-btn"><i icon-name="search"></i></button>
+										<div class="filter w-100">
+											<form action="javascript:void(0)" class="w-100">
+												<div class="search w-100">
+													<input type="text" placeholder="Search" value="" name="query" class="w-100" />
+													<!-- <input type="date" name="date" value="" /> -->
+													<!-- <button type="submit" class="apply-btn"><i icon-name="search"></i></button> -->
 												</div>
 											</form>
 										</div>
 									</div>
 									<div class="contents">
+										<?php
+										if ( count($Controller->Transactions(100)) <= 0 ) {
+											echo 'No data found';
+										}
+										foreach ($Controller->Transactions(100) as $key => $value) {
+											?>
 										<div class="single-transaction">
 											<div class="transaction-left">
 												<div class="transaction-des">
-													<div class="transaction-title">Signup Bonus
-													</div>
-													<div class="transaction-id">TRXNHMD7ENRGG</div>
-													<div class="transaction-date">Aug 20 2025 05:08</div>
+													<div class="transaction-title"><?php echo $value['details'] ?></div>
+													<div class="transaction-id">#<?php echo $value['invoice'] ?></div>
+													<div class="transaction-date"><?php echo date('M d Y H:i', strtotime($value['createdat'])) ?></div>
 												</div>
 											</div>
 											<div class="transaction-right">
-												<div class="transaction-amount ">
-													8 USD</div>
-												<div class="transaction-fee sub">
-													-0 USD Fee </div>
-												<div class="transaction-gateway">System</div>
-
-
-												<div class="transaction-status success">Success</div>
+												<div class="transaction-amount">$<?php echo number_format($value['amount'],2) ?></div>
+												<div class="transaction-fee sub">-0 USD Fee </div>
+												<!-- <div class="transaction-gateway">System</div> -->
+												<?php
+												if ( $value['status'] == 'success') echo '<div class="transaction-status success">Completed</div>';
+												elseif ( $value['status'] == 'failed') echo '<div class="transaction-status bg-danger">Failed</div>';
+												else echo '<div class="transaction-status bg-warning">'.$value["status"].'</div>';
+												?>
 											</div>
 										</div>
+										<?php
+										}
+										?>
 									</div>
 
 								</div>

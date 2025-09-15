@@ -464,7 +464,7 @@ require '../config/session.php';
 												<div class="transaction-left">
 													<div class="transaction-des">
 														<div class="transaction-title"><?php echo $value['details'] ?></div>
-														<div class="transaction-id"><?php echo $value['invoice'] ?></div>
+														<div class="transaction-id">#<?php echo $value['invoice'] ?></div>
 														<div class="transaction-date"><?php echo date('M d Y H:i', strtotime($value['createdat'])) ?></div>
 													</div>
 												</div>
@@ -472,9 +472,11 @@ require '../config/session.php';
 													<div class="transaction-amount">$<?php echo number_format($value['amount'],2) ?></div>
 													<div class="transaction-fee sub">-0 USD Fee </div>
 													<!-- <div class="transaction-gateway">System</div> -->
-
-
-													<div class="transaction-status success">Success</div>
+													<?php
+													if ( $value['status'] == 'success') echo '<div class="transaction-status success">Completed</div>';
+													elseif ( $value['status'] == 'failed') echo '<div class="transaction-status bg-danger">Failed</div>';
+													else echo '<div class="transaction-status bg-warning">'.$value["status"].'</div>';
+													?>
 												</div>
 											</div>
 											<?php

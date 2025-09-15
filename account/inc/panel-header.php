@@ -11,7 +11,7 @@
 				<i class="anticon anticon-arrow-left"></i>
 			</button>
 			<div class="mob-logo">
-				<a href="https://zenithwealthpro.com/account">
+				<a href="./dashboard">
 					<img src="./assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="Site Name" />
 				</a>
 			</div>
