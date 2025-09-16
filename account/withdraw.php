@@ -70,7 +70,7 @@ require '../config/session.php';
 													<div class="col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">From Wallet:</label>
 														<div class="input-group mb-0">
-															<select name="from_wallet" class="site-nice-select">
+															<select name="from_wallet" id="from_wallet" class="site-nice-select">
 																<option value="">Select from wallet</option>
 																<option value="wallet_bal">Main Wallet ($<?php echo number_format($user_info['wallet_bal'],2) ?>)</option>
 																<option value="wallet_bal">Profit Wallet ($<?php echo number_format($user_info['trading_bal'],2) ?>)</option>
@@ -80,7 +80,7 @@ require '../config/session.php';
 													<div class="col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Choose Gateway:</label>
 														<div class="input-group mb-0">
-															<select name="gateway" class="site-nice-select">
+															<select name="gateway" id="gateway" class="site-nice-select">
 																<option value="">Select wallet type</option>
                                   <?php
                                   foreach ($Controller->cryptoWallets() as $key => $value) {
@@ -96,14 +96,14 @@ require '../config/session.php';
 														<label for="exampleFormControlInput1" class="form-label">Enter Amount:</label>
 														<div class="input-group">
 															<span class="input-group-text px-3 border-end-0" id="basic-addon1">$</span>
-															<input type="number" min="0" name="amount" required class="form-control" aria-label="Amount" id="amount" placeholder="0.00" />
+															<input type="number" min="0" id="amount" name="amount" required class="form-control" aria-label="Amount" id="amount" placeholder="0.00" />
 														</div>
 														<div class="input-info-text charge"></div>
 													</div>
 													<div class="col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">Recieving wallet Address:</label>
 														<div class="input-group">
-															<input type="text" name="wallet_addr" required class="form-control" placeholder="Enter recieving wallet address" 	/>
+															<input type="text" name="wallet_addr" id="wallet_addr" required class="form-control" placeholder="Enter recieving wallet address" 	/>
 														</div>
 													</div>
 												</div>
@@ -111,15 +111,23 @@ require '../config/session.php';
 													<div class="user-panel-title">
 														<h3>Review Details:</h3>
 													</div>
-													<table class="table">
+													<table class="table table-review">
 														<tbody>
+															<tr>
+																<td><strong>Withdraw From</strong></td>
+																<td><span class="from"></span> <span class="currency"></span></td>
+															</tr>
+															<tr>
+																<td><strong>Send To</strong></td>
+																<td><span class="send-to"></span> <span class="currency"></span></td>
+															</tr>
 															<tr>
 																<td><strong>Amount</strong></td>
 																<td><span class="amount"></span> <span class="currency"></span></td>
 															</tr>
 															<tr>
 																<td><strong>Charge</strong></td>
-																<td class="charge2"></td>
+																<td class="charge"></td>
 															</tr>
 															<tr>
 																<td><strong>Total</strong></td>
@@ -129,8 +137,8 @@ require '../config/session.php';
 													</table>
 												</div>
 												<div class="buttons">
-													<button type="submit" class="site-btn blue-btn">
-														Proceed to Exchange<i class="anticon anticon-double-right"></i>
+													<button type="submit" class="site-btn blue-btn submit-btn">
+														Withdraw<i class="anticon anticon-double-right"></i>
 													</button>
 												</div>
 											</form>
@@ -158,6 +166,8 @@ require '../config/session.php';
 
 	<script src="./assets/global/js/jquery.min.js"></script>
 	<script src="./assets/global/js/jquery-migrate.js"></script>
+	<script src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
+	<script src="../js/forms.js"></script>
 
 	<script src="./assets/frontend/js/bootstrap.bundle.min.js"></script>
 	<script src="./assets/frontend/js/scrollUp.min.js"></script>
@@ -168,20 +178,10 @@ require '../config/session.php';
 	<script src="./assets/global/js/jquery.nice-select.min.js"></script>
 	<script src="./assets/global/js/lucide.min.js"></script>
 	<script src="./assets/frontend/js/magnific-popup.min.js"></script>
-	<script src="./assets/frontend/js/aos.js"></script>
-	<script src="./assets/global/js/datatables.min.js" type="text/javascript"
-		charset="utf8"></script>
 	<script src="./assets/global/js/simple-notify.min.js"></script>
 	<script src="./assets/frontend/js/main.js?var=5"></script>
 	<script src="./assets/frontend/js/cookie.js"></script>
 	<script src="./assets/global/js/custom.js?var=5"></script>
-	<script>
-		(function ($) {
-			'use strict';
-			// AOS initialization
-			AOS.init();
-		})(jQuery);
-	</script>
 	<script>
 		(function ($) {
 			'use strict';
@@ -195,8 +195,6 @@ require '../config/session.php';
 		})(jQuery);
 	</script>
 
-	<script type="text/javascript"
-		src="./assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
 	<script>
 
 		"use strict"
@@ -210,7 +208,7 @@ require '../config/session.php';
 
 			var amount = $(this).val()
 
-			$('.amount').text((Number(amount)))
+			$('.table-review .amount').text((Number(amount)))
 
 			$('.currency').text(currency)
 
@@ -234,7 +232,6 @@ require '../config/session.php';
 			$.get(url)
 		});
 	</script>
-
 
 </body>
 
