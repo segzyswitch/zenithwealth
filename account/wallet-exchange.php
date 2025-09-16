@@ -73,16 +73,16 @@ require '../config/session.php';
 									</div>
 									<div class="site-card-body">
 										<div class="progress-steps-form">
-											<form action="javascript:void(0)" method="post">
-												<input type="hidden" name="_token" value="ynDPA8gYOyvzsdpB0EdOgNiHFxvQCV25Yebn7xlP">
+											<form id="transferForm" action="javascript:void(0)" method="post">
+												<input type="hidden" name="make_transfer" value="ynDPA8gYOyvzsdpB0EdOgNiHFxvQCV25Yebn7xlP">
 												<div class="row g-4">
 													<div class="col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">From Wallet:</label>
 														<div class="input-group mb-0">
-															<select name="from_wallet" class="site-nice-select">
+															<select id="send_from" name="send_from" class="site-nice-select">
 																<option value="">Select from wallet</option>
 																<option value="wallet_bal">Main Wallet ($<?php echo number_format($user_info['wallet_bal'],2) ?>)</option>
-																<option value="wallet_bal">Profit Wallet ($<?php echo number_format($user_info['trading_bal'],2) ?>)</option>
+																<option value="trading_bal">Profit Wallet ($<?php echo number_format($user_info['trading_bal'],2) ?>)</option>
 															</select>
 														</div>
 													</div>
@@ -90,7 +90,7 @@ require '../config/session.php';
 														<label for="exampleFormControlInput1" class="form-label">Enter Amount:</label>
 														<div class="input-group">
 															<span class="input-group-text px-3 border-end-0" id="basic-addon1">$</span>
-															<input type="number" min="0" name="amount" required class="form-control" aria-label="Amount" id="amount"
+															<input type="number" min="0" name="amount" id="amount" required class="form-control" aria-label="Amount" id="amount"
 																aria-describedby="basic-addon1">
 														</div>
 														<div class="input-info-text charge"></div>
@@ -98,10 +98,10 @@ require '../config/session.php';
 													<div class="col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">To Wallet:</label>
 														<div class="input-group">
-															<select name="to_wallet" class="site-nice-select">
+															<select name="send_to" id="send_to" class="site-nice-select">
 																<option value="">Select to wallet</option>
-																<option value="wallet_bal">Profit Wallet ($<?php echo number_format($user_info['trading_bal'],2) ?>)</option>
 																<option value="wallet_bal">Main Wallet ($<?php echo number_format($user_info['wallet_bal'],2) ?>)</option>
+																<option value="trading_bal">Profit Wallet ($<?php echo number_format($user_info['trading_bal'],2) ?>)</option>
 															</select>
 														</div>
 
@@ -111,15 +111,23 @@ require '../config/session.php';
 													<div class="user-panel-title">
 														<h3>Review Details:</h3>
 													</div>
-													<table class="table">
+													<table class="table table-review">
 														<tbody>
 															<tr>
+																<td><strong>From</strong></td>
+																<td><span class="from"></span></td>
+															</tr>
+															<tr>
+																<td><strong>Send to</strong></td>
+																<td><span class="send-to"></span></td>
+															</tr>
+															<tr>
 																<td><strong>Amount</strong></td>
-																<td><span class="amount"></span> <span class="currency"></span></td>
+																<td><span class="amount"></span></td>
 															</tr>
 															<tr>
 																<td><strong>Charge</strong></td>
-																<td class="charge2"></td>
+																<td class="">$0</td>
 															</tr>
 															<tr>
 																<td><strong>Total</strong></td>
@@ -129,8 +137,8 @@ require '../config/session.php';
 													</table>
 												</div>
 												<div class="buttons">
-													<button type="submit" class="site-btn blue-btn">
-														Proceed to Exchange<i class="anticon anticon-double-right"></i>
+													<button type="submit" class="site-btn blue-btn submit-btn">
+														Make Transfer<i class="anticon anticon-double-right"></i>
 													</button>
 												</div>
 											</form>
@@ -158,6 +166,46 @@ require '../config/session.php';
 
 	<script src="./assets/global/js/jquery.min.js"></script>
 	<script src="./assets/global/js/jquery-migrate.js"></script>
+	<script src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
+	<script src="../js/forms.js"></script>
+
+	<script>
+		"use strict"
+		
+		function number_format(number, decimals = 0, dec_point = ".", thousands_sep = ",") {
+			let n = parseFloat(number);
+
+			if (!isFinite(n)) return "0";
+
+			let fixed = n.toFixed(decimals);
+
+			let parts = fixed.split(".");
+			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_sep);
+
+			return parts.join(dec_point);
+		}
+
+		$("#send_from").change( function() {
+			const value = $(this).val();
+			const output = $(".table-review .from");
+			if (!value) return output.text('');
+			output.text((value=='wallet_bal') ? "Wallet balance" : "Profit balance");
+		});
+		$("#send_to").change( function() {
+			const value = $(this).val();
+			const output = $(".table-review .send-to");
+			if (!value) return output.text('');
+			output.text((value=='wallet_bal') ? "Wallet balance" : "Profit balance");
+		});
+		$("#amount").on('input', function() {
+			const value = $(this).val();
+			const output = $(".table-review .amount");
+			if (!value) return output.text('');
+			const outputtext = `$${number_format(value)}`;
+			output.text(outputtext);
+			$('.table-review .total').text(outputtext);
+		});
+	</script>
 
 	<script src="./assets/frontend/js/bootstrap.bundle.min.js"></script>
 	<script src="./assets/frontend/js/scrollUp.min.js"></script>
@@ -168,20 +216,11 @@ require '../config/session.php';
 	<script src="./assets/global/js/jquery.nice-select.min.js"></script>
 	<script src="./assets/global/js/lucide.min.js"></script>
 	<script src="./assets/frontend/js/magnific-popup.min.js"></script>
-	<script src="./assets/frontend/js/aos.js"></script>
-	<script src="./assets/global/js/datatables.min.js" type="text/javascript"
-		charset="utf8"></script>
 	<script src="./assets/global/js/simple-notify.min.js"></script>
 	<script src="./assets/frontend/js/main.js?var=5"></script>
 	<script src="./assets/frontend/js/cookie.js"></script>
 	<script src="./assets/global/js/custom.js?var=5"></script>
-	<script>
-		(function ($) {
-			'use strict';
-			// AOS initialization
-			AOS.init();
-		})(jQuery);
-	</script>
+
 	<script>
 		(function ($) {
 			'use strict';
@@ -195,36 +234,6 @@ require '../config/session.php';
 		})(jQuery);
 	</script>
 
-	<script type="text/javascript"
-		src="./assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
-	<script>
-
-		"use strict"
-
-		var currency = "USD";
-
-		var charge_type = "percentage";
-		var charge = "0";
-
-		$('#amount').on('keyup', function (e) {
-
-			var amount = $(this).val()
-
-			$('.amount').text((Number(amount)))
-
-			$('.currency').text(currency)
-
-			var finalCharge = charge_type === 'percentage' ? calPercentage(amount, charge) : charge
-
-
-			$('.charge2').text(finalCharge + ' ' + currency)
-
-			$('.total').text((Number(amount) + Number(finalCharge)) + ' ' + currency)
-
-
-			$('.charge').text('Charge ' + charge + ' ' + (charge_type === 'percentage' ? ' % ' : currency))
-		})
-	</script>
 	<script>
 		// Color Switcher
 		$(".color-switcher").on('click', function () {

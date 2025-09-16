@@ -124,31 +124,35 @@ require '../config/session.php';
 																if ( isset($_GET['plan']) ) {
 																	$value = $Controller->singlePlan($_GET['plan']);
 																	?>
-																<option value="<?php echo $value['id'] ?>"
-																	data-name="<?php echo $value['name'] ?>"
-																	data-interest="<?php echo $value['interest'] ?>"
-																	data-interest_return_type="2"
-																	data-recapture_type="1"
-																	data-day="Days"
-																	data-terms="<?php echo $value['description'] ?>"
-																	data-duration="<?php echo $value['duration'] ?>"
-																	selected>
-																	<?php echo $value['name']." - Interest ".($value['interest'])."%" ?>
-																</option>
+																	<option value="<?php echo $value['id'] ?>"
+																		data-name="<?php echo $value['name'] ?>"
+																		data-interest="<?php echo $value['interest'] ?>"
+																		data-interest_return_type="2"
+																		data-recapture_type="1"
+																		data-day="Days"
+																		data-terms="<?php echo $value['description'] ?>"
+																		data-duration="<?php echo $value['duration'] ?>"
+																		data-min-limit="<?php echo $value['min_limit'] ?>"
+																		data-max-limit="<?php echo $value['max_limit'] ?>"
+																		selected>
+																		<?php echo $value['name']." - Interest ".($value['interest'])."%" ?>
+																	</option>
 																	<?php
 																}
 																foreach ($Controller->Plans() as $key => $value) {
 																	?>
-																<option value="<?php echo $value['id'] ?>"
-																	data-name="<?php echo $value['name'] ?>"
-																	data-interest="<?php echo $value['interest'] ?>"
-																	data-interest_return_type="2"
-																	data-recapture_type="1"
-																	data-day="Days"
-																	data-terms="<?php echo $value['description'] ?>"
-																	data-duration="<?php echo $value['duration'] ?>">
-																	<?php echo $value['name']." - Interest ".($value['interest'])."%" ?>
-																</option>
+																	<option value="<?php echo $value['id'] ?>"
+																		data-name="<?php echo $value['name'] ?>"
+																		data-interest="<?php echo $value['interest'] ?>"
+																		data-interest_return_type="2"
+																		data-recapture_type="1"
+																		data-day="Days"
+																		data-terms="<?php echo $value['description'] ?>"
+																		data-duration="<?php echo $value['duration'] ?>"
+																		data-min-limit="<?php echo $value['min_limit'] ?>"
+																		data-max-limit="<?php echo $value['max_limit'] ?>">
+																		<?php echo $value['name']." - Interest ".($value['interest'])."%" ?>
+																	</option>
 																	<?php
 																}
 																?>
@@ -160,9 +164,10 @@ require '../config/session.php';
 													<div class="form-inner">
 														<label for="invest_amount" class="mb-1">Amount</label>
 														<div class="input-group mb-1">
-															<input type="text" id="invest_amount_item"
+															<input type="number" id="invest_amount_item"
 																class="form-control"
 																value="<?php if (isset($_GET['amount'])) echo $_GET['amount']; ?>"
+																<?php if (isset($_GET['plan'])) echo "min='".$value['min_limit']."' max='".$value['max_limit']."'"; ?>
 																placeholder="Enter Amount"
 																required
 															/>
@@ -170,8 +175,8 @@ require '../config/session.php';
 														<?php
 														if ( isset($_GET['plan']) ) {
 															$value = $Controller->singlePlan($_GET['plan']);
-															echo "<p class='text-muted mb-4'>$".$value['min_limit']." - $".$value['max_limit']."</p>";
-														}
+															echo "<p id='limitText' class='text-muted mb-4'>$".$value['min_limit']." - $".$value['max_limit']."</p>";
+														}else echo "<p id='limitText' class='text-muted mb-4'></p>";
 														?>
 													</div>
 												</div>
@@ -264,6 +269,8 @@ require '../config/session.php';
       var duration = 1;
       var recapture_type = 1;
       var interest_return_type = 2;
+			let min_limit = 0;
+			let max_limit = 0;
 
       function updateMinMax() {
         const selectedOption = $('#select_plan option:selected');
@@ -273,7 +280,14 @@ require '../config/session.php';
         duration = selectedOption.data('duration');
         recapture_type = selectedOption.data('recapture_type');
         interest_return_type = selectedOption.data('interest_return_type');
+        min_limit = selectedOption.data('min-limit');
+        max_limit = selectedOption.data('max-limit');
+				$("#limitText").text(`$${min_limit} - $${max_limit}`);
+				// set new min and max
+				$("#qty").attr("min", 3);
+				$("#qty").attr("max", 15);
         $("#methodTitle").html(selectedOption.data('name')+" Profit Calculation");
+				console.log(min_limit);
       }
 
       function updateTotalReturn(amount) {
@@ -289,7 +303,7 @@ require '../config/session.php';
 
         var currency = "$";
         var returnAmount = parsedAmount * interestRate / 100;
-        $("#invest-total-return").text("Return " + currency + returnAmount.toFixed(2) + " Every " + day + " for " + duration + " Periods");
+        $("#invest-total-return").text("Return " + currency + returnAmount.toFixed(2) + " every " + day + " for " + duration + " days");
 
         var totalProfit = returnAmount * duration;
 
@@ -311,7 +325,7 @@ require '../config/session.php';
 
         $("#plan_name").text(planName);
         $("#cal_amount").text(currency + parsedAmount.toFixed(2));
-        $("#payment_interval").text(duration + " Periods");
+        $("#payment_interval").text(duration + " days");
         $("#profit").text(investProfit);
         $("#capital_back").text(currency + capitalBack.toFixed(2));
         $("#total_invest").text(currency + total.toFixed(2) + returnType);
@@ -351,9 +365,6 @@ require '../config/session.php';
 	<script src="./assets/global/js/jquery.nice-select.min.js"></script>
 	<script src="./assets/global/js/lucide.min.js"></script>
 	<script src="./assets/frontend/js/magnific-popup.min.js"></script>
-	<script src="./assets/frontend/js/aos.js"></script>
-	<script src="./assets/global/js/datatables.min.js" type="text/javascript"
-		charset="utf8"></script>
 	<script src="./assets/global/js/simple-notify.min.js"></script>
 	<script src="./assets/frontend/js/main.js?var=5"></script>
 	<script src="./assets/frontend/js/cookie.js"></script>
@@ -380,34 +391,6 @@ require '../config/session.php';
 
 	<!--
 	<script>
-		$("#select-schema").on('change', function (e) {
-			"use strict";
-			e.preventDefault();
-			var id = $(this).val();
-
-			var invest_amount = $("#enter-amount");
-			invest_amount.val('');
-			invest_amount.attr('readonly', false);
-
-			var url = './schema-select/:id';
-			url = url.replace(':id', id);
-
-			$.ajax({
-				url: url, success: function (result) {
-					$('#amount').html(result.amount_range);
-					$('#holiday').html(result.holiday);
-					$('#return-interest').html(result.return_interest);
-					$('#number-period').html(result.number_period);
-					$('#capital_back').html(result.capital_back);
-
-					if (result.invest_amount > 0) {
-						invest_amount.val(result.invest_amount);
-						invest_amount.attr('readonly', true);
-					}
-
-				}
-			});
-		});
 		$("#enter-amount").on('keyup', function (e) {
 			"use strict";
 			e.preventDefault();

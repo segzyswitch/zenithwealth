@@ -298,7 +298,7 @@ if ( isset($_POST["invest_now"]) ) {
     return false;
   }
 
-  $details = "Invested $".number_format($amount).".00 to ".$plan_name." plan";
+  $details = "Invested to ".$plan_name." plan";
 
   $trade = "INSERT INTO trades(user_id, plan_id, plan_name, amount, period,
     interest, profit, returns, start_date, end_date)
@@ -331,32 +331,91 @@ if ( isset($_POST["invest_now"]) ) {
 // Withdrawal
 if ( isset($_POST['widthdraw_funds']) ) {
   $amount = $_POST["amount"];
+  $from_wallet = $_POST["from_wallet"];
+  $gateway = $_POST["gateway"];
   $wallet_addr = $_POST["wallet_addr"];
-  // Generate 12 char invoice
-  $invoice = strtoupper(generateUniqueId(12));
-  // wallet balance after removing amount
-  $new_balance = $wallet_bal - $amount;
 
-  // Check wallet balance
-  if ( $amount > $user_info['wallet_bal'] ) {
-    echo "Insufficient balance, <a class='text-primary' href='deposit'>fund your wallet</a> and try again!";
+  // Validate input
+  if (empty($amount) || empty($from_wallet) || empty($gateway) || empty($wallet_addr)) {
+    echo "All fields are required!";
     return false;
   }
-  $details = "Cash out $".number_format($amount).".00 to external wallet";
+  // Generate 12 char invoice
+  $invoice = strtoupper(generateUniqueId(12));
+  // Check user balance
+  if ( $amount > $user_info[$from_wallet] ) {
+    echo "Insufficient balance, fund your wallet and try again!";
+    return false;
+  }
+  $wallet_bal = $user_info[$from_wallet];
+  $new_balance = $user_info[$from_wallet] - $amount;
+  $details = "Withdraw to ".$gateway;
+  $source = ($from_wallet=='wallet_bal') ? "Wallet balance" : "Profit balance";
 
   // withdraw funds
   $withdraw = "INSERT INTO transactions(user_id, type, invoice, amount,
     initial_bal, source, send_to, details)
   VALUES('$user_id', 'withdrawal', '$invoice', '$amount',
-    '$wallet_bal', 'Wallet balance', '$wallet_addr', '$details'
+    '$wallet_bal', '$source', '$wallet_addr', '$details'
   )";
-  $debit_user = "UPDATE users SET wallet_bal = '$new_balance' WHERE id = '$user_id'";
+  $debit_user = "UPDATE users SET `$from_wallet` = '$new_balance' WHERE id = '$user_id'";
   $query1 = $conn->prepare($withdraw);
   $query2 = $conn->prepare($debit_user);
   try {
     $query1->execute();
     $query2->execute();
-    echo 'Withdrawal successful! Be patient, crypto transactions might take a while.';
+    echo 'Withdrawal successful and been processed, please be patient as transactions might take a while to complete.';
+  } catch (PDOException $e) {
+    echo $e->getMessage();
+  }
+}
+
+// Make Transfer
+if ( isset($_POST['make_transfer']) ) {
+  $from_wallet = $_POST["send_from"];
+  $amount = $_POST["amount"];
+  $to_wallet = $_POST["send_to"];
+
+  // Validate input
+  if (empty($amount) || empty($from_wallet) || empty($to_wallet)) {
+    echo "All fields are required!";
+    return false;
+  }
+  // Check same wallet
+  if ( $from_wallet == $to_wallet) {
+    echo "Transfer to same wallet not allowed!";
+    return false;
+  }
+  // Generate 12 char invoice
+  $invoice = strtoupper(generateUniqueId(12));
+  // Check user balance
+  if ( $amount > $user_info[$from_wallet] ) {
+    echo "Insufficient balance, fund your wallet and try again!";
+    return false;
+  }
+  $from_wallet_bal = $user_info[$from_wallet];
+  $to_wallet_bal = $user_info[$to_wallet];
+  $new_from_balance = $user_info[$from_wallet] - $amount;
+  $new_to_balance = $user_info[$to_wallet] + $amount;
+  $source = ($from_wallet=='wallet_bal') ? "Wallet balance" : "Profit balance";
+  $recipicient = ($to_wallet=='wallet_bal') ? "Wallet balance" : "Profit balance";
+  $details = "Transfer to ".$recipicient;
+
+  // withdraw funds
+  $sql = "INSERT INTO transactions(user_id, type, invoice, amount,
+    initial_bal, source, send_to, details, status)
+  VALUES('$user_id', 'transfer', '$invoice', '$amount',
+    '$from_wallet_bal', '$source', '$recipicient', '$details', 'success'
+  )";
+  $charge_wallet = "UPDATE users SET `$from_wallet` = '$new_from_balance',
+  `$to_wallet` = '$new_to_balance'
+  WHERE id = '$user_id'";
+  $query1 = $conn->prepare($sql);
+  $query2 = $conn->prepare($charge_wallet);
+  try {
+    $query1->execute();
+    $query2->execute();
+    echo 'You successfully transfer $'.number_format($amount, 2).' from '.$source.' to '.$recipicient;
   } catch (PDOException $e) {
     echo $e->getMessage();
   }

@@ -64,8 +64,8 @@ require '../config/session.php';
 									</div>
 									<div class="site-card-body">
 										<div class="progress-steps-form">
-											<form action="javascript:void(0)" method="post">
-												<input type="hidden" name="_token" value="ynDPA8gYOyvzsdpB0EdOgNiHFxvQCV25Yebn7xlP">
+											<form id="withdrawForm" action="javascript:void(0)" method="post">
+												<input type="hidden" name="widthdraw_funds" value="ynDPA8gYOyvzsdpB0EdOgNiHFxvQCV25Yebn7xlP">
 												<div class="row g-4">
 													<div class="col-md-12">
 														<label for="exampleFormControlInput1" class="form-label">From Wallet:</label>
@@ -73,7 +73,7 @@ require '../config/session.php';
 															<select name="from_wallet" id="from_wallet" class="site-nice-select">
 																<option value="">Select from wallet</option>
 																<option value="wallet_bal">Main Wallet ($<?php echo number_format($user_info['wallet_bal'],2) ?>)</option>
-																<option value="wallet_bal">Profit Wallet ($<?php echo number_format($user_info['trading_bal'],2) ?>)</option>
+																<option value="trading_bal">Profit Wallet ($<?php echo number_format($user_info['trading_bal'],2) ?>)</option>
 															</select>
 														</div>
 													</div>
@@ -115,19 +115,19 @@ require '../config/session.php';
 														<tbody>
 															<tr>
 																<td><strong>Withdraw From</strong></td>
-																<td><span class="from"></span> <span class="currency"></span></td>
+																<td><span class="from"></span></td>
 															</tr>
 															<tr>
 																<td><strong>Send To</strong></td>
-																<td><span class="send-to"></span> <span class="currency"></span></td>
+																<td><span class="send-to"></span></td>
 															</tr>
 															<tr>
 																<td><strong>Amount</strong></td>
-																<td><span class="amount"></span> <span class="currency"></span></td>
+																<td><span class="amount"></span></td>
 															</tr>
 															<tr>
 																<td><strong>Charge</strong></td>
-																<td class="charge"></td>
+																<td class="charge">$0</td>
 															</tr>
 															<tr>
 																<td><strong>Total</strong></td>
@@ -196,32 +196,41 @@ require '../config/session.php';
 	</script>
 
 	<script>
-
 		"use strict"
+		
+		function number_format(number, decimals = 0, dec_point = ".", thousands_sep = ",") {
+			let n = parseFloat(number);
 
-		var currency = "USD";
+			if (!isFinite(n)) return "0";
 
-		var charge_type = "percentage";
-		var charge = "0";
+			let fixed = n.toFixed(decimals);
 
-		$('#amount').on('keyup', function (e) {
+			let parts = fixed.split(".");
+			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_sep);
 
-			var amount = $(this).val()
+			return parts.join(dec_point);
+		}
 
-			$('.table-review .amount').text((Number(amount)))
-
-			$('.currency').text(currency)
-
-			var finalCharge = charge_type === 'percentage' ? calPercentage(amount, charge) : charge
-
-
-			$('.charge2').text(finalCharge + ' ' + currency)
-
-			$('.total').text((Number(amount) + Number(finalCharge)) + ' ' + currency)
-
-
-			$('.charge').text('Charge ' + charge + ' ' + (charge_type === 'percentage' ? ' % ' : currency))
-		})
+		$("#from_wallet").change( function() {
+			const value = $(this).val();
+			const output = $(".table-review .from");
+			if (!value) return output.text('');
+			output.text((value=='wallet_bal') ? "Wallet balance" : "Profit balance");
+		});
+		$("#gateway").change( function() {
+			const value = $(this).val();
+			const output = $(".table-review .send-to");
+			if (!value) return output.text('');
+			output.text(value);
+		});
+		$("#amount").on('input', function() {
+			const value = $(this).val();
+			const output = $(".table-review .amount");
+			if (!value) return output.text('');
+			const outputtext = `$${number_format(value)}`;
+			output.text(outputtext);
+			$('.table-review .total').text(outputtext);
+		});
 	</script>
 	<script>
 		// Color Switcher

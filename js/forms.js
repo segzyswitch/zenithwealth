@@ -123,24 +123,60 @@ $(document).ready(function() {
 		    $("#withdrawForm .submit-btn").addClass("disabled");
 	    },
 	    success: function(data) {
-		    $("#withdrawForm .submit-btn").html("Withdraw Now");
+		    $("#withdrawForm .submit-btn").html("Withdraw");
 		    $("#withdrawForm .submit-btn").removeClass("disabled");
 		    if ( data.search('success') !== -1 ) {
-		    	notify('success', data);
-		    	$('.modal').modal('hide');
-		    	window.location.href = "withdrawal?message="+data;
+					$("#withdrawForm").find("input, select, textarea").val("");
+		    	notifySuccess(data);
+					setTimeout( function() {
+						window.location.href = "./transactions?message="+data;
+					}, 3500);
 		    }else {
-		    	notify('warning', data);
+		    	notifyWarning(data);
 		    }
 	    },
 	    error: function(error) {
-		    $("#withdrawForm .submit-btn").html("Withdraw Now");
+		    $("#withdrawForm .submit-btn").html("Withdraw");
 		    $("#withdrawForm .submit-btn").removeClass("disabled");
-	    	notify('warning', 'An error occured, check your connection and try again');
+	    	notifyWarning('An error occured, check your connection and try again');
 	    }
 	  });
 	});
 
+	// withdraw Form
+	$("#transferForm").on('submit', function(){
+	  event.preventDefault();
+	  $.ajax({
+	    url: "../config/process.php",
+	    type: "POST",
+	    data: new FormData(this),
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    beforeSend: function() {
+		    $("#transferForm .submit-btn").html("please wait <i class='spinner-border spinner-border-sm'></i>");
+		    $("#transferForm .submit-btn").addClass("disabled");
+	    },
+	    success: function(data) {
+		    $("#transferForm .submit-btn").html("Withdraw");
+		    $("#transferForm .submit-btn").removeClass("disabled");
+		    if ( data.search('success') !== -1 ) {
+					$("#transferForm").find("input, select, textarea").val("");
+		    	notifySuccess(data);
+					setTimeout( function() {
+						window.location.href = "./transactions?message="+data;
+					}, 3500);
+		    }else {
+		    	notifyWarning(data);
+		    }
+	    },
+	    error: function(error) {
+		    $("#transferForm .submit-btn").html("Withdraw");
+		    $("#transferForm .submit-btn").removeClass("disabled");
+	    	notifyWarning('An error occured, check your connection and try again');
+	    }
+	  });
+	});
 
 	// investForm
 	$("#investForm").on('submit', function(ev){
