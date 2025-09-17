@@ -1,4 +1,6 @@
 <?php
+ini_set('SMTP', 'mooninvests.com');
+ini_set('smtp_port', 465);
 // Set recipient email and subject
 $to = $user_info['email']; // Replace with recipient email
 $subject = 'Deposit Submitted - Pending Confirmation';
@@ -29,10 +31,9 @@ $message = '
         <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); overflow: hidden;">
           <tr>
             <td style="background-color: #001f3f; padding: 20px; text-align: center;">
-              <h1 style="color: #ffffff; margin: 0; font-size: 24px;">
-                <img alt='. $companyLogo .' alt='. $companyName .' />
-                <span style="margin-right:5px;">'. $companyName .'</span>
-              </h1>
+              <p style="color: #ffffff; margin: 0; font-size: 24px;">
+                <img src='.$companyLogo.' alt='.$companyName .' />
+              </p>
             </td>
           </tr>
           <tr>
@@ -78,8 +79,11 @@ $message = '
 
 // Email headers
 $headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= 'From: ' . $companyName . ' <noreply@mooninvests.com>' . "\r\n"; // Update with your domain
+$headers = "From: ".$companyName." <noreply@mooninvests.com>\r\n";
+$headers .= "Reply-To: ".$companyName." <contact@mooninvests.com>\r\n";
+$headers .= "Return-Path: noreply@mooninvests.com\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
 // Send the email
 if (mail($to, $subject, $message, $headers)) {
