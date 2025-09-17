@@ -253,6 +253,7 @@ if ( isset($_POST['make_deposit']) ) {
     $query = $conn->prepare($deposit);
     try {
       $query->execute();
+      include './deposit-mail.php';
       echo 'Transaction successful! Funds will appear in your wallet once deposit is confirmed.';
     } catch (PDOException $e) {
       echo $e->getMessage();
