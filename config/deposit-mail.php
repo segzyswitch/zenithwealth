@@ -6,11 +6,11 @@ $to = $user_info['email']; // Replace with recipient email
 $subject = 'Deposit Submitted - Pending Confirmation';
 
 // Optional: replace with real dynamic values
-$customerName = $user_info['fname'].' '.$user_info['lname'];
+$customerName = $user_info['fname'];
 $source = $wallet_type;
 $date = date('M d, Y');
 $transactionId = $invoice;
-$companyName = 'CrownStone Traders';
+$companyName = '👑CrownStone Traders';
 $companyLogo = '';
 $supportUrl = 'https://yourdomain.com/support';
 $year = '2025';
