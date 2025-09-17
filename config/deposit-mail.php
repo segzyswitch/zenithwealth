@@ -11,7 +11,7 @@ $source = $wallet_type;
 $date = date('M d, Y');
 $transactionId = $invoice;
 $companyName = '👑CrownStone Traders';
-$companyLogo = '';
+$companyLogo = 'undefined';
 $supportUrl = 'https://yourdomain.com/support';
 $year = '2025';
 
@@ -37,12 +37,12 @@ $message = '
             </td>
           </tr>
           <tr>
-            <td style="padding: 30px;">
+            <td style="padding: 20px;">
               <p style="font-size: 16px; color: #333333; margin-bottom: 20px;">
                 Hello <strong>' . htmlspecialchars($customerName) . '</strong>,
               </p>
               <p style="font-size: 16px; color: #333333; margin-bottom: 20px;">
-                We\'ve received your deposit request and it\'s currently being processed. You will receive a confirmation once the funds have been successfully credited to your account.
+                We\'ve received your deposit and it\'s currently being processed. You will receive a confirmation once transaction is completed.
               </p>
               <table width="100%" cellpadding="10" cellspacing="0" style="background-color: #f1f5f9; border-left: 4px solid #001f3f; margin: 20px 0; border-radius: 4px;">
                 <tr>
