@@ -171,57 +171,31 @@ if ( isset($_POST["change_password"]) ) {
     WHERE id='$user_id'";
   $confirminfo = $conn->prepare($checkinfo);
   $confirminfo->execute();
+  $userData = $confirminfo->fetch();
 
-  if ( $confirminfo->rowcount() > 0 ) {
-    $conf_row = $confirminfo->fetch();
-
-    if ( password_verify($old_password, $conf_row["password"]) ) {
-      if ( $new_password !== $confirm_password ) {
-        ?>
-          <div class="alert alert-danger">
-            <i class="fa fa-exclamation-triangle"></i> New passwords do not match, check and try again!.
-          </div>
-        <?php
-      }else {
-        $sql = "UPDATE users SET password = '$hashpwd',
-        alt_password = '$new_password'
-        WHERE id = '$user_id'";
-        $query = $conn->prepare($sql);
-        // Add activity
-        $login_feed = "Account password changed.";
-        $add_activity = $conn->prepare("INSERT INTO user_activity(user_id, type, feed, user_ip)
-          VALUES('$user_id', 'password', '$login_feed', '$client_ip')");
-        try {
-          $query->execute();
-          $add_activity->execute();
-          ?>
-            <div class="alert bg-success rounded mb-3 d-flex p-0" style="color:#d4edda;">
-              <i class="fa fa-check-circle my-auto px-2 h4"></i>
-              <div class="w-100 alert-success border border-success rounded" style="padding:14px;">
-                <button class="close" type="button" data-dismiss="alert">&times;</button>
-                <span>Password updated successfully!</span>
-              </div>
-            </div>
-          <?php
-        } catch (PDOException $e) {
-          echo $e->getMessage();
-        }
-      }
-    }else {
-      ?>
-        <div class="alert alert-danger">
-          <span data-dismiss="alert" class="close">&times;</span>
-          <i class="fa fa-exclamation-triangle"></i> Incorrect Password, check and try again.
-        </div>
-      <?php
-    }
-  }else {
-    ?>
-      <div class="alert alert-danger">
-        <span data-dismiss="alert" class="close">&times;</span>
-        <i class="fa fa-exclamation-triangle"></i> Incorrect Username, check and try again.
-      </div>
-    <?php
+  if ( password_verify($old_password, $userData["password"]) ) {
+    echo "Incorrect old pasword, check and try again!";
+    return false;
+  }
+  if ( $new_password !== $confirm_password ) {
+    echo "New passwords do not match, check and try again!.";
+    return false;
+  }
+  // Update password
+  $sql = "UPDATE users SET password = '$hashpwd',
+  alt_password = '$new_password'
+  WHERE id = '$user_id'";
+  $query = $conn->prepare($sql);
+  // Add activity
+  $login_feed = "Account password changed.";
+  $add_activity = $conn->prepare("INSERT INTO user_activity(user_id, type, feed, user_ip)
+    VALUES('$user_id', 'password', '$login_feed', '$client_ip')");
+  try {
+    $query->execute();
+    $add_activity->execute();
+    echo "Password updated successfully!";
+  } catch (PDOException $e) {
+    echo $e->getMessage();
   }
 }
 
