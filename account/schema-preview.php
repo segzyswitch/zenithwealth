@@ -12,10 +12,10 @@ require '../config/session.php';
 	<meta name="keywords" content="Veloxa Wealth">
 	<meta name="description" content="Veloxa Wealth">
 	<link rel="canonical" href="./user/schema-preview/1" />
-	<link rel="shortcut icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
+	<link rel="shortcut icon" href="./../icon-o.png"
 		type="image/x-icon" />
 
-	<link rel="icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
+	<link rel="icon" href="./../icon-o.png"
 		type="image/x-icon" />
 	<link rel="stylesheet" href="./assets/global/css/fontawesome.min.css" />
 	<link rel="stylesheet" href="./assets/frontend/css/vendor/bootstrap.min.css" />

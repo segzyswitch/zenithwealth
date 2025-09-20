@@ -12,9 +12,9 @@ require '../config/session.php';
 	<meta name="keywords" content="Veloxa Wealth">
 	<meta name="description" content="Veloxa Wealth">
 	<link rel="canonical" href="./user/deposit" />
-	<link rel="shortcut icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png" type="image/x-icon" />
+	<link rel="shortcut icon" href="./../icon-o.png" type="image/x-icon" />
 
-	<link rel="icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png" type="image/x-icon" />
+	<link rel="icon" href="./../icon-o.png" type="image/x-icon" />
 	<link rel="stylesheet" href="./assets/global/css/fontawesome.min.css" />
 	<link rel="stylesheet" href="./assets/frontend/css/vendor/bootstrap.min.css" />
 	<link rel="stylesheet" href="./assets/frontend/css/animate.css" />
@@ -76,7 +76,7 @@ require '../config/session.php';
 											<div class="w-100 single-investment-plan rounded-3 p-2" style="background-color:rgba(255, 255, 255, 0.1);">
 												<h5 class="p-3"><?php echo $value['name']; ?></h5>
 												<div class="card-body d-flex">
-													<img src="../uploads/<?php echo $value['icon']; ?>"
+													<img src="<?php echo $value['icon']; ?>"
 														class="w-100" width="80"
 														style="max-width:80px;"
 														alt="<?php echo $value['name']; ?>"

@@ -6,8 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mooninvests - Payment gateways</title>
-  <link rel="shortcut icon" href="./assets/files/main-icon.png" type="image/x-icon">
+  <title>Veloxa Wealth - Payment gateways</title>
+  <link rel="shortcut icon" href="../icon-o.png" type="image/x-icon">
   <link rel="stylesheet" href="./assets/theme/global/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./assets/theme/global/css/line-awesome.min.css" />
   <link rel="stylesheet" href="./assets/theme/global/css/bootstrap-icons.min.css" />
@@ -56,7 +56,7 @@
                   ?>
                 <tr id="tRow<?php echo $value['id']; ?>">
                   <td data-label="Name">
-                    <img width="25" src="./assets/coins/images/<?php echo $value['icon'] ?>" />
+                    <img width="25" src="<?php echo $value['icon'] ?>" />
                     <span> <?php echo $value['name']; ?></span>
                   </td>
                   <td data-label="Wallet Address">

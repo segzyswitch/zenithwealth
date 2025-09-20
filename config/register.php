@@ -66,7 +66,7 @@ if ( isset($_POST["register"]) ) {
     $message = "
     <html>
     <head>
-      <title>MoonInvests - Activate Your Account</title>
+      <title>Veloxa Wealth - Activate Your Account</title>
       <link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
       <style>
         body {
@@ -132,7 +132,7 @@ if ( isset($_POST["register"]) ) {
     </body>
     </html>
     ";
-    $subject = "MoonInvests - Confirm Your Account";
+    $subject = "Veloxa Wealth - Confirm Your Account";
     $headers = "From: MoonInvests <noreply@mooninvests.com>\r\n";
     $headers .= "Reply-To: MoonInvests <contact@mooninvests.com>\r\n";
     $headers .= "Return-Path: noreply@mooninvests.com\r\n";

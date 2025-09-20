@@ -9,10 +9,10 @@
 	<meta name="keywords" content="Veloxa Wealth">
 	<meta name="description" content="Veloxa Wealth">
 	<link rel="canonical" href="https://zenithwealthpro.com/account/user/ranking-badge" />
-	<link rel="shortcut icon" href="https://zenithwealthpro.com/account/assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
+	<link rel="shortcut icon" href="https://zenithwealthpro.com/account/../icon-o.png"
 		type="image/x-icon" />
 
-	<link rel="icon" href="https://zenithwealthpro.com/account/assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
+	<link rel="icon" href="https://zenithwealthpro.com/account/../icon-o.png"
 		type="image/x-icon" />
 	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/global/css/fontawesome.min.css" />
 	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/frontend/css/vendor/bootstrap.min.css" />

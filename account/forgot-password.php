@@ -25,7 +25,7 @@
 	<link rel="stylesheet" href="assets/frontend/theme_base/mining_invest/css/styles67f8.css?var=1" />
 
 	<style>
-		//The Custom CSS will be added on the site head tag 
+		/* //The Custom CSS will be added on the site head tag  */
 		.site-head-tag {
 			margin: 0;
 			padding: 0;
@@ -53,7 +53,7 @@
 				<div class="col-xl-5 col-lg-8 col-md-12">
 					<div class="auth-content">
 						<div class="logo">
-							<a href="index.html"><img src="assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="" /></a>
+							<a href="../"><img src="assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="" /></a>
 						</div>
 						<div class="title">
 							<h2> Password Reset</h2>

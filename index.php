@@ -11,7 +11,7 @@
 
 	<!--title-->
 	<title>Veloxa Wealth</title>
-	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="icon-o.png" type="image/x-icon">
 	<!--bootstrap-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/Bootstrap_Carousel_Touch_Slider.css">
@@ -63,7 +63,7 @@
 									<li id="left">
 										<!-- <span class="header-icons"><i class="fas fa-building"></i> UK Company Number: 11981123</span> -->
 										<span class="header-icons"><i class="fas fa-envelope"></i>
-											 support@veloxawealth.com</span>
+											support@veloxawealth.com </span>
 										<span class="header-icons"><i class="fas fa-mobile-android-alt"></i> Phone: +1
 											(205) 470-7645</span>
 									</li>
@@ -96,7 +96,7 @@
 							<nav class="navbar navbar-inverse">
 								<div class="container">
 									<a id="logo" href="./">
-										<img src="images/logo.png" alt="zenithwealthpro.com" title="zenithwealthpro.com"
+										<img src="logo.png" alt="Veloxa Wealth" title="Veloxa Wealth"
 											class="img-responsive" />
 									</a>
 
@@ -166,7 +166,7 @@
 							</div>
 						</div>
 						<div class="title-h5 wow fadeInDown" data-wow-delay="1.6s" style="max-width: 440px; ">
-							<span class="light_white" style="color: #C86567;font-weight: 400;">zenithwealthpro.com
+							<span class="light_white" style="color: #C86567;font-weight: 400;">Veloxa Wealth
 								company's knows how to safely increase your capital</span>
 						</div>
 						<div class="title-h2 wow fadeInUp" data-wow-delay="2s">
@@ -205,7 +205,7 @@
 				</div>
 				<div class="col-md-8">
 					<div class="row">
-						<p id="small_offers">zenithwealthpro.com offer plans in differential interest rate. Our clients
+						<p id="small_offers">Veloxa Wealth offer plans in differential interest rate. Our clients
 							can increase the amount investments. It will lead to increase in percent of profit. Greater
 							amount of investment - the greater the profit!</p>
 					</div>
@@ -270,14 +270,14 @@
 							<div class="wow fadeInRight" data-wow-offset="200">
 								<div class="wow slideInDown" data-wow-delay="1s" data-wow-offset="200">
 									<div class="title-h5" style="margin: 0px 0 20px;"><span class="h5_light">to
-											zenithwealthpro.com</span></div>
+											Veloxa Wealth</span></div>
 								</div>
 							</div>
 						</div>
 						<div class="home_video1">
 							<!--span><i class="fa fa-play"></i>Our Company Video</span-->
 							<div class="index_about_content_left" style="padding: 10px 20px 20px 0px;">
-								<p class="border-left-text" style="margin: 10px auto 30px;">zenithwealthpro.com
+								<p class="border-left-text" style="margin: 10px auto 30px;">Veloxa Wealth
 									company's works in the sphere of investment. We have legal registered in UK. The
 									clients cooperating with us conclude the agreement on placement of the capitals then
 									they draw interest from profit. Client does not need to think independently, which
@@ -359,7 +359,7 @@
 			<div class="col-lg-4" id="blue_colum_1">
 				<i class="far fa-shield-check fa-fw fa-3x"></i>
 				<div class="title-h4">EV SSL Certificate</div>
-				<p>Website of zenithwealthpro.com company <b>zenithwealthpro.com</b> have highest level of
+				<p>Website of Veloxa Wealth company <b>Veloxa Wealth</b> have highest level of
 					authentication EV SSL. It helps to protect our customers' funds as much as possible.
 				</p>
 				<div class="conter wow slideInUp" data-wow-offset="200">
@@ -371,7 +371,7 @@
 			<div class="col-lg-4" id="blue_colum_2">
 				<i class="far fa-building fa-fw fa-3x"></i>
 				<div class="title-h4">Company info</div>
-				<p>Company name: <b>zenithwealthpro.com</b><br>
+				<p>Company name: <b>Veloxa Wealth</b><br>
 					Company number: <b>NI692778</b><br>
 					Registered office: <b>10 Hornsey Road, London,<br>
 						United Kingdom, N7 6RD</b></p>
@@ -652,7 +652,7 @@
 								Referral commission 5%</div>
 						</div>
 						<div class="reff_text wow fadeInUp" data-wow-delay=".7s" data-wow-duration=".8s" data-wow-offset="100">Bonus
-							refferral program by zenithwealthpro.com is provided for those
+							refferral program by Veloxa Wealth is provided for those
 							who invite clients. If you telling someone about the advantages of our company, then it is
 							possible not only to help them to receive financial benefit, but also to receive additional
 							percent.</div>
@@ -691,7 +691,7 @@
 
 									<div class="footer_inner_company" id="middle">
 										<ul>
-											<li> <i class="fas fa-barcode"></i> zenithwealthpro.com</li>
+											<li> <i class="fas fa-barcode"></i> Veloxa Wealth</li>
 											<!--	<li>  <i class="fab fa-black-tie"></i>Company xxxxxxxx</li> -->
 											<li> <i class="fas fa-map-marker"></i>Berry & Co Sterling House, 7 Ashford
 												Road,
@@ -706,7 +706,7 @@
 								<div class="col-md-4 col-sm-12">
 									<div class="footer_inner" id="middle">
 										<a style="text-align:center;" href="index-1bc14.html?a=home"><img src="images/logo1.png"
-												alt="zenithwealthpro.com" title="zenithwealthpro.com" class="img-responsive"></a>
+												alt="Veloxa Wealth" title="Veloxa Wealth" class="img-responsive"></a>
 									</div>
 
 								</div>
@@ -718,7 +718,7 @@
 									<div class="footer_inner_company" id="middle">
 										<ul>
 											<li> <i class="fas fa-mobile-alt"></i>+1 (205) 470-7645</li>
-											<li> <i class="far fa-envelope"></i>support@zenithwealthpro.com</li>
+											<li> <i class="far fa-envelope"></i>support@Veloxa Wealth</li>
 											<!--  <li id="footer_fb">  <a target="_blank" href="#"><i class="fab fa-facebook-square" style="font-weight: 100; margin-left: 10px;"></i></a>
                         <a target="_blank" href="#" ><i class="fab fa-telegram-plane" ></i></a>
                         <a target="_blank" href="#" id="telegram"> <i class="fab fa-twitter" ></i></a>
@@ -765,7 +765,7 @@
 				<div class="row" id="footer_bottom">
 					<div class="col-md-12">
 						<div class="footer_bottom_copy">
-							Copyrights &copy; 2025.&nbsp; zenithwealthpro.com &nbsp; All Rights Reserved.</div>
+							Copyrights &copy; 2025.&nbsp; Veloxa Wealth &nbsp; All Rights Reserved.</div>
 
 					</div>
 				</div>
@@ -970,6 +970,6 @@
 <!----VisualHyip.com---->
 
 
-<!-- Mirrored from zenithwealthpro.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Aug 2025 21:31:30 GMT -->
+<!-- Mirrored from Veloxa Wealth/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Aug 2025 21:31:30 GMT -->
 
 </html>
