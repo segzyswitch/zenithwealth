@@ -9,13 +9,13 @@ require '../config/session.php';
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="csrf-token" content="kLYeQlkSAq2dsFWe25IBwTP1vig2I5JjNUWxZvUn">
-	<meta name="keywords" content="Zenith Wealth">
-	<meta name="description" content="Zenith Wealth">
+	<meta name="keywords" content="Veloxa Wealth">
+	<meta name="description" content="Veloxa Wealth">
 	<link rel="canonical" href="./user/transactions" />
-	<link rel="shortcut icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
+	<link rel="shortcut icon" href="./../icon-o.png"
 		type="image/x-icon" />
 
-	<link rel="icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
+	<link rel="icon" href="./../icon-o.png"
 		type="image/x-icon" />
 	<link rel="stylesheet" href="./assets/global/css/fontawesome.min.css" />
 	<link rel="stylesheet" href="./assets/frontend/css/vendor/bootstrap.min.css" />
@@ -39,7 +39,7 @@ require '../config/session.php';
 		}
 	</style>
 
-	<title>Zenith Wealth - Schema Logs
+	<title>Veloxa Wealth - Schema Logs
 	</title>
 
 

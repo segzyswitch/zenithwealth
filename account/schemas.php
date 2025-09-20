@@ -8,9 +8,9 @@ require '../config/session.php';
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="shortcut icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png" type="image/x-icon" />
+	<link rel="shortcut icon" href="./../icon-o.png" type="image/x-icon" />
 
-	<link rel="icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png" type="image/x-icon" />
+	<link rel="icon" href="./../icon-o.png" type="image/x-icon" />
 	<link rel="stylesheet" href="./assets/global/css/fontawesome.min.css" />
 	<link rel="stylesheet" href="./assets/frontend/css/vendor/bootstrap.min.css" />
 	<link rel="stylesheet" href="./assets/frontend/css/animate.css" />
@@ -32,7 +32,7 @@ require '../config/session.php';
 		}
 	</style>
 
-	<title>Zenith Wealth - All Schema
+	<title>Veloxa Wealth - All Schema
 	</title>
 
 

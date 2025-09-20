@@ -1,8 +1,8 @@
 <div class="panel-header">
 	<div class="logo">
-		<a href="/dashboard">
-			<img class="logo-unfold" src="./assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="Logo" />
-			<img class="logo-fold" src="./assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="Logo" />
+		<a href="../">
+			<img class="logo-unfold" src="../logo.png" alt="Logo" />
+			<img class="logo-fold" src="../logo.png" alt="Logo" />
 		</a>
 	</div>
 	<div class="nav-wrap">
@@ -11,8 +11,8 @@
 				<i class="anticon anticon-arrow-left"></i>
 			</button>
 			<div class="mob-logo">
-				<a href="./dashboard">
-					<img src="./assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="Site Name" />
+				<a href="../">
+					<img src="../icon-o.png" alt="Site Name" />
 				</a>
 			</div>
 		</div>

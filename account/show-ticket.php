@@ -6,13 +6,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="csrf-token" content="0PBnSGpBOeU6uMyjETolsJPb2ENYjKaQCWd9mtKF">
-	<meta name="keywords" content="Zenith Wealth">
-	<meta name="description" content="Zenith Wealth">
+	<meta name="keywords" content="Veloxa Wealth">
+	<meta name="description" content="Veloxa Wealth">
 	<link rel="canonical" href="https://zenithwealthpro.com/account/user/support-ticket/show/SUPT885960" />
-	<link rel="shortcut icon" href="https://zenithwealthpro.com/account/assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
+	<link rel="shortcut icon" href="https://zenithwealthpro.com/account/../icon-o.png"
 		type="image/x-icon" />
 
-	<link rel="icon" href="https://zenithwealthpro.com/account/assets/global/images/MiZLv4Eb9oH3Boyfzlni.png"
+	<link rel="icon" href="https://zenithwealthpro.com/account/../icon-o.png"
 		type="image/x-icon" />
 	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/global/css/fontawesome.min.css" />
 	<link rel="stylesheet" href="https://zenithwealthpro.com/account/assets/frontend/css/vendor/bootstrap.min.css" />
@@ -36,7 +36,7 @@
 		}
 	</style>
 
-	<title>Zenith Wealth - Add New Support Ticket
+	<title>Veloxa Wealth - Add New Support Ticket
 	</title>
 
 
