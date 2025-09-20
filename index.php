@@ -1,6 +1,4 @@
-<!DOCTYPE html
-	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 
 <head>
 	<!--metatags-->
@@ -53,99 +51,7 @@
 <body>
 
 	<main class="w-100 overflow-hidden">
-		<header>
-			<div class="header_top">
-				<div class="container">
-					<div class="col-md-12">
-						<div class="row">
-							<div class="header_top_right">
-								<ul>
-									<li id="left">
-										<!-- <span class="header-icons"><i class="fas fa-building"></i> UK Company Number: 11981123</span> -->
-										<span class="header-icons"><i class="fas fa-envelope"></i>
-											support@veloxawealth.com </span>
-										<span class="header-icons"><i class="fas fa-mobile-android-alt"></i> Phone: +1
-											(205) 470-7645</span>
-									</li>
-									<!-- google translate -->
-									<div id="google_translate_element"></div>
-									<script>
-										function googleTranslateElementInit() {
-
-											new google.translate.TranslateElement({
-
-												pageLanguage: 'en'
-
-											}, 'google_translate_element');
-
-										}
-									</script>
-									<script src="translate_a/elementa0d8.js?cb=googleTranslateElementInit"></script>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="menu_scroll"></div>
-			<div class="header_menu clearfix">
-				<div class="menu_block">
-					<div class="col-md-12">
-						<div class="row">
-							<nav class="navbar navbar-inverse">
-								<div class="container">
-									<a id="logo" href="./">
-										<img src="logo.png" alt="Veloxa Wealth" title="Veloxa Wealth"
-											class="img-responsive" />
-									</a>
-
-									<div class="navbar-header">
-										<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-											<span class="icon-bar"></span>
-
-										</button>
-
-									</div>
-									<div class="collapse navbar-collapse" id="myNavbar">
-
-										<ul class="nav navbar-nav navbar-right">
-
-
-											<li><a class="tsn3" href="./"><span>Home</span></a>
-											</li>
-											<li><a class="tsn3" href="about-us.html"><span>About
-														Us</span></a>
-											</li>
-											<li><a class="tsn3" href="index-338cd.html?a=faq"><span>Faq</span></a></li>
-											<li><a class="tsn3" href="index-4a972.html?a=rules"><span>Terms</span></a>
-											</li>
-											<!--	<li><a class="tsn3" href="?a=cust&page=banners"><span>Banners</span></a></li> -->
-
-
-											<li><a class="tsn3" href="index-515a0.html?a=support"><span>Support</span></a>
-											</li>
-											<li><a class="tsn3" href="account/register.html"><span>Sign up</span></a>
-											</li>
-											<li><a class="tsn3 " href="account/login"><span>Login</span></a></li>
-
-										</ul>
-									</div>
-								</div>
-							</nav>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div id="google_translate_element"></div>
-			<script src="coingecko-coin-price-marquee-widget.js"></script>
-			<coingecko-coin-price-marquee-widget
-				coin-ids="bitcoin,ethereum,eos,ripple,litecoin"
-				currency="usd"
-				background-color="#ffffff" locale="en">
-			</coingecko-coin-price-marquee-widget>
-		</header>
+		<?php include 'inc/header.php' ?>
 
 		<section class="section_2">
 			<div class="container">
@@ -156,8 +62,7 @@
 								<div class="title-xlarge " id="title-xlarge-responsive">We</div>
 							</div>
 						</div>
-						<div class="title-xlarge wow fadeIn"
-							data-wow-delay="1s" data-wow-duration="1s">
+						<div class="title-xlarge wow fadeIn" data-wow-delay="1s" data-wow-duration="1s">
 							make use of the best
 						</div>
 						<div class="wow fadeInRight" data-wow-duration="1s" data-wow-offset="100">
@@ -181,11 +86,8 @@
 			<div class="row" style="margin-top:25px;">
 				<div class="col-md-7" style="float:none;margin:auto;">
 					<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:100%;">
-						<iframe src="vid01.mp4"
-							frameborder="0"
-							allow="accelerometer; encrypted-media; gyroscope;"
-							style="position:absolute; width:100%; height:100%; border: none;"
-							allowfullscreen="">
+						<iframe src="vid01.mp4" frameborder="0" allow="accelerometer; encrypted-media; gyroscope;"
+							style="position:absolute; width:100%; height:100%; border: none;" allowfullscreen="">
 						</iframe>
 						<!-- <iframe src="vid01.mp4" style="position:absolute; width:100%; height:100%; border: none;"></iframe> -->
 					</div>
@@ -222,33 +124,33 @@
 									let container = document.getElementById("plans-container");
 									plans.forEach(plan => {
 										container.innerHTML += `
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <div class="pricing-container">  
-                                                <div class="pricing-table">
-                                                    <div class="tb-border"></div>
-                                                    <div class="lr-border"></div>
-                                                    <div class="pricing-inner">
-                                                        ${plan.is_trending == 1 ? '<span class="badge badge-warning">Trending</span>' : ''}
-                                                        <p><b class="plan-name-text">${plan.name}</b></p>
-                                                        <div class="pricing-price-title-wrapper">
-                                                            <div class="pricing-price-title title-h5">${plan.percent}</div>
-                                                            <div class="pricing-price-subtitle">${plan.duration}</div>
-                                                        </div>
-                                                        <div class="plan-desc">
-                                                            <figure class="pricing-row">Minimum deposit - ${plan.min}</figure>
-                                                            <figure class="pricing-row">Maximum deposit - ${plan.max}</figure>
-                                                            <figure class="pricing-row">Quality Investment Experience</figure>
-                                                            <figure class="pricing-row">24/7 Phone and Email Support</figure>
-                                                            <figure class="pricing-row">Instant Withdrawal</figure>
-                                                        </div>
-                                                        <div class="pricing-footer">
-                                                            <button><a href="account/register" class="btn-no-bg-white">Sign Up</a></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    `;
+																				<div class="col-md-3 col-sm-6 col-xs-12">
+																						<div class="pricing-container">  
+																								<div class="pricing-table">
+																										<div class="tb-border"></div>
+																										<div class="lr-border"></div>
+																										<div class="pricing-inner">
+																												${plan.is_trending == 1 ? '<span class="badge badge-warning">Trending</span>' : ''}
+																												<p><b class="plan-name-text">${plan.name}</b></p>
+																												<div class="pricing-price-title-wrapper">
+																														<div class="pricing-price-title title-h5">${plan.percent}</div>
+																														<div class="pricing-price-subtitle">${plan.duration}</div>
+																												</div>
+																												<div class="plan-desc">
+																														<figure class="pricing-row">Minimum deposit - ${plan.min}</figure>
+																														<figure class="pricing-row">Maximum deposit - ${plan.max}</figure>
+																														<figure class="pricing-row">Quality Investment Experience</figure>
+																														<figure class="pricing-row">24/7 Phone and Email Support</figure>
+																														<figure class="pricing-row">Instant Withdrawal</figure>
+																												</div>
+																												<div class="pricing-footer">
+																														<button><a href="account/register" class="btn-no-bg-white">Sign Up</a></button>
+																												</div>
+																										</div>
+																								</div>
+																						</div>
+																				</div>
+																		`;
 									});
 								});
 						});
@@ -304,7 +206,6 @@
 			<div class="col-lg-4" id="home_colum_1">
 				<div class="home_video1">
 					<!--span><i class="fa fa-play"></i>Our Company Video</span-->
-
 				</div>
 			</div>
 			<div class="col-lg-4" id="home_colum_2">
@@ -469,84 +370,89 @@
 
 		</section>
 
-
-
 		<section class="section_22_plans" style="background: #EAE8DC;padding: 40px 0px 20px;">
-	<div class="container clearfix">
-	<div style="overflow: hidden;">
-	<div class="wow fadeInLeft"  data-wow-offset="100" data-wow-delay="1s">
-                
-							 <div class="title-xlarge">Calculator</div>	
+			<div class="container clearfix">
+				<div style="overflow: hidden;">
+					<div class="wow fadeInLeft" data-wow-offset="100" data-wow-delay="1s">
+
+						<div class="title-xlarge">Calculator</div>
+					</div>
+					<div class="wow fadeInRight" data-wow-offset="100" data-wow-delay="1s">
+
+						<div class="title-h5" style="margin: 0px 0 20px;">Calculation of your profit</div>
+					</div>
+				</div>
+				<div class="calculator_box">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form_home calc_input">
+									<label>
+										<div class="pricing-row">Deposit amount:</div>
+									</label>
+									<span><input id="deposit" value="20" onblur="calcthis(2);" type="number" autocomplete="off"
+											placeholder="Enter amount" /></span>
+								</div>
 							</div>
-							<div class="wow fadeInRight"  data-wow-offset="100" data-wow-delay="1s">
-                
-         <div class="title-h5" style="margin: 0px 0 20px;">Calculation of your profit</div>
-         </div></div>
- <div class="calculator_box">
-<div class="col-md-12">
-        	<div class="row">
-        	      <div class="col-md-6"> 
-                    <div class="form_home calc_input">
-                        <label><div class="pricing-row">Deposit amount:</div></label>
-                        <span><input id="deposit" value="20" onblur="calcthis(2);" type="number" autocomplete="off" placeholder="Enter amount"/></span>  </div>
-                </div>
-                <div class="col-md-6"> 	
-      		<ul>
-                <li>
-                    <div class="form_home calc_input">
-                        <label><div class="pricing-row">Select a plan:</div></label>
-                        <span>
-                            <select style="padding-left: 12px;" autocomplete="off" id="percent" onchange="calcthis(1);">
-                                <option value="perc1">20% After 24 Hours</option>
-                                <option value="perc2">50% After 48 Hours</option>
-                                <option value="perc3">100% After 72 Hours</option>
-                                <option value="perc4">150% After 96 Hours</option>
-                             
-                                
-                            </select>
-                        </span>                    
-                    </div>
-                </li>
-                </ul>
+							<div class="col-md-6">
+								<ul>
+									<li>
+										<div class="form_home calc_input">
+											<label>
+												<div class="pricing-row">Select a plan:</div>
+											</label>
+											<span>
+												<select style="padding-left: 12px;" autocomplete="off" id="percent" onchange="calcthis(1);">
+													<option value="perc1">20% After 24 Hours</option>
+													<option value="perc2">50% After 48 Hours</option>
+													<option value="perc3">100% After 72 Hours</option>
+													<option value="perc4">150% After 96 Hours</option>
+
+
+												</select>
+											</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="row">
+
+							<div class="col-md-6">
+								<div class="form_home calc_output">
+									<label>
+										<div class="pricing-row">Total return:</div>
+									</label>
+									<span><b id="inpvar1">232%</b></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form_home calc_output">
+									<label>
+										<div class="pricing-row">Your profit:</div>
+									</label>
+									<span><b id="inpvar2">232%</b></span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
-			</div>
-			   </div>
-			        <div class="col-md-12">
-        	<div class="row">
-              
-                <div class="col-md-6"> 
-                    <div class="form_home calc_output">
-                        <label><div class="pricing-row">Total return:</div></label>
-                        <span><b id="inpvar1">232%</b></span>                    
-                    </div>
-                    </div>
-                     <div class="col-md-6"> 
-                    <div class="form_home calc_output">
-                        <label><div class="pricing-row">Your profit:</div></label>
-                        <span><b id="inpvar2">232%</b></span>                    
-                    </div></div>
-                    </div>
-                    </div>
-                
-        </div>
-</div></section> 
+		</section>
 
 		<section class="section_6">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="home_table">
-
-
-
 							<div class="table-responsive">
 								<table>
 									<tbody>
-
 										<th colspan="3">Last Deposits</th>
-
 										<tr>
-
 											<td><img src="images/1005.html" alt="pay_icon" class="img-responsive"></td>
 											<td>$662.00</td>
 											<td>Carlos</td>
@@ -641,6 +547,7 @@
 				</div>
 			</div>
 		</section>
+
 		<div class="container clearfix"></div>
 
 		<section class="section_23_ref">
@@ -664,113 +571,8 @@
 			</div>
 		</section>
 
-
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-
-
-						<div class="footer_bottom">
-							<!-- <ul>
-                      			<li><a href="?a=top10" class="btn-no-bg-white">Investors Top 10</a></li>
-                      			<li><a href="?a=refs10" class="btn-no-bg-white">Referrars Top 10</a></li>
-                                <li><a href="?a=members_stats" class="btn-no-bg-white">Investors Stats</a></li>
-                                <li><a href="?a=paidout" class="btn-no-bg-white">Paid Out</a></li>         									
-                                </ul>-->
-
-						</div>
-
-						<div class="footer_top">
-
-							<div class="row">
-
-								<div class="col-md-4 col-sm-12">
-
-									<div class="quickfinder-item-title" style="padding-bottom: 0px;">Company:</div>
-
-									<div class="footer_inner_company" id="middle">
-										<ul>
-											<li> <i class="fas fa-barcode"></i> Veloxa Wealth</li>
-											<!--	<li>  <i class="fab fa-black-tie"></i>Company xxxxxxxx</li> -->
-											<li> <i class="fas fa-map-marker"></i>Berry & Co Sterling House, 7 Ashford
-												Road,
-												Maidstone, Kent, England, ME14 5BJ.</li>
-
-
-
-										</ul>
-
-									</div>
-								</div>
-								<div class="col-md-4 col-sm-12">
-									<div class="footer_inner" id="middle">
-										<a style="text-align:center;" href="index-1bc14.html?a=home"><img src="images/logo1.png"
-												alt="Veloxa Wealth" title="Veloxa Wealth" class="img-responsive"></a>
-									</div>
-
-								</div>
-
-								<div class="col-md-4 col-sm-12">
-
-									<div class="quickfinder-item-title" style="padding-bottom: 0px;">Contact:</div>
-
-									<div class="footer_inner_company" id="middle">
-										<ul>
-											<li> <i class="fas fa-mobile-alt"></i>+1 (205) 470-7645</li>
-											<li> <i class="far fa-envelope"></i>support@Veloxa Wealth</li>
-											<!--  <li id="footer_fb">  <a target="_blank" href="#"><i class="fab fa-facebook-square" style="font-weight: 100; margin-left: 10px;"></i></a>
-                        <a target="_blank" href="#" ><i class="fab fa-telegram-plane" ></i></a>
-                        <a target="_blank" href="#" id="telegram"> <i class="fab fa-twitter" ></i></a>
-                        </li>     -->
-
-										</ul>
-
-									</div>
-								</div>
-
-							</div>
-							<div class="row-title-wrapper-small">
-								<div class="title-wrapper-small title-wrapper-main-small">
-									<div class="quickfinder-item-title" style="padding-bottom: 0px;">We accept:</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="footer_bottom">
-									<ul>
-
-										<img src="images/pay03.png" class="alignnone dont_scale wow zoomIn" data-wow-delay=".2s">
-
-										<!--	<img src="images/pay04.png" class="alignnone dont_scale wow zoomIn" data-wow-delay=".4s"  >
-					 
-							<img src="images/pay01.png" class="alignnone dont_scale wow zoomIn" data-wow-delay=".6s" > -->
-
-										<img src="images/pay06.png" class="alignnone dont_scale wow zoomIn" data-wow-delay=".8s">
-
-										<img src="images/pay07.png" class="alignnone dont_scale wow zoomIn" data-wow-delay="1s">
-
-										<img src="images/pay08.png" class="alignnone dont_scale wow zoomIn" data-wow-delay="1.2s">
-									</ul>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</footer>
-		<section class="section_end_footer">
-			<div class="container">
-				<div class="row" id="footer_bottom">
-					<div class="col-md-12">
-						<div class="footer_bottom_copy">
-							Copyrights &copy; 2025.&nbsp; Veloxa Wealth &nbsp; All Rights Reserved.</div>
-
-					</div>
-				</div>
-			</div>
-		</section>
+		<!-- Footer -->
+		<?php include 'inc/footer.php' ?>
 	</main>
 
 	<div id="scroller" class="b-top" style="display: none;">
@@ -778,7 +580,6 @@
 			<div class="options-icon"><i class="fas fa-chevron-up"></i></div>
 		</span>
 	</div>
-
 </body>
 
 <!--jquery-->

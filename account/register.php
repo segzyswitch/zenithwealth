@@ -10,6 +10,8 @@
 	<link rel="canonical" href="register.html" />
 	<link rel="shortcut icon" href="../icon-o.png" type="image/x-icon" />
 
+	<title>Veloxa Wealth - Register	</title>
+
 	<link rel="icon" href="../icon-o.png" type="image/x-icon" />
 	<link rel="stylesheet" href="assets/global/css/fontawesome.min.css" />
 	<link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css" />
@@ -23,7 +25,6 @@
 	<link rel="stylesheet" href="assets/frontend/css/magnific-popup.css" />
 	<link rel="stylesheet" href="assets/frontend/css/aos.css" />
 	<link rel="stylesheet" href="assets/frontend/theme_base/mining_invest/css/styles67f8.css?var=1" />
-
 	<style>
 		/* //The Custom CSS will be added on the site head tag  */
 		.site-head-tag {
@@ -31,11 +32,6 @@
 			padding: 0;
 		}
 	</style>
-
-	<title>Veloxa Wealth - Register
-	</title>
-
-
 </head>
 
 <body>
@@ -847,9 +843,8 @@
 										<input class="form-check-input check-input" type="checkbox" name="i_agree" value="yes"
 											id="flexCheckDefault" required />
 										<label class="form-check-label" for="flexCheckDefault">
-											I agree with
-											<a href="privacy-policy.html">Privacy &amp; Policy</a> and
-											<a href="terms-and-conditions.html">Terms &amp; Condition</a>
+											I agree with Veloxa Wealth
+											<a href="../terms-and-conditions">Terms &amp; Condition</a>
 										</label>
 									</div>
 								</div>
