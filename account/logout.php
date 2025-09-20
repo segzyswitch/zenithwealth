@@ -4,5 +4,4 @@ session_start();
 unset($_SESSION["moon_account_id"]);
 unset($_SESSION["accnt_status"]);
 // redirect to lign
-header("Location: ../index");
-?>
+header("Location: ../");

@@ -10,7 +10,7 @@
 	<!----421---->
 
 	<!--title-->
-	<title>Zenith Wealth</title>
+	<title>Veloxa Wealth</title>
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 	<!--bootstrap-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -63,7 +63,7 @@
 									<li id="left">
 										<!-- <span class="header-icons"><i class="fas fa-building"></i> UK Company Number: 11981123</span> -->
 										<span class="header-icons"><i class="fas fa-envelope"></i>
-											support@zenithwealthpro.com </span>
+											 support@veloxawealth.com</span>
 										<span class="header-icons"><i class="fas fa-mobile-android-alt"></i> Phone: +1
 											(205) 470-7645</span>
 									</li>

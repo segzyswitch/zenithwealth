@@ -9,8 +9,8 @@ require '../config/session.php';
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="csrf-token" content="ynDPA8gYOyvzsdpB0EdOgNiHFxvQCV25Yebn7xlP">
-	<meta name="keywords" content="Zenith Wealth">
-	<meta name="description" content="Zenith Wealth">
+	<meta name="keywords" content="Veloxa Wealth">
+	<meta name="description" content="Veloxa Wealth">
 	<link rel="canonical" href="./user/wallet-exchange" />
 	<link rel="shortcut icon" href="./assets/global/images/MiZLv4Eb9oH3Boyfzlni.png" type="image/x-icon" />
 
@@ -38,7 +38,7 @@ require '../config/session.php';
 		}
 	</style>
 
-	<title>Zenith Wealth - Wallet Exchange
+	<title>Veloxa Wealth - Wallet Exchange
 	</title>
 
 

@@ -5,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="csrf-token" content="TdjEgWMt6ufVBgAhEO3XzUJZXWJ1CZiyjEGUUxrN">
-	<meta name="keywords" content="Zenith Wealth">
-	<meta name="description" content="Zenith Wealth">
+	<meta name="keywords" content="Veloxa Wealth">
+	<meta name="description" content="Veloxa Wealth">
 	<link rel="canonical" href="register.html" />
 	<link rel="shortcut icon" href="assets/global/images/MiZLv4Eb9oH3Boyfzlni.png" type="image/x-icon" />
 
@@ -32,7 +32,7 @@
 		}
 	</style>
 
-	<title>Zenith Wealth - Register
+	<title>Veloxa Wealth - Register
 	</title>
 
 
@@ -54,7 +54,7 @@
 				<div class="col-xl-6 col-md-12">
 					<div class="auth-content">
 						<div class="logo">
-							<a href="index.html"><img src="assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="" /></a>
+							<a href="../"><img src="assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="" /></a>
 						</div>
 						<div class="title">
 							<h2> 💪 Create an account</h2>

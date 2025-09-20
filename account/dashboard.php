@@ -33,7 +33,7 @@ require '../config/session.php';
 		}
 	</style>
 
-	<title>Zenith Wealth - Dashboard</title>
+	<title>Veloxa Wealth - Dashboard</title>
 
 
 </head>

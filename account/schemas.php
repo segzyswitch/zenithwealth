@@ -32,7 +32,7 @@ require '../config/session.php';
 		}
 	</style>
 
-	<title>Zenith Wealth - All Schema
+	<title>Veloxa Wealth - All Schema
 	</title>
 
 

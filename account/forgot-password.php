@@ -1,19 +1,16 @@
-<?php
-session_start();
-if ( isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"]) ) {
-  header("Location: dashboard");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="shortcut icon" href="assets/global/images/MiZLv4Eb9oH3Boyfzlni.png" type="image/x-icon" />
+	<meta name="keywords" content="Veloxa Wealth">
+	<meta name="description" content="Veloxa Wealth">
+	<link rel="canonical" href="forgot-password.html" />
+	<link rel="shortcut icon" href="icon-o.png" type="image/x-icon" />
 
-	<link rel="icon" href="assets/global/images/MiZLv4Eb9oH3Boyfzlni.png" type="image/x-icon" />
+	<link rel="icon" href="icon-o.png" type="image/x-icon" />
 	<link rel="stylesheet" href="assets/global/css/fontawesome.min.css" />
 	<link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css" />
 	<link rel="stylesheet" href="assets/frontend/css/animate.css" />
@@ -28,14 +25,14 @@ if ( isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"]) ) {
 	<link rel="stylesheet" href="assets/frontend/theme_base/mining_invest/css/styles67f8.css?var=1" />
 
 	<style>
-		/* The Custom CSS will be added on the site head tag  */
+		//The Custom CSS will be added on the site head tag 
 		.site-head-tag {
 			margin: 0;
 			padding: 0;
 		}
 	</style>
 
-	<title>Veloxa Wealth - Login
+	<title>Veloxa Wealth - Forgot password
 	</title>
 
 
@@ -49,7 +46,6 @@ if ( isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"]) ) {
 	</script>
 
 	<!-- Login Section -->
-
 	<section class="section-style site-auth grad-overlay"
 		style="background: url(assets/frontend/theme_base/mining_invest/materials/banners/auth-banner.jpg) no-repeat center center; background-size: cover;">
 		<div class="container">
@@ -57,41 +53,35 @@ if ( isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"]) ) {
 				<div class="col-xl-5 col-lg-8 col-md-12">
 					<div class="auth-content">
 						<div class="logo">
-							<a href="../"><img src="assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="" /></a>
+							<a href="index.html"><img src="assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="" /></a>
 						</div>
 						<div class="title">
-							<h2> 👋 Welcome Back!</h2>
-							<p>Sign in to continue with User Panel</p>
+							<h2> Password Reset</h2>
+							<p>Reset your Password</p>
 						</div>
 
+
+
 						<div class="site-auth-form">
-							<form method="POST" id="loginForm" action="#">
-								<input type="hidden" name="user_login" value="TdjEgWMt6ufVBgAhEO3XzUJZXWJ1CZiyjEGUUxrN">
+
+
+							<form method="POST" action="https://zenithwealthpro.com/account/forgot-password">
+								<input type="hidden" name="_token" value="TdjEgWMt6ufVBgAhEO3XzUJZXWJ1CZiyjEGUUxrN">
+								<!-- Email Address -->
+
 								<div class="single-field">
-									<label class="box-label" for="email">Email Or Username</label>
-									<input class="box-input" type="text" name="email" required />
+									<label class="box-label" for="email">Email</label>
+									<input class="box-input" type="text" name="email" required value="" />
 								</div>
-								<div class="single-field">
-									<label class="box-label" for="password">Password</label>
-									<div class="password">
-										<input class="box-input" type="password" name="password" required />
-									</div>
-								</div>
-								<div class="w-100 feedback"></div>
-								<div class="single-field">
-									<input class="form-check-input check-input" type="checkbox" name="remember" id="flexCheckDefault" />
-									<label class="form-check-label" for="flexCheckDefault">
-										Remember me
-									</label>
-									<span class="forget-pass-text"><a href="forgot-password">Forget Password</a></span>
-								</div>
-								<button type="submit" class="site-btn-big primary-btn w-100 submit-btn">Account Login</button>
+
+
+								<button type="submit" class="site-btn-big primary-btn w-100">
+									Email Password Reset Link
+								</button>
 							</form>
+
 							<div class="singnup-text">
-								<p>
-									Don&#039;t have an account?
-									<a href="register">Signup for free</a>
-								</p>
+								<p>Already have an account? <a href="login.html">Login</a></p>
 							</div>
 						</div>
 					</div>
@@ -104,8 +94,6 @@ if ( isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"]) ) {
 
 	<script src="assets/global/js/jquery.min.js"></script>
 	<script src="assets/global/js/jquery-migrate.js"></script>
-	<script src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
-	<script src="../js/forms.js"></script>
 
 	<script src="assets/frontend/js/bootstrap.bundle.min.js"></script>
 	<script src="assets/frontend/js/scrollUp.min.js"></script>
@@ -144,5 +132,27 @@ if ( isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"]) ) {
 		})(jQuery);
 	</script>
 
+	<script type="text/javascript" src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
+
+
+
+
+
+	<!-- Smartsupp Live Chat script -->
+	<script type="text/javascript">
+		var _smartsupp = _smartsupp || {};
+		_smartsupp.key = '17e4eb7ee82965d1449125e88d45456a2996c169';
+		window.smartsupp || (function (d) {
+			var s, c, o = smartsupp = function () { o._.push(arguments) }; o._ = [];
+			s = d.getElementsByTagName('script')[0]; c = d.createElement('script');
+			c.type = 'text/javascript'; c.charset = 'utf-8'; c.async = true;
+			c.src = '../../www.smartsuppchat.com/loaderd41d.js?'; s.parentNode.insertBefore(c, s);
+		})(document);
+	</script>
+	<noscript> Powered by <a href=%e2%80%9chttps_/www.smartsupp.html target=“_blank”>Smartsupp</a></noscript>
+
 </body>
+
+<!-- Mirrored from zenithwealthpro.com/account/forgot-password by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Aug 2025 21:38:42 GMT -->
+
 </html>

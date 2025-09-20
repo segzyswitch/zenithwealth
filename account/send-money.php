@@ -30,7 +30,7 @@
 		}
 	</style>
 
-	<title>Zenith Wealth - Send Money
+	<title>Veloxa Wealth - Send Money
 	</title>
 
 

@@ -32,7 +32,7 @@ require '../config/session.php';
 		}
 	</style>
 
-	<title>Zenith Wealth - Wallet Exchange</title>
+	<title>Veloxa Wealth - Wallet Exchange</title>
 </head>
 
 <body class="dark-theme">
