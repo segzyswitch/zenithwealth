@@ -57,7 +57,7 @@ if ( isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"]) ) {
 				<div class="col-xl-5 col-lg-8 col-md-12">
 					<div class="auth-content">
 						<div class="logo">
-							<a href="../"><img src="assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="" /></a>
+							<a href="../"><img src="../icon.png" style="scale:1.4;" alt="" /></a>
 						</div>
 						<div class="title">
 							<h2> 👋 Welcome Back!</h2>

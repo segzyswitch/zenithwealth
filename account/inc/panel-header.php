@@ -1,8 +1,8 @@
 <div class="panel-header">
 	<div class="logo">
 		<a href="../">
-			<img class="logo-unfold" src="../logo.png" alt="Logo" />
-			<img class="logo-fold" src="../logo.png" alt="Logo" />
+			<img class="logo-unfold" src="../logo.png" alt="Logo" style="scale:1.3;" />
+			<img class="logo-fold" src="../logo.png" alt="Logo" style="scale:1.3;" />
 		</a>
 	</div>
 	<div class="nav-wrap">
@@ -12,7 +12,7 @@
 			</button>
 			<div class="mob-logo">
 				<a href="../">
-					<img src="../icon-o.png" alt="Site Name" />
+					<img src="../icon-o.png" alt="Site Name" style="scale:1.3;" />
 				</a>
 			</div>
 		</div>

@@ -50,7 +50,7 @@
 				<div class="col-xl-6 col-md-12">
 					<div class="auth-content">
 						<div class="logo">
-							<a href="../"><img src="assets/global/images/DAISWlCl4In2YZKgI2fr.png" alt="" /></a>
+							<a href="../"><img src="../icon.png" style="scale:1.4;" alt="" /></a>
 						</div>
 						<div class="title">
 							<h2> 💪 Create an account</h2>

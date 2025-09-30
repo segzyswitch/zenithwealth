@@ -82,7 +82,7 @@
 			</div>
 		</section>
 
-		<section class="container" style="background-color:#000;">
+		<section class="container" style="background-color:#101824;">
 			<div class="row" style="margin-top:25px;">
 				<div class="col-md-7" style="float:none;margin:auto;">
 					<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:100%;">

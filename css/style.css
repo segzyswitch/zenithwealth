@@ -2006,7 +2006,7 @@ background-size: 100%;
 	min-height: 360px;
 }
 img.alignnone.dont_scale {
-	width: 100px;
+	width: 70px;
 	opacity: 0.8;
 }
 .bg_dark_block_right_faq{
@@ -2825,11 +2825,12 @@ font-size: 16px;
 
 .footer_bottom{ width:100%; padding: 0px 0 20px; position: relative;}
 .footer_bottom ul img.alignnone.dont_scale{ opacity:0.7; padding: 0px 10px;
-width: 120px; -webkit-transition: all 0.3s ease;
--moz-transition: all 0.3s ease;
--ms-transition: all 0.3s ease;
--o-transition: all 0.3s ease;
-transition: all 0.3s ease;}
+  width: 80px; -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
 .footer_bottom ul div.wow.fadeIn{
 	width: 120px;
 	position: relative;

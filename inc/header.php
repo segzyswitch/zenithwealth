@@ -29,15 +29,16 @@
 		</div>
 	</div>
 
-	<div class="menu_scroll"></div>
+	<!-- <div class="menu_scroll"></div> -->
 	<div class="header_menu clearfix">
-		<div class="menu_block">
+		<div class="menu_block bg-danger p-2">
 			<div class="col-md-12">
 				<div class="row">
 					<nav class="navbar navbar-inverse">
 						<div class="container">
-							<a id="logo" href="./">
-								<img src="logo.png" alt="Veloxa Wealth" title="Veloxa Wealth" class="img-responsive" />
+							<a href="./" class="d-flex bg-danger h-100">
+								<img src="logo.png" alt="VW" title="Veloxa Wealth" height="60" class="d-block my-auto" />
+								<b class="my-auto h1 d-block pt-3">Veloxa Wealth</b>
 							</a>
 							<div class="navbar-header">
 								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
