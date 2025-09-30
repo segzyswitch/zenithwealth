@@ -29,7 +29,7 @@ if ( isset($_SESSION["aave_auth_login_id"]) && isset($_SESSION["admin_status"]) 
 				<div class="col-xl-5 col-lg-6 order-lg-2 order-1">
 					<div class="form-wrapper-one bg-dark text-white flex-column rounded-4">
 						<div class="logo-area text-center mb-40">
-							<img src="../logo.png" alt="Veloxa Wealth" />
+							<img src="../logo.png" width="80" alt="Veloxa Wealth" />
 							<h4><i class="bi bi-lock-fill"></i> ADMIN</h4>
 						</div>
 						<form action="#" id="loginForm" method="POST">

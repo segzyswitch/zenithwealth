@@ -36,9 +36,9 @@
 				<div class="row">
 					<nav class="navbar navbar-inverse">
 						<div class="container">
-							<a href="./" class="d-flex bg-danger h-100">
-								<img src="logo.png" alt="VW" title="Veloxa Wealth" height="60" class="d-block my-auto" />
-								<b class="my-auto h1 d-block pt-3">Veloxa Wealth</b>
+							<a href="./" id="logo">
+								<img src="logo.png" alt="VW" title="Veloxa Wealth" class="d-block my-auto" />
+								<!-- <b class="my-auto h1 d-block pt-3">Veloxa Wealth</b> -->
 							</a>
 							<div class="navbar-header">
 								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">

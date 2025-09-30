@@ -2628,7 +2628,8 @@ font-family: 'montserrat';
 .pricing-container #plan8.pricing-inner  {
   background: #504D62;
   text-align: center;
-    -webkit-transition: background 0.4s ease-in, color 0.4s ease-in;
+  -webkit-transition: background 0.4s ease-in, color 0.4s ease-in;
+  transition: background 0.4s ease-in, color 0.4s ease-in;
 }
 .pricing-container div.pricing-table .pricing-inner div.plan-name b.plan-name-text{
 	-webkit-transition: all 0.3s ease;
