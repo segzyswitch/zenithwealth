@@ -1,5 +1,5 @@
 <?php
-ini_set('SMTP', 'mooninvests.com');
+ini_set('SMTP', 'veloxawealth.com');
 ini_set('smtp_port', 465);
 // Set recipient email and subject
 $to = $user_info['email']; // Replace with recipient email
@@ -79,9 +79,9 @@ $message = '
 
 // Email headers
 $headers = "MIME-Version: 1.0" . "\r\n";
-$headers = "From: ".$companyName." <noreply@mooninvests.com>\r\n";
-$headers .= "Reply-To: ".$companyName." <contact@mooninvests.com>\r\n";
-$headers .= "Return-Path: noreply@mooninvests.com\r\n";
+$headers = "From: ".$companyName." <noreply@veloxawealth.com>\r\n";
+$headers .= "Reply-To: ".$companyName." <contact@veloxawealth.com>\r\n";
+$headers .= "Return-Path: noreply@veloxawealth.com\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
