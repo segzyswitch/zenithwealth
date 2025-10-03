@@ -72,9 +72,6 @@
 
 		<section class="form_body">
 			<div class="container">
-
-
-
 				<script language="javascript">
 
 					function checkform() {
@@ -343,9 +340,5 @@
 		});
 	});
 </script>
-<!----421---->
-<!----VisualHyip.com---->
-
-<!-- Mirrored from Veloxa Wealth/index-5.htm?a=support by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Aug 2025 21:34:28 GMT -->
 
 </html>
