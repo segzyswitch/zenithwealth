@@ -79,9 +79,9 @@ $message = '
 
 // Email headers
 $headers = "MIME-Version: 1.0" . "\r\n";
-$headers = "From: ".$companyName." <noreply@veloxawealth.com>\r\n";
-$headers .= "Reply-To: ".$companyName." <contact@veloxawealth.com>\r\n";
-$headers .= "Return-Path: noreply@veloxawealth.com\r\n";
+$headers = "From: ".$companyName." <contact@veloxawealth.com>\r\n";
+$headers .= "Reply-To: ".$companyName." <noreply@veloxawealth.com>\r\n";
+$headers .= "Return-Path: contact@veloxawealth.com\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 

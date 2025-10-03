@@ -1,6 +1,8 @@
 <?php
 session_start();
 require "../config/Controller.php";
+ini_set('SMTP', 'veloxawealth.com');
+ini_set('smtp_port', 465);
 $Controller = new Controller;
 $conn = $Controller->conn;
 if ( isset($_SESSION["moon_account_id"]) ) {
@@ -17,9 +19,6 @@ function generateUniqueId($length = 10) {
   // Return a substring of the shuffled characters of the desired length
   return substr($shuffledCharacters, 0, $length);
 }
-
-ini_set('SMTP', 'veloxawealth.com');
-ini_set('smtp_port', 465);
 
 // ADD NEW USER ACCOUNT
 if ( isset($_POST["register"]) ) {

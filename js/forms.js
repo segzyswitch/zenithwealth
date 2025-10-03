@@ -6,7 +6,7 @@ $(document).ready(function() {
 	  event.preventDefault();
 
 	  $.ajax({
-	    url: "../config/process.php",
+	    url: "../config/register.php",
 	    type: "POST",
 	    data: new FormData(this),
 	    cache: false,
