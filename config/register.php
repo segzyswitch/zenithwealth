@@ -186,11 +186,7 @@ if ( isset($_POST["register"]) ) {
 
     if ( mail($email, $subject, $message, $headers) ) {
       $query->execute();
-      ?>
-      <div class="alert-success alert">
-        <i class="bi bi-check"></i> Registration successful! We sent you a verification link, please follow the link to verify your account.
-      </div>
-      <?php
+      echo "Registration successful! We sent you a verification link, please follow the link to verify your account.";
     }
   } catch (PDOException $e) {
     echo $e->getMessage();
