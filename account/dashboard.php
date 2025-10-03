@@ -1,5 +1,7 @@
 <?php
 require '../config/session.php';
+
+$refferal = "https://veloxawealth.com/register?invite=".$user_info['uuid'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,8 +82,7 @@ require '../config/session.php';
 										<div class="site-card-body">
 											<div class="referral-link">
 												<div class="referral-link-form">
-													<input type="text" value="./register?invite=qF4iT7V5Il"
-														id="refLink" />
+													<input type="text" value="<?php echo $refferal; ?>" id="refLink" />
 													<button type="submit" onclick="copyRef()">
 														<i class="anticon anticon-copy"></i>
 														<span id="copy">Copy</span>
@@ -96,7 +97,7 @@ require '../config/session.php';
 								</div>
 							</div>
 
-							<div class="row user-cards ">
+							<div class="row user-cards">
 								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="single">
 										<div class="icon"><i class="anticon anticon-inbox"></i></div>
@@ -234,8 +235,7 @@ require '../config/session.php';
 										<div class="rank-badge"><img src="./assets/global/images/sCQgIyl0OKzFiO73nmWF.svg" alt="" /></div>
 									</div>
 									<div class="user-wallets-mobile">
-										<img src="./assets/frontend/materials/wallet-shadow.png" alt=""
-											class="wallet-shadow">
+										<img src="./assets/frontend/materials/wallet-shadow.png" alt="" class="wallet-shadow">
 										<div class="head">All Wallets in USD</div>
 										<div class="one">
 											<div class="balance">
@@ -255,7 +255,7 @@ require '../config/session.php';
 								<div class="col-12">
 									<div class="mob-shortcut-btn">
 										<a href="./deposit"><i icon-name="download"></i> Deposit</a>
-										<a href="./schemas"><i icon-name="box"></i> Investment</a>
+										<a href="./invest-logs"><i icon-name="box"></i> Investment</a>
 										<a href="./send-money"><i icon-name="send"></i> Withdraw</a>
 									</div>
 								</div>
@@ -381,8 +381,7 @@ require '../config/session.php';
 										<div class="all-feature-mobile">
 											<div class="title">Referral URL</div>
 											<div class="mobile-referral-link-form">
-												<input type="text" value="./register?invite=qF4iT7V5Il"
-													id="refLink" />
+												<input type="text" value="<?php echo $refferal; ?>" id="refLink" />
 												<button type="submit" onclick="copyRef()">
 													<span id="copy">Copy</span>
 												</button>

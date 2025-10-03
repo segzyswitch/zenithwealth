@@ -70,7 +70,7 @@
 										<input class="box-input" type="text" name="lname" value="" required />
 									</div>
 								</div>
-								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+								<div class="col-12">
 									<div class="single-field">
 										<label class="box-label" for="email">Email Address<span class="required-field">*</span></label>
 										<input class="box-input" type="email" name="email" value="" required />
