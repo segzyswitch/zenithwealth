@@ -41,7 +41,6 @@
 		}
 	</script>
 
-
 	<!-- Login Section -->
 	<section class="section-style site-auth grad-overlay"
 		style="background: url(assets/frontend/theme_base/mining_invest/materials/banners/auth-banner.jpg) no-repeat center center; background-size: cover;">
