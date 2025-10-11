@@ -7,7 +7,7 @@
 	<!----421---->
 	<!----VisualHyip.live---->
 	<!--title-->
-	<title>About Us - Veloxa Wealth</title>
+	<title>About Us - Velloxa Wealth</title>
 	<link rel="shortcut icon" href="icon-o.png" type="image/x-icon">
 	<!--bootstrap-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -72,18 +72,18 @@
 							<div class="row-title-wrapper">
 								<div class="title-wrapper title-wrapper-main">
 									<h2 class="title">About</h2>
-									<div class="subtitle">Veloxa Wealth</div>
+									<div class="subtitle">Velloxa Wealth</div>
 
 								</div>
 							</div>
-							<p class="border-left-text">Veloxa Wealth company's works in the sphere of investment. We have legal
+							<p class="border-left-text">Velloxa Wealth company's works in the sphere of investment. We have legal
 								registered in UK. The clients cooperating with us conclude the agreement on placement of the capitals
 								then they draw interest from profit. Client does not need to think independently, which project
 								investing in is more profitable. All strategy has already thought over and can be presented in the form
 								of the step-by-step plan.</p>
 							<p class="border-left-text">Each person knows importance of investment of their savings. Money has to
 								work. At the same time many projects are quite risky therefore investments into them are dangerous. The
-								Veloxa Wealth company specializes in investments in a blockchain and the register. We see these
+								Velloxa Wealth company specializes in investments in a blockchain and the register. We see these
 								directions the most profitable and perspective. Unlike cryptocurrencies, these industries have smaller
 								risks for the investor.</p>
 

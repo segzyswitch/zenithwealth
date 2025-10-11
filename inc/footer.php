@@ -18,7 +18,7 @@
 							<div class="quickfinder-item-title" style="padding-bottom: 0px;">Company:</div>
 							<div class="footer_inner_company" id="middle">
 								<ul>
-									<li> <i class="fas fa-barcode"></i> Veloxa Wealth</li>
+									<li> <i class="fas fa-barcode"></i> Velloxa Wealth</li>
 									<!--	<li>  <i class="fab fa-black-tie"></i>Company xxxxxxxx</li> -->
 									<li> <i class="fas fa-map-marker"></i>Berry & Co Sterling House, 7 Ashford Road,
 										Maidstone, Kent, England, ME14 5BJ.</li>
@@ -28,7 +28,7 @@
 						<div class="col-md-4 col-sm-12">
 							<div class="footer_inner" id="middle">
 								<a style="text-align:center;" href="index-1bc14.html?a=home">
-									<img src="icon-o.png" height="100" style="opacity:.4;" alt="Veloxa Wealth" title="Veloxa Wealth" />
+									<img src="icon-o.png" height="100" style="opacity:.4;" alt="Velloxa Wealth" title="Velloxa Wealth" />
 								</a>
 							</div>
 						</div>
@@ -37,7 +37,7 @@
 							<div class="footer_inner_company" id="middle">
 								<ul>
 									<li> <i class="fas fa-mobile-alt"></i>+447957567579</li>
-									<li> <i class="far fa-envelope"></i>support@veloxawealth.com</li>
+									<li> <i class="far fa-envelope"></i>support@velloxawealth.com</li>
 									<!--  <li id="footer_fb">  <a target="_blank" href="#"><i class="fab fa-facebook-square" style="font-weight: 100; margin-left: 10px;"></i></a>
 										<a target="_blank" href="#" ><i class="fab fa-telegram-plane" ></i></a>
 										<a target="_blank" href="#" id="telegram"> <i class="fab fa-twitter" ></i></a>
@@ -72,7 +72,7 @@
 		<div class="row" id="footer_bottom">
 			<div class="col-md-12">
 				<div class="footer_bottom_copy">
-					Copyrights &copy; 2023.&nbsp; Veloxa Wealth. &nbsp; All Rights Reserved.</div>
+					Copyrights &copy; 2023.&nbsp; Velloxa Wealth. &nbsp; All Rights Reserved.</div>
 			</div>
 		</div>
 	</div>

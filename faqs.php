@@ -7,7 +7,7 @@
   <!----421---->
   <!----VisualHyip.com---->
   <!--title-->
-	<title>FAQs - Veloxa Wealth</title>
+	<title>FAQs - Velloxa Wealth</title>
   <link rel="shortcut icon" href="icon-o.png" type="image/x-icon">
   <!--bootstrap-->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -383,6 +383,6 @@
 <!----421---->
 <!----VisualHyip.com---->
 
-<!-- Mirrored from Veloxa Wealth/index-3.htm?a=faq by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Aug 2025 21:34:28 GMT -->
+<!-- Mirrored from Velloxa Wealth/index-3.htm?a=faq by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Aug 2025 21:34:28 GMT -->
 
 </html>

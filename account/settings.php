@@ -32,7 +32,7 @@ require '../config/session.php';
 		}
 	</style>
 
-	<title>Veloxa Wealth - Settings
+	<title>Velloxa Wealth - Settings
 	</title>
 
 

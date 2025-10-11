@@ -8,7 +8,7 @@
 							<li id="left">
 								<!-- <span class="header-icons"><i class="fas fa-building"></i> UK Company Number: 11981123</span> -->
 								<span class="header-icons"><i class="fas fa-envelope"></i>
-									support@veloxawealth.com </span>
+									support@velloxawealth.com </span>
 								<span class="header-icons"><i class="fas fa-mobile-android-alt"></i> Phone: +1
 									(205) 470-7645</span>
 							</li>
@@ -37,8 +37,8 @@
 					<nav class="navbar navbar-inverse">
 						<div class="container">
 							<a href="./" id="logo">
-								<img src="logo.png" alt="VW" title="Veloxa Wealth" class="d-block my-auto" />
-								<!-- <b class="my-auto h1 d-block pt-3">Veloxa Wealth</b> -->
+								<img src="logo.png" alt="VW" title="Velloxa Wealth" class="d-block my-auto" />
+								<!-- <b class="my-auto h1 d-block pt-3">Velloxa Wealth</b> -->
 							</a>
 							<div class="navbar-header">
 								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">

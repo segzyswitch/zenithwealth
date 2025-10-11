@@ -35,7 +35,7 @@ if ( isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"]) ) {
 		}
 	</style>
 
-	<title>Veloxa Wealth - Login
+	<title>Velloxa Wealth - Login
 	</title>
 
 

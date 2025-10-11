@@ -5,8 +5,8 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="keywords" content="Veloxa Wealth">
-	<meta name="description" content="Veloxa Wealth">
+	<meta name="keywords" content="Velloxa Wealth">
+	<meta name="description" content="Velloxa Wealth">
 	<link rel="canonical" href="forgot-password.html" />
 	<link rel="shortcut icon" href="icon-o.png" type="image/x-icon" />
 
@@ -32,7 +32,7 @@
 		}
 	</style>
 
-	<title>Veloxa Wealth - Forgot password
+	<title>Velloxa Wealth - Forgot password
 	</title>
 
 

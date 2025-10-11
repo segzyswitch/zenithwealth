@@ -30,7 +30,7 @@
 		}
 	</style>
 
-	<title>Veloxa Wealth - Send Money
+	<title>Velloxa Wealth - Send Money
 	</title>
 
 

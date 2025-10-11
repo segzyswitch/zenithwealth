@@ -8,7 +8,7 @@
 	<!----421---->
 
 	<!--title-->
-	<title>Veloxa Wealth</title>
+	<title>Velloxa Wealth</title>
 	<link rel="shortcut icon" href="icon-o.png" type="image/x-icon">
 	<!--bootstrap-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -71,7 +71,7 @@
 							</div>
 						</div>
 						<div class="title-h5 wow fadeInDown" data-wow-delay="1.6s" style="max-width: 440px; ">
-							<span class="light_white" style="color: #C86567;font-weight: 400;">Veloxa Wealth
+							<span class="light_white" style="color: #C86567;font-weight: 400;">Velloxa Wealth
 								company's knows how to safely increase your capital</span>
 						</div>
 						<div class="title-h2 wow fadeInUp" data-wow-delay="2s">
@@ -107,7 +107,7 @@
 				</div>
 				<div class="col-md-8">
 					<div class="row">
-						<p id="small_offers">Veloxa Wealth offer plans in differential interest rate. Our clients
+						<p id="small_offers">Velloxa Wealth offer plans in differential interest rate. Our clients
 							can increase the amount investments. It will lead to increase in percent of profit. Greater
 							amount of investment - the greater the profit!</p>
 					</div>
@@ -172,14 +172,14 @@
 							<div class="wow fadeInRight" data-wow-offset="200">
 								<div class="wow slideInDown" data-wow-delay="1s" data-wow-offset="200">
 									<div class="title-h5" style="margin: 0px 0 20px;"><span class="h5_light">to
-											Veloxa Wealth</span></div>
+											Velloxa Wealth</span></div>
 								</div>
 							</div>
 						</div>
 						<div class="home_video1">
 							<!--span><i class="fa fa-play"></i>Our Company Video</span-->
 							<div class="index_about_content_left" style="padding: 10px 20px 20px 0px;">
-								<p class="border-left-text" style="margin: 10px auto 30px;">Veloxa Wealth
+								<p class="border-left-text" style="margin: 10px auto 30px;">Velloxa Wealth
 									company's works in the sphere of investment. We have legal registered in UK. The
 									clients cooperating with us conclude the agreement on placement of the capitals then
 									they draw interest from profit. Client does not need to think independently, which
@@ -260,7 +260,7 @@
 			<div class="col-lg-4" id="blue_colum_1">
 				<i class="far fa-shield-check fa-fw fa-3x"></i>
 				<div class="title-h4">EV SSL Certificate</div>
-				<p>Website of Veloxa Wealth company <b>Veloxa Wealth</b> have highest level of
+				<p>Website of Velloxa Wealth company <b>Velloxa Wealth</b> have highest level of
 					authentication EV SSL. It helps to protect our customers' funds as much as possible.
 				</p>
 				<div class="conter wow slideInUp" data-wow-offset="200">
@@ -272,7 +272,7 @@
 			<div class="col-lg-4" id="blue_colum_2">
 				<i class="far fa-building fa-fw fa-3x"></i>
 				<div class="title-h4">Company info</div>
-				<p>Company name: <b>Veloxa Wealth</b><br>
+				<p>Company name: <b>Velloxa Wealth</b><br>
 					Company number: <b>NI692778</b><br>
 					Registered office: <b>10 Hornsey Road, London,<br>
 						United Kingdom, N7 6RD</b></p>
@@ -559,7 +559,7 @@
 								Referral commission 5%</div>
 						</div>
 						<div class="reff_text wow fadeInUp" data-wow-delay=".7s" data-wow-duration=".8s" data-wow-offset="100">Bonus
-							refferral program by Veloxa Wealth is provided for those
+							refferral program by Velloxa Wealth is provided for those
 							who invite clients. If you telling someone about the advantages of our company, then it is
 							possible not only to help them to receive financial benefit, but also to receive additional
 							percent.</div>
@@ -771,6 +771,6 @@
 <!----VisualHyip.com---->
 
 
-<!-- Mirrored from Veloxa Wealth/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Aug 2025 21:31:30 GMT -->
+<!-- Mirrored from Velloxa Wealth/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Aug 2025 21:31:30 GMT -->
 
 </html>

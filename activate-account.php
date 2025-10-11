@@ -50,7 +50,7 @@ try {
 	<!----421---->
 	<!----VisualHyip.com---->
 	<!--title-->
-	<title>Support - Veloxa Wealth</title>
+	<title>Support - Velloxa Wealth</title>
 	<link rel="shortcut icon" href="icon-o.png" type="image/x-icon">
 	<!--bootstrap-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">

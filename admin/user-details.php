@@ -14,7 +14,7 @@ $user_info = $Authroller->userByUUID($uuid);
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Veloxa Wealth - User Details</title>
+	<title>Velloxa Wealth - User Details</title>
 	<link rel="shortcut icon" href="../icon-o.png"
 		type="image/x-icon">
 	<link rel="stylesheet" href="./assets/theme/global/css/bootstrap.min.css" />

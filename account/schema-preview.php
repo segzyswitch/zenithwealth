@@ -9,8 +9,8 @@ require '../config/session.php';
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="csrf-token" content="0PBnSGpBOeU6uMyjETolsJPb2ENYjKaQCWd9mtKF">
-	<meta name="keywords" content="Veloxa Wealth">
-	<meta name="description" content="Veloxa Wealth">
+	<meta name="keywords" content="Velloxa Wealth">
+	<meta name="description" content="Velloxa Wealth">
 	<link rel="canonical" href="./user/schema-preview/1" />
 	<link rel="shortcut icon" href="./../icon-o.png"
 		type="image/x-icon" />
@@ -39,7 +39,7 @@ require '../config/session.php';
 		}
 	</style>
 
-	<title>Veloxa Wealth - Schema Preview
+	<title>Velloxa Wealth - Schema Preview
 	</title>
 
 

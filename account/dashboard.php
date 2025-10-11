@@ -1,7 +1,7 @@
 <?php
 require '../config/session.php';
 
-$refferal = "https://veloxawealth.com/register?invite=".$user_info['uuid'];
+$refferal = "https://velloxawealth.com/register?invite=".$user_info['uuid'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +35,7 @@ $refferal = "https://veloxawealth.com/register?invite=".$user_info['uuid'];
 		}
 	</style>
 
-	<title>Veloxa Wealth - Dashboard</title>
+	<title>Velloxa Wealth - Dashboard</title>
 
 
 </head>

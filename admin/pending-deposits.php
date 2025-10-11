@@ -8,7 +8,7 @@ require('config/session.php');
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Veloxa Wealth - Pending deposits</title>
+  <title>Velloxa Wealth - Pending deposits</title>
   <link rel="shortcut icon" href="../icon-o.png"
     type="image/x-icon">
   <link rel="stylesheet" href="./assets/theme/global/css/bootstrap.min.css" />
