@@ -156,8 +156,8 @@ if ( isset($_POST["update_profile"]) ) {
   $confirminfo->execute();
   $userData = $confirminfo->fetch();
 
-  if ( password_verify($password, $userData["password"]) ) {
-    echo "Incorrect old pasword, check and try again!";
+  if ( !password_verify($password, $userData["password"]) ) {
+    echo "Incorrect pasword, check and try again!";
     return false;
   }
   // Update password
@@ -169,7 +169,7 @@ if ( isset($_POST["update_profile"]) ) {
   WHERE id = '$user_id'";
   $query = $conn->prepare($sql);
   // Add activity
-  $login_feed = "Account password changed.";
+  $login_feed = "Account details updated.";
   $add_activity = $conn->prepare("INSERT INTO user_activity(user_id, type, feed, user_ip)
     VALUES('$user_id', 'password', '$login_feed', '$client_ip')");
   try {

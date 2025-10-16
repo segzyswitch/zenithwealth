@@ -101,7 +101,7 @@ require '../config/session.php';
 									</div>
 									<div class="col-12">
 										<label for="zip" class="form-label">Password</label>
-										<input type="password" name="password" class="form-control" />
+										<input type="password" name="password" class="form-control" required />
 										<small class="text-muted">Enter password to apply update</small>
 									</div>
 									<div class="col-12">
