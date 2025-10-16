@@ -27,8 +27,8 @@
 						</div>
 						<div class="col-md-4 col-sm-12">
 							<div class="footer_inner" id="middle">
-								<a style="text-align:center;" href="index-1bc14.html?a=home">
-									<img src="icon-o.png" height="100" style="opacity:.4;" alt="Velloxa Wealth" title="Velloxa Wealth" />
+								<a style="text-align:center;" href="./">
+									<img src="logo-new.png" height="90" style="opacity:.4;" alt="Velloxa Wealth" title="Velloxa Wealth" />
 								</a>
 							</div>
 						</div>

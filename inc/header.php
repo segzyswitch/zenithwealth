@@ -31,13 +31,13 @@
 
 	<!-- <div class="menu_scroll"></div> -->
 	<div class="header_menu clearfix">
-		<div class="menu_block bg-danger p-2">
+		<div class="menu_block p-2">
 			<div class="col-md-12">
 				<div class="row">
 					<nav class="navbar navbar-inverse">
 						<div class="container">
 							<a href="./" id="logo">
-								<img src="logo.png" alt="VW" title="Velloxa Wealth" class="d-block my-auto" />
+								<img src="logo-new.png" alt="VW" title="Velloxa Wealth" class="d-block my-auto" />
 								<!-- <b class="my-auto h1 d-block pt-3">Velloxa Wealth</b> -->
 							</a>
 							<div class="navbar-header">

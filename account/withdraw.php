@@ -1,247 +1,194 @@
 <?php
 require '../config/session.php';
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="shortcut icon" href="./../icon-o.png" type="image/x-icon" />
-
-	<link rel="icon" href="./../icon-o.png" type="image/x-icon" />
-	<link rel="stylesheet" href="./assets/global/css/fontawesome.min.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/vendor/bootstrap.min.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/animate.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/owl.carousel.min.css" />
-	<link rel="stylesheet" href="./assets/global/css/nice-select.css" />
-	<link rel="stylesheet" href="./assets/global/css/datatables.min.css" />
-	<link rel="stylesheet" href="./assets/global/css/simple-notify.min.css" />
-	<link rel="stylesheet" type="text/css" href="./assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
-	<link rel="stylesheet" href="./assets/global/css/custom.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/magnific-popup.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/aos.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/styles.css?var=2.1" />
-
-	<style>
-		/* //The Custom CSS will be added on the site head tag  */
-		.site-head-tag {
-			margin: 0;
-			padding: 0;
-		}
-	</style>
-
-	<title>Velloxa Wealth - Wallet Exchange</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Withdraw - Velloxa Wealth</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
+	<link rel="shortcut icon" href="../icon.png" type="image/png">
 </head>
 
-<body class="dark-theme">
-	<script>
-		var notify = {
-			timeout: "5000",
-		}
-	</script>
-	<!--Full Layout-->
-	<div class="panel-layout">
-		<!--Header-->
+<body>
+	<!-- Desktop Sidebar -->
+	<?php include 'inc/sidebar.php'; ?>
+
+	<!-- Main Content -->
+	<div class="main-content">
+		<!-- Top Bar -->
 		<?php include 'inc/panel-header.php'; ?>
-		<!--/Header-->
 
-		<div class="desktop-screen-show">
-			<?php include 'inc/sidebar.php'; ?>
-		</div>
+		<div class="content-body">
+			<div class="row">
+				<div class="col-lg-8">
+					<!-- Available Balance -->
+					<div class="card mb-4 border-success">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-center">
+								<div>
+									<p class="text-muted mb-1">Available for Withdrawal</p>
+									<h3 class="mb-0 text-success"><?php echo $Controller->totalBalance() ?></h3>
+								</div>
+								<i class="bi bi-wallet2 text-success fs-1"></i>
+							</div>
+						</div>
+					</div>
 
-		<div class="page-container">
-			<div class="main-content">
-				<div class="section-gap">
-					<div class="container-fluid">
-						<!--Page Content-->
-						<div class="row">
-							<div class="col-sm-10 mx-auto">
-								<div class="site-card">
-									<div class="site-card-header">
-										<h3 class="title">Withdraw Funds</h3>
+					<!-- Withdraw Form -->
+					<div class="card mb-4">
+						<div class="card-header">
+							<h5 class="mb-0 pt-1">Withdrawal Details</h5>
+						</div>
+						<div class="card-body py-4">
+							<form id="withdrawForm">
+								<input type="hidden" name="widthdraw_funds" value="<?php echo str_shuffle(time().'asdfghjkl1234567890qwertyuiopzxcvbnm') ?>">
+								<div class="mb-4">
+									<label for="withdrawAccount" class="form-label">From Account</label>
+									<select name="from_wallet" class="form-select" id="withdrawAccount" required>
+										<option value="">Select from wallet</option>
+										<option value="wallet_bal">Main Wallet ($<?php echo number_format($user_info['wallet_bal'],2) ?>)</option>
+										<option value="trading_bal">Profit Wallet ($<?php echo number_format($user_info['trading_bal'],2) ?>)</option>
+									</select>
+								</div>
+								<div class="mb-4">
+									<label for="withdrawAmount" class="form-label">Amount (USD)</label>
+									<div class="input-group">
+										<span class="input-group-text">$</span>
+										<input type="number" name="amount" class="form-control" id="withdrawAmount" placeholder="0.00"
+											min="100" step="0.01" required />
 									</div>
-									<div class="site-card-body">
-										<div class="progress-steps-form">
-											<form id="withdrawForm" action="javascript:void(0)" method="post">
-												<input type="hidden" name="widthdraw_funds" value="ynDPA8gYOyvzsdpB0EdOgNiHFxvQCV25Yebn7xlP">
-												<div class="row g-4">
-													<div class="col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">From Wallet:</label>
-														<div class="input-group mb-0">
-															<select name="from_wallet" id="from_wallet" class="site-nice-select">
-																<option value="">Select from wallet</option>
-																<option value="wallet_bal">Main Wallet ($<?php echo number_format($user_info['wallet_bal'],2) ?>)</option>
-																<option value="trading_bal">Profit Wallet ($<?php echo number_format($user_info['trading_bal'],2) ?>)</option>
-															</select>
-														</div>
-													</div>
-													<div class="col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Choose Gateway:</label>
-														<div class="input-group mb-0">
-															<select name="gateway" id="gateway" class="site-nice-select">
-																<option value="">Select wallet type</option>
-                                  <?php
-                                  foreach ($Controller->cryptoWallets() as $key => $value) {
-                                    ?>
-                                    <option value="<?php echo $value['name'] ?>"><?php echo $value['name'] ?></option>
-                                    <?php
-                                  }
-                                  ?>
-															</select>
-														</div>
-													</div>
-													<div class="col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Enter Amount:</label>
-														<div class="input-group">
-															<span class="input-group-text px-3 border-end-0" id="basic-addon1">$</span>
-															<input type="number" min="0" id="amount" name="amount" required class="form-control" aria-label="Amount" id="amount" placeholder="0.00" />
-														</div>
-														<div class="input-info-text charge"></div>
-													</div>
-													<div class="col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Recieving wallet Address:</label>
-														<div class="input-group">
-															<input type="text" name="wallet_addr" id="wallet_addr" required class="form-control" placeholder="Enter recieving wallet address" 	/>
-														</div>
-													</div>
-												</div>
-												<div class="transaction-list table-responsive">
-													<div class="user-panel-title">
-														<h3>Review Details:</h3>
-													</div>
-													<table class="table table-review">
-														<tbody>
-															<tr>
-																<td><strong>Withdraw From</strong></td>
-																<td><span class="from"></span></td>
-															</tr>
-															<tr>
-																<td><strong>Send To</strong></td>
-																<td><span class="send-to"></span></td>
-															</tr>
-															<tr>
-																<td><strong>Amount</strong></td>
-																<td><span class="amount"></span></td>
-															</tr>
-															<tr>
-																<td><strong>Charge</strong></td>
-																<td class="charge">$0</td>
-															</tr>
-															<tr>
-																<td><strong>Total</strong></td>
-																<td class="total"></td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-												<div class="buttons">
-													<button type="submit" class="site-btn blue-btn submit-btn">
-														Withdraw<i class="anticon anticon-double-right"></i>
-													</button>
-												</div>
-											</form>
+									<small class="text-muted">Minimum withdrawal: $100.00</small>
+								</div>
+								<div class="mb-4">
+									<label for="withdrawMethod" class="form-label">Recieving wallet</label>
+									<select name="gateway" class="form-select" id="withdrawMethod" required>
+										<option value="">Select wallet type</option>
+										<?php
+										foreach ($Controller->cryptoWallets() as $key => $value) {
+											?>
+											<option value="<?php echo $value['name'] ?>"><?php echo $value['name'] ?></option>
+											<?php
+										}
+										?>
+									</select>
+								</div>
+								<div class="mb-4">
+									<label for="bankAccount" class="form-label">Recieving wallet Address</label>
+									<input type="text"
+										name="wallet_addr"
+										class="form-control"
+										id="wallet_addr"
+										placeholder="Enter recieving wallet address"
+										required
+									/>
+								</div>
+								<div class="alert alert-warning d-flex align-items-center gap-1" role="alert">
+									<i class="bi bi-exclamation-triangle-fill me-2 h5"></i>
+									<div>
+										<small>Withdrawals may take 1-3 business days to process. A fee may apply depending on the withdrawal
+											method.</small>
+									</div>
+								</div>
+								<div class="mb-4 form-check">
+									<input type="checkbox" class="form-check-input" id="confirmWithdraw" required>
+									<label class="form-check-label" for="confirmWithdraw">
+										I confirm that the withdrawal details are correct
+									</label>
+								</div>
+								<div class="w-100">
+									<button type="submit" class="btn bg-primary submit btn-lg text-white">
+										<small><i class="bi bi-arrow-up-circle"></i> Request Withdrawal</small>
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<!-- Sidebar Info -->
+				<div class="col-lg-4">
+					<div class="card mb-4">
+						<div class="card-header">
+							<h6 class="mb-0">Withdrawal Information</h6>
+						</div>
+						<div class="card-body">
+							<div class="mb-3">
+								<small class="text-muted d-block mb-1">Processing Time</small>
+								<p class="mb-0">1-3 business days</p>
+							</div>
+							<div class="mb-3">
+								<small class="text-muted d-block mb-1">Transaction Fee</small>
+								<p class="mb-0">$0 - $25 (varies by method)</p>
+							</div>
+							<div class="mb-3">
+								<small class="text-muted d-block mb-1">Minimum Withdrawal</small>
+								<p class="mb-0">$100.00</p>
+							</div>
+							<div>
+								<small class="text-muted d-block mb-1">Daily Limit</small>
+								<p class="mb-0">$50,000.00</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card border-danger mb-4">
+						<div class="card-body">
+							<div class="d-flex align-items-center gap-2 mb-2">
+								<i class="bi bi-shield-check text-danger"></i>
+								<h6 class="mb-0">Security Notice</h6>
+							</div>
+							<p class="small mb-0">For your security, large withdrawals may require additional verification. We'll
+								contact you if needed.</p>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<h6 class="mb-0">Recent Withdrawals</h6>
+						</div>
+						<div class="card-body p-0 py-3">
+							<div class="list-group list-group-flush">
+								<div class="list-group-item">
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<div class="fw-medium">$15,000.00</div>
+											<small class="text-muted">Oct 12, 2025</small>
 										</div>
+										<span class="badge bg-warning">Pending</span>
+									</div>
+								</div>
+								<div class="list-group-item">
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<div class="fw-medium">$25,000.00</div>
+											<small class="text-muted">Oct 5, 2025</small>
+										</div>
+										<span class="badge bg-success">Completed</span>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!--Page Content-->
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-		<!-- Show in 575px in Mobile Screen -->
-		<?php include 'inc/mobile-menu.php'; ?>
-		<!-- Show in 575px in Mobile Screen End -->
-
-		<!-- Automatic Popup -->
-
-		<!-- /Automatic Popup End -->
 	</div>
-	<!--/Full Layout-->
 
-	<script src="./assets/global/js/jquery.min.js"></script>
-	<script src="./assets/global/js/jquery-migrate.js"></script>
+	<!-- Mobile Bottom Navigation -->
+	<?php include 'inc/mobile-menu.php'; ?>
+
+	<script src="assets/global/js/jquery.min.js"></script>
 	<script src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
 	<script src="../js/forms.js"></script>
-
-	<script src="./assets/frontend/js/bootstrap.bundle.min.js"></script>
-	<script src="./assets/frontend/js/scrollUp.min.js"></script>
-
-	<script src="./assets/frontend/js/owl.carousel.min.js"></script>
-	<script src="./assets/global/js/waypoints.min.js"></script>
-	<script src="./assets/frontend/js/jquery.counterup.min.js"></script>
-	<script src="./assets/global/js/jquery.nice-select.min.js"></script>
-	<script src="./assets/global/js/lucide.min.js"></script>
-	<script src="./assets/frontend/js/magnific-popup.min.js"></script>
-	<script src="./assets/global/js/simple-notify.min.js"></script>
-	<script src="./assets/frontend/js/main.js?var=5"></script>
-	<script src="./assets/frontend/js/cookie.js"></script>
-	<script src="./assets/global/js/custom.js?var=5"></script>
-	<script>
-		(function ($) {
-			'use strict';
-			// To top
-			$.scrollUp({
-				scrollText: '<i class="fas fa-caret-up"></i>',
-				easingType: 'linear',
-				scrollSpeed: 500,
-				animation: 'fade'
-			});
-		})(jQuery);
-	</script>
-
-	<script>
-		"use strict"
-		
-		function number_format(number, decimals = 0, dec_point = ".", thousands_sep = ",") {
-			let n = parseFloat(number);
-
-			if (!isFinite(n)) return "0";
-
-			let fixed = n.toFixed(decimals);
-
-			let parts = fixed.split(".");
-			parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_sep);
-
-			return parts.join(dec_point);
-		}
-
-		$("#from_wallet").change( function() {
-			const value = $(this).val();
-			const output = $(".table-review .from");
-			if (!value) return output.text('');
-			output.text((value=='wallet_bal') ? "Wallet balance" : "Profit balance");
-		});
-		$("#gateway").change( function() {
-			const value = $(this).val();
-			const output = $(".table-review .send-to");
-			if (!value) return output.text('');
-			output.text(value);
-		});
-		$("#amount").on('input', function() {
-			const value = $(this).val();
-			const output = $(".table-review .amount");
-			if (!value) return output.text('');
-			const outputtext = `$${number_format(value)}`;
-			output.text(outputtext);
-			$('.table-review .total').text(outputtext);
-		});
-	</script>
-	<script>
-		// Color Switcher
-		$(".color-switcher").on('click', function () {
-			"use strict"
-			$("body").toggleClass("dark-theme");
-			var url = './theme-mode';
-			$.get(url)
-		});
-	</script>
-
+	<script src="assets/js/theme.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

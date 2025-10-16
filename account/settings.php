@@ -1,268 +1,261 @@
 <?php
 require '../config/session.php';
 ?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="shortcut icon" href="./../icon-o.png" type="image/x-icon" />
-
-	<link rel="icon" href="./../icon-o.png" type="image/x-icon" />
-	<link rel="stylesheet" href="./assets/global/css/fontawesome.min.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/vendor/bootstrap.min.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/animate.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/owl.carousel.min.css" />
-	<link rel="stylesheet" href="./assets/global/css/nice-select.css" />
-	<link rel="stylesheet" href="./assets/global/css/datatables.min.css" />
-	<link rel="stylesheet" href="./assets/global/css/simple-notify.min.css" />
-	<link rel="stylesheet" type="text/css" href="./assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
-	<link rel="stylesheet" href="./assets/global/css/custom.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/magnific-popup.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/aos.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/styles.css?var=2.1" />
-
-	<style>
-		/* //The Custom CSS will be added on the site head tag  */
-		.site-head-tag {
-			margin: 0;
-			padding: 0;
-		}
-	</style>
-
-	<title>Velloxa Wealth - Settings
-	</title>
-
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Account Settings - Velloxa Wealth</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
+	<link rel="shortcut icon" href="../icon.png" type="image/png">
 </head>
 
-<body class="dark-theme">
-	<script>
-		var notify = {
-			timeout: "5000",
-		}
-	</script>
-	<!--Full Layout-->
-	<div class="panel-layout">
-		<!--Header-->
+<body>
+	<!-- Desktop Sidebar -->
+	<?php include 'inc/sidebar.php'; ?>
+
+	<!-- Main Content -->
+	<div class="main-content">
+		<!-- Top Bar -->
 		<?php include 'inc/panel-header.php'; ?>
-		<!--/Header-->
 
-		<div class="desktop-screen-show">
-			<?php include 'inc/sidebar.php'; ?>
-		</div>
+		<div class="content-body">
+			<!-- Profile Header -->
+			<div class="card mb-4">
+				<div class="card-body">
+					<div class="d-flex flex-column flex-md-row align-items-center gap-4">
+						<div class="profile-avatar">
+							<i class="bi bi-person-circle"></i>
+							<!-- <button class="btn btn-sm btn-primary profile-edit-btn">
+								<i class="bi bi-camera"></i>
+							</button> -->
+						</div>
+						<div class="flex-grow-1 text-center text-md-start">
+							<h4 class="mb-1"><?php echo $Controller->fullName() ?></h4>
+							<p class="text-muted mb-2"><?php echo $user_info['email'] ?></p>
+							<div class="d-flex gap-2 justify-content-center justify-content-md-start">
+								<span class="badge bg-success">Verified Account</span>
+								<!-- <span class="badge bg-primary">Premium Member</span> -->
+							</div>
+						</div>
+						<div>
+							<p class="text-muted small mb-1">Member Since</p>
+							<p class="fw-medium mb-0"><?php echo date('M d, Y', strtotime($user_info['createdat'])) ?></p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-		<div class="page-container">
-			<div class="main-content">
-				<div class="section-gap">
-					<div class="container-fluid">
-						<!--Page Content-->
-						<div class="row">
-							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-								<div class="site-card">
-									<div class="site-card-header">
-										<h3 class="title">Profile Settings</h3>
+			<div class="row">
+				<div class="col-lg-8">
+					<!-- Personal Information -->
+					<div class="card mb-4">
+						<div class="card-header">
+							<h5 class="mb-0">Personal Information</h5>
+						</div>
+						<div class="card-body">
+							<form>
+								<div class="row g-3">
+									<div class="col-md-6">
+										<label for="firstName" class="form-label">First Name</label>
+										<input type="text" class="form-control" id="firstName" value="<?php echo $user_info['fname'] ?>" />
 									</div>
-									<div class="site-card-body">
-										<form action="javascript:void(0)" method="post" enctype="multipart/form-data">
-											<input type="hidden" name="update_user" value="0PBnSGpBOeU6uMyjETolsJPb2ENYjKaQCWd9mtKF">
-											<!-- <div class="row">
-												<div class="col-xl-3">
-													<div class="mb-3">
-														<div class="body-title">Avatar:</div>
-														<div class="wrap-custom-file">
-															<input type="file" name="avatar" id="avatar" accept=".gif, .jpg, .png" />
-															<label for="avatar">
-																<img class="upload-icon" src="./assets/global/materials/upload.svg" alt="" />
-																<span>Update Avatar</span>
-															</label>
-														</div>
-													</div>
-												</div>
-											</div> -->
-											<div class="progress-steps-form">
-												<div class="row">
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">First Name</label>
-														<div class="input-group">
-															<input type="text"
-																class="form-control"
-																name="fname"
-																value="<?php echo $user_info['fname']; ?>"
-																placeholder="First Name"
-															/>
-														</div>
-													</div>
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Last Name</label>
-														<div class="input-group">
-															<input type="text"
-																class="form-control" name="lname"
-																value="<?php echo $user_info['lname']; ?>"
-																placeholder="Last Name" />
-														</div>
-													</div>
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Username</label>
-														<div class="input-group">
-															<input type="text"
-																class="form-control" name="username"
-																value="<?php echo $user_info['email']; ?>"
-																placeholder="Username" />
-														</div>
-													</div>
-													<!-- <div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Date of Birth</label>
-														<div class="input-group">
-															<input type="date" name="date_of_birth" class="form-control" value=""
-																placeholder="Date of Birth" />
-														</div>
-													</div>
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Email Address</label>
-														<div class="input-group">
-															<input type="email" disabled class="form-control disabled" value="ronaldhoymme@gmail.com"
-																placeholder="Email Address" />
-														</div>
-													</div> -->
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Phone</label>
-														<div class="input-group">
-															<input type="text"
-																class="form-control" name="phone"
-																value="<?php echo $user_info['phone']; ?>"
-																placeholder="Phone"
-															/>
-														</div>
-													</div>
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Country</label>
-														<div class="input-group">
-															<input type="text" class="form-control disabled"
-																value="<?php echo $user_info['country']; ?>"  disabled />
-														</div>
-													</div>
+									<div class="col-md-6">
+										<label for="lastName" class="form-label">Last Name</label>
+										<input type="text" class="form-control" id="lastName" value="<?php echo $user_info['lname'] ?>" />
+									</div>
+									<div class="col-md-6">
+										<label for="email" class="form-label">Email</label>
+										<input type="email" class="form-control" id="email" value="<?php echo $user_info['email'] ?>" disabled style="opacity:.7;" />
+									</div>
+									<div class="col-md-6">
+										<label for="phone" class="form-label">Phone</label>
+										<input type="tel" class="form-control" id="<?php echo $user_info['phone'] ?>" value="+1 (555) 123-4567" disabled  style="opacity:.7;">
+									</div>
+									<div class="col-12">
+										<label for="address" class="form-label">Address</label>
+										<input type="text" class="form-control" id="<?php echo $user_info['address'] ?>" value="123 Investment St">
+									</div>
+									<div class="col-md-6">
+										<label for="city" class="form-label">City</label>
+										<input type="text" class="form-control" id="<?php echo $user_info['city'] ?>" value="New York">
+									</div>
+									<div class="col-md-4">
+										<label for="state" class="form-label">State</label>
+										<input type="text" class="form-control" id="<?php echo $user_info['state'] ?>" value="NY">
+									</div>
+									<div class="col-md-2">
+										<label for="zip" class="form-label">ZIP</label>
+										<input type="text" class="form-control" id="<?php echo $user_info['zip'] ?>" value="10001">
+									</div>
+									<div class="col-12">
+										<button type="submit" class="btn bg-primary text-light">Save Changes</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
 
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">City</label>
-														<div class="input-group">
-															<input type="text"
-																class="form-control" name="city"
-																value="<?php echo $user_info['city']; ?>"
-																placeholder="City"
-															/>
-														</div>
-													</div>
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Zip</label>
-														<div class="input-group">
-															<input type="text" class="form-control" name="zip" value="<?php echo $user_info['zip']; ?>" placeholder="Zip" />
-														</div>
-													</div>
-													<div class="col-xl-6 col-md-12">
-														<label for="exampleFormControlInput1" class="form-label">Address</label>
-														<div class="input-group">
-															<input type="text" class="form-control" name="address" value="<?php echo $user_info['address']; ?>" placeholder="Address" />
-														</div>
-													</div>
+					<!-- Security Settings -->
+					<div class="card mb-4">
+						<div class="card-header">
+							<h5 class="mb-0">Security Settings</h5>
+						</div>
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+								<div>
+									<h6 class="mb-1">Password</h6>
+									<p class="text-muted small mb-0">Last changed 30 days ago</p>
+								</div>
+								<button class="btn btn-outline-primary btn-sm">Change Password</button>
+							</div>
+							<div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+								<div>
+									<h6 class="mb-1">Two-Factor Authentication</h6>
+									<p class="text-muted small mb-0">Add an extra layer of security</p>
+								</div>
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="twoFactorAuth" checked>
+								</div>
+							</div>
+							<div class="d-flex justify-content-between align-items-center py-3">
+								<div>
+									<h6 class="mb-1">Login Notifications</h6>
+									<p class="text-muted small mb-0">Get notified of new login attempts</p>
+								</div>
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="loginNotif" checked>
+								</div>
+							</div>
+						</div>
+					</div>
 
-													<div class="col-xl-6 col-md-12">
-														<button type="submit" class="site-btn blue-btn">Save Changes</button>
-													</div>
-												</div>
-											</div>
-										</form>
+					<!-- Notifications -->
+					<div class="card mb-4">
+						<div class="card-header">
+							<h5 class="mb-0">Notification Preferences</h5>
+						</div>
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+								<div>
+									<h6 class="mb-1">Email Notifications</h6>
+									<p class="text-muted small mb-0">Receive updates via email</p>
+								</div>
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="emailNotif" checked>
+								</div>
+							</div>
+							<div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+								<div>
+									<h6 class="mb-1">Transaction Alerts</h6>
+									<p class="text-muted small mb-0">Get notified of all transactions</p>
+								</div>
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="transNotif" checked>
+								</div>
+							</div>
+							<div class="d-flex justify-content-between align-items-center py-3">
+								<div>
+									<h6 class="mb-1">Marketing Emails</h6>
+									<p class="text-muted small mb-0">Receive promotional content</p>
+								</div>
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="marketingNotif">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
+				<!-- Right Column -->
+				<div class="col-lg-4">
+					<!-- Quick Stats -->
+					<div class="card mb-4">
+						<div class="card-header">
+							<h6 class="mb-0">Account Summary</h6>
+						</div>
+						<div class="card-body">
+							<div class="mb-3">
+								<small class="text-muted d-block mb-1">Total Portfolio Value</small>
+								<h5 class="mb-0"><?php echo $Controller->totalBalance() ?></h5>
+							</div>
+							<div class="mb-3">
+								<small class="text-muted d-block mb-1">Active Investments</small>
+								<h5 class="mb-0"><?php echo $Controller->runningTrades()['count'] ?></h5>
+							</div>
+							<div class="mb-3">
+								<small class="text-muted d-block mb-1">Total Transactions</small>
+								<h5 class="mb-0"><?php echo count($Controller->Transactions(100)) ?></h5>
+							</div>
+							<div>
+								<small class="text-muted d-block mb-1">Account Status</small>
+								<span class="badge bg-success">Active</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Linked Accounts -->
+					<div class="card mb-4">
+						<div class="card-header d-flex justify-content-between align-items-center">
+							<h6 class="mb-0">Linked Bank Accounts</h6>
+							<button class="btn btn-sm bg-primary text-light">
+								<i class="bi bi-plus-lg"></i>
+							</button>
+						</div>
+						<div class="card-body p-0">
+							<div class="list-group list-group-flush">
+								<div class="list-group-item">
+									<div class="d-flex align-items-center gap-2">
+										<i class="bi bi-bank2 text-primary"></i>
+										<div class="flex-grow-1">
+											<div class="fw-medium">Chase Bank</div>
+											<small class="text-muted">****1234</small>
+										</div>
+										<span class="badge bg-success-subtle text-success">Primary</span>
+									</div>
+								</div>
+								<div class="list-group-item">
+									<div class="d-flex align-items-center gap-2">
+										<i class="bi bi-bank2 text-primary"></i>
+										<div class="flex-grow-1">
+											<div class="fw-medium">Bank of America</div>
+											<small class="text-muted">****5678</small>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-xl-6 col-lg-6 col-md-6 col-12">
-								<div class="site-card">
-									<div class="site-card-header">
-										<h3 class="title">KYC</h3>
-									</div>
-									<div class="site-card-body">
-										<a href="#kyc" class="site-btn blue-btn">Upload KYC</a>
-										<p class="mt-3 mb-0 text-muted">Complete your KYC to gain full access of your account</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-6 col-lg-6 col-md-6 col-12">
-								<div class="site-card">
-									<div class="site-card-header">
-										<h3 class="title">Change Password</h3>
-									</div>
-									<div class="site-card-body">
-										<a href="#change-password" class="site-btn blue-btn">Change Password</a>
-										<p class="mt-3 mb-0 text-muted">Change your account login password</p>
-									</div>
-								</div>
-							</div>
+					</div>
+
+					<!-- Support -->
+					<div class="card">
+						<div class="card-body text-center">
+							<i class="bi bi-headset fs-1 text-primary mb-3"></i>
+							<h6 class="mb-2">Need Help?</h6>
+							<p class="text-muted small mb-3">Our support team is here to assist you</p>
+							<button class="btn bg-primary text-white w-100">Contact Support</button>
 						</div>
-						<!--Page Content-->
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<!-- Show in 575px in Mobile Screen -->
-		<?php include 'inc/mobile-menu.php'; ?>
-		<!-- Show in 575px in Mobile Screen End -->
-
-		<!-- Automatic Popup -->
-
-		<!-- /Automatic Popup End -->
 	</div>
-	<!--/Full Layout-->
 
-	<script src="./assets/global/js/jquery.min.js"></script>
-	<script src="./assets/global/js/jquery-migrate.js"></script>
+	<!-- Mobile Bottom Navigation -->
+	<?php include 'inc/mobile-menu.php'; ?>
 
-	<script src="./assets/frontend/js/bootstrap.bundle.min.js"></script>
-	<script src="./assets/frontend/js/scrollUp.min.js"></script>
-
-	<script src="./assets/frontend/js/owl.carousel.min.js"></script>
-	<script src="./assets/global/js/waypoints.min.js"></script>
-	<script src="./assets/frontend/js/jquery.counterup.min.js"></script>
-	<script src="./assets/global/js/jquery.nice-select.min.js"></script>
-	<script src="./assets/global/js/lucide.min.js"></script>
-	<script src="./assets/frontend/js/magnific-popup.min.js"></script>
-	<script src="./assets/frontend/js/aos.js"></script>
-	<script src="./assets/global/js/datatables.min.js" type="text/javascript" charset="utf8"></script>
-	<script src="./assets/global/js/simple-notify.min.js"></script>
-	<script src="./assets/frontend/js/main.js?var=5"></script>
-	<script src="./assets/frontend/js/cookie.js"></script>
-	<script src="./assets/global/js/custom.js?var=5"></script>
-	<script src="./assets/global/js/pusher.min.js"></script>
-	<script>
-			(function ($) {
-				'use strict';
-				// To top
-				$.scrollUp({
-					scrollText: '<i class="fas fa-caret-up"></i>',
-					easingType: 'linear',
-					scrollSpeed: 500,
-					animation: 'fade'
-				});
-			})(jQuery);
-	</script>
-
-	<script type="text/javascript" src="./assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
-	<script>
-		// Color Switcher
-		$(".color-switcher").on('click', function () {
-			"use strict"
-			$("body").toggleClass("dark-theme");
-			var url = './theme-mode';
-			$.get(url)
-		});
-	</script>
-
-
+	<script src="assets/global/js/jquery.min.js"></script>
+	<script src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
+	<script src="../js/forms.js"></script>
+	<script src="assets/js/theme.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -52,7 +52,7 @@ $(document).ready(function() {
 		    $("#loginForm .submit-btn").html("Loading <i class='spinner-border spinner-border-sm'></i>");
 	    },
 	    success: function(data) {
-		    $("#loginForm .submit-btn").html("Account login");
+		    $("#loginForm .submit-btn").html("Sign In");
 		    if ( data.search('success') !== -1 ) {
 		    	$("#loginForm input").val('');
 					notifySuccess("Taking you to your dashboard");
@@ -64,7 +64,7 @@ $(document).ready(function() {
 	    },
 	    error: function() {
         $('#loginForm .submit-btn').prop('disabled', false);
-		    $("#loginForm .submit-btn").html("Account login");
+		    $("#loginForm .submit-btn").html("Sign In");
         notifyWarning('An error occured, try again!');
 	    }
 	  });
@@ -86,7 +86,7 @@ $(document).ready(function() {
 		    $("#depositForm .submit-btn").addClass("disabled");
 	    },
 	    success: function(data) {
-		    $("#depositForm .submit-btn").html("Make payment");
+		    $("#depositForm .submit-btn").html('<i class="bi bi-check-circle"></i> Continue to Payment');
 		    $("#depositForm .submit-btn").removeClass("disabled");
 		    if ( data.search('success') !== -1 ) {
 		    	notifySuccess(data);
@@ -101,7 +101,7 @@ $(document).ready(function() {
 		    }
 	    },
 	    error: function(err) {
-		    $("#depositForm .submit-btn").html("Make payment");
+		    $("#depositForm .submit-btn").html('<i class="bi bi-check-circle"></i> Continue to Payment');
 		    $("#depositForm .submit-btn").removeClass("disabled");
 	    	notifyWarning(JSON.stringify(err));
 	    }
@@ -123,7 +123,7 @@ $(document).ready(function() {
 		    $("#withdrawForm .submit-btn").addClass("disabled");
 	    },
 	    success: function(data) {
-		    $("#withdrawForm .submit-btn").html("Withdraw");
+		    $("#withdrawForm .submit-btn").html('<i class="bi bi-arrow-up-circle"></i> Request Withdrawal');
 		    $("#withdrawForm .submit-btn").removeClass("disabled");
 		    if ( data.search('success') !== -1 ) {
 					$("#withdrawForm").find("input, select, textarea").val("");
@@ -136,7 +136,7 @@ $(document).ready(function() {
 		    }
 	    },
 	    error: function(error) {
-		    $("#withdrawForm .submit-btn").html("Withdraw");
+		    $("#withdrawForm .submit-btn").html('<i class="bi bi-arrow-up-circle"></i> Request Withdrawal');
 		    $("#withdrawForm .submit-btn").removeClass("disabled");
 	    	notifyWarning('An error occured, check your connection and try again');
 	    }

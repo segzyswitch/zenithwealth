@@ -206,6 +206,16 @@ if ( isset($_POST['make_deposit']) ) {
   // Generate 12 char invoice
   $invoice = strtoupper(generateUniqueId(12));
 
+  // Validate input
+  if (empty($amount) || empty($wallet_type)) {
+    echo "All fields are required!";
+    return false;
+  }
+  if ( $amount < 50 ) {
+    echo "Minimum deposit amount is $50!";
+    return false;
+  }
+
   // Check file
   $check_name = $_FILES['image']['name'];
   $file_ext = pathinfo($check_name, PATHINFO_EXTENSION);
@@ -214,7 +224,7 @@ if ( isset($_POST['make_deposit']) ) {
   $target_dir = "../uploads/";
   $check_target_file = $target_dir . $save_name;
 
-  $details = "Deposit with ".$wallet_type;
+  $details = "Deposit ".number_format($amount, 2)." with ".$wallet_type;
 
   // Upload proof
   if ( move_uploaded_file($check_tmp_file, $check_target_file) ) {
@@ -313,6 +323,10 @@ if ( isset($_POST['widthdraw_funds']) ) {
   // Validate input
   if (empty($amount) || empty($from_wallet) || empty($gateway) || empty($wallet_addr)) {
     echo "All fields are required!";
+    return false;
+  }
+  if ( $amount < 100 ) {
+    echo "Minimum withdrawal amount is $100!";
     return false;
   }
   // Generate 12 char invoice

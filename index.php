@@ -443,111 +443,6 @@
 			</div>
 		</section>
 
-		<section class="section_6">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="home_table">
-							<div class="table-responsive">
-								<table>
-									<tbody>
-										<th colspan="3">Last Deposits</th>
-										<tr>
-											<td><img src="images/1005.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$662.00</td>
-											<td>Carlos</td>
-										</tr>
-										<tr>
-
-											<td><img src="images/1005.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$2900.00</td>
-											<td>Blessed72</td>
-										</tr>
-										<tr>
-
-											<td><img src="images/1005.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$1325.00</td>
-											<td>Carlos</td>
-										</tr>
-										<tr>
-
-											<td><img src="images/1005.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$1005.00</td>
-											<td>Carlos</td>
-										</tr>
-										<tr>
-
-											<td><img src="images/1005.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$1600.00</td>
-											<td>Carlos</td>
-										</tr>
-										<tr>
-
-											<td><img src="images/1005.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$2170.00</td>
-											<td>Twozero124</td>
-										</tr>
-
-
-
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6">
-						<div class="home_table">
-
-
-
-							<div class="table-responsive">
-								<table>
-									<tbody>
-										<th colspan="3">Last Withdrawals</th>
-
-										<tr>
-											<td><img src="images/1000.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$6206.00</td>
-											<td>Pay5050</td>
-										</tr>
-										<tr>
-											<td><img src="images/1005.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$345.00</td>
-											<td>Carlos</td>
-										</tr>
-										<tr>
-											<td><img src="images/1005.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$50.00</td>
-											<td>Carlos</td>
-										</tr>
-										<tr>
-											<td><img src="images/1000.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$6406.00</td>
-											<td>Pay5050</td>
-										</tr>
-										<tr>
-											<td><img src="images/1000.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$18500.00</td>
-											<td>Evan</td>
-										</tr>
-										<tr>
-											<td><img src="images/1005.html" alt="pay_icon" class="img-responsive"></td>
-											<td>$6500.00</td>
-											<td>Evan</td>
-										</tr>
-
-
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</section>
-
 		<div class="container clearfix"></div>
 
 		<section class="section_23_ref">
@@ -564,9 +459,6 @@
 							possible not only to help them to receive financial benefit, but also to receive additional
 							percent.</div>
 					</div>
-
-
-
 				</div>
 			</div>
 		</section>

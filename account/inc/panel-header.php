@@ -1,76 +1,69 @@
-<div class="panel-header">
-	<div class="logo">
-		<a href="../">
-			<img class="logo-unfold" src="../logo.png" alt="Logo" style="scale:1.3;" />
-			<img class="logo-fold" src="../logo.png" alt="Logo" style="scale:1.3;" />
-		</a>
-	</div>
-	<div class="nav-wrap">
-		<div class="nav-left">
-			<button class="sidebar-toggle">
-				<i class="anticon anticon-arrow-left"></i>
+<div class="w-100 d-flex gap-3 top-bar sticky-top" style="background-color:var(--surface-color);">
+	<img src="../logo-new.png" class="me-auto d-sm-none" height="50" alt="VW">
+	
+	<div class="ms-auto d-flex gap-3">
+		<button class="btn p-0 px-1 nav-icons" id="themeToggle">
+			<i class="bi bi-sun-fill" id="themeIcon"></i>
+		</button>
+		<div class="dropdown profile-drop my-auto d-none d-sm-block">
+			<button class="btn p-0 nav-icons" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+				<i class="bi bi-person-circle m-0 d-inline-block me-2" style="scale:1.4;"></i>
 			</button>
-			<div class="mob-logo">
-				<a href="../">
-					<img src="../icon-o.png" alt="Site Name" style="scale:1.3;" />
-				</a>
-			</div>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				<li><a class="dropdown-item" href="#">Action</a></li>
+				<li><a class="dropdown-item" href="#">Another action</a></li>
+				<li><a class="dropdown-item" href="#">Something else here</a></li>
+			</ul>
 		</div>
-		<div class="nav-right">
-			<div class="single-nav-right">
-
-				<div class="single-right">
-					<div class="color-switcher">
-						<i icon-name="moon" class="dark-icon" data-mode="dark"></i>
-						<i icon-name="sun" class="light-icon" data-mode="light"></i>
-					</div>
-				</div>
-
-				<!-- <div class="single-nav-right user-notifications62">
-					<button type="button" class="item notification-dot" data-bs-toggle="dropdown" aria-expanded="false">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bell-ring" icon-name="bell-ring" class="lucide lucide-bell-ring"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path><path d="M4 2C2.8 3.7 2 5.7 2 8"></path><path d="M22 8c0-2.3-.8-4.3-2-6"></path></svg>
-						<div class="number">0</div>
-					</button>
-					<div class="dropdown-menu dropdown-menu-end notification-pop">
-						<div class="noti-head">Notifications <span>0</span></div>
-						<div class="all-noti">
-							<p>Notification Not Found</p>
-						</div>
-					</div>
-				</div> -->
-
-				<div class="single-right">
-					<select name="language" id="" class="site-nice-select">
-						<option value="./language-update?name=en" selected>English</option>
-						<option value="./language-update?name=es">Spanish</option>
-						<option value="./language-update?name=fr">Franch</option>
-					</select>
-				</div>
-				<div class="single-right">
-					<button type="button" class="item" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class="anticon anticon-user"></i>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-end">
-						<li>
-							<a href="./settings" class="dropdown-item" type="button"><i
-									class="anticon anticon-setting"></i>Settings</a>
-						</li>
-						<li>
-							<a href="./change-password" class="dropdown-item" type="button">
-								<i class="anticon anticon-lock"></i>Change Password
-							</a>
-						</li>
-						<li>
-							<a href="./support-ticket/index" class="dropdown-item" type="button">
-								<i class="anticon anticon-customer-service"></i>Support Tickets
-							</a>
-						</li>
-						<li class="logout">
-							<a href="./logout" class="dropdown-item"><i	class="anticon anticon-logout"></i>Logout</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<button class="btn p-0 px-1 nav-icons d-sm-none" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav">
+			<i class="bi bi-list d-inline-block" style="scale:1.4;"></i>
+		</button>
 	</div>
 </div>
+
+<div class="offcanvas offcanvas-start" style="width:85%" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+  <div class="offcanvas-header" style="background-color:var(--surface-color);">
+		<h5 class="offcanvas-title" id="mobileNavLabel">
+			<a href="../"><img src="../logo-new.png" height="50" alt="Velloxa" /></a>
+		</h5>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mobile-menu overflow-auto d-block" style="background-color:var(--surface-color);">
+		<div class="card">
+			<div class="card-body d-flex gap-2">
+				<div class="me-auto" style="max-width: 70%;">
+					<h5 class="mb-0 text-truncate"><?php echo $user_info['fname'].' '.$user_info['lname'] ?></h5>
+					<small class="text-muted d-block"><?php echo $user_info['email'] ?></small>
+				</div>
+				<div class="ms-auto my-auto w-100">
+					<a href="./settings" class="btn btn-outline-primary btn-sm">
+						<i class="bi bi-person-circle"></i> Profile
+					</a>
+				</div>
+			</div>
+		</div>
+		<?php include 'sidebar-links.php' ?>
+  </div>
+  <div class="offcanvas-footer mt-auto p-3" style="background-color:var(--surface-color);">
+		<a href="./logout" class="btn btn-danger w-100">
+			<i class="bi bi-box-arrow-right"></i> Logout
+		</a>
+  </div>
+</div>
+
+
+<script>
+  // Get current URL path
+  const mobileSidenav = window.location.pathname.split("/").pop();
+	// alert(currentPage);
+
+  // Loop through links
+  document.querySelectorAll(".mobile-menu a").forEach(link => {
+    const href = link.getAttribute("href");
+
+    if (href === `./${mobileSidenav}`) {
+      link.classList.add("active"); // add class to <li>
+			// alert(href)
+    }
+  });
+</script>

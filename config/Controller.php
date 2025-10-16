@@ -11,7 +11,7 @@ class Controller
   private $db_server = 'localhost';
   private $db_username = 'root';
   private $db_password = '';
-  private $db_name = 'mooninvests';
+  private $db_name = 'velloxa';
   
   // DB Connection
   public $conn;
@@ -58,8 +58,25 @@ class Controller
   }
   public function totalBalance() {
     $user_info = $this->User();
-    $balanceSum = $user_info['savings_bal'] + $user_info['current_bal'];
-    return '$'. number_format($balanceSum).'.00';
+    $balanceSum = $user_info['wallet_bal'] + $user_info['trading_bal'];
+    return '$'. number_format($balanceSum, 2);
+  }
+
+  // Linked Accounts
+  public function linkedAccounts($type = null) {
+    $user_id = $_SESSION["moon_account_id"];
+    $type ? "AND `type` = '$type'" : $type = "";
+    $sql = "SELECT * FROM linked_account WHERE user_id = '$user_id'
+    $type
+    ORDER BY id DESC";
+    try {
+      $query = $this->conn->prepare($sql);
+      $query->execute();
+      $data = $query->fetchAll();
+      return $data;
+    } catch (PDOException $e) {
+      return $e->getMessage();
+    }
   }
 
   // Login history
@@ -118,9 +135,9 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function singleTransaction($invoice_id) {
-    $user_id = $_SESSION["moon_account_id"];
-    $sql = "SELECT * FROM transactions WHERE id = '$invoice_id'";
+  public function singleTransaction($invoice) {
+    // $user_id = $_SESSION["moon_account_id"];
+    $sql = "SELECT * FROM transactions WHERE invoice = '$invoice'";
     try {
       $query = $this->conn->prepare($sql);
       $query->execute();
@@ -132,12 +149,12 @@ class Controller
   }
 
   // All deposits
-  public function Deposits() {
+  public function Deposits($limit = 10) {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM transactions
     WHERE user_id='$user_id'
     AND type='deposit'
-    ORDER BY id DESC LIMIT 10";
+    ORDER BY id DESC LIMIT $limit";
     try {
       $query = $this->conn->prepare($sql);
       $query->execute();
@@ -162,7 +179,7 @@ class Controller
       }
       return [
         'count' => count($data),
-        'sum' => '$'.number_format($total).'.00'
+        'sum' => '$'.number_format($total, 2)
       ];
     } catch (PDOException $e) {
       return $e->getMessage();
@@ -184,7 +201,7 @@ class Controller
       }
       return [
         'count' => count($data),
-        'sum' => '$'.number_format($total).'.00'
+        'sum' => '$'.number_format($total, 2)
       ];
     } catch (PDOException $e) {
       return $e->getMessage();
@@ -206,7 +223,7 @@ class Controller
       }
       return [
         'count' => count($data),
-        'sum' => '$'.number_format($total).'.00'
+        'sum' => '$'.number_format($total, 2)
       ];
     } catch (PDOException $e) {
       return $e->getMessage();
@@ -260,7 +277,7 @@ class Controller
       }
       return [
         'count' => count($data),
-        'sum' => '$'.number_format($total).'.00'
+        'sum' => '$'.number_format($total, 2)
       ];
     } catch (PDOException $e) {
       return $e->getMessage();
@@ -281,7 +298,7 @@ class Controller
       }
       return [
         'count' => count($data),
-        'sum' => '$'.number_format($total).'.00'
+        'sum' => '$'.number_format($total, 2)
       ];
     } catch (PDOException $e) {
       return $e->getMessage();
@@ -299,7 +316,25 @@ class Controller
       foreach ($data as $key => $value) {
         $total += $value['amount'];
       }
-      return '$'.number_format($total).'.00';
+      return $total;
+    } catch (PDOException $e) {
+      return $e->getMessage();
+    }
+  }
+  public function totalRetruns() {
+    $user_id = $_SESSION["moon_account_id"];
+    $sql = "SELECT * FROM trades
+    WHERE user_id='$user_id'";
+    try {
+      $query = $this->conn->prepare($sql);
+      $query->execute();
+      $data = $query->fetchAll();
+      $total = 0;
+      foreach ($data as $key => $value) {
+        $total += $value['profit'];
+      }
+      $returns = $total + $this->totalInvested();
+      return '$'.number_format($returns, 2);
     } catch (PDOException $e) {
       return $e->getMessage();
     }
@@ -317,7 +352,7 @@ class Controller
       foreach ($data as $key => $value) {
         $total += $value['profit'];
       }
-      return '$'.number_format($total).'.00';
+      return '$'.number_format($total, 2);
     } catch (PDOException $e) {
       return $e->getMessage();
     }

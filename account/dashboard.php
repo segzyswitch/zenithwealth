@@ -1,499 +1,167 @@
 <?php
 require '../config/session.php';
 
-$refferal = "https://velloxawealth.com/register?invite=".$user_info['uuid'];
+$refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="canonical" href="./user/dashboard" />
-	<link rel="shortcut icon" href="./../icon-o.png" type="image/x-icon" />
-
-	<link rel="icon" href="./../icon-o.png" type="image/x-icon" />
-	<link rel="stylesheet" href="./assets/global/css/fontawesome.min.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/vendor/bootstrap.min.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/animate.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/owl.carousel.min.css" />
-	<link rel="stylesheet" href="./assets/global/css/nice-select.css" />
-	<link rel="stylesheet" href="./assets/global/css/datatables.min.css" />
-	<link rel="stylesheet" href="./assets/global/css/simple-notify.min.css" />
-	<link rel="stylesheet" type="text/css" href="./assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
-	<link rel="stylesheet" href="./assets/global/css/custom.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/magnific-popup.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/aos.css" />
-	<link rel="stylesheet" href="./assets/frontend/css/styles.css?var=2.1" />
-
-	<style>
-		/* // The Custom CSS will be added on the site head tag  */
-		.site-head-tag {
-			margin: 0;
-			padding: 0;
-		}
-	</style>
-
-	<title>Velloxa Wealth - Dashboard</title>
-
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard - Velloxa Wealth</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
+	<link rel="shortcut icon" href="../icon.png" type="image/png">
 </head>
 
-<body class="dark-theme">
-	<script>
-		var notify = {
-			timeout: "5000",
-		}
-	</script>
-	<!--Full Layout-->
-	<div class="panel-layout">
-		<!--Header-->
+<body>
+	<!-- Sidebar -->
+	<?php include 'inc/sidebar.php'; ?>
+
+	<!-- Main Content -->
+	<div class="main-content">
+		<!-- Topbar -->
 		<?php include 'inc/panel-header.php'; ?>
-		<!--/Header-->
+		<div class="content-body">
+			<h4 class="text-muted">👋 Welcome Back, <?php echo $user_info['fname'] ?>!</h4>
+			<!-- Tabs -->
+			<?php if( $Controller->runningTrades()['count'] > 0 ) { ?>
+			<ul class="nav nav-tabs custom-tabs mb-4">
+				<li class="nav-item">
+					<a class="nav-link active" data-bs-toggle="tab" href="#balances">Balances</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-bs-toggle="tab" href="#runInvestments">
+						Running Investments
+						<span class="badge bg-secondary rounded-circle"><?php echo $Controller->runningTrades()['count'] ?></span>
+					</a>
+				</li>
+			</ul>
+			<?php } ?>
+			<div class="tab-content">
+				<div class="tab-pane fade show active" id="balances">
+					<!-- Available Balance Card -->
+					<div class="card balance-card mb-4">
+						<div class="card-body py-4">
+							<p class="text-muted mb-2">Total available balance</p>
+							<h1 class="mb-4"><?php echo $Controller->totalBalance() ?></h1>
+							<div class="d-flex gap-3 flex-wrap">
+								<a href="./deposit" class="btn btn-primary btn-lg px-4 px-sm-5">Deposit</a>
+								<a href="./withdraw" class="btn btn-outline-secondary btn-lg px-4 px-sm-5">Withdraw</a>
+							</div>
+						</div>
+					</div>
 
-		<div class="desktop-screen-show">
-			<?php include 'inc/sidebar.php'; ?>
-		</div>
-
-		<div class="page-container">
-			<div class="main-content">
-				<div class="section-gap">
-					<div class="container-fluid">
-						<!--Page Content-->
-						<div class="desktop-screen-show">
-							<div class="row d-none">
-								<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="user-ranking">
-										<h4>Level 1</h4>
-										<p>Hyip Member</p>
-										<div class="rank" data-bs-toggle="tooltip" data-bs-placement="top"
-											title="By signing up to the account">
-											<img src="./assets/global/images/sCQgIyl0OKzFiO73nmWF.svg"
-												alt="">
-										</div>
+					<!-- Main Account Card -->
+					<div class="card account-card mb-4">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-start mb-4">
+								<div class="d-flex gap-3 align-items-center">
+									<div class="account-icon">
+										<i class="bi bi-wallet2"></i>
+									</div>
+									<div>
+										<h5 class="mb-0">Main Account</h5>
+										<p class="text-muted small mb-0">№ RGL001887</p>
 									</div>
 								</div>
-								<div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12">
-									<div class="site-card">
-										<div class="site-card-header">
-											<h3 class="title">Referral URL</h3>
-										</div>
-										<div class="site-card-body">
-											<div class="referral-link">
-												<div class="referral-link-form">
-													<input type="text" value="<?php echo $refferal; ?>" id="refLink" />
-													<button type="submit" onclick="copyRef()">
-														<i class="anticon anticon-copy"></i>
-														<span id="copy">Copy</span>
-													</button>
-												</div>
-												<p class="referral-joined">
-													0 peoples are joined by using this URL
-												</p>
-											</div>
-										</div>
-									</div>
+								<div class="text-end">
+									<p class="text-muted small mb-0">Opened</p>
+									<p class="small mb-0">30.09.2023</p>
 								</div>
 							</div>
 
-							<div class="row user-cards">
-								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-inbox"></i></div>
-										<div class="content">
-											<h4><span class="count"><?php echo count($Controller->Transactions(50)) ?></span></h4>
-											<p>All Transactions</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-file-add"></i></div>
-										<div class="content">
-											<h4><b>$</b><span><?php echo $Controller->totalDeposits()['sum']; ?></span></h4>
-											<p>Total Deposit</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-check-square"></i></div>
-										<div class="content">
-											<h4><b>$</b><span><?php echo $Controller->totalInvested(); ?></span></h4>
-											<p>Total Investment</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-credit-card"></i></div>
-										<div class="content">
-											<h4><b>$</b><span><?php echo $Controller->totalProfit(); ?></span></h4>
-											<p>Total Profit</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-money-collect"></i></div>
-										<div class="content">
-											<h4><b>$</b><span class="count">0</span></h4>
-											<p>Total Withdraw</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="single">
-										<div class="icon"><i class="anticon anticon-arrow-right"></i></div>
-										<div class="content">
-											<h4><b>$</b><span class="count">0</span></h4>
-											<p>Total Transfer </p>
-										</div>
-									</div>
-								</div>
+							<h2 class="mb-2"><?php echo $Controller->totalBalance() ?></h2>
+							<p class="text-muted mb-3">Portfolio Valuation</p>
+
+							<div class="progress mb-3" style="height: 8px;">
+								<div class="progress-bar bg-primary" style="width: 40%"></div>
+								<div class="progress-bar bg-success" style="width: 60%"></div>
 							</div>
 
-							<div class="row">
-								<div class="col-xl-12">
-									<div class="site-card">
-										<div class="site-card-header">
-											<h3 class="title">Recent Transactions</h3>
-										</div>
-										<div class="site-card-body table-responsive">
-											<div class="site-datatable">
-												<table class="display data-table">
-													<thead>
-														<tr>
-															<th>Description</th>
-															<th>Transactions ID</th>
-															<th>Type</th>
-															<th>Amount</th>
-															<th>Fee</th>
-															<th>Status</th>
-															<th>Source</th>
-														</tr>
-													</thead>
-													<tbody>
-														<?php
-														if ( count($Controller->Transactions(10)) <= 0 ) {
-															echo 'No data found';
-														}
-														foreach ($Controller->Transactions(10) as $key => $value) {
-															?>
-														<tr>
-															<td>
-																<div class="table-description">
-																	<div class="icon">
-																		<!-- config icons -->
-																		<i icon-name="backpack"></i>
-																	</div>
-																	<div class="description">
-																		<strong><?php echo $value['details'] ?></strong>
-																		<div class="date"><?php echo date('M d Y H:i', strtotime($value['createdat'])) ?></div>
-																	</div>
-																</div>
-															</td>
-															<td><strong><?php echo $value['invoice'] ?></strong></td>
-															<td>
-																<div class="site-badge bg-primary text-capitalize"><?php echo $value['type'] ?></div>
-															</td>
-															<td>
-																<strong>$<?php echo number_format($value['amount'],2) ?></strong>
-															</td>
-															<td><strong>$0</strong></td>
-															<td>
-																<?php
-																if ( $value['status'] == 'success') echo '<div class="site-badge success">Completed</div>';
-																elseif ( $value['status'] == 'failed') echo '<div class="site-badge bg-danger">Failed</div>';
-																else echo '<div class="site-badge bg-warning">'.$value["status"].'</div>';
-																?>
-															</td>
-															<td><strong><?php echo $value['source'] ?></strong></td>
-														</tr>
-														<?php
-														}
-														?>
-													</tbody>
-												</table>
-											</div>
-										</div>
+							<div class="row g-3">
+								<div class="col-6">
+									<div class="d-flex align-items-center gap-2">
+										<span class="badge bg-primary rounded-circle p-2"></span>
+										<small class="text-muted">Current investment</small>
 									</div>
+									<h6 class="mt-1"><?php echo '$'.number_format($Controller->totalInvested(), 2) ?></h6>
+								</div>
+								<div class="col-6">
+									<div class="d-flex align-items-center gap-2">
+										<span class="badge bg-success rounded-circle p-2"></span>
+										<small class="text-muted">Expected Profit</small>
+									</div>
+									<h6 class="mt-1 text-success"><?php echo $Controller->totalRetruns() ?></h6>
 								</div>
 							</div>
 						</div>
+					</div>
 
-						<div class="mobile-screen-show">
-							<div class="row">
-								<div class="col-12">
-									<div class="user-ranking-mobile">
-										<div class="icon"><img src="./assets/global/materials/user.png" alt="user" /></div>
-										<div class="name">
-											<h4>Hi, <?php echo $Controller->fullName(); ?></h4>
-											<p>Hyip Member - <span>Level 1</span></p>
-										</div>
-										<div class="rank-badge"><img src="./assets/global/images/sCQgIyl0OKzFiO73nmWF.svg" alt="" /></div>
+					<!-- Venture Capital Account Card
+					<div class="card account-card mb-5">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-start">
+								<div class="d-flex gap-3 align-items-center">
+									<div class="account-icon bg-danger-subtle">
+										<span class="text-danger fw-bold">VC</span>
 									</div>
-									<div class="user-wallets-mobile">
-										<img src="./assets/frontend/materials/wallet-shadow.png" alt="" class="wallet-shadow">
-										<div class="head">All Wallets in USD</div>
-										<div class="one">
-											<div class="balance">
-												<span class="symbol">$</span><?php echo number_format($user_info['wallet_bal']) ?><span class="after-dot">.00 </span>
-											</div>
-											<div class="wallet">Main Wallet</div>
-										</div>
-										<div class="one p-wal">
-											<div class="balance">
-												<span class="symbol">$</span><?php echo number_format($user_info['trading_bal']) ?><span class="after-dot">.00 </span>
-											</div>
-											<div class="wallet">Profit Wallet</div>
-										</div>
+									<div>
+										<h5 class="mb-0">Venture Capital</h5>
+										<p class="text-muted small mb-0">№ V984721124</p>
 									</div>
 								</div>
-
-								<div class="col-12">
-									<div class="mob-shortcut-btn">
-										<a href="./deposit"><i icon-name="download"></i> Deposit</a>
-										<a href="./invest-logs"><i icon-name="box"></i> Investment</a>
-										<a href="./send-money"><i icon-name="send"></i> Withdraw</a>
-									</div>
-								</div>
-
-								<div class="col-12">
-									<!-- all Statistic -->
-									<div class="all-feature-mobile mb-3 mobile-screen-show">
-										<div class="title">All Statistic</div>
-										<div class="row">
-											<div class="col-12">
-												<div class="all-cards-mobile">
-													<div class="contents row">
-														<div class="col-12">
-															<div class="single-card">
-																<div class="icon"><i icon-name="arrow-left-right"></i></div>
-																<div class="content">
-																	<div class="amount count"><?php echo count($Controller->Transactions(50)) ?></div>
-																	<div class="name">All Transactions</div>
-																</div>
-															</div>
-														</div>
-														<div class="col-12">
-															<div class="single-card">
-																<div class="icon"><i icon-name="download"></i></div>
-																<div class="content">
-																	<div class="amount"><span><?php echo $Controller->totalDeposits()['sum']; ?></span>
-																	</div>
-																	<div class="name">Total Deposit</div>
-																</div>
-															</div>
-														</div>
-														<div class="col-12">
-															<div class="single-card">
-																<div class="icon"><i icon-name="box"></i></div>
-																<div class="content">
-																	<div class="amount"><span><?php echo $Controller->totalInvested(); ?></span>
-																	</div>
-																	<div class="name">Total Investment</div>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="moretext-2">
-														<div class="contents row">
-															<div class="col-12">
-																<div class="single-card">
-																	<div class="icon"><i icon-name="credit-card"></i></div>
-																	<div class="content">
-																		<div class="amount"> <span><?php echo $Controller->totalProfit(); ?></span>
-																		</div>
-																		<div class="name">Total Profit</div>
-																	</div>
-																</div>
-															</div>
-															<div class="col-12">
-																<div class="single-card">
-																	<div class="icon"><i icon-name="send"></i></div>
-																	<div class="content">
-																		<div class="amount"> $<span class="count">0</span>
-																		</div>
-																		<div class="name">Total Withdraw</div>
-																	</div>
-																</div>
-															</div>
-															<div class="col-12">
-																<div class="single-card">
-																	<div class="icon"><i icon-name="log-in"></i></div>
-																	<div class="content">
-																		<div class="amount">$<span class="count">0</span>
-																		</div>
-																		<div class="name">Total Transfer</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="centered">
-														<button class="moreless-button-2 site-btn-sm grad-btn">Load more</button>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- Recent Transactions -->
-									<div class="all-feature-mobile mobile-transactions mb-3 mobile-screen-show">
-										<div class="title">Recent Transactions</div>
-										<div class="contents">
-											<?php
-											if ( count($Controller->Transactions(10)) <= 0 ) {
-												echo 'No data found';
-											}
-											foreach ($Controller->Transactions(10) as $key => $value) {
-												?>
-											<div class="single-transaction">
-												<div class="transaction-left">
-													<div class="transaction-des">
-														<div class="transaction-title"><?php echo $value['details'] ?></div>
-														<div class="transaction-id"><?php echo $value['invoice'] ?></div>
-														<div class="transaction-date"><?php echo date('M d Y H:i', strtotime($value['createdat'])) ?></div>
-													</div>
-												</div>
-												<div class="transaction-right">
-													<div class="transaction-amount">$<?php echo number_format($value['amount'],2) ?></div>
-													<!-- <div class="transaction-fee sub">-0 USD Fee </div> -->
-													<div class="transaction-gateway"><?php echo $value['source'] ?></div>
-													<?php
-													if ( $value['status'] == 'success') echo '<div class="transaction-status success">Completed</div>';
-													elseif ( $value['status'] == 'failed') echo '<div class="transaction-status bg-danger">Failed</div>';
-													else echo '<div class="transaction-status bg-warning">'.$value["status"].'</div>';
-													?>
-												</div>
-											</div>
-											<?php
-											}
-											?>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-12 d-none">
-									<div class="mobile-ref-url mb-4">
-										<div class="all-feature-mobile">
-											<div class="title">Referral URL</div>
-											<div class="mobile-referral-link-form">
-												<input type="text" value="<?php echo $refferal; ?>" id="refLink" />
-												<button type="submit" onclick="copyRef()">
-													<span id="copy">Copy</span>
-												</button>
-											</div>
-											<p class="referral-joined">0 peoples are joined by using this URL</p>
-										</div>
-									</div>
+								<div class="text-end">
+									<p class="text-muted small mb-0">Opened</p>
+									<p class="small mb-0">12.07.2022</p>
 								</div>
 							</div>
 						</div>
-						<!--Page Content-->
+					</div>
+					-->
+					
+				</div>
+				
+				<!-- Transaction List -->
+				<div class="card mb-5">
+					<div class="card-header d-flex justify-content-between align-items-center py-3">
+						<h5 class="mb-0">Recent Transactions</h5>
+					</div>
+					<div class="card-body p-0">
+						<!-- Transaction list -->
+						<?php include 'inc/transaction-list.php'; ?>
+					</div>
+					<div class="card-footer">
+						<nav>
+							<ul class="pagination justify-content-center mb-0">
+								<li class="page-item disabled">
+									<button type="button" class="page-link" disabled tabindex="-1">Previous</button>
+								</li>
+								<li class="page-item active"><a class="page-link" href="#">1</a></li>
+								<li class="page-item disabled">
+									<button type="button" disabled class="page-link">Next</button>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-		<!-- Show in 575px in Mobile Screen -->
-		<?php include 'inc/mobile-menu.php'; ?>
-		<!-- Show in 575px in Mobile Screen End -->
-
-		<!-- Automatic Popup -->
-
-		<!-- /Automatic Popup End -->
 	</div>
-	<!--/Full Layout-->
 
-	<script src="./assets/global/js/jquery.min.js"></script>
-	<script src="./assets/global/js/jquery-migrate.js"></script>
-
-	<script src="./assets/frontend/js/bootstrap.bundle.min.js"></script>
-	<script src="./assets/frontend/js/scrollUp.min.js"></script>
-
-	<script src="./assets/frontend/js/owl.carousel.min.js"></script>
-	<script src="./assets/global/js/waypoints.min.js"></script>
-	<script src="./assets/frontend/js/jquery.counterup.min.js"></script>
-	<script src="./assets/global/js/jquery.nice-select.min.js"></script>
-	<script src="./assets/global/js/lucide.min.js"></script>
-	<script src="./assets/frontend/js/magnific-popup.min.js"></script>
-	<script src="./assets/global/js/simple-notify.min.js"></script>
-	<script src="./assets/frontend/js/main.js?var=5"></script>
-	<script src="./assets/frontend/js/cookie.js"></script>
-	<script src="./assets/global/js/custom.js?var=5"></script>
-	<script src="./assets/global/js/pusher.min.js"></script>
-
-	<script>
-		(function ($) {
-			'use strict';
-			// To top
-			$.scrollUp({
-				scrollText: '<i class="fas fa-caret-up"></i>',
-				easingType: 'linear',
-				scrollSpeed: 500,
-				animation: 'fade'
-			});
-		})(jQuery);
-	</script>
-
-	<script type="text/javascript" src="./assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
-	<script>
-		function copyRef() {
-			/* Get the text field */
-			var textToCopy = $('#refLink').val();
-			// Create a temporary input element
-			var tempInput = $('<input>');
-			$('body').append(tempInput);
-			tempInput.val(textToCopy).select();
-			// Copy the text from the temporary input
-			document.execCommand('copy');
-			// Remove the temporary input element
-			tempInput.remove();
-			$('#copy').text('Copied'); var copyApi = document.getElementById("refLink");
-			/* Select the text field */
-			copyApi.select();
-			copyApi.setSelectionRange(0, 999999999); /* For mobile devices */
-			/* Copy the text inside the text field */
-			document.execCommand('copy');
-			$('#copy').text('Copied')
-
-		}
-
-		// Load More
-		$('.moreless-button').click(function () {
-			$('.moretext').slideToggle();
-			if ($('.moreless-button').text() == "Load more") {
-				$(this).text("Load less")
-			} else {
-				$(this).text("Load more")
-			}
-		});
-
-		$('.moreless-button-2').click(function () {
-			$('.moretext-2').slideToggle();
-			if ($('.moreless-button-2').text() == "Load more") {
-				$(this).text("Load less")
-			} else {
-				$(this).text("Load more")
-			}
-		});
-	</script>
-	<script>
-		// Color Switcher
-		$(".color-switcher").on('click', function () {
-			"use strict"
-			$("body").toggleClass("dark-theme");
-			var url = './theme-mode';
-			$.get(url)
-		});
-	</script>
+	<!-- Mobile Menu -->
+	<?php include 'inc/mobile-menu.php'; ?>
 
 
-
+	<script src="assets/global/js/jquery.min.js"></script>
+	<script src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
+	<script src="../js/forms.js"></script>
+	<script src="assets/js/theme.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
