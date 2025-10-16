@@ -283,11 +283,11 @@ if ( isset($_POST["invest_now"]) ) {
     return false;
   }
 
-  $details = "Invested to ".$plan_name." plan";
+  $details = "Invested to $".$plan_name." plan";
 
-  $trade = "INSERT INTO trades(user_id, plan_id, plan_name, amount, period,
+  $trade = "INSERT INTO trades(user_id, plan_hash, plan_id, plan_name, amount, period,
     interest, profit, returns, start_date, end_date)
-    VALUES('$user_id', '$plan_id', '$plan_name', '$amount', '$interval',
+    VALUES('$user_id', '$invoice', '$plan_id', '$plan_name', '$amount', '$interval',
     '$daily_interest', '$profit', '$total_return', '$start_date', '$end_date')
   ";
   $transact = "INSERT INTO transactions(user_id, type, invoice, amount,

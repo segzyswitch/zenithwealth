@@ -65,10 +65,8 @@ class Controller
   // Linked Accounts
   public function linkedAccounts($type = null) {
     $user_id = $_SESSION["moon_account_id"];
-    $type ? "AND `type` = '$type'" : $type = "";
-    $sql = "SELECT * FROM linked_account WHERE user_id = '$user_id'
-    $type
-    ORDER BY id DESC";
+    if ($type==null) $sql = "SELECT * FROM linked_account WHERE user_id = '$user_id' ORDER BY id DESC";
+    else $sql = "SELECT * FROM linked_account WHERE user_id = '$user_id' AND `type` = '$type' ORDER BY id DESC";
     try {
       $query = $this->conn->prepare($sql);
       $query->execute();
@@ -251,12 +249,24 @@ class Controller
   public function Trades($limit) {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM trades
-    WHERE user_id='$user_id'
-    ORDER BY id DESC LIMIT $limit";
+    LEFT JOIN plans ON trades.plan_id = plans.id
+    WHERE trades.user_id='$user_id'
+    ORDER BY trades.id DESC LIMIT $limit";
     try {
       $query = $this->conn->prepare($sql);
       $query->execute();
       $data = $query->fetchAll();
+      return $data;
+    } catch (PDOException $e) {
+      return $e->getMessage();
+    }
+  }
+  public function singleTrade($invoice) {
+    $sql = "SELECT * FROM trades LEFT JOIN plans ON trades.plan_id = plans.id WHERE plan_hash = '$invoice'";
+    try {
+      $query = $this->conn->prepare($sql);
+      $query->execute();
+      $data = $query->fetch();
       return $data;
     } catch (PDOException $e) {
       return $e->getMessage();

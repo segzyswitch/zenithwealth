@@ -1,3 +1,4 @@
+<?php require 'captch.php' ?>
 <!DOCTYPE html>
 
 <head>

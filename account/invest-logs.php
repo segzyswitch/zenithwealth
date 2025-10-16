@@ -41,10 +41,13 @@ require '../config/session.php';
 					foreach ($Controller->Trades(100) as $key => $value) {
 						?>
 					<!-- Transaction Item -->
-					<a href="./transaction?trx=<?php echo $value['id'] ?>" class="btn text-start transaction-item">
+					<a href="./invest-details?trx=<?php echo $value['plan_hash'] ?>" class="btn text-start transaction-item">
 						<div class="d-flex align-items-center gap-3 flex-grow-1">
-							<div class="transaction-icon bg-info-subtle text-info">
-								<i class="bi bi-briefcase"></i>
+							<div class="my-auto">
+								<img src="../images/plans/<?php echo $value['icon'] ?>"
+									width="40"
+									alt="<?php echo $value['plan_name'] ?>"
+								/>
 							</div>
 							<div class="flex-grow-1">
 								<div class="fw-medium"><?php echo $value['plan_name']." plan"; ?></div>

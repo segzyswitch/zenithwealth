@@ -27,10 +27,10 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 		<!-- Topbar -->
 		<?php include 'inc/panel-header.php'; ?>
 		<div class="content-body">
-			<h4 class="text-muted">👋 Welcome Back, <?php echo $user_info['fname'] ?>!</h4>
+			<h4 class="text-muted mb-4 py-2">👋 Welcome Back, <?php echo $user_info['fname'] ?>!</h4>
 			<!-- Tabs -->
-			<?php if( $Controller->runningTrades()['count'] > 0 ) { ?>
-			<ul class="nav nav-tabs custom-tabs mb-4">
+			<?php // if( $Controller->runningTrades()['count'] > 0 ) { ?>
+			<!-- <ul class="nav nav-tabs custom-tabs mb-4">
 				<li class="nav-item">
 					<a class="nav-link active" data-bs-toggle="tab" href="#balances">Balances</a>
 				</li>
@@ -40,8 +40,8 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 						<span class="badge bg-secondary rounded-circle"><?php echo $Controller->runningTrades()['count'] ?></span>
 					</a>
 				</li>
-			</ul>
-			<?php } ?>
+			</ul> -->
+			<?php // } ?>
 			<div class="tab-content">
 				<div class="tab-pane fade show active" id="balances">
 					<!-- Available Balance Card -->
@@ -102,27 +102,39 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 						</div>
 					</div>
 
-					<!-- Venture Capital Account Card
+					
+					<?php
+					foreach ($Controller->linkedAccounts('joint') as $key => $value) {
+						?>
+					<!-- Venture Capital Account Card -->
 					<div class="card account-card mb-5">
 						<div class="card-body">
-							<div class="d-flex justify-content-between align-items-start">
-								<div class="d-flex gap-3 align-items-center">
+							<div class="d-flex justify-content-between align-items-start mb-4">
+								<div class="d-flex gap-2 align-items-center" style="max-width:60%;">
 									<div class="account-icon bg-danger-subtle">
-										<span class="text-danger fw-bold">VC</span>
+										<span class="text-danger fw-bold px-2">
+											<?php echo strtoupper($value['fname'][0]) ?><?php echo strtoupper($value['lname'][0]) ?>
+										</span>
 									</div>
-									<div>
-										<h5 class="mb-0">Venture Capital</h5>
-										<p class="text-muted small mb-0">№ V984721124</p>
+									<div class="w-100">
+										<h5 class="mb-0 text-truncate"><?php echo $value['fname'].' '.$value['lname'] ?></h5>
+										<p class="text-muted small mb-0">№ <?php echo $value['wallet_id'] ?></p>
 									</div>
 								</div>
 								<div class="text-end">
 									<p class="text-muted small mb-0">Opened</p>
-									<p class="small mb-0">12.07.2022</p>
+									<p class="small mb-0"><?php echo date('m.d.y', strtotime($value['createdat'])) ?></p>
 								</div>
 							</div>
+							<h2 class="mb-2">$<?php echo number_format($value['balance'], 2) ?></h2>
+							<p class="text-muted m-0">Available balance</p>
 						</div>
 					</div>
-					-->
+					<?php
+					}
+					?>
+
+					<hr class="mb-5" />
 					
 				</div>
 				
