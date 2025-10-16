@@ -1,4 +1,4 @@
-<?php require 'captch.php' ?>
+<?php // require 'captch.php' ?>
 <!DOCTYPE html>
 
 <head>
