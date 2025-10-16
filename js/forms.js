@@ -215,4 +215,36 @@ $(document).ready(function() {
 	    }
 	  });
 	});
+
+	// updateProfileForm
+	$("#updateProfileForm").on('submit', function(ev){
+	  ev.preventDefault();
+
+	  $.ajax({
+	    url: "../config/process.php",
+	    type: "POST",
+	    data: new FormData(this),
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    beforeSend: function() {
+		    $("#updateProfileForm .submit-btn").html("please wait <i class='spinner-border spinner-border-sm'></i>");
+		    $("#updateProfileForm .submit-btn").addClass("disabled");
+	    },
+	    success: function(data) {
+		    $("#updateProfileForm .submit-btn").html("Save Changes");
+		    $("#updateProfileForm .submit-btn").removeClass("disabled");
+		    if ( data.search('success') !== -1 ) {
+		    	notifySuccess(data);
+		    }else {
+		    	notifyWarning(data);
+		    }
+	    },
+	    error: function(error) {
+		    $("#updateProfileForm .submit-btn").html("Save Changes");
+		    $("#updateProfileForm .submit-btn").removeClass("disabled");
+	    	notifyWarning('An error occured, check your connection and try again');
+	    }
+	  });
+	});
 });

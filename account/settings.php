@@ -61,42 +61,51 @@ require '../config/session.php';
 							<h5 class="mb-0">Personal Information</h5>
 						</div>
 						<div class="card-body">
-							<form>
+							<form method="POST" action="#" id="updateProfileForm">
+								<input type="hidden"
+									name="update_profile"
+									value="<?php echo str_shuffle(time().'asdfghjkl1234567890qwertyuiopzxcvbnm') ?>"
+								/>
 								<div class="row g-3">
 									<div class="col-md-6">
 										<label for="firstName" class="form-label">First Name</label>
-										<input type="text" class="form-control" id="firstName" value="<?php echo $user_info['fname'] ?>" />
+										<input type="text" name="fname" class="form-control" id="firstName" value="<?php echo $user_info['fname'] ?>" disabled style="opacity:.7;" />
 									</div>
 									<div class="col-md-6">
 										<label for="lastName" class="form-label">Last Name</label>
-										<input type="text" class="form-control" id="lastName" value="<?php echo $user_info['lname'] ?>" />
+										<input type="text" name="lname" class="form-control" id="lastName" value="<?php echo $user_info['lname'] ?>" disabled style="opacity:.7;" />
 									</div>
 									<div class="col-md-6">
 										<label for="email" class="form-label">Email</label>
-										<input type="email" class="form-control" id="email" value="<?php echo $user_info['email'] ?>" disabled style="opacity:.7;" />
+										<input type="email" name="email" class="form-control" id="email" value="<?php echo $user_info['email'] ?>" disabled style="opacity:.7;" />
 									</div>
 									<div class="col-md-6">
 										<label for="phone" class="form-label">Phone</label>
-										<input type="tel" class="form-control" id="<?php echo $user_info['phone'] ?>" value="+1 (555) 123-4567" disabled  style="opacity:.7;">
+										<input type="tel" name="phone" class="form-control" value="<?php echo $user_info['phone'] ?>" />
 									</div>
 									<div class="col-12">
 										<label for="address" class="form-label">Address</label>
-										<input type="text" class="form-control" id="<?php echo $user_info['address'] ?>" value="123 Investment St">
+										<input type="text" name="address" class="form-control" value="<?php echo $user_info['address'] ?>">
 									</div>
 									<div class="col-md-6">
 										<label for="city" class="form-label">City</label>
-										<input type="text" class="form-control" id="<?php echo $user_info['city'] ?>" value="New York">
+										<input type="text" name="city" class="form-control" value="<?php echo $user_info['city'] ?>">
 									</div>
 									<div class="col-md-4">
 										<label for="state" class="form-label">State</label>
-										<input type="text" class="form-control" id="<?php echo $user_info['state'] ?>" value="NY">
+										<input type="text" name="state" class="form-control" value="<?php echo $user_info['state'] ?>">
 									</div>
 									<div class="col-md-2">
 										<label for="zip" class="form-label">ZIP</label>
-										<input type="text" class="form-control" id="<?php echo $user_info['zip'] ?>" value="10001">
+										<input type="text" name="zip" class="form-control" value="<?php echo $user_info['zip'] ?>">
 									</div>
 									<div class="col-12">
-										<button type="submit" class="btn bg-primary text-light">Save Changes</button>
+										<label for="zip" class="form-label">Password</label>
+										<input type="password" name="password" class="form-control" />
+										<small class="text-muted">Enter password to apply update</small>
+									</div>
+									<div class="col-12">
+										<button type="submit" class="btn bg-primary submit-btn text-light">Save Changes</button>
 									</div>
 								</div>
 							</form>

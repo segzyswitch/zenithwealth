@@ -1,7 +1,7 @@
 <div class="transaction-list">
 	<?php
 	if ( count($Controller->Transactions(10)) <= 0 ) {
-		echo 'No data found';
+		echo '<p class="p-4 m-0">No data found</p>';
 	}
 	foreach ($Controller->Transactions(10) as $key => $value) {
 		?>

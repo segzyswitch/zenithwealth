@@ -139,6 +139,47 @@ if ( isset($_POST["user_login"]) ) {
     echo 'Incorrect Username, check and try again.';
   }
 }
+// Update details
+if ( isset($_POST["update_profile"]) ) {
+  $phone = filter_var($_POST["phone"], FILTER_SANITIZE_SPECIAL_CHARS);
+  $address = filter_var($_POST["address"], FILTER_SANITIZE_SPECIAL_CHARS);
+  $city = filter_var($_POST["city"], FILTER_SANITIZE_SPECIAL_CHARS);
+  $state = filter_var($_POST["state"], FILTER_SANITIZE_SPECIAL_CHARS);
+  $zip = filter_var($_POST["zip"], FILTER_SANITIZE_SPECIAL_CHARS);
+  $password = filter_var($_POST["password"], FILTER_SANITIZE_SPECIAL_CHARS);
+  // Get ClienntIP
+  $client_ip = $_SERVER['REMOTE_ADDR'];
+  // Check user password
+  $checkinfo = "SELECT password FROM users
+    WHERE id='$user_id'";
+  $confirminfo = $conn->prepare($checkinfo);
+  $confirminfo->execute();
+  $userData = $confirminfo->fetch();
+
+  if ( password_verify($password, $userData["password"]) ) {
+    echo "Incorrect old pasword, check and try again!";
+    return false;
+  }
+  // Update password
+  $sql = "UPDATE users SET address = '$address',
+  phone = '$phone',
+  city = '$city',
+  state = '$state',
+  zip = '$zip'
+  WHERE id = '$user_id'";
+  $query = $conn->prepare($sql);
+  // Add activity
+  $login_feed = "Account password changed.";
+  $add_activity = $conn->prepare("INSERT INTO user_activity(user_id, type, feed, user_ip)
+    VALUES('$user_id', 'password', '$login_feed', '$client_ip')");
+  try {
+    $query->execute();
+    $add_activity->execute();
+    echo "Details updated successfully!";
+  } catch (PDOException $e) {
+    echo $e->getMessage();
+  }
+}
 // upload photo
 if ( isset($_POST['upload_photo']) ) {
   $image_name = $_FILES['image']['name'];
