@@ -433,7 +433,7 @@ if ( isset($_POST['create_local_transaction']) ) {
   $add_activity = "INSERT INTO user_activity(user_id, type, feed, user_ip)
     VALUES('$user_id', 'fund', '$feed', '-')";
   $query2 = $conn->prepare($add_activity);
-  return false;
+  // return false;
   try {
     $query1->execute();
     $query2->execute();

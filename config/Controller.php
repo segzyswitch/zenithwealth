@@ -2,32 +2,34 @@
 require_once 'config.php';
 class Controller
 {
-    private string $db_server;
-    private string $db_username;
-    private string $db_password;
-    private string $db_name;
-  
+  private string $db_server;
+  private string $db_username;
+  private string $db_password;
+  private string $db_name;
+
   // DB Connection
   public $conn;
 
-  public function __construct() {
+  public function __construct()
+  {
     $this->db_server = getenv('DB_HOST');
     $this->db_username = getenv('DB_USER');
     $this->db_password = getenv('DB_PASS');
     $this->db_name = getenv('DB_NAME');
-    
+
     try {
       $this->conn = @new PDO("mysql:host=$this->db_server;dbname=$this->db_name", $this->db_username, $this->db_password);
       // set the PDO error mode to exception
       $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       //echo "Connected successfully";
-    } catch(PDOException $e) {
+    } catch (PDOException $e) {
       echo "Connection failed: " . $e->getMessage();
     }
   }
 
   // USERS INFO
-  public function User() {
+  public function User()
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM users WHERE id = '$user_id'";
     try {
@@ -39,7 +41,8 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function singleUser($user_id) {
+  public function singleUser($user_id)
+  {
     $sql = "SELECT * FROM users WHERE id = '$user_id'";
     try {
       $query = $this->conn->prepare($sql);
@@ -50,22 +53,27 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function fullName() {
+  public function fullName()
+  {
     $user_info = $this->User();
     $fullname = $user_info['fname'] . ' ' . $user_info['lname'];
     return $fullname;
   }
-  public function totalBalance() {
+  public function totalBalance()
+  {
     $user_info = $this->User();
     $balanceSum = $user_info['wallet_bal'] + $user_info['trading_bal'];
-    return '$'. number_format($balanceSum, 2);
+    return '$' . number_format($balanceSum, 2);
   }
 
   // Linked Accounts
-  public function linkedAccounts($type = null) {
+  public function linkedAccounts($type = null)
+  {
     $user_id = $_SESSION["moon_account_id"];
-    if ($type==null) $sql = "SELECT * FROM linked_account WHERE user_id = '$user_id' ORDER BY id DESC";
-    else $sql = "SELECT * FROM linked_account WHERE user_id = '$user_id' AND `type` = '$type' ORDER BY id DESC";
+    if ($type == null)
+      $sql = "SELECT * FROM linked_account WHERE user_id = '$user_id' ORDER BY id DESC";
+    else
+      $sql = "SELECT * FROM linked_account WHERE user_id = '$user_id' AND `type` = '$type' ORDER BY id DESC";
     try {
       $query = $this->conn->prepare($sql);
       $query->execute();
@@ -77,7 +85,8 @@ class Controller
   }
 
   // Login history
-  public function userActivity() {
+  public function userActivity()
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM user_activity WHERE user_id = '$user_id' ORDER BY id DESC LIMIT 50";
     try {
@@ -89,13 +98,15 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function lastSession() {
+  public function lastSession()
+  {
     $last_session = $this->userActivity()[0];
     return $last_session;
   }
 
   // Plans
-  public function Plans() {
+  public function Plans()
+  {
     $sql = "SELECT * FROM plans ORDER BY id ASC";
     try {
       $query = $this->conn->prepare($sql);
@@ -106,7 +117,8 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function singlePlan($plan_id) {
+  public function singlePlan($plan_id)
+  {
     $sql = "SELECT * FROM plans WHERE id = '$plan_id'";
     try {
       $query = $this->conn->prepare($sql);
@@ -120,7 +132,8 @@ class Controller
 
 
   // Transaction history
-  public function Transactions($limit) {
+  public function Transactions($limit)
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM transactions WHERE user_id = '$user_id' ORDER BY id DESC LIMIT $limit";
     try {
@@ -132,7 +145,8 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function singleTransaction($invoice) {
+  public function singleTransaction($invoice)
+  {
     // $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM transactions WHERE invoice = '$invoice'";
     try {
@@ -146,7 +160,8 @@ class Controller
   }
 
   // All deposits
-  public function Deposits($limit = 10) {
+  public function Deposits($limit = 10)
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM transactions
     WHERE user_id='$user_id'
@@ -161,7 +176,8 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function totalDeposits() {
+  public function totalDeposits()
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM transactions
     WHERE user_id='$user_id'
@@ -176,13 +192,14 @@ class Controller
       }
       return [
         'count' => count($data),
-        'sum' => '$'.number_format($total, 2)
+        'sum' => '$' . number_format($total, 2)
       ];
     } catch (PDOException $e) {
       return $e->getMessage();
     }
   }
-  public function pendingDeposits() {
+  public function pendingDeposits()
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM transactions
     WHERE user_id='$user_id'
@@ -198,13 +215,14 @@ class Controller
       }
       return [
         'count' => count($data),
-        'sum' => '$'.number_format($total, 2)
+        'sum' => '$' . number_format($total, 2)
       ];
     } catch (PDOException $e) {
       return $e->getMessage();
-    } 
+    }
   }
-  public function completedDeposits() {
+  public function completedDeposits()
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM transactions
     WHERE user_id='$user_id'
@@ -220,15 +238,16 @@ class Controller
       }
       return [
         'count' => count($data),
-        'sum' => '$'.number_format($total, 2)
+        'sum' => '$' . number_format($total, 2)
       ];
     } catch (PDOException $e) {
       return $e->getMessage();
-    } 
+    }
   }
 
   // All withdrawals
-  public function Withdrawals($limit = 100) {
+  public function Withdrawals($limit = 100)
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM transactions
     WHERE user_id='$user_id'
@@ -245,7 +264,8 @@ class Controller
   }
 
   // Trades
-  public function Trades($limit) {
+  public function Trades($limit)
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM trades
     LEFT JOIN plans ON trades.plan_id = plans.id
@@ -260,7 +280,8 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function singleTrade($invoice) {
+  public function singleTrade($invoice)
+  {
     $sql = "SELECT * FROM trades LEFT JOIN plans ON trades.plan_id = plans.id WHERE plan_hash = '$invoice'";
     try {
       $query = $this->conn->prepare($sql);
@@ -271,7 +292,8 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function runningTrades() {
+  public function runningTrades()
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM trades
     WHERE user_id='$user_id'
@@ -286,13 +308,14 @@ class Controller
       }
       return [
         'count' => count($data),
-        'sum' => '$'.number_format($total, 2)
+        'sum' => '$' . number_format($total, 2)
       ];
     } catch (PDOException $e) {
       return $e->getMessage();
     }
   }
-  public function completedTrades() {
+  public function completedTrades()
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM trades
     WHERE user_id='$user_id'
@@ -307,13 +330,14 @@ class Controller
       }
       return [
         'count' => count($data),
-        'sum' => '$'.number_format($total, 2)
+        'sum' => '$' . number_format($total, 2)
       ];
     } catch (PDOException $e) {
       return $e->getMessage();
     }
   }
-  public function totalInvested() {
+  public function totalInvested()
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM trades
     WHERE user_id='$user_id'";
@@ -330,7 +354,8 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function totalRetruns() {
+  public function totalRetruns()
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM trades
     WHERE user_id='$user_id'";
@@ -343,12 +368,13 @@ class Controller
         $total += $value['profit'];
       }
       $returns = $total + $this->totalInvested();
-      return '$'.number_format($returns, 2);
+      return '$' . number_format($returns, 2);
     } catch (PDOException $e) {
       return $e->getMessage();
     }
   }
-  public function totalProfit() {
+  public function totalProfit()
+  {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM trades
     WHERE user_id='$user_id'
@@ -361,14 +387,15 @@ class Controller
       foreach ($data as $key => $value) {
         $total += $value['profit'];
       }
-      return '$'.number_format($total, 2);
+      return '$' . number_format($total, 2);
     } catch (PDOException $e) {
       return $e->getMessage();
     }
   }
 
   // Crypto wallets
-  public function cryptoWallets() {
+  public function cryptoWallets()
+  {
     $sql = "SELECT * FROM crypto_wallets ORDER BY id";
     try {
       $query = $this->conn->prepare($sql);
@@ -379,7 +406,8 @@ class Controller
       return $e->getMessage();
     }
   }
-  public function singleWallet($id) {
+  public function singleWallet($id)
+  {
     $sql = "SELECT * FROM crypto_wallets WHERE id = '$id'";
     try {
       $query = $this->conn->prepare($sql);
