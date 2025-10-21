@@ -156,6 +156,7 @@ require '../config/session.php';
 						</div>
 					</div>
 
+					<?php if ( count($Controller->Deposits()) > 0 ) { ?>
 					<div class="card">
 						<div class="card-header">
 							<h6 class="mb-0">Recent Deposits</h6>
@@ -192,6 +193,7 @@ require '../config/session.php';
 							</div>
 						</div>
 					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>

@@ -229,12 +229,12 @@ class Controller
   }
 
   // All withdrawals
-  public function Withdrawals() {
+  public function Withdrawals($limit = 100) {
     $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM transactions
     WHERE user_id='$user_id'
     AND type='withdrawal'
-    ORDER BY id DESC LIMIT 10";
+    ORDER BY id DESC LIMIT $limit";
     try {
       $query = $this->conn->prepare($sql);
       $query->execute();

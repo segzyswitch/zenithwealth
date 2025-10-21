@@ -149,33 +149,44 @@ require '../config/session.php';
 						</div>
 					</div>
 
+					<?php if ( count($Controller->Withdrawals()) > 0 ) { ?>
 					<div class="card">
 						<div class="card-header">
 							<h6 class="mb-0">Recent Withdrawals</h6>
 						</div>
-						<div class="card-body p-0 py-3">
+						<div class="card-body p-0">
 							<div class="list-group list-group-flush">
+								<?php
+								foreach ($Controller->Withdrawals(5) as $key => $value) {
+								?>
 								<div class="list-group-item">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<div class="fw-medium">$15,000.00</div>
-											<small class="text-muted">Oct 12, 2025</small>
+											<div class="fw-medium">$<?php echo number_format($value['amount'], ) ?></div>
+											<small class="text-muted"><?php echo date('M d, Y', strtotime($value['createdat'])) ?></small>
 										</div>
-										<span class="badge bg-warning">Pending</span>
+										<?php
+										switch ($value['status']) {
+											case 'success':
+												?><span class="badge bg-success-subtle text-success">Completed</span><?php
+											break;
+											case 'failed':
+												?><span class="badge bg-danger-subtle text-danger">Failed</span><?php
+											break;
+											default:
+												?><span class="badge bg-warning-subtle text-warning">Pending</span><?php
+											break;
+										}
+										?>
 									</div>
 								</div>
-								<div class="list-group-item">
-									<div class="d-flex justify-content-between align-items-center">
-										<div>
-											<div class="fw-medium">$25,000.00</div>
-											<small class="text-muted">Oct 5, 2025</small>
-										</div>
-										<span class="badge bg-success">Completed</span>
-									</div>
-								</div>
+								<?php
+								}
+								?>
 							</div>
 						</div>
 					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
