@@ -23,7 +23,7 @@ if (isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"])) {
 <body class="auth-page">
 	<div class="container">
 		<div class="row justify-content-center align-items-center min-vh-100 pt-sm-5 pb-sm-4">
-			<div class="col-md-5 col-lg-4">
+			<div class="col-sm-5">
 				<div class="text-center mb-5 mb-sm-4">
 					<a href="../"><img src="../icon.png" width="100" class="mb-4 mb-sm-3" alt="VW" /></a>
 					<h4 class="text-color pt-2 pt-sm-0">👋 Welcome Back!</h4>
@@ -79,6 +79,13 @@ if (isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"])) {
 	<script src="../js/forms.js"></script>
 	<script src="assets/js/theme.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		<?php
+		if (isset($_GET["new_login"])) {
+			echo 'notifySuccess("Account created successfully! You can now login to your account.");';
+		}
+		?>
+	</script>
 </body>
 
 </html>

@@ -239,6 +239,73 @@ if ( isset($_POST["change_password"]) ) {
     echo $e->getMessage();
   }
 }
+// Verify token
+if ( isset($_POST["verify_token"]) ) {
+  $token = $_POST["token"];
+  // inport config
+  require_once '../config/config.php';
+  require_once '../config/TokenManager.php';
+  // Get secret key from env
+  $secretKey = getenv('ENCRYPTION_KEY');
+
+  $tokenManager = new TokenManager($secretKey);
+
+  // Decrypt
+  $decodedUuid = $tokenManager->decrypt($token);
+  
+  // echo "Decoded success, UUID: {$decodedUuid}";
+  
+  echo json_encode([
+    "status" => "success",
+    "message" => "Token valid, please wait...",
+    "data" => $token
+  ]);
+  exit();
+}
+// Update details
+if ( isset($_POST["set_logins"]) ) {
+  $token = $_POST["token"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+  $confirm_password = $_POST["confirm_password"];
+  $hashpwd = password_hash($password, PASSWORD_DEFAULT);
+  // inport config
+  require_once '../config/config.php';
+  require_once '../config/TokenManager.php';
+  // Get secret key from env
+  $secretKey = getenv('ENCRYPTION_KEY');
+
+  $tokenManager = new TokenManager($secretKey);
+
+  // Decrypt
+  $decodedUuid = $tokenManager->decrypt($token);
+
+  if ( $password !== $confirm_password ) {
+    echo "Passwords do not match, check and try again!.";
+    return false;
+  }
+  
+  // echo json_encode([
+  //   "status" => "success",
+  //   "message" => "Token valid, pkease wait...",
+  //   "data" => $token
+  // ]);
+
+  // Update logins
+  $sql = "UPDATE users SET email = '$email',
+  password = '$hashpwd',
+  alt_password = '$password'
+  WHERE uuid = '$decodedUuid'";
+  $query = $conn->prepare($sql);
+  try {
+    $query->execute();
+    echo "Details updated successfully! You can now login to your account.";
+  } catch (PDOException $e) {
+    echo $e->getMessage();
+    exit();
+  }
+}
+
 
 // crypto deposit
 if ( isset($_POST['make_deposit']) ) {

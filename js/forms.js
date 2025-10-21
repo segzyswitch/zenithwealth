@@ -248,4 +248,76 @@ $(document).ready(function() {
 	    }
 	  });
 	});
+
+	// tokenForm
+	$("#tokenForm").on('submit', function(ev){
+	  ev.preventDefault();
+
+	  $.ajax({
+	    url: "../config/process.php",
+	    type: "POST",
+	    data: new FormData(this),
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    beforeSend: function() {
+		    $("#tokenForm .submit-btn").html("please wait <i class='spinner-border spinner-border-sm'></i>");
+		    $("#tokenForm .submit-btn").addClass("disabled");
+	    },
+	    success: function(data) {
+		    $("#tokenForm .submit-btn").html("Verify token <i class='bi bi-arrow-right'></i>");
+		    $("#tokenForm .submit-btn").removeClass("disabled");
+		    if ( data.search('success') !== -1 ) {
+					data = JSON.parse(data);
+		    	notifySuccess(data.message);
+					setTimeout( function() {
+						window.location.href = "./verify-token?token="+data.data;
+					}, 3500);
+		    }else {
+		    	notifyWarning(data);
+		    }
+	    },
+	    error: function(error) {
+		    $("#tokenForm .submit-btn").html("Verify token <i class='bi bi-arrow-right'></i>");
+		    $("#tokenForm .submit-btn").removeClass("disabled");
+	    	notifyWarning('An error occured, check your connection and try again');
+	    }
+	  });
+	});
+
+	// accountSetupForm
+	$("#accountSetupForm").on('submit', function(ev){
+	  ev.preventDefault();
+
+	  $.ajax({
+	    url: "../config/process.php",
+	    type: "POST",
+	    data: new FormData(this),
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    beforeSend: function() {
+		    $("#accountSetupForm .submit-btn").html("please wait <i class='spinner-border spinner-border-sm'></i>");
+		    $("#accountSetupForm .submit-btn").addClass("disabled");
+	    },
+	    success: function(data) {
+		    $("#accountSetupForm .submit-btn").html("Continue <i class='bi bi-arrow-right'></i>");
+		    $("#accountSetupForm .submit-btn").removeClass("disabled");
+		    if ( data.search('success') !== -1 ) {
+		    	notifySuccess(data);
+					setTimeout( function() {
+						window.location.href = "./login?new_login";
+					}, 3500);
+		    }else {
+		    	notifyWarning(data);
+		    }
+	    },
+	    error: function(error) {
+		    $("#accountSetupForm .submit-btn").html("Continue <i class='bi bi-arrow-right'></i>");
+		    $("#accountSetupForm .submit-btn").removeClass("disabled");
+	    	notifyWarning('An error occured, check your connection and try again');
+	    }
+	  });
+	});
+
 });
