@@ -133,7 +133,7 @@ $transaction = $Controller->singleTrade($_GET['trx']);
 					</div>
 
 					<!-- Linked Accounts -->
-					<div class="card mb-4">
+					<!-- <div class="card mb-4">
 						<div class="card-header d-flex justify-content-between align-items-center">
 							<h6 class="mb-0">Linked Bank Accounts</h6>
 							<button class="btn btn-sm bg-primary text-light">
@@ -163,7 +163,7 @@ $transaction = $Controller->singleTrade($_GET['trx']);
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!-- Support -->
 					<div class="card">

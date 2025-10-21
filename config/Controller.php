@@ -15,6 +15,7 @@ class Controller
     $this->db_username = getenv('DB_USER');
     $this->db_password = getenv('DB_PASS');
     $this->db_name = getenv('DB_NAME');
+    
     try {
       $this->conn = @new PDO("mysql:host=$this->db_server;dbname=$this->db_name", $this->db_username, $this->db_password);
       // set the PDO error mode to exception
