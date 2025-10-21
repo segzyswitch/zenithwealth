@@ -236,6 +236,7 @@ $(document).ready(function() {
 		    $("#updateProfileForm .submit-btn").removeClass("disabled");
 		    if ( data.search('success') !== -1 ) {
 		    	notifySuccess(data);
+					$("#updateProfileForm input[type='password']").val("");
 		    }else {
 		    	notifyWarning(data);
 		    }

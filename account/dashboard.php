@@ -1,5 +1,6 @@
 <?php
 require '../config/session.php';
+$linkedUser = $Controller->linkedAccounts('joint')[0];
 
 $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 ?>
@@ -27,7 +28,7 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 		<!-- Topbar -->
 		<?php include 'inc/panel-header.php'; ?>
 		<div class="content-body">
-			<h4 class="text-muted mb-4 py-2">👋 Welcome Back, <?php echo $user_info['fname'] ?>!</h4>
+			<h4 class="text-muted mb-4 py-2">👋 Welcome Back, <?php echo $user_info['fname'].' & '.$linkedUser['fname'].' '.$user_info['lname']; ?>!</h4>
 			<!-- Tabs -->
 			<?php // if( $Controller->runningTrades()['count'] > 0 ) { ?>
 			<!-- <ul class="nav nav-tabs custom-tabs mb-4">
@@ -104,10 +105,10 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 
 					
 					<?php
-					foreach ($Controller->linkedAccounts('joint') as $key => $value) {
+					// foreach ($Controller->linkedAccounts('joint') as $key => $value) {
 						?>
 					<!-- Venture Capital Account Card -->
-					<div class="card account-card mb-5">
+					<!-- <div class="card account-card mb-5">
 						<div class="card-body">
 							<div class="d-flex justify-content-between align-items-start mb-4">
 								<div class="d-flex gap-2 align-items-center" style="max-width:60%;">
@@ -129,9 +130,9 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 							<h2 class="mb-2">$<?php echo number_format($value['balance'], 2) ?></h2>
 							<p class="text-muted m-0">Available balance</p>
 						</div>
-					</div>
+					</div> -->
 					<?php
-					}
+					// }
 					?>
 
 					<hr class="mb-5" />
