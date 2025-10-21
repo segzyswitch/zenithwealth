@@ -36,7 +36,7 @@ require '../config/session.php';
 					<!-- Transaction list -->
 					<?php
 					if ( count($Controller->Trades(100)) <= 0 ) {
-						echo 'No data found';
+						echo '<p class="p-3">No data found</p>';
 					}
 					foreach ($Controller->Trades(100) as $key => $value) {
 						?>
