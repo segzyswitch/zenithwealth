@@ -126,7 +126,10 @@ require '../config/session.php';
 												<input type="number" id="invest_amount_item"
 													class="form-control"
 													value="<?php if (isset($_GET['amount'])) echo $_GET['amount']; ?>"
-													<?php if (isset($_GET['plan'])) echo "min='".$value['min_limit']."' max='".$value['max_limit']."'"; ?>
+													<?php if (isset($_GET['plan'])) {
+														$value = $Controller->singlePlan($_GET['plan']);
+														echo "min='".$value['min_limit']."' max='".$value['max_limit']."'";
+													}	?>
 													placeholder="Enter Amount"
 													required
 												/>
