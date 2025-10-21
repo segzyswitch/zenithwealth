@@ -14,4 +14,4 @@ if (!function_exists('loadEnv')) {
 }
 // echo __DIR__ . '/.env';
 // Load .env at project root
-loadEnv('../../.env');
+loadEnv('../.env');
