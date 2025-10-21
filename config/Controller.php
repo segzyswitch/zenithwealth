@@ -1,22 +1,20 @@
 <?php
+require_once 'config.php';
 class Controller
 {
-  /* online server */
-  // private $db_server = 'localhost';
-  // private $db_username = 'foxfund1_aave';
-  // private $db_password = 'Primestar1%';
-  // private $db_name = 'foxfund1_aave';
-
-  /* local server */
-  private $db_server = 'localhost';
-  private $db_username = 'root';
-  private $db_password = '';
-  private $db_name = 'velloxa';
+    private string $db_server;
+    private string $db_username;
+    private string $db_password;
+    private string $db_name;
   
   // DB Connection
   public $conn;
 
   public function __construct() {
+    $this->db_server = getenv('DB_HOST');
+    $this->db_username = getenv('DB_USER');
+    $this->db_password = getenv('DB_PASS');
+    $this->db_name = getenv('DB_NAME');
     try {
       $this->conn = @new PDO("mysql:host=$this->db_server;dbname=$this->db_name", $this->db_username, $this->db_password);
       // set the PDO error mode to exception
