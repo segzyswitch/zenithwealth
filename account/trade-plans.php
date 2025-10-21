@@ -61,7 +61,7 @@ require '../config/session.php';
 							<div class="text-primary small mb-4"><span class="star">*</span> No Profit Holidays</div>
 							<a href="./schema-preview?plan=<?php echo $value['id'] ?>"
 								class="btn btn-dark btn-lg balance-card border-0 w-100 centered">
-								<small><i class="anticon anticon-check"></i>Preview Plan</small>
+								<small><i class="anticon anticon-check"></i>Select Plan</small>
 							</a>
 						</div>
 					</div>
