@@ -6,14 +6,14 @@
 			<i class="bi bi-sun-fill" id="themeIcon"></i>
 		</button>
 		<div class="dropdown profile-drop my-auto d-none d-sm-block">
-			<button class="btn p-0 nav-icons" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+			<a href="./settings" class="btn p-0 nav-icons" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 				<i class="bi bi-person-circle m-0 d-inline-block me-2" style="scale:1.4;"></i>
-			</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+			</a>
+			<!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 				<li><a class="dropdown-item" href="#">Action</a></li>
 				<li><a class="dropdown-item" href="#">Another action</a></li>
 				<li><a class="dropdown-item" href="#">Something else here</a></li>
-			</ul>
+			</ul> -->
 		</div>
 		<button class="btn p-0 px-1 nav-icons d-sm-none" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav">
 			<i class="bi bi-list d-inline-block" style="scale:1.4;"></i>

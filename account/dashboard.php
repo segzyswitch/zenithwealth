@@ -135,7 +135,7 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 					// }
 					?>
 
-					<hr class="mb-5" />
+					<!-- <hr class="mb-5" /> -->
 					
 				</div>
 				
