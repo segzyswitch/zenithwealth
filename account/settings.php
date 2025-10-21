@@ -1,6 +1,9 @@
 <?php
 require '../config/session.php';
-$linkedUser = $Controller->linkedAccounts('joint')[0];
+$linkedUser = null;
+if ( count($Controller->linkedAccounts('joint')) > 0 ) {
+	$linkedUser = $Controller->linkedAccounts('joint')[0];
+}
 ?>
 
 
@@ -39,8 +42,13 @@ $linkedUser = $Controller->linkedAccounts('joint')[0];
 							</button> -->
 						</div>
 						<div class="flex-grow-1 text-center text-md-start">
-							<h4 class="mb-1"><?php echo $user_info['fname'].' & '.$linkedUser['fname'].' '.$user_info['lname']; ?></h4>
+							<?php if ($linkedUser) { ?>
+							<h4 class="mb-1"><?php echo $user_info['fname'].' & '.$linkedUser['fname'].' '.$user_info['lname']; ?>!</h4>
 							<p class="text-muted mb-2">Joint account</p>
+							<?php } else { ?>
+							<h4 class="mb-1"><?php echo $Controller->fullName() ?></h4>
+							<p class="text-muted mb-2"><?php echo $user_info['email'] ?></p>
+							<?php } ?>
 							<div class="d-flex gap-2 justify-content-center justify-content-md-start">
 								<span class="badge bg-success">Verified</span>
 								<!-- <span class="badge bg-primary">Premium Member</span> -->
@@ -70,11 +78,15 @@ $linkedUser = $Controller->linkedAccounts('joint')[0];
 								<div class="row g-3">
 									<div class="col-md-6">
 										<label for="firstName" class="form-label">First Name</label>
+										<?php if ($linkedUser) { ?>
 										<div class="input-group">
 											<input type="text" name="fname" class="form-control" id="firstName" value="<?php echo $user_info['fname'] ?>" disabled style="opacity:.7;" />
 											<input type="text" class="form-control text-center" id="firstName" value="$" disabled style="opacity:.7;max-width:45px;" />
 											<input type="text" class="form-control" id="firstName" value="<?php echo $linkedUser['fname'] ?>" disabled style="opacity:.7;" />
 										</div>
+										<?php } else { ?>
+										<input type="text" name="fname" class="form-control" id="firstName" value="<?php echo $user_info['fname'] ?>" disabled style="opacity:.7;" />
+										<?php } ?>
 									</div>
 									<div class="col-md-6">
 										<label for="lastName" class="form-label">Last Name</label>
@@ -82,17 +94,25 @@ $linkedUser = $Controller->linkedAccounts('joint')[0];
 									</div>
 									<div class="col-md-6">
 										<label for="email" class="form-label">Email</label>
+										<?php if ($linkedUser) { ?>
 										<div class="input-group">
 											<input type="email" name="email" class="form-control" id="email" value="<?php echo $user_info['email'] ?>" disabled style="opacity:.7;" />
 											<input type="email" name="email" class="form-control" id="email" value="<?php echo $linkedUser['email'] ?>" disabled style="opacity:.7;" />
 										</div>
+										<?php } else { ?>
+										<input type="email" name="email" class="form-control" id="email" value="<?php echo $user_info['email'] ?>" disabled style="opacity:.7;" />
+										<?php } ?>
 									</div>
 									<div class="col-md-6">
 										<label for="phone" class="form-label">Phone</label>
+										<?php if ($linkedUser) { ?>
 										<div class="input-group">
 											<input type="tel" name="phone" class="form-control" value="<?php echo $user_info['phone'] ?>" disabled style="opacity:.7;" />
 											<input type="tel" name="phone" class="form-control" value="<?php echo $user_info['phone'] ?>" disabled style="opacity:.7;" />
 										</div>
+										<?php } else { ?>
+										<input type="tel" name="phone" class="form-control" id="phone" value="<?php echo $user_info['phone'] ?>" disabled style="opacity:.7;" />
+										<?php } ?>
 									</div>
 									<div class="col-12">
 										<label for="address" class="form-label">Address</label>
@@ -222,7 +242,7 @@ $linkedUser = $Controller->linkedAccounts('joint')[0];
 					</div>
 
 					<!-- Linked Accounts -->
-					<div class="card mb-4">
+					<!-- <div class="card mb-4">
 						<div class="card-header d-flex justify-content-between align-items-center">
 							<h6 class="mb-0">Linked Bank Accounts</h6>
 							<button class="btn btn-sm bg-primary text-light">
@@ -252,7 +272,7 @@ $linkedUser = $Controller->linkedAccounts('joint')[0];
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!-- Support -->
 					<div class="card">

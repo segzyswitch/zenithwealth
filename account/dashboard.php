@@ -1,6 +1,9 @@
 <?php
 require '../config/session.php';
-$linkedUser = $Controller->linkedAccounts('joint')[0];
+$linkedUser = null;
+if ( count($Controller->linkedAccounts('joint')) > 0 ) {
+	$linkedUser = $Controller->linkedAccounts('joint')[0];
+}
 
 $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 ?>
@@ -28,7 +31,11 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 		<!-- Topbar -->
 		<?php include 'inc/panel-header.php'; ?>
 		<div class="content-body">
+			<?php if ($linkedUser) { ?>
 			<h4 class="text-muted mb-4 py-2">👋 Welcome Back, <?php echo $user_info['fname'].' & '.$linkedUser['fname'].' '.$user_info['lname']; ?>!</h4>
+			<?php } else { ?>
+			<h4 class="text-muted mb-4 py-2">👋 Welcome Back, <?php echo $Controller->fullName() ?></h4>
+			<?php } ?>
 			<!-- Tabs -->
 			<?php // if( $Controller->runningTrades()['count'] > 0 ) { ?>
 			<!-- <ul class="nav nav-tabs custom-tabs mb-4">
