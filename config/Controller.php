@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+// require_once 'config.php';
 class Controller
 {
   private string $db_server;
@@ -12,10 +12,10 @@ class Controller
 
   public function __construct()
   {
-    $this->db_server = getenv('DB_HOST');
-    $this->db_username = getenv('DB_USER');
-    $this->db_password = getenv('DB_PASS');
-    $this->db_name = getenv('DB_NAME');
+    $this->db_server = 'localhost';
+    $this->db_username = 'velloxaw_default';
+    $this->db_password = 'Primestar1$';
+    $this->db_name = 'velloxaw_default';
 
     try {
       $this->conn = @new PDO("mysql:host=$this->db_server;dbname=$this->db_name", $this->db_username, $this->db_password);

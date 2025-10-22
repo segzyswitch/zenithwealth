@@ -87,6 +87,7 @@ require('config/session.php');
                   </td>
                   <td data-label="Action">
                     <select data-trx="<?php echo $value['id'] ?>"
+                      data-userid="<?php echo $value['user_id'] ?>"
                       id="SLCT<?php echo $value['id'] ?>"
                       class="form-select status-select w-100 py-1">
                       <option value="" selected>Pending</option>
@@ -158,12 +159,14 @@ require('config/session.php');
     });
 
     $(".status-select").change(function(){
-      const trx = $(this).data('trx')
+      const userid = $(this).data('userid');
+      const trx = $(this).data('trx');
       const status = $(this).val();
       $.ajax({
         url: "config/process.php",
         type: "GET",
         data: {
+          'user_id': userid,
           'payment_status': trx,
           'status': status
         },
