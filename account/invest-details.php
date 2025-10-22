@@ -6,6 +6,20 @@ if (!isset($_GET['trx']) || empty($_GET['trx'])) {
 	exit;
 }
 $transaction = $Controller->singleTrade($_GET['trx']);
+
+// current date
+$startDate = new DateTime($transaction['start_date']);
+$endDate   = new DateTime($transaction['end_date']);
+$today = new DateTime(); // or any date you want to check progress
+
+// Total duration (in days)
+$totalDays = $startDate->diff($endDate)->days;
+
+// Days elapsed (so far)
+$elapsedDays = $startDate->diff(min($today, $endDate))->days;
+
+// Calculate percentage (avoid division by zero)
+$progress = $totalDays > 0 ? round(($elapsedDays / $totalDays) * 100, 1) : 0;
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +33,81 @@ $transaction = $Controller->singleTrade($_GET['trx']);
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendor/mckenziearts/laravel-notify/css/notify.css" />
-	<link rel="shortcut icon" href="../icon.png" type="image/png">
+	<link rel="shortcut icon" href="../icon.png" type="image/png" />
+	<style>
+		/* Timeline Container */
+		.timeline-wrapper {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 40px 20px 10px;
+		}
+		/* The background line */
+		.timeline-line {
+			position: absolute;
+			top: 32px;
+			left: 12%;
+			width: 76%;
+			height: 3px;
+			background: var(--border-color);
+			border-radius: 2px;
+			z-index: 0;
+		}
+		/* Each step */
+		.timeline-step {
+			position: relative;
+			text-align: center;
+			flex: 1;
+			z-index: 1;
+		}
+		.timeline-step i {
+			font-size: 30px;
+			color: #ccc;
+			border-radius: 50%;
+			padding: 5px;
+			transition: all 0.3s ease;
+		}
+		/* Label under icon */
+		.timeline-step small {
+			display: block;
+			margin-top: 6px;
+			color: #888;
+		}
+		/* Active step */
+		.timeline-step.active i,
+		.timeline-step.completed i {
+			color: var(--primary-color); /* Active green */
+		}
+		.timeline-step.active small,
+		.timeline-step.completed small {
+			color: var(--text-color);
+			font-weight: 500;
+		}
+		/* Progress fill line (based on active/completed steps) */
+		.timeline-wrapper::before {
+			content: "";
+			position: absolute;
+			top: 32px;
+			left: 12%;
+			height: 4px;
+			background-color: var(--primary-color);
+			border-radius: 2px;
+			z-index: 0;
+			width: 0;
+			transition: width 0.5s ease;
+		}
+		/* Adjust the fill based on active step */
+		.timeline-wrapper[data-status="started"]::before {
+			width: 0%;
+		}
+		.timeline-wrapper[data-status="running"]::before {
+			width: 50%;
+		}
+		.timeline-wrapper[data-status="completed"]::before {
+			width: 100%;
+		}
+	</style>
 </head>
 
 <body>
@@ -34,100 +122,127 @@ $transaction = $Controller->singleTrade($_GET['trx']);
 		<div class="content-body">
 			<div class="row">
 				<div class="col-lg-8">
-					<div class="w-100 d-flex justify-content-center flex-column gap-1 text-center mb-4">
-						<img src="../images/plans/<?php echo $transaction['icon'] ?>"
-							width="60"
-							class="mx-auto my-2"
-							alt="<?php echo $transaction['plan_name'] ?>"
-						/>
-						<h4 class="mb-0">$<?php echo number_format($transaction['amount'], 2) ?></h4>
-						<p class="mb-0"><?php echo $transaction['plan_name'] ?> Plan</p>
-					</div>
-					<!-- Transaction List -->
-					<div class="card mb-5">
-						<div class="card-body p-0 py-2">
-							<?php
-							// print_r($transaction);
-							?>
-							<div class="trx-item d-flex w-100 p-3 border-bottom">
-								<span style="opacity:.8;">Plan</span>
-								<span class="text-capitalize ms-auto"><?php echo $transaction['plan_name'] ?></span>
-							</div>
-							<div class="trx-item d-flex w-100 p-3 border-bottom">
-								<span style="opacity:.8;">Capital</span>
-								<span class="text-capitalize ms-auto">$<?php echo number_format($transaction['amount'], 2) ?></span>
-							</div>
-							<div class="trx-item d-flex w-100 p-3 border-bottom">
-								<span style="opacity:.8;">Interest</span>
-								<span class="text-capitalize ms-auto"><i class="bi bi-arrow-up text-success"></i> <?php echo $transaction['interest'] ?>%</span>
-							</div>
-							<div class="trx-item d-flex w-100 p-3 border-bottom">
-								<span style="opacity:.8;">Duration</span>
-								<span class="text-capitalize ms-auto"><?php echo $transaction['duration'] ?> days</span>
-							</div>
-							<div class="trx-item d-flex w-100 p-3 border-bottom">
-								<span style="opacity:.8;">Profit</span>
-								<span class="text-capitalize ms-auto">+$<?php echo number_format($transaction['profit'], 2) ?></span>
-							</div>
-							<div class="trx-item d-flex w-100 p-3 border-bottom">
-								<span style="opacity:.8;">Total returns</span>
-								<span class="text-capitalize ms-auto">$<?php echo number_format($transaction['returns'], 2) ?></span>
-							</div>
-							<div class="trx-item d-flex w-100 p-3 border-bottom">
-								<span style="opacity:.8;">Invoice</span>
-								<span class="text-capitalize ms-auto">#<?php echo $transaction['plan_hash'] ?></span>
-							</div>
-							<div class="trx-item d-flex w-100 p-3 border-bottom">
-								<span style="opacity:.8;">Status</span>
-								<?php
-								switch ($transaction['status']) {
-									case 'completed':
-										?><span class="ms-auto text-success">Completed</span><?php
-									break;
-									default:
-										?><span class="ms-auto text-warning">Running</span><?php
-									break;
-								}
-								?>
-							</div>
-							<div class="trx-item d-flex w-100 p-3 border-bottom">
-								<span style="opacity:.8;">Start date</span>
-								<span class="text-capitalize ms-auto"><?php echo date('M d, Y', strtotime($transaction['start_date'])) ?></span>
-							</div>
-							<div class="trx-item d-flex w-100 p-3 border-bottom">
-								<span style="opacity:.8;">Payout date</span>
-								<span class="text-capitalize ms-auto"><?php echo date('M d, Y', strtotime($transaction['end_date'])) ?></span>
-							</div>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="mb-0"><?php echo $transaction['plan_name'] ?> Plan</h4>
+            <!-- <span class="badge bg-warning text-dark">Running</span> -->
+						<?php
+						switch ($transaction['status']) {
+							case 'completed':
+								?><span class="badge bg-success-subtle text-success">Completed</span><?php
+							break;
+							default:
+								?><span class="badge bg-warning-subtle text-warning">Running</span><?php
+							break;
+						}
+						?>
+          </div>
 
-							<p class="text-center pt-4">
-								<a href="./transactions" class="btn text-primary">back to transactions</a>
-							</p>
+          <!-- Investment Overview -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="p-3 card rounded-3 text-center">
+                <small class="text-muted d-block">Invested Amount</small>
+                <h5 class="mb-0">$<?php echo number_format($transaction['amount'], 2) ?></h5>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 card rounded-3 text-center">
+                <small class="text-muted d-block">Expected Profit</small>
+                <h5 class="mb-0">$<?php echo number_format($transaction['returns'], 2) ?></h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress -->
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-2">
+              <small>ROI Progress</small>
+              <small><?php echo $progress ?>% Completed</small>
+            </div>
+            <div class="progress bg-light" style="height:10px;opacity:.7;">
+              <div class="progress-bar bg-primary" style="width:<?php echo $progress ?>%;"></div>
+            </div>
+          </div>
+
+          <!-- Duration -->
+          <div class="row text-center mb-4">
+            <div class="col-4 text-start text-sm-center">
+              <small class="text-muted d-block">Start Date</small>
+              <span><?php echo date('M d, Y', strtotime($transaction['start_date'])) ?></span>
+            </div>
+            <div class="col-4">
+              <small class="text-muted d-block">Duration</small>
+              <span><?php echo $transaction['duration'] ?> Days</span>
+            </div>
+            <div class="col-4 text-end text-sm-center">
+              <small class="text-muted d-block">End Date</small>
+              <span><?php echo date('M d, Y', strtotime($transaction['end_date'])) ?></span>
+            </div>
+          </div>
+
+          <!-- Payment Info -->
+          <div class="mb-4 pt-2">
+            <h6 class="mb-2">Payment Method</h6>
+            <div class="p-3 border rounded-3 card">
+              <div class="d-flex justify-content-between">
+                <span class="small">Wallet Balance</span>
+                <span class="text-muted">$<?php echo number_format($user_info['wallet_bal'], 2) ?></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="w-100">
+            <h6 class="mb-2">Investment Timeline</h6>
+						<div class="timeline-wrapper mb-0">
+							<div class="timeline-line"></div>
+							<div class="timeline-step completed">
+								<i class="bi bi-check-circle-fill"></i>
+								<small>Started</small>
+							</div>
+							<div class="timeline-step active">
+								<i class="bi bi-check-circle-fill"></i>
+								<small>Running</small>
+							</div>
+							<div class="timeline-step">
+								<i class="bi bi-check-circle-fill" style="opacity:.6;"></i>
+								<small>Completed</small>
+							</div>
 						</div>
+          </div>
+
+					<div class="w-100 p-3 small mb-3">
+						<p style="opacity:.7;" class="m-0"><?php echo $transaction['description'] ?></p>
 					</div>
+
+          <!-- Buttons -->
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-secondary rounded-pill">Back</button>
+            <div>
+              <button class="btn btn-success rounded-pill me-2">Withdraw ROI</button>
+              <button class="btn btn-primary rounded-pill">Reinvest</button>
+            </div>
+          </div>
 				</div>
 				<!-- Right Column -->
 				<div class="col-lg-4">
 					<!-- Quick Stats -->
 					<div class="card mb-4">
 						<div class="card-header">
-							<h6 class="mb-0">Account Summary</h6>
+							<h6 class="mb-0">Investment Summary</h6>
 						</div>
 						<div class="card-body">
 							<div class="mb-3">
-								<small class="text-muted d-block mb-1">Total Portfolio Value</small>
-								<h5 class="mb-0"><?php echo $Controller->totalBalance() ?></h5>
+								<small class="text-muted d-block mb-1">Total investments</small>
+								<h5 class="mb-0">$<?php echo number_format($Controller->totalInvested(), 2) ?></h5>
 							</div>
 							<div class="mb-3">
-								<small class="text-muted d-block mb-1">Active Investments</small>
+								<small class="text-muted d-block mb-1">Running Investments</small>
 								<h5 class="mb-0"><?php echo $Controller->runningTrades()['count'] ?></h5>
 							</div>
 							<div class="mb-3">
-								<small class="text-muted d-block mb-1">Total Transactions</small>
-								<h5 class="mb-0"><?php echo count($Controller->Transactions(100)) ?></h5>
-							</div>
-							<div>
-								<small class="text-muted d-block mb-1">Account Status</small>
-								<span class="badge bg-success">Active</span>
+								<small class="text-muted d-block mb-1">Completed Investments</small>
+								<h5 class="mb-0"><?php echo $Controller->completedTrades()['count'] ?></h5>
 							</div>
 						</div>
 					</div>

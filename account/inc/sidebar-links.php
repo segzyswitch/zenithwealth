@@ -22,7 +22,7 @@
 
 <a href="./invest-logs" class="nav-link">
 	<i class="bi bi-list-ul"></i>
-	<span>Trade History</span>
+	<span>Investments</span>
 </a>
 
 <a href="./transactions" class="nav-link">

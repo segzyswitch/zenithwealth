@@ -13,6 +13,10 @@ class Controller
   public function __construct()
   {
     $this->db_server = 'localhost';
+    // $this->db_username = 'root';
+    // $this->db_password = '';
+    // $this->db_name = 'velloxa';
+
     $this->db_username = 'velloxaw_default';
     $this->db_password = 'Primestar1$';
     $this->db_name = 'velloxaw_default';
