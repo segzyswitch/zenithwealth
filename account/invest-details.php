@@ -119,7 +119,7 @@ $progress = $totalDays > 0 ? round(($elapsedDays / $totalDays) * 100, 1) : 0;
 		<!-- Top Bar -->
 		<?php include 'inc/panel-header.php'; ?>
 
-		<div class="content-body">
+		<div class="content-body text-muted">
 			<div class="row">
 				<div class="col-lg-8">
           <div class="d-flex justify-content-between align-items-center mb-4">
@@ -141,14 +141,14 @@ $progress = $totalDays > 0 ? round(($elapsedDays / $totalDays) * 100, 1) : 0;
           <div class="row g-3 mb-4">
             <div class="col-md-6">
               <div class="p-3 card rounded-3 text-center">
-                <small class="text-muted d-block">Invested Amount</small>
-                <h5 class="mb-0">$<?php echo number_format($transaction['amount'], 2) ?></h5>
+                <small class="text-muted d-block mb-1">Invested Amount</small>
+                <h5 class="mb-0 pt-1">$<?php echo number_format($transaction['amount'], 2) ?></h5>
               </div>
             </div>
             <div class="col-md-6">
               <div class="p-3 card rounded-3 text-center">
-                <small class="text-muted d-block">Expected Profit</small>
-                <h5 class="mb-0">$<?php echo number_format($transaction['returns'], 2) ?></h5>
+                <small class="text-muted d-block mb-1">Expected Profit</small>
+                <h5 class="mb-0 pt-1">$<?php echo number_format($transaction['returns'], 2) ?></h5>
               </div>
             </div>
           </div>
@@ -172,7 +172,7 @@ $progress = $totalDays > 0 ? round(($elapsedDays / $totalDays) * 100, 1) : 0;
             </div>
             <div class="col-4">
               <small class="text-muted d-block">Duration</small>
-              <span><?php echo $transaction['duration'] ?> Days</span>
+              <span><?php echo $transaction['duration'] ?> months</span>
             </div>
             <div class="col-4 text-end text-sm-center">
               <small class="text-muted d-block">End Date</small>
@@ -181,7 +181,7 @@ $progress = $totalDays > 0 ? round(($elapsedDays / $totalDays) * 100, 1) : 0;
           </div>
 
           <!-- Payment Info -->
-          <div class="mb-4 pt-2">
+          <div class="mb-4 pt-2 ">
             <h6 class="mb-2">Payment Method</h6>
             <div class="p-3 border rounded-3 card">
               <div class="d-flex justify-content-between">

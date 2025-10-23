@@ -73,7 +73,7 @@
                     <?php echo $value['interest'].'%'; ?>
                   </td>
                   <td data-label="Time">
-                    <?php echo $value['duration']; ?> Days
+                    <?php echo $value['duration']; ?> months
                   </td>
                   <td data-label="Recommend">
                     <?php
@@ -127,7 +127,7 @@
             <input type="text" name="name" class="form-control" required />
           </div>
           <div class="form-item mb-3">
-            <label class="form-label">Duration <small>(Number of days)</small></label>
+            <label class="form-label">Duration <small>(Number of months)</small></label>
             <input type="number" min="5" name="duration" class="form-control" required />
           </div>
           <div class="form-item mb-3">

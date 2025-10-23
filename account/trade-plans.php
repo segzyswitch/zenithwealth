@@ -36,12 +36,18 @@ require '../config/session.php';
 						<div class="card plan-card text-center p-4 py-5">
 							<img class="m-auto mb-4" width="60" src="../images/plans/plan-0<?php echo $counter; ?>.png" />
 							<h3 class="mb-2"><?php echo $value['name'] ?> plan</h3>
-							<p class="small text-primary mb-4">Daily <?php echo $value['interest'] ?>%</p>
+							<p class="small text-primary mb-4"><?php echo $value['interest'] ?>% interest</p>
 							<ul class="list-unstyled d-flex flex-column gap-3 mb-4">
 								<li class="d-flex justify-content-between align-items-center">
-									<span>Investment Limit</span>
-									<span class="special">
-										<?php echo "$" . $value['min_limit'] . " - $" . $value['max_limit'] ?>
+									<span>Minmum Limit</span>
+									<span class="special small">
+										<?php echo "$" . $value['min_limit'] ?>
+									</span>
+								</li>
+								<li class="d-flex justify-content-between align-items-center">
+									<span>Maximum Limit</span>
+									<span class="special small">
+										<?php echo "$" . $value['max_limit'] ?>
 									</span>
 								</li>
 								<li class="d-flex justify-content-between align-items-center">
@@ -50,7 +56,7 @@ require '../config/session.php';
 								</li>
 								<li class="d-flex justify-content-between align-items-center">
 									<span>Duration</span>
-									<span><?php echo $value['duration'] ?></span>
+									<span><?php echo $value['duration'] ?> months</span>
 								</li>
 								<!-- <li>Profit Withdraw <span>Anytime</span></li> -->
 								<li class="d-flex justify-content-between align-items-center">

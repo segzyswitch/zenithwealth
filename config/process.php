@@ -369,8 +369,8 @@ if ( isset($_POST["invest_now"]) ) {
   $plan_min = $plan_info['min_limit'];
   $plan_max = $plan_info['max_limit'];
   $interval = $plan_info['duration'];
-  $daily_interest = $amount * $plan_info['interest'] / 100;
-  $profit = $daily_interest * $interval;
+  $interest = $amount * $plan_info['interest'] / 100;
+  $profit = $interest * $amount;
   $total_return = $amount + $profit;
   $start_date = date('Y-m-d H:i');
   $end_date = date('Y-m-d H:i', strtotime($start_date . ' + '.$interval.' days'));

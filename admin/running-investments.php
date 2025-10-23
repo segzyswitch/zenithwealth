@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Velloxa Wealth - Investment logs</title>
+  <title>Velloxa Wealth - Running Investment logs</title>
   <link rel="shortcut icon" href="../icon-o.png" type="image/x-icon">
   <link rel="stylesheet" href="./assets/theme/global/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./assets/theme/global/css/line-awesome.min.css" />
@@ -75,7 +75,7 @@
                     <span>$<?php echo $value['interest'] ?></span>
                   </td>
                   <td data-label="Duration">
-                    <span><?php echo $value['period'] ?> day(s)</span>
+                    <span><?php echo $value['period'] ?> month(s)</span>
                   </td>
                   <td data-label="Profit">
                     <span>$<?php echo number_format($value['profit']) ?></span>

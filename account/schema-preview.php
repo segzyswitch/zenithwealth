@@ -142,6 +142,16 @@ require '../config/session.php';
 											?>
 										</div>
 									</div>
+									<div class="col-l2 mb-4">
+										<div class="form-inner">
+											<label for="select_plan" class="mb-1">Payment account</label>
+											<div class="input-group">
+												<select class="form-select" id="select_plan" required>
+													<option selected value="wallet_balance">Wallet balance - $<?php echo number_format($user_info['wallet_bal'], 2) ?></option>
+												</select>
+											</div>
+										</div>
+									</div>
 									<div class="col-lg-12 mb-2">
 										<button type="submit" class="btn bg-primary bg-light">Review investment</button>
 									</div>
@@ -188,7 +198,7 @@ require '../config/session.php';
 								<input type="hidden" name="amount">
 								<input type="hidden" name="invest_now" value="invest" />
 							</div>
-							<h6 id="invest-total-return" class="text-muted mb-5"></h6>
+							<h6 id="invest-details" class="text-muted small pt-2 mb-5"></h6>
 							<div class="row mb-0">
 								<div class="col-6">
 									<button type="button" id="backToInput" class="btn w-100">Back</button>
@@ -259,6 +269,7 @@ require '../config/session.php';
       var interest_return_type = 2;
 			let min_limit = 0;
 			let max_limit = 0;
+			let terms = '';
 
       function updateMinMax() {
         const selectedOption = $('#select_plan option:selected');
@@ -272,12 +283,15 @@ require '../config/session.php';
         interest_return_type = selectedOption.data('interest_return_type');
         min_limit = selectedOption.data('min-limit');
         max_limit = selectedOption.data('max-limit');
+				terms = selectedOption.data('terms');
+				// alert(terms);
 				$("#limitText").text(`$${min_limit} - $${max_limit}`);
 				// set new min and max
-				$("#qty").attr("min", 3);
-				$("#qty").attr("max", 15);
+				$("#qty").attr("min", min_limit);
+				$("#qty").attr("max", max_limit);
         $("#methodTitle").html(selectedOption.data('name')+" Profit Calculation");
-				console.log(min_limit);
+        $("#invest-details").text(terms);
+				// console.log(min_limit);
       }
 
       function updateTotalReturn(amount) {
@@ -292,10 +306,10 @@ require '../config/session.php';
         $(".hidden-form input[name='amount']").val(parsedAmount);
 
         var currency = "$";
-        var returnAmount = parsedAmount * interestRate / 100;
-        $("#invest-total-return").text("Return " + currency + returnAmount.toFixed(2) + " every " + day + " for " + duration + " days");
+        var profit = parsedAmount * interestRate / 100;
+				var monthly_profit = profit / duration;
 
-        var totalProfit = returnAmount * duration;
+        var totalProfit = profit;
 
         if (recapture_type == 2) {
           var total = totalProfit;
@@ -315,7 +329,7 @@ require '../config/session.php';
 
         $("#plan_name").text(planName);
         $("#cal_amount").text(currency + parsedAmount.toFixed(2));
-        $("#payment_interval").text(duration + " days");
+        $("#payment_interval").text(duration + " months");
         $("#profit").text(investProfit);
         $("#capital_back").text(currency + capitalBack.toFixed(2));
         $("#total_invest").text(currency + total.toFixed(2) + returnType);

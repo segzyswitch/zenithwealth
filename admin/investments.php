@@ -75,7 +75,7 @@
                     <span>$<?php echo $value['interest'] ?></span>
                   </td>
                   <td data-label="Duration">
-                    <span><?php echo $value['period'] ?> day(s)</span>
+                    <span><?php echo $value['period'] ?> month(s)</span>
                   </td>
                   <td data-label="Profit">
                     <span>$<?php echo number_format($value['profit']) ?></span>
