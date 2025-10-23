@@ -41,13 +41,19 @@ require '../config/session.php';
 								<li class="d-flex justify-content-between align-items-center">
 									<span>Minmum Limit</span>
 									<span class="special small">
-										<?php echo "$" . $value['min_limit'] ?>
+										<?php echo "$" . number_format($value['min_limit']) ?>
 									</span>
 								</li>
 								<li class="d-flex justify-content-between align-items-center">
 									<span>Maximum Limit</span>
-									<span class="special small">
-										<?php echo "$" . $value['max_limit'] ?>
+									<span class="special">
+										<?php echo "$" . number_format($value['max_limit']) ?>
+									</span>
+								</li>
+								<li class="d-flex justify-content-between align-items-center">
+									<span>Interest</span>
+									<span class="special">
+										<?php echo "{$value['interest']}%" ?>
 									</span>
 								</li>
 								<li class="d-flex justify-content-between align-items-center">
