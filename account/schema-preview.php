@@ -320,7 +320,7 @@ require '../config/session.php';
         }
 
         if (interest_return_type == 2) {
-          var investProfit = currency + totalProfit.toFixed(2);
+          var investProfit = currency + totalProfit.toLocaleString();
           var returnType = "";
         } else {
           var investProfit = "LifeTime";
@@ -328,11 +328,11 @@ require '../config/session.php';
         }
 
         $("#plan_name").text(planName);
-        $("#cal_amount").text(currency + parsedAmount.toFixed(2));
+        $("#cal_amount").text(currency + parsedAmount.toLocaleString());
         $("#payment_interval").text(duration + " months");
-        $("#profit").text(investProfit);
-        $("#capital_back").text(currency + capitalBack.toFixed(2));
-        $("#total_invest").text(currency + total.toFixed(2) + returnType);
+        $("#profit").text(investProfit.toLocaleString());
+        $("#capital_back").text(currency + capitalBack.toLocaleString());
+        $("#total_invest").text(currency + total.toLocaleString() + returnType);
       }
 
       updateMinMax();

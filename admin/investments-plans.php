@@ -67,7 +67,7 @@
                     <span><?php echo $value['name']; ?></span>
                   </td>
                   <td data-label="Investment Limit">
-                    <?php echo '$'.$value['min_limit'].' - $'.$value['max_limit']; ?>
+                    <?php echo '$'.number_format($value['min_limit']).' - $'.number_format($value['max_limit']); ?>
                   </td>
                   <td data-label="Interest">
                     <?php echo $value['interest'].'%'; ?>
@@ -128,7 +128,7 @@
           </div>
           <div class="form-item mb-3">
             <label class="form-label">Duration <small>(Number of months)</small></label>
-            <input type="number" min="5" name="duration" class="form-control" required />
+            <input type="number" min="1" name="duration" class="form-control" required />
           </div>
           <div class="form-item mb-3">
             <label class="form-label">Interest</label>
