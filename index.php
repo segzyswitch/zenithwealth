@@ -1,4 +1,7 @@
-<?php // require 'captch.php' ?>
+<?php
+require 'config/Controller.php';
+$Controller = new Controller()
+?>
 <!DOCTYPE html>
 
 <head>
@@ -83,6 +86,7 @@
 			</div>
 		</section>
 
+		<!--
 		<section class="container" style="background-color:#101824;">
 			<div class="row" style="margin-top:25px;">
 				<div class="col-md-7" style="float:none;margin:auto;">
@@ -90,11 +94,11 @@
 						<iframe src="vid01.mp4" frameborder="0" allow="accelerometer; encrypted-media; gyroscope;"
 							style="position:absolute; width:100%; height:100%; border: none;" allowfullscreen="">
 						</iframe>
-						<!-- <iframe src="vid01.mp4" style="position:absolute; width:100%; height:100%; border: none;"></iframe> -->
 					</div>
 				</div>
 			</div>
 		</section>
+		-->
 
 		<section class="section_22_plans">
 			<div class="container clearfix">
@@ -117,6 +121,7 @@
 					<div class="row"></div>
 				</div>
 				<div class="row" id="plans-container">
+					<!--
 					<script>
 						document.addEventListener("DOMContentLoaded", function () {
 							fetch('fetch-plans.json')
@@ -156,6 +161,41 @@
 								});
 						});
 					</script>
+					-->
+
+					<?php
+					$counter = 1;
+					foreach ($Controller->Plans() as $key => $value) {
+						?>
+					<div class="col-md-3 col-sm-6 col-xs-12">
+						<div class="pricing-container">
+							<div class="pricing-table">
+								<div class="tb-border"></div>
+								<div class="lr-border"></div>
+								<div class="pricing-inner">
+									<p><b class="plan-name-text"><?php echo $value['name'] ?> Plan</b></p>
+									<div class="pricing-price-title-wrapper">
+										<div class="pricing-price-title title-h5"><?php echo $value['interest'] ?>%</div>
+										<div class="pricing-price-subtitle"><?php echo $value['duration'] ?> months</div>
+									</div>
+									<div class="plan-desc">
+										<figure class="pricing-row">Minimum deposit - $<?php echo number_format($value['min_limit']) ?></figure>
+										<figure class="pricing-row">Maximum deposit - $<?php echo number_format($value['max_limit']) ?></figure>
+										<figure class="pricing-row">Quality Investment Experience</figure>
+										<figure class="pricing-row">24/7 Phone and Email Support</figure>
+										<figure class="pricing-row">Instant Withdrawal</figure>
+									</div>
+									<div class="pricing-footer">
+										<button><a href="account/register" class="btn-no-bg-white">Sign Up</a></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+						<?php
+						$counter++;
+					}
+					?>
 				</div>
 			</div>
 		</section>

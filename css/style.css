@@ -2215,7 +2215,6 @@ transition: all .3s ease 0s;
 }
 .pricing-container .pricing-table:hover,
 .pricing-container .pricing-table:hover .pricing-inner {
-  
   color: #000;
 }
 .pricing-container{
@@ -2542,11 +2541,11 @@ transition: all 0.3s ease;
 transition: all 0.3s ease;
 }
 
-.pricing-container:hover div.pricing-table div.pricing-inner div.pricing-price-title-wrapper div.pricing-price-title.title-h5,
+/* .pricing-container:hover div.pricing-table div.pricing-inner div.pricing-price-title-wrapper div.pricing-price-title.title-h5,
 .pricing-container:hover .pricing-table div.pricing-inner div.pricing-price-title-wrapper div.pricing-price-subtitle,.pricing-table:hover .plan-desc figure.pricing-row
 {
 color: #fff;
-}
+} */
 .pricing-container:hover .pricing-inner .plan-name{
 	color: #C86567;
 }
