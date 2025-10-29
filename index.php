@@ -86,7 +86,6 @@ $Controller = new Controller()
 			</div>
 		</section>
 
-		<!--
 		<section class="container" style="background-color:#101824;">
 			<div class="row" style="margin-top:25px;">
 				<div class="col-md-7" style="float:none;margin:auto;">
@@ -98,7 +97,6 @@ $Controller = new Controller()
 				</div>
 			</div>
 		</section>
-		-->
 
 		<section class="section_22_plans">
 			<div class="container clearfix">
