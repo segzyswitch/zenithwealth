@@ -179,8 +179,8 @@ $Controller = new Controller()
 										<div class="pricing-price-subtitle"><?php echo $value['duration'] ?> months</div>
 									</div>
 									<div class="plan-desc">
-										<figure class="pricing-row">Minimum deposit - $<?php echo number_format($value['min_limit']) ?></figure>
-										<figure class="pricing-row">Maximum deposit - $<?php echo number_format($value['max_limit']) ?></figure>
+										<figure class="pricing-row">Minimum deposit - <b>$<?php echo number_format($value['min_limit']) ?></b></figure>
+										<!-- <figure class="pricing-row">Maximum deposit - $<?php // echo number_format($value['max_limit']) ?></figure> -->
 										<figure class="pricing-row">Quality Investment Experience</figure>
 										<figure class="pricing-row">24/7 Phone and Email Support</figure>
 										<figure class="pricing-row">Instant Withdrawal</figure>

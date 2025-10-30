@@ -40,34 +40,34 @@ require '../config/session.php';
 							<ul class="list-unstyled d-flex flex-column gap-3 mb-4">
 								<li class="d-flex justify-content-between align-items-center">
 									<span>Minmum Limit</span>
-									<span class="special small">
-										<?php echo "$" . number_format($value['min_limit']) ?>
-									</span>
+									<b class="special small">
+										<?php echo "$" . number_format($value['min_limit']) ?>+
+									</b>
 								</li>
-								<li class="d-flex justify-content-between align-items-center">
+								<!-- <li class="d-flex justify-content-between align-items-center">
 									<span>Maximum Limit</span>
 									<span class="special">
-										<?php echo "$" . number_format($value['max_limit']) ?>
+										<?php // echo "$" . number_format($value['max_limit']) ?>
 									</span>
-								</li>
+								</li> -->
 								<li class="d-flex justify-content-between align-items-center">
 									<span>Interest</span>
-									<span class="special">
+									<b class="special">
 										<?php echo "{$value['interest']}%" ?>
-									</span>
+									</b>
 								</li>
 								<li class="d-flex justify-content-between align-items-center">
 									<span>Capital Back</span>
-									<span>Yes</span>
+									<b>Yes</b>
 								</li>
 								<li class="d-flex justify-content-between align-items-center">
 									<span>Duration</span>
-									<span><?php echo $value['duration'] ?> months</span>
+									<b><?php echo $value['duration'] ?> months</b>
 								</li>
 								<!-- <li>Profit Withdraw <span>Anytime</span></li> -->
 								<li class="d-flex justify-content-between align-items-center">
 									<span>Cancel</span>
-									<span> No</span>
+									<b> No</b>
 								</li>
 							</ul>
 							<div class="text-primary small mb-4"><span class="star">*</span> No Profit Holidays</div>

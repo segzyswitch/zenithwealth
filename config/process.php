@@ -386,10 +386,10 @@ if ( isset($_POST["invest_now"]) ) {
     return false;
   }
   // Check max trade
-  if ( $amount > $plan_info['max_limit'] ) {
-    echo "Maximun amount for ".$plan_name." plan is $".$plan_min.", choose a different plan!";
-    return false;
-  }
+  // if ( $amount > $plan_info['max_limit'] ) {
+  //   echo "Maximun amount for ".$plan_name." plan is $".$plan_min.", choose a different plan!";
+  //   return false;
+  // }
 
   $details = "Invested to ".$plan_name." plan";
 

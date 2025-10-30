@@ -92,7 +92,6 @@ require '../config/session.php';
 															data-terms="<?php echo $value['description'] ?>"
 															data-duration="<?php echo $value['duration'] ?>"
 															data-min-limit="<?php echo $value['min_limit'] ?>"
-															data-max-limit="<?php echo $value['max_limit'] ?>"
 															selected>
 															<?php echo $value['name']." - Interest ".($value['interest'])."%" ?>
 														</option>
@@ -108,8 +107,7 @@ require '../config/session.php';
 															data-day="Days"
 															data-terms="<?php echo $value['description'] ?>"
 															data-duration="<?php echo $value['duration'] ?>"
-															data-min-limit="<?php echo $value['min_limit'] ?>"
-															data-max-limit="<?php echo $value['max_limit'] ?>">
+															data-min-limit="<?php echo $value['min_limit'] ?>">
 															<?php echo $value['name']." - Interest ".($value['interest'])."%" ?>
 														</option>
 														<?php
@@ -128,7 +126,7 @@ require '../config/session.php';
 													value="<?php if (isset($_GET['amount'])) echo $_GET['amount']; ?>"
 													<?php if (isset($_GET['plan'])) {
 														$value = $Controller->singlePlan($_GET['plan']);
-														echo "min='".$value['min_limit']."' max='".$value['max_limit']."'";
+														echo "min='".$value['min_limit']."'";
 													}	?>
 													placeholder="Enter Amount"
 													required
