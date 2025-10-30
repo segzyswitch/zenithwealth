@@ -391,7 +391,7 @@ class Controller
       foreach ($data as $key => $value) {
         $total += $value['profit'];
       }
-      $returns = $total + $this->totalInvested();
+      $returns = $total;
       return '$' . number_format($returns, 2);
     } catch (PDOException $e) {
       return $e->getMessage();
