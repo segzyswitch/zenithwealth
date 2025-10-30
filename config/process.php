@@ -369,8 +369,8 @@ if ( isset($_POST["invest_now"]) ) {
   $plan_min = $plan_info['min_limit'];
   $plan_max = $plan_info['max_limit'];
   $interval = $plan_info['duration'];
-  $interest = $amount * $plan_info['interest'] / 100;
-  $profit = $interest * $amount;
+  $interest = $plan_info['interest'];
+  $profit = ($amount * $interest) / 100;
   $total_return = $amount + $profit;
   $start_date = date('Y-m-d H:i');
   $end_date = date('Y-m-d H:i', strtotime($start_date . ' + '.$interval.' days'));
@@ -391,12 +391,12 @@ if ( isset($_POST["invest_now"]) ) {
     return false;
   }
 
-  $details = "Invested to $".$plan_name." plan";
+  $details = "Invested to ".$plan_name." plan";
 
   $trade = "INSERT INTO trades(user_id, plan_hash, plan_id, plan_name, amount, period,
     interest, profit, returns, start_date, end_date)
     VALUES('$user_id', '$invoice', '$plan_id', '$plan_name', '$amount', '$interval',
-    '$daily_interest', '$profit', '$total_return', '$start_date', '$end_date')
+    '$interest', '$profit', '$total_return', '$start_date', '$end_date')
   ";
   $transact = "INSERT INTO transactions(user_id, type, invoice, amount,
     initial_bal, source, proof, send_to, details, status)
