@@ -204,7 +204,7 @@ $progress = $totalDays > 0 ? round(($elapsedDays / $totalDays) * 100, 1) : 0;
 								<i class="bi bi-check-circle-fill"></i>
 								<small>Running</small>
 							</div>
-							<div class="timeline-step">
+							<div class="timeline-step <?php echo ($transaction['status']=='completed') ? 'text-primary' : '' ?>">
 								<i class="bi bi-check-circle-fill" style="opacity:.6;"></i>
 								<small>Completed</small>
 							</div>
