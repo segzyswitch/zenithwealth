@@ -46,7 +46,7 @@
 			</div>
 		</div>
 		<div class="text-end small">
-			<div class="fw-medium text-color">+$<?php echo number_format($value['amount'], 2) ?></div>
+			<div class="fw-medium text-color">$<?php echo number_format($value['amount'], 2) ?></div>
 			<?php
 			switch ($value['status']) {
 				case 'success':

@@ -358,6 +358,45 @@ class Controller
       return $e->getMessage();
     }
   }
+  public function currentInvestment()
+  {
+    $user_id = $_SESSION["moon_account_id"];
+    $sql = "SELECT * FROM trades
+    WHERE user_id='$user_id'
+    AND status = 'running'";
+    try {
+      $query = $this->conn->prepare($sql);
+      $query->execute();
+      $data = $query->fetchAll();
+      $total = 0;
+      foreach ($data as $key => $value) {
+        $total += $value['amount'];
+      }
+      return $total;
+    } catch (PDOException $e) {
+      return $e->getMessage();
+    }
+  }
+  public function pendingRetruns()
+  {
+    $user_id = $_SESSION["moon_account_id"];
+    $sql = "SELECT * FROM trades
+    WHERE user_id='$user_id'
+    AND status = 'running'";
+    try {
+      $query = $this->conn->prepare($sql);
+      $query->execute();
+      $data = $query->fetchAll();
+      $total = 0;
+      foreach ($data as $key => $value) {
+        $total += $value['profit'];
+      }
+      $returns = $total + $this->totalInvested();
+      return '$' . number_format($returns, 2);
+    } catch (PDOException $e) {
+      return $e->getMessage();
+    }
+  }
   public function totalRetruns()
   {
     $user_id = $_SESSION["moon_account_id"];

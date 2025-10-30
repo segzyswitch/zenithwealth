@@ -79,7 +79,7 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 								</div>
 								<div class="text-end">
 									<p class="text-muted small mb-0">Opened</p>
-									<p class="small mb-0"><?php echo $user_info['createdat'] ?></p>
+									<p class="small mb-0"><?php echo date('Y.m.d', strtotime($user_info['createdat'])) ?></p>
 								</div>
 							</div>
 
@@ -97,14 +97,14 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 										<span class="badge bg-primary rounded-circle p-2"></span>
 										<small class="text-muted">Current investment</small>
 									</div>
-									<h6 class="mt-1"><?php echo '$'.number_format($Controller->totalInvested(), 2) ?></h6>
+									<h6 class="mt-1"><?php echo '$'.number_format($Controller->currentInvestment(), 2) ?></h6>
 								</div>
 								<div class="col-6">
 									<div class="d-flex align-items-center gap-2">
 										<span class="badge bg-success rounded-circle p-2"></span>
 										<small class="text-muted">Expected Profit</small>
 									</div>
-									<h6 class="mt-1 text-success"><?php echo $Controller->totalRetruns() ?></h6>
+									<h6 class="mt-1 text-success"><?php echo $Controller->pendingRetruns() ?></h6>
 								</div>
 							</div>
 						</div>
