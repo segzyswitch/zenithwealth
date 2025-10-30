@@ -216,6 +216,7 @@ $progress = $totalDays > 0 ? round(($elapsedDays / $totalDays) * 100, 1) : 0;
 					</div>
 
           <!-- Buttons -->
+					<!--
           <div class="d-flex justify-content-between">
             <button class="btn btn-outline-secondary rounded-pill">Back</button>
             <div>
@@ -223,6 +224,7 @@ $progress = $totalDays > 0 ? round(($elapsedDays / $totalDays) * 100, 1) : 0;
               <button class="btn btn-primary rounded-pill">Reinvest</button>
             </div>
           </div>
+					-->
 				</div>
 				<!-- Right Column -->
 				<div class="col-lg-4">

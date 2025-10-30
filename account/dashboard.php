@@ -79,7 +79,7 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 								</div>
 								<div class="text-end">
 									<p class="text-muted small mb-0">Opened</p>
-									<p class="small mb-0">30.09.2023</p>
+									<p class="small mb-0"><?php echo $user_info['createdat'] ?></p>
 								</div>
 							</div>
 
