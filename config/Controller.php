@@ -69,6 +69,12 @@ class Controller
     $balanceSum = $user_info['wallet_bal'] + $user_info['trading_bal'];
     return '$' . number_format($balanceSum, 2);
   }
+  public function intBalance()
+  {
+    $user_info = $this->User();
+    $balanceSum = $user_info['wallet_bal'] + $user_info['trading_bal'];
+    return $balanceSum;
+  }
 
   // Linked Accounts
   public function linkedAccounts($type = null)
@@ -392,6 +398,26 @@ class Controller
         $total += $value['profit'];
       }
       $returns = $total;
+      return '$' . number_format($returns, 2);
+    } catch (PDOException $e) {
+      return $e->getMessage();
+    }
+  }
+  public function totalValuation()
+  {
+    $user_id = $_SESSION["moon_account_id"];
+    $sql = "SELECT * FROM trades
+    WHERE user_id='$user_id'
+    AND status = 'running'";
+    try {
+      $query = $this->conn->prepare($sql);
+      $query->execute();
+      $data = $query->fetchAll();
+      $total = 0;
+      foreach ($data as $key => $value) {
+        $total += $value['profit'];
+      }
+      $returns = $total + $this->intBalance();
       return '$' . number_format($returns, 2);
     } catch (PDOException $e) {
       return $e->getMessage();

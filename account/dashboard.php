@@ -83,7 +83,7 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 								</div>
 							</div>
 
-							<h2 class="mb-2"><?php echo $Controller->totalBalance() ?></h2>
+							<h2 class="mb-2"><?php echo $Controller->totalValuation() ?></h2>
 							<p class="text-muted mb-3">Portfolio Valuation</p>
 
 							<div class="progress mb-3" style="height: 8px;">
