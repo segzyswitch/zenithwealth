@@ -196,7 +196,7 @@ $progress = $totalDays > 0 ? round(($elapsedDays / $totalDays) * 100, 1) : 0;
             <h6 class="mb-2">Investment Timeline</h6>
 						<div class="timeline-wrapper mb-0">
 							<div class="timeline-line"></div>
-							<div class="timeline-step completed">
+							<div class="timeline-step active">
 								<i class="bi bi-check-circle-fill"></i>
 								<small>Started</small>
 							</div>
@@ -204,7 +204,7 @@ $progress = $totalDays > 0 ? round(($elapsedDays / $totalDays) * 100, 1) : 0;
 								<i class="bi bi-check-circle-fill"></i>
 								<small>Running</small>
 							</div>
-							<div class="timeline-step <?php echo ($transaction['status']=='completed') ? 'text-primary' : '' ?>">
+							<div class="timeline-step <?php echo ($transaction['status']=='completed') ? 'active' : '' ?>">
 								<i class="bi bi-check-circle-fill" style="opacity:.6;"></i>
 								<small>Completed</small>
 							</div>
