@@ -373,7 +373,7 @@ if ( isset($_POST["invest_now"]) ) {
   $profit = ($amount * $interest) / 100;
   $total_return = $amount + $profit;
   $start_date = date('Y-m-d H:i');
-  $end_date = date('Y-m-d H:i', strtotime($start_date . ' + '.$interval.' days'));
+  $end_date = date('Y-m-d H:i', strtotime($start_date . ' + '.$interval.' months'));
 
   // Check wallet balance
   if ( $amount > $user_info['wallet_bal'] ) {
