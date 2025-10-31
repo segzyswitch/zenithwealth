@@ -97,7 +97,7 @@ if ( isset($_POST["register"]) ) {
                           <!-- Example: <img src='{{LOGO_URL}}' alt='Company logo' width='120' style='display:block;'> -->
                           <div style='width:140px; height:38px; background:#0f0f10; border-radius:4px; display:inline-block; padding:5px 7.5px;display:flex;'>
                             <!-- Logo placeholder - replace with <img> -->
-                            <img src='https://velloxawealth.com/icon-0.png' width='70' />
+                            <img src='https://images.velloxawealth.com/icon-0.png' width='70' />
                           </div>
                         </td>
                         <td align='right' style='vertical-align:middle; font-size:13px; color:#9b9b9b;'>

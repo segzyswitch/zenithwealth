@@ -116,12 +116,25 @@ body {
 	color: var(--secondary-color);
 	border-radius: 0.5rem;
 	text-decoration: none;
-	transition: all 0.2s;
 	margin: 5px 0;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.2s;
 }
-.sidebar-nav .nav-link:hover {
+.sidebar-nav .nav-link:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 0px;
 	background-color: var(--surface-hover);
 	color: var(--primary-color);
+	transition: all .3s;
+	z-index: -1;
+}
+.sidebar-nav .nav-link:hover:after {
+	width: 100%;
 }
 .sidebar-nav .nav-link.active {
 	background-color: var(--primary-color);

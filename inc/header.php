@@ -7,10 +7,8 @@
 						<ul>
 							<li id="left">
 								<!-- <span class="header-icons"><i class="fas fa-building"></i> UK Company Number: 11981123</span> -->
-								<span class="header-icons"><i class="fas fa-envelope"></i>
-									support@velloxawealth.com </span>
-								<span class="header-icons"><i class="fas fa-mobile-android-alt"></i> Phone: +1
-									(205) 470-7645</span>
+								<span class="header-icons"><i class="fas fa-envelope"></i>support@velloxawealth.com </span>
+								<!-- <span class="header-icons"><i class="fas fa-mobile-android-alt"></i> Phone: +1 (205) 470-7645</span> -->
 							</li>
 							<!-- google translate -->
 							<div id="google_translate_element"></div>
