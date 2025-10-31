@@ -46,8 +46,19 @@
 			</div>
 		</div>
 		<div class="text-end small">
-			<div class="fw-medium text-color">$<?php echo number_format($value['amount'], 2) ?></div>
 			<?php
+			switch ($value['type']) {
+				case 'trade':
+					?><div class="fw-medium text-danger">-$<?php echo number_format($value['amount'], 2) ?></div><?php
+				break;
+				case 'withdrawal':
+					?><div class="fw-medium text-danger">-$<?php echo number_format($value['amount'], 2) ?></div><?php
+				break;
+				default:
+					?><div class="fw-medium text-color">+$<?php echo number_format($value['amount'], 2) ?></div><?php
+				break;
+			}
+			// status switch
 			switch ($value['status']) {
 				case 'success':
 					?><span class="badge bg-success-subtle text-success">Completed</span><?php
