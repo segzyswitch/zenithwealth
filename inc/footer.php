@@ -36,8 +36,9 @@
 							<div class="quickfinder-item-title" style="padding-bottom: 0px;">Contact:</div>
 							<div class="footer_inner_company" id="middle">
 								<ul>
-									<li> <i class="fas fa-mobile-alt"></i>+447957567579</li>
+									<!-- <li> <i class="fas fa-mobile-alt"></i>+447957567579</li> -->
 									<li> <i class="far fa-envelope"></i>support@velloxawealth.com</li>
+									<li> <i class="far fa-envelope"></i>velloxawealth@gmail.com</li>
 									<!--  <li id="footer_fb">  <a target="_blank" href="#"><i class="fab fa-facebook-square" style="font-weight: 100; margin-left: 10px;"></i></a>
 										<a target="_blank" href="#" ><i class="fab fa-telegram-plane" ></i></a>
 										<a target="_blank" href="#" id="telegram"> <i class="fab fa-twitter" ></i></a>
