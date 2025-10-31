@@ -49,10 +49,10 @@
 			<?php
 			switch ($value['type']) {
 				case 'trade':
-					?><div class="fw-medium text-danger">-$<?php echo number_format($value['amount'], 2) ?></div><?php
+					?><div class="fw-medium text-color">-$<?php echo number_format($value['amount'], 2) ?></div><?php
 				break;
 				case 'withdrawal':
-					?><div class="fw-medium text-danger">-$<?php echo number_format($value['amount'], 2) ?></div><?php
+					?><div class="fw-medium text-color">-$<?php echo number_format($value['amount'], 2) ?></div><?php
 				break;
 				default:
 					?><div class="fw-medium text-color">+$<?php echo number_format($value['amount'], 2) ?></div><?php
