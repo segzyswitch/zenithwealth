@@ -151,7 +151,7 @@ require '../config/session.php';
 										</div>
 									</div>
 									<div class="col-lg-12 mb-2">
-										<button type="submit" class="btn bg-primary bg-light">Review investment</button>
+										<button type="submit" class="btn bg-primary bg-white">Review investment</button>
 									</div>
 									<small class="d-block col-lg-12" id="plan-terms"></small>
 								</div>
@@ -202,7 +202,7 @@ require '../config/session.php';
 									<button type="button" id="backToInput" class="btn w-100">Back</button>
 								</div>
 								<div class="col-6">
-									<button type="submit" class="btn bg-primary text-light w-100 submit-btn">Start investment</button>
+									<button type="submit" class="btn bg-primary text-white w-100 submit-btn">Start investment</button>
 								</div>
 							</div>
 						</form>
@@ -266,7 +266,6 @@ require '../config/session.php';
       var recapture_type = 1;
       var interest_return_type = 2;
 			let min_limit = 0;
-			let max_limit = 0;
 			let terms = '';
 
       function updateMinMax() {
@@ -280,13 +279,11 @@ require '../config/session.php';
         recapture_type = selectedOption.data('recapture_type');
         interest_return_type = selectedOption.data('interest_return_type');
         min_limit = selectedOption.data('min-limit');
-        max_limit = selectedOption.data('max-limit');
 				terms = selectedOption.data('terms');
 				// alert(terms);
-				$("#limitText").text(`$${min_limit} - $${max_limit}`);
+				$("#limitText").text(`Minimum amount: $${min_limit}`);
 				// set new min and max
 				$("#qty").attr("min", min_limit);
-				$("#qty").attr("max", max_limit);
         $("#methodTitle").html(selectedOption.data('name')+" Profit Calculation");
         $("#invest-details").text(terms);
 				// console.log(min_limit);
