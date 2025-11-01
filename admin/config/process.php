@@ -456,6 +456,8 @@ if ( isset($_GET['payment_status']) ) {
   $amount = $deposit_info['amount'];
   $invoice = $deposit_info['invoice'];
   $user_id = $deposit_info['user_id'];
+  echo $status;
+  return false;
   // User info
   $user_info = $Controller->singleUser($user_id);
   $new_balance = $user_info['wallet_bal'] + $amount;

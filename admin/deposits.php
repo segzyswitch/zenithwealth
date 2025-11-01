@@ -123,10 +123,10 @@ require('config/session.php');
 
 
   <script>
-  const openpage = document.querySelector('.sidebar-menu-link[href="#collapseDepositControl"]');
-  document.querySelector('#collapseDepositControl').classList.add('show');
-  openpage.classList.remove('collapse');
-  openpage.classList.add('active');
+    const openpage = document.querySelector('.sidebar-menu-link[href="#collapseDepositControl"]');
+    document.querySelector('#collapseDepositControl').classList.add('show');
+    openpage.classList.remove('collapse');
+    openpage.classList.add('active');
   </script>
 
   <script src="./assets/theme/global/js/jquery-3.7.1.min.js"></script>
