@@ -449,18 +449,25 @@ if ( isset($_POST['create_local_transaction']) ) {
 }
 
 // manage deposit
-if ( isset($_GET['payment_status']) ) {
-  $trx = $_GET['payment_status'];
-  $status = $_GET['status'];
-  $deposit_info = $Controller->singleTransaction($trx);
+if ( isset($_POST['payment_status']) ) {
+  $trx = $_POST['payment_status'];
+  $status = $_POST['status'];
+  if (!$status) {
+    echo 'Select status';
+    return false;
+  }
+  $deposit_info = $Controller->transactionById($trx);
   $amount = $deposit_info['amount'];
   $invoice = $deposit_info['invoice'];
   $user_id = $deposit_info['user_id'];
-  echo $status;
-  return false;
+  // print_r($deposit_info);
+  // return false;
   // User info
   $user_info = $Controller->singleUser($user_id);
-  $new_balance = $user_info['wallet_bal'] + $amount;
+  $new_balance = $user_info['wallet_bal'];
+  if ( $status == 'success' ) {
+    $new_balance = $user_info['wallet_bal'] + $amount;
+  }
 
   $approve_deposit = "UPDATE transactions
   SET status = '$status'

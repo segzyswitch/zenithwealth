@@ -13,13 +13,13 @@ class Controller
   public function __construct()
   {
     $this->db_server = 'localhost';
-    // $this->db_username = 'root';
-    // $this->db_password = '';
-    // $this->db_name = 'velloxa';
+    $this->db_username = 'root';
+    $this->db_password = '';
+    $this->db_name = 'velloxa';
 
-    $this->db_username = 'velloxaw_default';
-    $this->db_password = 'Primestar1$';
-    $this->db_name = 'velloxaw_default';
+    // $this->db_username = 'velloxaw_default';
+    // $this->db_password = 'Primestar1$';
+    // $this->db_name = 'velloxaw_default';
 
     try {
       $this->conn = @new PDO("mysql:host=$this->db_server;dbname=$this->db_name", $this->db_username, $this->db_password);
@@ -159,6 +159,19 @@ class Controller
   {
     // $user_id = $_SESSION["moon_account_id"];
     $sql = "SELECT * FROM transactions WHERE invoice = '$invoice'";
+    try {
+      $query = $this->conn->prepare($sql);
+      $query->execute();
+      $data = $query->fetch();
+      return $data;
+    } catch (PDOException $e) {
+      return $e->getMessage();
+    }
+  }
+  public function transactionById($id)
+  {
+    // $user_id = $_SESSION["moon_account_id"];
+    $sql = "SELECT * FROM transactions WHERE id = '$id'";
     try {
       $query = $this->conn->prepare($sql);
       $query->execute();

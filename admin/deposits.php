@@ -163,7 +163,7 @@ require('config/session.php');
       const status = $(this).val();
       $.ajax({
         url: "config/process.php",
-        type: "GET",
+        type: "POST",
         data: {
           'payment_status': trx,
           'status': status
