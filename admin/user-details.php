@@ -1,11 +1,16 @@
 <?php
-require('config/session.php');
+require 'config/session.php';
+require_once '../config/config.php';
+require_once '../config/TokenManager.php';
+// Get secret key from env
+$secretKey = getenv('ENCRYPTION_KEY');
 if ( isset($_GET['uuid']) ) {
 	$uuid = $_GET['uuid'];
 }else {
 	header('Location: users');
 }
 $user_info = $Authroller->userByUUID($uuid);
+$tokenManager = new TokenManager($secretKey);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,17 +55,33 @@ $user_info = $Authroller->userByUUID($uuid);
 								<h4 class="card-title">User information</h4>
 							</div>
 							<div class="card-body pt-0">
-								<div class="d-flex flex-column align-items-center py-4 gap-2">
-									<div class="user--profile--image bg--light">
-										<img src="./assets/theme/user/img/avatar.jpg"
-											alt="Delilah2 Hood">
+								<div class="d-flex flex-column align-items-center py-3 gap-2">
+									<div class="user--profile--image bg--light d-flex">
+										<!-- <img src="./assets/theme/user/img/avatar.jpg"
+											alt="<?php // echo $user_info['fname'] ?>"
+										/> -->
+										<i class="bi bi-person text-muted h1 d-inline-block m-auto"></i>
 									</div>
 									<div class="text-center">
 										<h5 class="mb-2"><?php echo $user_info['fname']." ".$user_info['lname']; ?></h5>
-										<span class="d-inline-block fw-bold text--light mb-1">Joined At</span>
+										<!-- <span class="d-inline-block fw-bold text--light mb-1">Joined At</span>
 										<h6 class="fw-normal">
-											<?php echo date('Y-m-d h:i A', strtotime($user_info['createdat'])) ?>
-										</h6>
+											<?php // echo date('Y-m-d h:i A', strtotime($user_info['createdat'])) ?>
+										</h6> -->
+									</div>
+									<p class="m-0 small">Sign in token</p>
+									<div class="input-group">
+										<?php
+											$uuid = $user_info['uuid'];
+											// Encrypt
+											$token = $tokenManager->encrypt($uuid);
+										?>
+										<input type="text" value="<?php echo $token ?>" id="myInput" class="form-control" readonly />
+										<button class="btn bg--primary-light" onclick="copyInput()">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+												<path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+											</svg>
+										</button>
 									</div>
 								</div>
 							</div>
@@ -266,6 +287,14 @@ $user_info = $Authroller->userByUUID($uuid);
 		"use strict";
 		function notify(status, message) {
 			toastr[status](message);
+		}
+		function copyInput() {
+			const input = document.getElementById("myInput");
+			input.select();
+			input.setSelectionRange(0, 99999); // for mobile devices
+			navigator.clipboard.writeText(input.value)
+				.then(() => notify("success", "Copied to clipboard"))
+				.catch(err => console.error("Copy failed:", err));
 		}
 	</script>
   <!-- custom forms -->
