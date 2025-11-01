@@ -1,9 +1,10 @@
 <?php
-require 'config/session.php';
 require_once '../config/config.php';
 require_once '../config/TokenManager.php';
+require 'config/session.php';
 // Get secret key from env
 $secretKey = getenv('ENCRYPTION_KEY');
+$uuid = "";
 if ( isset($_GET['uuid']) ) {
 	$uuid = $_GET['uuid'];
 }else {
