@@ -163,7 +163,7 @@ if ( isset($_POST["register"]) ) {
                     <table role='presentation' width='100%' cellpadding='0' cellspacing='0'>
                       <tr>
                         <td style='padding:16px 0 20px 0; font-size:11px; color:#6f6f6f; text-align:center;'>
-                          © <span id='year'>2025</span> Velloxa Wealth. All rights reserved.
+                          © <span id='year'>2021</span> Velloxa Wealth. All rights reserved.
                         </td>
                       </tr>
                     </table>
