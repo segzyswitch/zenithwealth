@@ -1,5 +1,5 @@
 <div class="w-100 d-flex gap-3 top-bar sticky-top" style="background-color:var(--surface-color);">
-	<img src="../logo-new.png" class="me-auto d-sm-none" height="50" alt="VW">
+	<a href="../"><img src="../logo-new.png" class="me-auto d-sm-none" height="50" alt="VW"></a>
 	
 	<div class="ms-auto d-flex gap-3">
 		<button class="btn p-0 px-1 nav-icons" id="themeToggle">

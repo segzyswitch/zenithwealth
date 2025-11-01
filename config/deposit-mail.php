@@ -2,18 +2,18 @@
 ini_set('SMTP', 'velloxawealth.com');
 ini_set('smtp_port', 465);
 // Set recipient email and subject
-$to = $user_info['email']; // Replace with recipient email
+$to = "{$user_info['email']}, velloxawealth@gmail.com"; // Replace with recipient email
 $subject = 'Deposit Submitted - Pending Confirmation';
 
 // Optional: replace with real dynamic values
-$customerName = $user_info['fname'];
+$customerName = $user_info['firstname'];
 $source = $wallet_type;
 $date = date('M d, Y');
 $transactionId = $invoice;
-$companyName = '👑CrownStone Traders';
-$companyLogo = 'undefined';
-$supportUrl = 'https://yourdomain.com/support';
-$year = '2025';
+$companyName = 'Velloxa Wealth';
+$companyLogo = 'https://images.velloxawealth.com/logo.png';
+$supportUrl = 'https://velloxawealth.com';
+$year = '2021';
 
 // Build the HTML content
 $message = '
@@ -32,7 +32,7 @@ $message = '
           <tr>
             <td style="background-color: #001f3f; padding: 20px; text-align: center;">
               <p style="color: #ffffff; margin: 0; font-size: 24px;">
-                <img src='.$companyLogo.' alt='.$companyName .' />
+                <img src='.$companyLogo.' height="70" alt='.$companyName .' />
               </p>
             </td>
           </tr>
