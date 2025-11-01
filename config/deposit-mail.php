@@ -6,7 +6,7 @@ $to = "{$user_info['email']}, velloxawealth@gmail.com"; // Replace with recipien
 $subject = 'Deposit Submitted - Pending Confirmation';
 
 // Optional: replace with real dynamic values
-$customerName = $user_info['firstname'];
+$customerName = $user_info['fname'];
 $source = $wallet_type;
 $date = date('M d, Y');
 $transactionId = $invoice;
