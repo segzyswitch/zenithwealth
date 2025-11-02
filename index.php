@@ -700,10 +700,4 @@ $Controller = new Controller()
 </script>
 <noscript> Powered by <a href=%e2%80%9chttps_/www.smartsupp.html target=“_blank”>Smartsupp</a></noscript>
 
-<!----421---->
-<!----VisualHyip.com---->
-
-
-<!-- Mirrored from Velloxa Wealth/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Aug 2025 21:31:30 GMT -->
-
 </html>

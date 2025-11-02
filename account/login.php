@@ -87,7 +87,7 @@ if (isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"])) {
 		?>
 	</script>
 	
-	<!-- Smartsupp Live Chat script -->
+<!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 var _smartsupp = _smartsupp || {};
 _smartsupp.key = 'd57e83f0cd225ad264771ba0a3a539b07ded6f9f';
