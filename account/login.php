@@ -25,11 +25,11 @@ if (isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"])) {
 		<div class="row justify-content-center align-items-center min-vh-100 pt-sm-5 pb-sm-4">
 			<div class="col-sm-5">
 				<div class="text-center mb-5 mb-sm-4">
-					<a href="../"><img src="../icon.png" width="100" class="mb-4 mb-sm-3" alt="VW" /></a>
-					<h4 class="text-color pt-2 pt-sm-0">👋 Welcome Back!</h4>
+					<a href="../" class="mb-4 d-inline-block"><img src="../icon.png" width="100" alt="VW" /></a>
+					<h5 class="text-color pt-2 pt-sm-0">👋 Welcome Back!</h5>
 				</div>
 
-				<div class="card sm-shadow-sm">
+				<div class="card sm-shadow-sm col-11 p-0 mx-auto">
 					<div class="card-body p-4">
 						<p class="mb-4">Sign in to your account.</p>
 						<form id="loginForm">
