@@ -1,9 +1,9 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
-require_once '../config/TokenManager.php';
+require_once '../config/tokenManager.php';
 require 'config/session.php';
 // Get secret key from env
 $secretKey = "3yT9r#Nf8D@9gL4xQz6hV!sC2eP0wXbK";
