@@ -60,7 +60,7 @@ $Controller = new Controller()
 		<section class="section_2">
 			<div class="container">
 				<div class="col-md-12 pb-5">
-					<div class="row" style="overflow:hidden;">
+					<div class="row b-5" style="overflow:hidden;height:auto;">
 						<div class="wow fadeInLeft" data-wow-duration="1s" data-wow-offset="100">
 							<div class="wow slideInUp" data-wow-delay="1s" data-wow-duration="1s">
 								<div class="title-xlarge " id="title-xlarge-responsive">We</div>
@@ -81,6 +81,7 @@ $Controller = new Controller()
 						<div class="title-h2 wow fadeInUp" data-wow-delay="2s">
 							<span class="h2_light">We are fully automated!</span>
 						</div>
+						<a href="account/login" class="btn">Get started</a>
 					</div>
 				</div>
 			</div>

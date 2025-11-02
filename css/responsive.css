@@ -106,10 +106,10 @@ input[type="number"]{
 
 .menu_scroll.bar_scroll{height: 178px;}
 .title-xlarge{
-font-size: 70px;
-font-weight: 600;
+font-size: 40px;
+font-weight: 500;
 letter-spacing: 2px;
-line-height: 90px;	
+line-height: 45px;	
 }
 
 .bg_dark_block{
@@ -559,8 +559,7 @@ padding: 30px 10px 10px 140px;}
 	.login_form {    
     padding: 20px 10px;
    }
-	.title-xlarge{
-	font-size: 40px;}
+	.title-xlarge{font-size: 40px;}
 	
 	.bg_dark_block{
 	background-size: 100% auto;
