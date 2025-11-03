@@ -27,7 +27,7 @@ require '../config/session.php';
 		<div class="content-body">
 			<div class="row">
 				<div class="col-lg-8">
-					<!-- Deposit Methods -->
+					<!-- Deposit Methods
 					<div class="card mb-4">
 						<div class="card-header">
 							<h5 class="mb-0">Choose Deposit Method</h5>
@@ -57,40 +57,61 @@ require '../config/session.php';
 							</div>
 						</div>
 					</div>
+					-->
 
 					<!-- Deposit Form -->
 					<div class="card mb-4">
-						<div class="card-header pt-2">
-							<h5 class="mb-0">Deposit Details</h5>
+						<div class="card-header pt-3">
+							<h5 class="">Deposit funds</h5>
+							<small class="d-block text-muted">Deposit with crypto</small>
 						</div>
-						<div class="card-body">
+						<div class="card-body mb-2">
 							<form id="depositForm" method="POST" action="#">
 								<input type="hidden" name="make_deposit" value="<?php echo str_shuffle(time().'asdfghjkl1234567890qwertyuiopzxcvbnm') ?>">
-								<div class="mb-4">
+								<div class="mb-3">
 									<label for="depositAccount" class="form-label">Wallet type</label>
 									<select name="wallet_type" class="form-select" id="depositAccount" required>
 										<option selected disabled value="">Select wallet</option>
 										<?php
 										foreach ($Controller->cryptoWallets() as $key => $value) {
-											echo '<option value="' . $value['name'] . '">' . $value['name'] . '</option>';
+											?>
+											<option value="<?php echo $value['name'] ?>"
+												data-address="<?php echo $value['wallet_address'] ?>"
+												data-code="<?php echo $value['qrcode'] ?>">
+												<?php echo $value['name'] ?> wallet
+											</option>
+											<?php
 										}
 										?>
 									</select>
 								</div>
-								<div class="mb-4">
-									<label for="depositAmount" class="form-label">Amount (USD)</label>
+								<div class="col-sm-9 mx-auto mb-3 py-3" id="showWalletInfo" style="display:none;">
+									<div id="img" class="col-9 col-sm-4 mx-auto p-2 rounded-3 overflow-hidden mb-3" style="background-color:var(--surface-hover);">
+										<img src="" class="w-100" />
+										<p class="text-muted m-0 small text-center pt-1">scan to send</p>
+									</div>
 									<div class="input-group">
+										<input type="text" id="depositWallet" class="form-control text-muted" disabled />
+										<button type="button" class="input-group-text" onclick="copyInput()">copy</button>
+									</div>
+									<small class="d-block text-muted text-center m-0 small pt-1" id="coinInfo"></small>
+								</div>
+								<div class="mb-3">
+									<label for="depositAmount" class="form-label">Amount (USD)</label>
+									<div class="input-group mb-1">
 										<span class="input-group-text">$</span>
 										<input type="number" name="amount" class="form-control" id="depositAmount" placeholder="0.00"
 											min="100" required>
 									</div>
-									<small class="text-muted">Minimum deposit: $50.00</small>
+									<small class="text-muted d-block"><i class="bi bi-dot"></i> Minimum deposit: $50.00</small>
+									<small class="text-muted d-block"><i class="bi bi-dot"></i> Make sure you enter exact ammount sent to the above wallet</small>
 								</div>
-								<div class="mb-4">
+								<div class="mb-3">
 									<label class="form-label">Upload reciept</label>
-									<div class="input-group">
+									<div class="input-group mb-1">
 										<input type="file" name="image" accept="image/*" class="form-control" required />
 									</div>
+									<small class="text-muted d-block">Upload reciept/screenshot of your transaction to fasten transaction process</small>
 								</div>
 
 								<!-- <div class="mb-3">
@@ -145,17 +166,6 @@ require '../config/session.php';
 						</div>
 					</div>
 
-					<div class="card border-primary mb-4">
-						<div class="card-body">
-							<div class="d-flex align-items-center gap-2 mb-2">
-								<i class="bi bi-info-circle-fill text-primary"></i>
-								<h6 class="mb-0">Important Notice</h6>
-							</div>
-							<p class="small mb-0">All deposits are secured with bank-level encryption. Funds will be available for
-								trading once the transaction is confirmed.</p>
-						</div>
-					</div>
-
 					<?php if ( count($Controller->Deposits()) > 0 ) { ?>
 					<div class="card">
 						<div class="card-header">
@@ -194,6 +204,17 @@ require '../config/session.php';
 						</div>
 					</div>
 					<?php } ?>
+
+					<div class="card border-primary mb-4">
+						<div class="card-body">
+							<div class="d-flex align-items-center gap-2 mb-2">
+								<i class="bi bi-info-circle-fill text-primary"></i>
+								<h6 class="mb-0">Important Notice</h6>
+							</div>
+							<p class="small mb-0">All deposits are secured with bank-level encryption. Funds will be available for
+								trading once the transaction is confirmed.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -204,7 +225,35 @@ require '../config/session.php';
 
 	<script src="assets/global/js/jquery.min.js"></script>
 	<script src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
-	<script src="../js/forms.js"></script>
+	<script src="../js/forms.js"></script>	<script>
+		$(document).ready(function() {
+			$('#depositAccount').on('change', function() {
+				const selectedMethod = $("#depositAccount option:selected");
+				const name = selectedMethod.val();
+				const wallet_address = selectedMethod.data('address');
+				const qrcode = selectedMethod.data('code');
+				$('#showWalletInfo').show();
+				if (qrcode) {
+					$('#showWalletInfo #img').show();
+					$("#showWalletInfo img").attr('src', `../assets/images/wallets/${qrcode}`);
+				}else {
+					$('#showWalletInfo #img').hide();
+				}
+				$('#depositWallet').val(wallet_address);
+				$("#coinInfo").html(`Send ${name} to this wallet, sending other crypto might cause delay!`)
+			});
+		});
+
+		// Copy to clipboard function
+		function copyInput() {
+			const input = document.getElementById("depositWallet");
+			input.select();
+			input.setSelectionRange(0, 99999); // for mobile devices
+			navigator.clipboard.writeText(input.value)
+				.then(() => notifySuccess("Copied to clipboard"))
+				.catch(err => console.error("Copy failed:", err));
+		}
+	</script>
 	<script src="assets/js/theme.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
