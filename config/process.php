@@ -299,6 +299,7 @@ if ( isset($_POST["set_logins"]) ) {
   $query = $conn->prepare($sql);
   try {
     $query->execute();
+    include './token-mail.php';
     echo "Details updated successfully! You can now login to your account.";
   } catch (PDOException $e) {
     echo $e->getMessage();
