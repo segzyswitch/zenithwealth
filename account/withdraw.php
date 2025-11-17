@@ -89,11 +89,11 @@ require '../config/session.php';
 										required
 									/>
 								</div>
-								<div class="alert alert-warning d-flex align-items-center gap-1" role="alert">
-									<i class="bi bi-exclamation-triangle-fill me-2 h5"></i>
+								<div class="alert alert-warning d-flex gap-1" role="alert">
+									<i class="bi bi-exclamation-triangle-fill me-2 h4"></i>
 									<div>
-										<small>Withdrawals may take 1-3 business days to process. A fee may apply depending on the withdrawal
-											method.</small>
+										<small>Withdrawals of large amounts may take 1-2 business days to process.
+											A withdrawal fee of 3% will be required on every withdrawals which will not be charged from your investment balance..</small>
 									</div>
 								</div>
 								<div class="mb-4 form-check">
@@ -121,11 +121,11 @@ require '../config/session.php';
 						<div class="card-body">
 							<div class="mb-3">
 								<small class="text-muted d-block mb-1">Processing Time</small>
-								<p class="mb-0">1-3 business days</p>
+								<p class="mb-0">1-2 business days</p>
 							</div>
 							<div class="mb-3">
 								<small class="text-muted d-block mb-1">Transaction Fee</small>
-								<p class="mb-0">$0 - $25 (varies by method)</p>
+								<p class="mb-0">3%</p>
 							</div>
 							<div class="mb-3">
 								<small class="text-muted d-block mb-1">Minimum Withdrawal</small>

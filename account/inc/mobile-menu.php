@@ -31,7 +31,7 @@
 	<a href="../" class="btn p-0">Home</a>
 	<a href="../about-us" class="btn p-0">About</a>
 	<a href="../terms-and-conditions" class="btn p-0">Terms</a>
-	<a class="btn p-0 text-color">&copy; 2023 Velloxa Wealth. All rights reserved.</p>
+	<a class="btn p-0 text-color">&copy; 2021 Velloxa Wealth. All rights reserved.</p>
 </footer>
 
 <script>
