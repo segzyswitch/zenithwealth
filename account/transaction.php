@@ -189,17 +189,6 @@ $transaction = $Controller->singleTransaction($_GET['trx']);
 						</div>
 					</div>
 					<?php } ?>
-
-					<div class="card border-primary mb-4">
-						<div class="card-body">
-							<div class="d-flex align-items-center gap-2 mb-2">
-								<i class="bi bi-info-circle-fill text-primary"></i>
-								<h6 class="mb-0">Important Notice</h6>
-							</div>
-							<p class="small mb-0">All deposits are secured with bank-level encryption. Funds will be available for
-								trading once the transaction is confirmed.</p>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
