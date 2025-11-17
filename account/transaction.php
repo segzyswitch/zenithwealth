@@ -32,94 +32,174 @@ $transaction = $Controller->singleTransaction($_GET['trx']);
 		<?php include 'inc/panel-header.php'; ?>
 
 		<div class="content-body">
-			<div class="w-100 d-flex justify-content-center flex-column gap-2 text-center mb-4">
-				<div class="trx-details w-100 d-flex justify-content-center">
-					<?php
-					switch ($transaction['type']) {
-						case 'deposit':
-							?>
-							<div class="transaction-icon bg-success-subtle text-success">
-								<i class="bi bi-arrow-down"></i>
-							</div>
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="w-100 d-flex justify-content-center flex-column gap-2 text-center mb-4">
+						<div class="trx-details w-100 d-flex justify-content-center">
 							<?php
-						break;
-						case 'withdrawal':
+							switch ($transaction['type']) {
+								case 'deposit':
+									?>
+									<div class="transaction-icon bg-success-subtle text-success">
+										<i class="bi bi-arrow-down"></i>
+									</div>
+									<?php
+								break;
+								case 'withdrawal':
+									?>
+									<div class="transaction-icon bg-danger-subtle text-danger">
+										<i class="bi bi-arrow-up"></i>
+									</div>
+									<?php
+								break;
+								case 'trade':
+									?>
+									<div class="transaction-icon bg-info-subtle text-info">
+										<i class="bi bi-arrow-right"></i>
+									</div>
+									<?php
+								break;
+								default:
+									?>
+									<div class="transaction-icon bg-secondary-subtle text-secondary">
+										<i class="bi bi-arrow-up-right"></i>
+									</div>
+									<?php
+								break;
+							}
 							?>
-							<div class="transaction-icon bg-danger-subtle text-danger">
-								<i class="bi bi-arrow-up"></i>
-							</div>
+						</div>
+						<h4 class="mb-0">$<?php echo number_format($transaction['amount'], 2) ?></h4>
+						<p class="mb-0"><?php echo $transaction['details'] ?></p>
+					</div>
+					<!-- Transaction List -->
+					<div class="card mb-5">
+						<div class="card-body p-0 py-2">
 							<?php
-						break;
-						case 'trade':
+							// print_r($transaction);
 							?>
-							<div class="transaction-icon bg-info-subtle text-info">
-								<i class="bi bi-arrow-right"></i>
+							<div class="trx-item d-flex w-100 p-3 border-bottom">
+								<span style="opacity:.8;">Type</span>
+								<span class="text-capitalize ms-auto"><?php echo $transaction['type'] ?></span>
 							</div>
-							<?php
-						break;
-						default:
-							?>
-							<div class="transaction-icon bg-secondary-subtle text-secondary">
-								<i class="bi bi-arrow-up-right"></i>
+							<div class="trx-item d-flex w-100 p-3 border-bottom">
+								<span style="opacity:.8;">Amount</span>
+								<span class="text-capitalize ms-auto">$<?php echo number_format($transaction['amount'], 2) ?></span>
 							</div>
-							<?php
-						break;
-					}
-					?>
+							<div class="trx-item d-flex w-100 p-3 border-bottom">
+								<span style="opacity:.8;">From</span>
+								<span class="text-capitalize ms-auto"><?php echo $transaction['source'] ?></span>
+							</div>
+							<div class="trx-item d-flex w-100 p-3 border-bottom">
+								<span style="opacity:.8;">Details</span>
+								<span class="text-capitalize ms-auto"><?php echo $transaction['details'] ?></span>
+							</div>
+							<div class="trx-item d-flex w-100 p-3 border-bottom">
+								<span style="opacity:.8;">Invoice</span>
+								<span class="text-capitalize ms-auto">#<?php echo $transaction['invoice'] ?></span>
+							</div>
+							<div class="trx-item d-flex w-100 p-3 border-bottom">
+								<span style="opacity:.8;">Status</span>
+								<?php
+								switch ($transaction['status']) {
+									case 'success':
+										?><span class="ms-auto text-success">Completed</span><?php
+									break;
+									case 'failed':
+										?><span class="ms-auto text-danger">Failed</span><?php
+									break;
+									default:
+										?><span class="ms-auto text-warning">Pending</span><?php
+									break;
+								}
+								?>
+							</div>
+							<div class="trx-item d-flex w-100 p-3 border-bottom">
+								<span style="opacity:.8;">Date</span>
+								<span class="text-capitalize ms-auto"><?php echo date('M d, Y', strtotime($transaction['createdat'])) ?></span>
+							</div>
+
+							<p class="text-center pt-4">
+								<a href="./transactions" class="btn text-primary">back to transactions</a>
+							</p>
+						</div>
+					</div>
 				</div>
-				<h4 class="mb-0">$<?php echo number_format($transaction['amount'], 2) ?></h4>
-				<p class="mb-0"><?php echo $transaction['details'] ?></p>
-			</div>
-			<!-- Transaction List -->
-			<div class="card mb-5">
-				<div class="card-body p-0 py-2">
-					<?php
-					// print_r($transaction);
-					?>
-					<div class="trx-item d-flex w-100 p-3 border-bottom">
-						<span style="opacity:.8;">Type</span>
-						<span class="text-capitalize ms-auto"><?php echo $transaction['type'] ?></span>
-					</div>
-					<div class="trx-item d-flex w-100 p-3 border-bottom">
-						<span style="opacity:.8;">Amount</span>
-						<span class="text-capitalize ms-auto">$<?php echo number_format($transaction['amount'], 2) ?></span>
-					</div>
-					<div class="trx-item d-flex w-100 p-3 border-bottom">
-						<span style="opacity:.8;">From</span>
-						<span class="text-capitalize ms-auto"><?php echo $transaction['source'] ?></span>
-					</div>
-					<div class="trx-item d-flex w-100 p-3 border-bottom">
-						<span style="opacity:.8;">Details</span>
-						<span class="text-capitalize ms-auto"><?php echo $transaction['details'] ?></span>
-					</div>
-					<div class="trx-item d-flex w-100 p-3 border-bottom">
-						<span style="opacity:.8;">Invoice</span>
-						<span class="text-capitalize ms-auto">#<?php echo $transaction['invoice'] ?></span>
-					</div>
-					<div class="trx-item d-flex w-100 p-3 border-bottom">
-						<span style="opacity:.8;">Status</span>
-						<?php
-						switch ($transaction['status']) {
-							case 'success':
-								?><span class="ms-auto text-success">Completed</span><?php
-							break;
-							case 'failed':
-								?><span class="ms-auto text-danger">Failed</span><?php
-							break;
-							default:
-								?><span class="ms-auto text-warning">Pending</span><?php
-							break;
-						}
-						?>
-					</div>
-					<div class="trx-item d-flex w-100 p-3 border-bottom">
-						<span style="opacity:.8;">Date</span>
-						<span class="text-capitalize ms-auto"><?php echo date('M d, Y', strtotime($transaction['createdat'])) ?></span>
+				<!-- Sidebar Info -->
+				<div class="col-lg-4">
+					<div class="card mb-4">
+						<div class="card-header">
+							<h6 class="mb-0">Deposit Information</h6>
+						</div>
+						<div class="card-body">
+							<div class="mb-3">
+								<small class="text-muted d-block mb-1">Processing Time</small>
+								<p class="mb-0">1-3 business days</p>
+							</div>
+							<div class="mb-3">
+								<small class="text-muted d-block mb-1">Transaction Fee</small>
+								<p class="mb-0">Free for bank transfers</p>
+							</div>
+							<div class="mb-3">
+								<small class="text-muted d-block mb-1">Minimum Deposit</small>
+								<p class="mb-0">$50.00</p>
+							</div>
+							<div>
+								<small class="text-muted d-block mb-1">Daily Limit</small>
+								<p class="mb-0">$100,000.00</p>
+							</div>
+						</div>
 					</div>
 
-					<p class="text-center pt-4">
-						<a href="./transactions" class="btn text-primary">back to transactions</a>
-					</p>
+					<?php if ( count($Controller->Deposits()) > 0 ) { ?>
+					<div class="card">
+						<div class="card-header">
+							<h6 class="mb-0">Recent Deposits</h6>
+						</div>
+						<div class="card-body p-0">
+							<div class="list-group list-group-flush">
+								<?php
+								foreach ($Controller->Deposits(5) as $key => $value) {
+								?>
+								<div class="list-group-item">
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<div class="fw-medium">$<?php echo number_format($value['amount'], ) ?></div>
+											<small class="text-muted"><?php echo date('M d, Y', strtotime($value['createdat'])) ?></small>
+										</div>
+										<?php
+										switch ($value['status']) {
+											case 'success':
+												?><span class="badge bg-success-subtle text-success">Completed</span><?php
+											break;
+											case 'failed':
+												?><span class="badge bg-danger-subtle text-danger">Failed</span><?php
+											break;
+											default:
+												?><span class="badge bg-warning-subtle text-warning">Pending</span><?php
+											break;
+										}
+										?>
+									</div>
+								</div>
+								<?php
+								}
+								?>
+							</div>
+						</div>
+					</div>
+					<?php } ?>
+
+					<div class="card border-primary mb-4">
+						<div class="card-body">
+							<div class="d-flex align-items-center gap-2 mb-2">
+								<i class="bi bi-info-circle-fill text-primary"></i>
+								<h6 class="mb-0">Important Notice</h6>
+							</div>
+							<p class="small mb-0">All deposits are secured with bank-level encryption. Funds will be available for
+								trading once the transaction is confirmed.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
