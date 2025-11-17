@@ -1,7 +1,7 @@
 <?php
 // inport config
 // require_once '../config/config.php';
-// require_once '../config/TokenManager.php';
+// require_once '../config/tokenManager.php';
 // // Get secret key from env
 // $secretKey = getenv('ENCRYPTION_KEY');
 

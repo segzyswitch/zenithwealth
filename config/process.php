@@ -1,8 +1,8 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 session_start();
 require "../config/Controller.php";
@@ -249,7 +249,7 @@ if ( isset($_POST["verify_token"]) ) {
   $token = $_POST["token"];
   // inport config
   require_once '../config/config.php';
-  require_once '../config/TokenManager.php';
+  require_once '../config/tokenManager.php';
   // Get secret key from env
   $secretKey = getenv('ENCRYPTION_KEY');
 
