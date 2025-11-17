@@ -315,6 +315,7 @@ $(document).ready(function() {
 	    error: function(error) {
 		    $("#accountSetupForm .submit-btn").html("Continue <i class='bi bi-arrow-right'></i>");
 		    $("#accountSetupForm .submit-btn").removeClass("disabled");
+				console.log(error);
 	    	notifyWarning('An error occured, check your connection and try again');
 	    }
 	  });
