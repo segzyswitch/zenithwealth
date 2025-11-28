@@ -494,35 +494,60 @@ if ( isset($_POST['add_wallet']) ) {
   $name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
   $wallet_address = filter_var($_POST['wallet_address'], FILTER_SANITIZE_SPECIAL_CHARS);
 
-  if ( $_FILES['image']['size'] == 0 ) {
-    echo "Please choose an image";
+  // Validate icon
+  if ($_FILES['image']['size'] == 0) {
+    echo "Please choose an icon image";
     return false;
   }
 
-  // Check file
-  $check_name = $_FILES['image']['name'];
-  $file_ext = substr($check_name, (strlen($check_name)-4), 4);
-  $save_name = 'wallet_'.generateUniqueId(10).$file_ext;
-  $check_tmp_file = $_FILES["image"]["tmp_name"];
-  $target_dir = "../../assets/coins/images/";
-  $check_target_file = $target_dir . $save_name;
+  // Validate QR Code
+  if ($_FILES['qrcode']['size'] == 0) {
+    echo "Please choose a QR code image";
+    return false;
+  }
 
-  // Upload icon
-  if ( move_uploaded_file($check_tmp_file, $check_target_file) ) {
-    $sql = "INSERT INTO crypto_wallets(name, icon, wallet_address)
-    VALUES('$name', '$save_name', '$wallet_address')";
+  // Upload Icon
+  $icon_name = $_FILES['image']['name'];
+  $icon_ext = substr($icon_name, (strlen($icon_name)-4), 4);
+  $icon_save = 'icon_' . generateUniqueId(10) . $icon_ext;
+
+  $icon_tmp = $_FILES['image']['tmp_name'];
+  $target_dir = "../../uploads/";
+  $icon_target = $target_dir . $icon_save;
+
+  // Upload QR Code file
+  $qr_name = $_FILES['qrcode']['name'];
+  $qr_ext = substr($qr_name, (strlen($qr_name)-4), 4);
+  $qr_save = 'qr_' . generateUniqueId(10) . $qr_ext;
+
+  $qr_tmp = $_FILES['qrcode']['tmp_name'];
+  $qr_target = $target_dir . $qr_save;
+
+  // Move both files
+  if ( move_uploaded_file($icon_tmp, $icon_target) &&
+    move_uploaded_file($qr_tmp, $qr_target) ) {
+
+    $sql = "INSERT INTO crypto_wallets(name, icon, wallet_address, qrcode)
+            VALUES(:name, :icon, :wallet_address, :qrcode)";
+
     $query = $conn->prepare($sql);
     try {
-      $query->execute();
+      $query->execute([
+        ':name' => $name,
+        ':icon' => $icon_save,
+        ':wallet_address' => $wallet_address,
+        ':qrcode' => $qr_save
+      ]);
       echo "Wallet added successfully";
     } catch (PDOException $e) {
       echo $e->getMessage();
     }
-  }else {
-    echo "An error occured, check image and try again";
+  } else {
+    echo "An error occurred, check images and try again";
     return false;
   }
 }
+
 // Update
 if ( isset($_POST['update_wallet']) ) {
   $wallet_id = $_POST['update_wallet'];

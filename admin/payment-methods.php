@@ -56,10 +56,11 @@
                   ?>
                 <tr id="tRow<?php echo $value['id']; ?>">
                   <td data-label="Name">
-                    <img width="25" src="<?php echo $value['icon'] ?>" />
+                    <img width="25" src="../uploads/<?php echo $value['icon'] ?>" />
                     <span> <?php echo $value['name']; ?></span>
                   </td>
                   <td data-label="Wallet Address">
+                    <img width="25" src="../uploads/<?php echo $value['qrcode'] ?>" />
                     <span><?php echo $value['wallet_address']; ?></span>
                   </td>
                   <td data-label="Action">
@@ -101,7 +102,7 @@
           <p class="mb-3">Enter wallet details below</p>
           <div class="form-item mb-3 icon-input">
             <label class="form-label">Icon</label>
-            <input type="file" name="image" class="form-control" />
+            <input type="file" name="image" class="form-control" required />
           </div>
           <div class="form-item mb-3">
             <label class="form-label">Wallet name</label>
@@ -111,6 +112,10 @@
             <label class="form-label">Wallet address</label>
             <input type="text" name="wallet_address" class="form-control" required />
             <input type="hidden" id="query_type" name="add_wallet">
+          </div>
+          <div class="form-item mb-3 icon-input">
+            <label class="form-label">Wallet QR-Code</label>
+            <input type="file" name="qrcode" class="form-control" />
           </div>
         </div>
         <div class="modal-footer">

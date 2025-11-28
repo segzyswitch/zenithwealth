@@ -235,7 +235,7 @@ require '../config/session.php';
 				$('#showWalletInfo').show();
 				if (qrcode) {
 					$('#showWalletInfo #img').show();
-					$("#showWalletInfo img").attr('src', `../assets/images/wallets/${qrcode}`);
+					$("#showWalletInfo img").attr('src', `../uploads/${qrcode}`);
 				}else {
 					$('#showWalletInfo #img').hide();
 				}
