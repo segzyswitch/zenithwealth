@@ -284,6 +284,8 @@ if ( isset($_POST["set_logins"]) ) {
 
   // Decrypt
   $decodedUuid = $tokenManager->decrypt($token);
+  // User data
+  $User = $Controller->singleUser($decodedUuid);
 
   if ( $password !== $confirm_password ) {
     echo "Passwords do not match, check and try again!.";

@@ -6,7 +6,7 @@ $to = $email; // Replace with recipient email
 $subject = 'Account information updated | Velloxa Wealth';
 
 // Optional: replace with real dynamic values
-$customerName = $user_info['fname'];
+$customerName = $User['fname'];
 $source = $wallet_type;
 $date = date('M d, Y');
 $transactionId = $invoice;
@@ -39,7 +39,7 @@ $message = '
           <tr>
             <td style="padding: 20px;">
               <p style="font-size: 16px; color: #333333; margin-bottom: 20px;">
-                Hello <strong>' . htmlspecialchars($customerName) . '</strong>,
+                Hello <strong>' . htmlspecialchars($customerName) . '</strong>
               </p>
               <p style="font-size: 16px; color: #333333; margin-bottom: 20px;">
                 Your account information has been successfully updated.
