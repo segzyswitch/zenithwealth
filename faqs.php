@@ -74,15 +74,15 @@
           <div class="col-md-12">
             <div class="learn_more_left">
               <h2 id="faq">How can I invest with
-                assetcadialimited.live?</h2>
+                velloxawealth.com?</h2>
               <p id="faq">To make a investment you must first become a member of
-                assetcadialimited.live. Once
+                velloxawealth.com. Once
                 you are signed up, you can make your first deposit. All deposits must be made
                 through the Members Area. You can login using the member username and password
                 you receive when signup. </p><br>
               <br>
               <h2 id="faq">I wish to invest with
-                assetcadialimited.live but I don't have an any ecurrency account. What
+                velloxawealth.com but I don't have an any ecurrency account. What
                 should I do?</h2>
               <p id="faq">We accept: <b> Bitcoin Cash, Ethereum, USDT & Bitcoin Cash.</b><br>
                 You can open a free Perfect Money account here:
@@ -93,8 +93,8 @@
               <br>
               <br>
               <h2 id="faq">How do I open my
-                assetcadialimited.live Account?</h2>
-              It's quite easy and convenient. Follow this <a href="index-6cca3.html?a=signup">link</a>, fill
+                velloxawealth.com Account?</h2>
+              It's quite easy and convenient. Follow this <a href="./account/login">link</a>, fill
               in the registration form and then press "Register". <br>
               <br>
               <h2 id="faq">Which e-currencies do you accept?</h2>
@@ -113,7 +113,7 @@
             <br>
             <h2 id="faq">How can I change my e-mail address or password?</h2>
             <p id="faq">Log into your
-              assetcadialimited.live account and click on the "Account Information". You
+              velloxawealth.com account and click on the "Account Information". You
               can change your e-mail address and password there. </p><br>
             <br>
             <h2 id="faq">What if I can't log into my account because I forgot my password?</h2>
@@ -122,12 +122,12 @@
             <br>
             <h2 id="faq">Does a daily profit paid directly to my currency account?</h2>
             <p id="faq">No, profits are gathered on your
-              assetcadialimited.live account and you can withdraw them
+              velloxawealth.com account and you can withdraw them
               anytime. </p><br>
             <br>
             <h2 id="faq">How do you calculate the interest on my account?</h2>
             <p id="faq">Depending on each plan. Interest on your
-              assetcadialimited.live account is acquired
+              velloxawealth.com account is acquired
               Daily, Weekly or Bi-Weekly and credited to your available
               balance at the end of each investment duration. </p><br>
             <br>
@@ -135,12 +135,12 @@
 
             <h2 id="faq">Can I do a direct deposit from my account balance?</h2>
             <p id="faq">Yes! To make a deposit from your
-              assetcadialimited.live account balance. Simply login
+              velloxawealth.com account balance. Simply login
               into your members account and click on Make Deposit ans select the Deposit from
               Account Balance Radio button. </p><br>
             <br>
             <h2 id="faq">Can I make an additional deposit to
-              assetcadialimited.live account once it has
+              velloxawealth.com account once it has
               been opened?</h2>
             <p id="faq">Yes, you can but all transactions are handled separately.</p> <br>
             <br>
@@ -178,14 +178,14 @@
             <br>
             <h2 id="faq">How can I make a deposit?</h2>
             <p id="faq">To make a deposit, you must first become a member of
-              assetcadialimited.live. Once you
+              velloxawealth.com. Once you
               are signed up, you can make your first deposit. All deposits must be made through
               the Member Area. You can login using the member username and password you received
               when signup. </p><br>
             <br>
             <h2 id="faq">Who manages the funds?</h2>
             <p id="faq">These funds are managed by a team of
-              assetcadialimited.live investment experts. </p><br>
+              velloxawealth.com investment experts. </p><br>
             <br>
 
 

@@ -175,7 +175,7 @@
 							</div>
 
 							<p class="border-left-text">The percent of receiving profit increases to volumes of an investment of
-								finance in proportion. The more there will be amount of investment into assetcadialimited.live - the
+								finance in proportion. The more there will be amount of investment into velloxawealth.com - the
 								client can get more profits. Also, additional bonus program is provided for those who brings people. If
 								telling about advantages of our corporation to the acquaintances, then it is possible not only to help
 								them to receive financial benefit, but also to receive additional percent.</p>
