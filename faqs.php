@@ -117,7 +117,7 @@
               can change your e-mail address and password there. </p><br>
             <br>
             <h2 id="faq">What if I can't log into my account because I forgot my password?</h2>
-            <p id="faq">Click <a href="index-98083.html?a=forgot_password">forgot password</a> link, and fill out the
+            <p id="faq">Click <a href="./account/login">forgot password</a> link, and fill out the
               form correctly. After that, the administration will manually change or reset your password. </p><br>
             <br>
             <h2 id="faq">Does a daily profit paid directly to my currency account?</h2>
@@ -156,7 +156,7 @@
             <br>
 
             <h2 id="faq">How can I change my password?</h2>
-            <p id="faq">You can change your password. Click <a href="index-98083.html?a=forgot_password">forgot
+            <p id="faq">You can change your password. Click <a href="./account/login">forgot
                 password</a> link, and fill out the form correctly. After that, the administration will manually change
               or reset your password. </p> <br>
             <br>
