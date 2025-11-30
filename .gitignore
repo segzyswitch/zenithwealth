@@ -1,0 +1,5 @@
+error_log
+account/error_log
+admin/error_log
+admin/config/error_log
+config/error_log

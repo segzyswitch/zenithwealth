@@ -2,7 +2,7 @@
 ini_set('SMTP', 'velloxawealth.com');
 ini_set('smtp_port', 465);
 // Set recipient email and subject
-$to = "{$user_info['email']}, velloxawealth@gmail.com"; // Replace with recipient email
+$to = $email; // Replace with recipient email
 $subject = 'Account information updated | Velloxa Wealth';
 
 // Optional: replace with real dynamic values
