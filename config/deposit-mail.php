@@ -32,7 +32,7 @@ $message = '
           <tr>
             <td style="background-color: #001f3f; padding: 20px; text-align: center;">
               <p style="color: #ffffff; margin: 0; font-size: 24px;">
-                <img src='.$companyLogo.' height="50" alt='.$companyName .' />
+                <img src='.$companyLogo.' height="60" alt='.$companyName .' />
               </p>
             </td>
           </tr>

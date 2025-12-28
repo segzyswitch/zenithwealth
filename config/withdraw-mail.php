@@ -9,7 +9,7 @@ $subject = 'Withdrawal transaction initiated';
 $customerName = $user_info['fname'];
 $transactionId = $invoice;
 $source = 'Wallet balance';
-$recipicient = substr($to_wallet, 0, 6) . '...';
+$recipicient = substr($wallet_addr, 0, 6) . '...';
 $date = date('M d, Y');
 $companyName = 'Velloxa Wealth';
 $companyLogo = 'https://images.velloxawealth.com/logo.png';
@@ -33,7 +33,7 @@ $message = '
           <tr>
             <td style="background-color: #001f3f; padding: 20px; text-align: center;">
               <p style="color: #ffffff; margin: 0; font-size: 24px;">
-                <img src='.$companyLogo.' height="50" alt='.$companyName .' />
+                <img src='.$companyLogo.' height="60" alt='.$companyName .' />
               </p>
             </td>
           </tr>
