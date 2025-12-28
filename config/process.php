@@ -205,9 +205,14 @@ if ( isset($_POST['upload_photo']) ) {
 }
 // change password
 if ( isset($_POST["change_password"]) ) {
-  $old_password = filter_var($_POST["old_password"], FILTER_SANITIZE_SPECIAL_CHARS);
-  $new_password = filter_var($_POST["new_password"], FILTER_SANITIZE_SPECIAL_CHARS);
   $confirm_password = filter_var($_POST["confirm_password"], FILTER_SANITIZE_SPECIAL_CHARS);
+  $new_password = filter_var($_POST["new_password"], FILTER_SANITIZE_SPECIAL_CHARS);
+  $password = filter_var($_POST["password"], FILTER_SANITIZE_SPECIAL_CHARS);
+  
+  if ( $new_password !== $confirm_password ) {
+    echo "New passwords do not match, check and try again!.";
+    return false;
+  }
   // Hash new password
   $hashpwd = password_hash($new_password, PASSWORD_DEFAULT);
   // Get ClienntIP
@@ -219,12 +224,8 @@ if ( isset($_POST["change_password"]) ) {
   $confirminfo->execute();
   $userData = $confirminfo->fetch();
 
-  if ( password_verify($old_password, $userData["password"]) ) {
+  if ( !password_verify($password, $userData["password"]) ) {
     echo "Incorrect old pasword, check and try again!";
-    return false;
-  }
-  if ( $new_password !== $confirm_password ) {
-    echo "New passwords do not match, check and try again!.";
     return false;
   }
   // Update password

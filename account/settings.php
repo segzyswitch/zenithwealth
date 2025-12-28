@@ -154,7 +154,7 @@ if ( count($Controller->linkedAccounts('joint')) > 0 ) {
 									<h6 class="mb-1">Password</h6>
 									<p class="text-muted small mb-0">Last changed 30 days ago</p>
 								</div>
-								<button class="btn btn-outline-primary btn-sm">Change Password</button>
+								<a href="#passwordModal" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm">Change Password</a>
 							</div>
 							<div class="d-flex justify-content-between align-items-center py-3 border-bottom">
 								<div>
@@ -162,7 +162,7 @@ if ( count($Controller->linkedAccounts('joint')) > 0 ) {
 									<p class="text-muted small mb-0">Add an extra layer of security</p>
 								</div>
 								<div class="form-check form-switch">
-									<input class="form-check-input" type="checkbox" id="twoFactorAuth" checked>
+									<input class="form-check-input" type="checkbox" id="twoFactorAuth" />
 								</div>
 							</div>
 							<div class="d-flex justify-content-between align-items-center py-3">
@@ -171,7 +171,7 @@ if ( count($Controller->linkedAccounts('joint')) > 0 ) {
 									<p class="text-muted small mb-0">Get notified of new login attempts</p>
 								</div>
 								<div class="form-check form-switch">
-									<input class="form-check-input" type="checkbox" id="loginNotif" checked>
+									<input class="form-check-input" type="checkbox" id="loginNotif" />
 								</div>
 							</div>
 						</div>
@@ -290,6 +290,37 @@ if ( count($Controller->linkedAccounts('joint')) > 0 ) {
 
 	<!-- Mobile Bottom Navigation -->
 	<?php include 'inc/mobile-menu.php'; ?>
+
+		<!-- PasswordModal -->
+	<div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<form id="passwordForm" method="POST" action="#" class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="passwordModalLabel"><i class="bi bi-lock"></i> Change password</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-start">
+					<div class="form-group mb-4">
+						<label for="new-password" class="form-label mb-1">New password</label>
+						<input type="password" class="form-control" name="new_password" id="new-password" placeholder="" required />
+					</div>
+					<div class="form-group mb-4">
+						<label for="retype-password" class="form-label mb-1">Retype password</label>
+						<input type="password" class="form-control" name="confirm_password" id="retype-password" placeholder="" required />
+					</div>
+					<div class="form-group mb-4">
+						<label for="old-password" class="form-label mb-1">Enter old password</label>
+						<input type="password" class="form-control" name="password" id="old-password" placeholder="" required />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="hidden" name="change_password" value="nwuisncuinjg__893f_8239uj8949r889" />
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary submit-btn">Change password</button>
+				</div>
+			</form>
+		</div>
+	</div>
 
 	<script src="assets/global/js/jquery.min.js"></script>
 	<script src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
