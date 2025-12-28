@@ -316,7 +316,7 @@ if ( count($Controller->linkedAccounts('joint')) > 0 ) {
 				<div class="modal-footer">
 					<input type="hidden" name="change_password" value="nwuisncuinjg__893f_8239uj8949r889" />
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary submit-btn">Change password</button>
+					<button type="submit" class="btn bg-primary text-white submit-btn">Change password</button>
 				</div>
 			</form>
 		</div>
