@@ -346,9 +346,8 @@ if ( count($Controller->linkedAccounts('joint')) > 0 ) {
 						$("#passwordForm .submit-btn").removeClass("disabled");
 						if ( data.search('success') !== -1 ) {
 							notifySuccess(data);
-							setTimeout( function() {
-								window.reload();
-							}, 3500);
+							$("#passwordForm input").val('');
+							$('.modal').modal('hide');
 						}else {
 							notifyWarning(data);
 						}
