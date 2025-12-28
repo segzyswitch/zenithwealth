@@ -321,40 +321,4 @@ $(document).ready(function() {
 	  });
 	});
 
-	// passwordForm
-	$("#passwordForm").on('submit', function(ev){
-	  ev.preventDefault();
-
-	  $.ajax({
-	    url: "../config/process.php",
-	    type: "POST",
-	    data: new FormData(this),
-	    cache: false,
-	    contentType: false,
-	    processData: false,
-	    beforeSend: function() {
-		    $("#passwordForm .submit-btn").html("please wait <i class='spinner-border spinner-border-sm'></i>");
-		    $("#passwordForm .submit-btn").addClass("disabled");
-	    },
-	    success: function(data) {
-		    $("#passwordForm .submit-btn").html("Continue <i class='bi bi-arrow-right'></i>");
-		    $("#passwordForm .submit-btn").removeClass("disabled");
-		    if ( data.search('success') !== -1 ) {
-		    	notifySuccess(data);
-					setTimeout( function() {
-						window.reload();
-					}, 3500);
-		    }else {
-		    	notifyWarning(data);
-		    }
-	    },
-	    error: function(error) {
-		    $("#passwordForm .submit-btn").html("Continue <i class='bi bi-arrow-right'></i>");
-		    $("#passwordForm .submit-btn").removeClass("disabled");
-				console.log(error);
-	    	notifyWarning('An error occured, check your connection and try again');
-	    }
-	  });
-	});
-
 });
