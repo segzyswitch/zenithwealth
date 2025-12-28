@@ -60,7 +60,7 @@
 									<input type="password" class="form-control" name="confirm_password" required />
 								</div>
 							</div>
-							<button type="submit" class="btn btn-warning submit-btn w-100 mb-4">Continue <i class="bi bi-arrow-right"></i></button>
+							<button type="submit" class="btn btn-primary submit-btn w-100 mb-4">Continue <i class="bi bi-arrow-right"></i></button>
 							<div class="text-center">
 								<a href="#" class="text-decoration-none small">I don't have a token?</a>
 							</div>
@@ -85,7 +85,7 @@
 									<input type="text" class="form-control" name="token" required />
 								</div>
 							</div>
-							<button type="submit" class="btn btn-warning submit-btn w-100 mb-4">Verify token <i class="bi bi-arrow-right"></i></button>
+							<button type="submit" class="btn btn-primary submit-btn w-100 mb-4">Verify token <i class="bi bi-arrow-right"></i></button>
 							<div class="text-center">
 								<a href="#" class="text-decoration-none small">I don't have a token?</a>
 							</div>
