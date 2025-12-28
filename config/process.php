@@ -466,6 +466,7 @@ if ( isset($_POST['widthdraw_funds']) ) {
   try {
     $query1->execute();
     $query2->execute();
+    include './withdraw-mail.php';
     echo 'Withdrawal successful and been processed, please be patient as transactions might take a while to complete.';
   } catch (PDOException $e) {
     echo $e->getMessage();
@@ -517,7 +518,6 @@ if ( isset($_POST['make_transfer']) ) {
   try {
     $query1->execute();
     $query2->execute();
-    include './withdraw-mail.php';
     echo 'You successfully transfer $'.number_format($amount, 2).' from '.$source.' to '.$recipicient;
   } catch (PDOException $e) {
     echo $e->getMessage();
