@@ -3,13 +3,14 @@ ini_set('SMTP', 'velloxawealth.com');
 ini_set('smtp_port', 465);
 // Set recipient email and subject
 $to = "{$user_info['email']}, velloxawealth@gmail.com"; // Replace with recipient email
-$subject = 'Deposit Submitted - Pending Confirmation';
+$subject = 'Withdrawal transaction initiated';
 
 // Optional: replace with real dynamic values
 $customerName = $user_info['fname'];
-$source = $wallet_type;
-$date = date('M d, Y');
 $transactionId = $invoice;
+$source = 'Wallet balance';
+$recipicient = substr($to_wallet, 0, 6) . '...';
+$date = date('M d, Y');
 $companyName = 'Velloxa Wealth';
 $companyLogo = 'https://images.velloxawealth.com/logo.png';
 $supportUrl = 'https://velloxawealth.com';
@@ -42,13 +43,15 @@ $message = '
                 Hello <strong>' . htmlspecialchars($customerName) . '</strong>,
               </p>
               <p style="font-size: 16px; color: #333333; margin-bottom: 20px;">
-                We\'ve received your deposit and it\'s currently being processed. You will receive a confirmation once transaction is completed.
+                Your withdrawal has been successfully initiated. <br />
+                Please note that this is a cryptocurrency transaction and may take some time to complete due to network confirmations.
               </p>
               <table width="100%" cellpadding="10" cellspacing="0" style="background-color: #f1f5f9; border-left: 4px solid #001f3f; margin: 20px 0; border-radius: 4px;">
                 <tr>
                   <td style="font-size: 16px; color: #333;">
                     <p style="margin-top:0;"><strong>Amount:</strong> $' . $amount . '</p>
                     <p><strong>Source:</strong> ' . $source . '</p>
+                    <p><strong>Recipicient:</strong> ' . $recipicient . '</p>
                     <p><strong>Date:</strong> ' . $date . '</p>
                     <p><strong>Reference ID:</strong> ' . $transactionId . '</p>
                   </td>

@@ -322,7 +322,6 @@ if ( isset($_POST['make_deposit']) ) {
   $wallet_type = $_POST["wallet_type"];
   // Generate 12 char invoice
   $invoice = strtoupper(generateUniqueId(12));
-
   // Validate input
   if (empty($amount) || empty($wallet_type)) {
     echo "All fields are required!";
@@ -332,7 +331,6 @@ if ( isset($_POST['make_deposit']) ) {
     echo "Minimum deposit amount is $50!";
     return false;
   }
-
   // Check file
   $check_name = $_FILES['image']['name'];
   $file_ext = pathinfo($check_name, PATHINFO_EXTENSION);
@@ -342,7 +340,6 @@ if ( isset($_POST['make_deposit']) ) {
   $check_target_file = $target_dir . $save_name;
 
   $details = "Deposit $".number_format($amount, 2)." with ".$wallet_type;
-
   // Upload proof
   if ( move_uploaded_file($check_tmp_file, $check_target_file) ) {
     // Add deposit
@@ -436,7 +433,6 @@ if ( isset($_POST['widthdraw_funds']) ) {
   $from_wallet = $_POST["from_wallet"];
   $gateway = $_POST["gateway"];
   $wallet_addr = $_POST["wallet_addr"];
-
   // Validate input
   if (empty($amount) || empty($from_wallet) || empty($gateway) || empty($wallet_addr)) {
     echo "All fields are required!";
@@ -521,6 +517,7 @@ if ( isset($_POST['make_transfer']) ) {
   try {
     $query1->execute();
     $query2->execute();
+    include './withdraw-mail.php';
     echo 'You successfully transfer $'.number_format($amount, 2).' from '.$source.' to '.$recipicient;
   } catch (PDOException $e) {
     echo $e->getMessage();
