@@ -52,7 +52,7 @@ if (isset($_SESSION["moon_account_id"]) && isset($_SESSION["accnt_status"])) {
 								<input type="checkbox" class="form-check-input" id="rememberMe">
 								<label class="form-check-label" for="rememberMe">Remember me</label>
 							</div>
-							<button type="submit" class="btn btn-primary submit-btn w-100 mb-4">Sign In</button>
+							<button type="submit" class="btn bg-primary text-white submit-btn w-100 mb-4">Sign In</button>
 							<div class="text-center">
 								<a href="#" class="text-decoration-none small">Forgot password?</a>
 							</div>
