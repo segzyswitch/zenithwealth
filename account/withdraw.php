@@ -206,7 +206,7 @@ require '../config/session.php';
 					<p class="display-2">
 						<i class="bi bi-exclamation-circle"></i>
 					</p>
-					<p class="mb-4">To continue with your withdrawal, you are required to pay a 3% fee of your first investment payout. You will receive instructions on how to make your first withdrawal.</p>
+					<p class="mb-4">To continue with your withdrawal, you are required to pay a 3% fee of your investment payout. You will receive instructions on how to make your withdrawal.</p>
 					<a href="#" id="continueFee" class="btn bg-primary btn-lg text-white submit-btn">
 						<small><i class="bi bi-arrow-right-circle"></i> Continue</small>
 					</a>
