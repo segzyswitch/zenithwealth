@@ -473,6 +473,11 @@ if ( isset($_POST['widthdraw_funds']) ) {
   }
 }
 
+if ( isset($_GET['get_withdraw_fee_request']) ) {
+  // include './fee-mail.php';
+  echo "success";
+}
+
 // Make Transfer
 if ( isset($_POST['make_transfer']) ) {
   $from_wallet = $_POST["send_from"];

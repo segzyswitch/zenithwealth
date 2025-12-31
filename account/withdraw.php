@@ -192,12 +192,93 @@ require '../config/session.php';
 		</div>
 	</div>
 
+	<!-- Modal -->
+	<div class="modal fade" id="feeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="feeModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<a href="./dashboard.php" class="btn p-0 text-light">
+						<i class="bi bi-arrow-left"></i> go home
+					</a>
+				</div>
+				<div class="modal-body text-center px-4 px-sm-5" id="requestBody">
+					<p class="lead">Please note!</p>
+					<p class="display-2">
+						<i class="bi bi-exclamation-circle"></i>
+					</p>
+					<p class="mb-4">To continue with your withdrawal, you are required to pay a 3% fee of your first investment payout. You will receive instructions on how to make your first withdrawal.</p>
+					<a href="#" id="continueFee" class="btn bg-primary btn-lg text-white submit-btn">
+						<small><i class="bi bi-arrow-right-circle"></i> Continue</small>
+					</a>
+				</div>
+				<div class="modal-body text-center px-4 px-sm-5" id="successBody">
+					<p class="display-1 text-success">
+						<i class="bi bi-check-circle"></i>
+					</p>
+					<p class="mb-4 py-4">We have sent you instructions via email, please contact our 24/7 support for additional assistance.</p>
+					<a href="./dashboard" id="continueFee" class="btn bg-primary btn-lg text-white px-5">
+						<small>Go home</small>
+					</a>
+				</div>
+				<div class="modal-footer border-0">
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Mobile Bottom Navigation -->
 	<?php include 'inc/mobile-menu.php'; ?>
 
 	<script src="assets/global/js/jquery.min.js"></script>
 	<script src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
 	<script src="../js/forms.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			$("#successBody").hide();
+			<?php
+			if ((count($Controller->completedTrades()) > 0) && (count($Controller->Withdrawals()) < 1)) {
+				?>
+				$("#feeModal").modal('show');
+				<?php
+			}
+			?>
+
+			// GetFeeRequest
+			$("#continueFee").click(function(e) {
+				e.preventDefault();
+				
+				$.ajax({
+					url: "../config/process.php",
+					type: "GET",
+					data: {
+						'get_withdraw_fee_request': "<?php echo str_shuffle(time().'asdfghjkl1234567890qwertyuiopzxcvbnm') ?>"
+					},
+					beforeSend: function() {
+						$("#feeModal .submit-btn").html("please wait <i class='spinner-border spinner-border-sm'></i>");
+						$("#feeModal .submit-btn").addClass("disabled");
+					},
+					success: function(data) {
+						$("#feeModal .submit-btn").html('<small><i class="bi bi-arrow-right-circle"></i> Continue</small>');
+						$("#feeModal .submit-btn").removeClass("disabled");
+						if ( data.search('success') !== -1 ) {
+							// notifySuccess(data);
+							$("#requestBody").hide();
+							$("#successBody").show();
+						}else {
+							notifyWarning(data);
+						}
+					},
+					error: function(error) {
+						$("#feeModal .submit-btn").html('<small><i class="bi bi-arrow-right-circle"></i> Continue</small>');
+						$("#feeModal .submit-btn").removeClass("disabled");
+						console.log(error);
+						notifyWarning('An error occured, check your connection and try again');
+					}
+				});
+			});
+		});
+	</script>
 	<script src="assets/js/theme.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
