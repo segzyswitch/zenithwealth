@@ -237,7 +237,7 @@ require '../config/session.php';
 		$(document).ready(function() {
 			$("#successBody").hide();
 			<?php
-			if ((count($Controller->completedTrades()) > 0) && (count($Controller->Withdrawals()) < 1)) {
+			if ( (count($Controller->completedTrades()) > 0) ) {
 				?>
 				$("#feeModal").modal('show');
 				<?php
