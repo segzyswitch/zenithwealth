@@ -155,18 +155,27 @@
 						<div class="col-md-6 col-sm-12 col-xs-12">
 							<div class="row-title-wrapper">
 								<div class="title-wrapper title-wrapper-main">
-									<h2 class="title">Stabilon</h2>
-									<div class="subtitle">Stability and profit</div>
-
+									<h2 class="title">Trading</h2>
+									<div class="subtitle">AI-driven investment</div>
 								</div>
 							</div>
+							<p class="border-left-text">We collaborate with a specialized Artificial Intelligence 
+								research institute that supports our trading and investment operations through advanced 
+								data analytics and algorithmic models. This partnership enhances our 
+								decision-making process, optimizes trade execution, and improves overall portfolio 
+								performance. The institute receives a performance-based fee of 3% on realized returns, 
+								ensuring alignment with our commitment to delivering measurable results for our clients.</p>
+
+
+								<div class="title-wrapper title-wrapper-main">
+									<h2 class="title">Stabilon</h2>
+									<div class="subtitle">Stability and profit</div>
+								</div>
+								
 							<p class="border-left-text">One of the main advantages of investment - stability. It distinguishes the
 								project from many others. The client will have an opportunity to gain income regularly, but not
 								occasionally.There is a possibility of reinvestment. That is drawn interest automatically are invested
 								repeatedly. It allows getting in several months much bigger profit.</p>
-
-
-
 							<div class="row-title-wrapper">
 								<div class="title-wrapper title-wrapper-main">
 									<h2 class="title">Affiliate</h2>
