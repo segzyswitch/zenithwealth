@@ -1,9 +1,9 @@
 <div class="transaction-list">
 	<?php
-	if ( count($Controller->Transactions(10)) <= 0 ) {
+	if ( count($Controller->Transactions(50)) <= 0 ) {
 		echo '<p class="p-4 m-0">No data found</p>';
 	}
-	foreach ($Controller->Transactions(10) as $key => $value) {
+	foreach ($Controller->Transactions(50) as $key => $value) {
 		?>
 	<!-- Transaction Item -->
 	<a href="./transaction?trx=<?php echo $value['invoice'] ?>" class="btn text-start transaction-item">
