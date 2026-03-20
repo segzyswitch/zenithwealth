@@ -239,7 +239,7 @@ require '../config/session.php';
 			<?php
 			if ( (count($Controller->completedTrades()) > 0) ) {
 				?>
-				$("#feeModal").modal('show');
+				// $("#feeModal").modal('show');
 				<?php
 			}
 			?>
