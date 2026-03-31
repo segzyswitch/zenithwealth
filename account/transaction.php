@@ -109,7 +109,7 @@ $transaction = $Controller->singleTransaction($_GET['trx']);
 										?><span class="ms-auto text-danger">Failed</span><?php
 									break;
 									default:
-										?><span class="ms-auto text-warning">Pending</span><?php
+										?><span class="ms-auto text-warning text-capitalize"><?php echo $transaction['status']; ?></span><?php
 									break;
 								}
 								?>

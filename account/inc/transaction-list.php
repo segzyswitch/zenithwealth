@@ -67,7 +67,7 @@
 					?><span class="badge bg-danger-subtle text-danger">Failed</span><?php
 				break;
 				default:
-					?><span class="badge bg-warning-subtle text-warning">Pending</span><?php
+					?><span class="badge bg-danger-subtle text-danger text-capitalize"><?php echo $value['status']; ?></span><?php
 				break;
 			}
 			?>
