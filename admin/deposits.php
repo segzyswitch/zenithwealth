@@ -76,7 +76,7 @@ require('config/session.php');
                     <?php echo $value['source'] ?>
                   </td>
                   <td data-label="Source">
-                    <a class="proof-btn" href="./assets/deposits/<?php echo $value['proof'] ?>" target="_blank">Preview</a>
+                    <a class="proof-btn" href="../uploads/<?php echo $value['proof'] ?>" target="_blank">Preview</a>
                   </td>
                   <td data-label="Status">
                     <?php
