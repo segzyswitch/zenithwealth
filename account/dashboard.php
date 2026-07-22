@@ -155,9 +155,9 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 						<!-- Transaction list -->
 						<?php include 'inc/transaction-list.php'; ?>
 					</div>
-					<div class="card-footer">
+					<div class="card-footer p-0">
 						<nav>
-							<ul class="pagination justify-content-center mb-0">
+							<ul id="transactionPagination" class="pagination justify-content-center mb-0 p-3">
 								<li class="page-item disabled">
 									<button type="button" class="page-link" disabled tabindex="-1">Previous</button>
 								</li>

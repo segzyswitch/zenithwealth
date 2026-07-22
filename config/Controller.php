@@ -143,10 +143,10 @@ class Controller
 
 
   // Transaction history
-  public function Transactions($limit)
+  public function Transactions()
   {
     $user_id = $_SESSION["moon_account_id"];
-    $sql = "SELECT * FROM transactions WHERE user_id = '$user_id' ORDER BY id DESC LIMIT $limit";
+    $sql = "SELECT * FROM transactions WHERE user_id = '$user_id' ORDER BY id DESC";
     try {
       $query = $this->conn->prepare($sql);
       $query->execute();

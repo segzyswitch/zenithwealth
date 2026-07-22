@@ -35,15 +35,15 @@ require '../config/session.php';
 					<!-- Transaction list -->
 					<?php include 'inc/transaction-list.php'; ?>
 				</div>
-				<div class="card-footer">
+				<div class="card-footer p-0">
 					<nav>
-						<ul class="pagination justify-content-center mb-0">
-							<li class="page-item disabled">
-								<button type="button" class="page-link" disabled tabindex="-1">Previous</button>
+						<ul id="transactionPagination" class="pagination justify-content-center mb-0 p-3">
+							<li class="page-item">
+								<button type="button" class="page-link" tabindex="-1">Previous</button>
 							</li>
 							<li class="page-item active"><a class="page-link" href="#">1</a></li>
-							<li class="page-item disabled">
-								<button type="button" disabled class="page-link">Next</button>
+							<li class="page-item">
+								<button type="button" class="page-link">Next</button>
 							</li>
 						</ul>
 					</nav>
