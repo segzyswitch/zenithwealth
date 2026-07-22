@@ -178,6 +178,95 @@ $refferal = "https://velloxawealth.com/register?invite=" . $user_info['uuid'];
 
 
 	<script src="assets/global/js/jquery.min.js"></script>
+	<script>
+		$(function() {
+
+			const perPage = 15;
+			const maxPages = 3;
+
+			const items = $(".transaction-list .transaction-item");
+			const totalItems = items.length;
+			const totalPages = Math.ceil(totalItems / perPage);
+
+			let currentPage = 1;
+
+			function showPage(page) {
+
+				currentPage = page;
+
+				items.hide();
+
+				const start = (page - 1) * perPage;
+				const end = start + perPage;
+
+				items.slice(start, end).show();
+
+				renderPagination();
+			}
+
+			function renderPagination() {
+
+				const pagination = $("#transactionPagination");
+				pagination.empty();
+
+				// Previous
+				pagination.append(`
+            <li class="page-item ${currentPage == 1 ? "disabled" : ""}">
+                <button class="page-link prev">Previous</button>
+            </li>
+        `);
+
+				let startPage = Math.max(1, currentPage - 2);
+				let endPage = Math.min(totalPages, startPage + maxPages - 1);
+
+				if (endPage - startPage < maxPages - 1) {
+					startPage = Math.max(1, endPage - maxPages + 1);
+				}
+
+				for (let i = startPage; i <= endPage; i++) {
+					pagination.append(`
+                <li class="page-item ${i == currentPage ? "active" : ""}">
+                    <button class="page-link page-number" data-page="${i}">
+                        ${i}
+                    </button>
+                </li>
+            `);
+				}
+
+				// Next
+				pagination.append(`
+            <li class="page-item ${currentPage == totalPages ? "disabled" : ""}">
+                <button class="page-link next">Next</button>
+            </li>
+        `);
+
+			}
+
+			$(document).on("click", ".page-number", function() {
+				showPage($(this).data("page"));
+			});
+
+			$(document).on("click", ".prev", function() {
+				if (currentPage > 1) {
+					showPage(currentPage - 1);
+				}
+			});
+
+			$(document).on("click", ".next", function() {
+				if (currentPage < totalPages) {
+					showPage(currentPage + 1);
+				}
+			});
+
+			if (totalPages > 1) {
+				showPage(1);
+			} else {
+				items.show();
+				$("#transactionPagination").hide();
+			}
+
+		});
+	</script>
 	<script src="assets/vendor/mckenziearts/laravel-notify/js/notify.js"></script>
 	<script src="../js/forms.js"></script>
 	<script src="assets/js/theme.js"></script>
