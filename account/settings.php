@@ -80,55 +80,55 @@ if ( count($Controller->linkedAccounts('joint')) > 0 ) {
 										<label for="firstName" class="form-label">First Name</label>
 										<?php if ($linkedUser) { ?>
 										<div class="input-group">
-											<input type="text" name="fname" class="form-control" id="firstName" value="<?php echo $user_info['fname'] ?>" disabled style="opacity:.7;" />
-											<input type="text" class="form-control text-center" id="firstName" value="$" disabled style="opacity:.7;max-width:45px;" />
-											<input type="text" class="form-control" id="firstName" value="<?php echo $linkedUser['fname'] ?>" disabled style="opacity:.7;" />
+											<input type="text" name="fname" class="form-control" id="firstName" value="<?php echo $user_info['fname'] ?>" style="opacity:.7;" />
+											<input type="text" class="form-control text-center" id="firstName" value="$" style="opacity:.7;max-width:45px;" />
+											<input type="text" class="form-control" id="firstName" value="<?php echo $linkedUser['fname'] ?>" style="opacity:.7;" />
 										</div>
 										<?php } else { ?>
-										<input type="text" name="fname" class="form-control" id="firstName" value="<?php echo $user_info['fname'] ?>" disabled style="opacity:.7;" />
+										<input type="text" name="fname" class="form-control" id="firstName" value="<?php echo $user_info['fname'] ?>" style="opacity:.7;" />
 										<?php } ?>
 									</div>
 									<div class="col-md-6">
 										<label for="lastName" class="form-label">Last Name</label>
-										<input type="text" name="lname" class="form-control" id="lastName" value="<?php echo $user_info['lname'] ?>" disabled style="opacity:.7;" />
+										<input type="text" name="lname" class="form-control" id="lastName" value="<?php echo $user_info['lname'] ?>" style="opacity:.7;" />
 									</div>
 									<div class="col-md-6">
 										<label for="email" class="form-label">Email</label>
 										<?php if ($linkedUser) { ?>
 										<div class="input-group">
-											<input type="email" name="email" class="form-control" id="email" value="<?php echo $user_info['email'] ?>" disabled style="opacity:.7;" />
-											<input type="email" name="email" class="form-control" id="email" value="<?php echo $linkedUser['email'] ?>" disabled style="opacity:.7;" />
+											<input type="email" name="email" class="form-control" id="email" value="<?php echo $user_info['email'] ?>" style="opacity:.7;" />
+											<input type="email" name="email" class="form-control" id="email" value="<?php echo $linkedUser['email'] ?>" style="opacity:.7;" />
 										</div>
 										<?php } else { ?>
-										<input type="email" name="email" class="form-control" id="email" value="<?php echo $user_info['email'] ?>" disabled style="opacity:.7;" />
+										<input type="email" name="email" class="form-control" id="email" value="<?php echo $user_info['email'] ?>" style="opacity:.7;" />
 										<?php } ?>
 									</div>
 									<div class="col-md-6">
 										<label for="phone" class="form-label">Phone</label>
 										<?php if ($linkedUser) { ?>
 										<div class="input-group">
-											<input type="tel" name="phone" class="form-control" value="<?php echo $user_info['phone'] ?>" disabled style="opacity:.7;" />
-											<input type="tel" name="phone" class="form-control" value="<?php echo $user_info['phone'] ?>" disabled style="opacity:.7;" />
+											<input type="tel" name="phone" class="form-control" value="<?php echo $user_info['phone'] ?>" style="opacity:.7;" />
+											<input type="tel" name="phone" class="form-control" value="<?php echo $user_info['phone'] ?>" style="opacity:.7;" />
 										</div>
 										<?php } else { ?>
-										<input type="tel" name="phone" class="form-control" id="phone" value="<?php echo $user_info['phone'] ?>" disabled style="opacity:.7;" />
+										<input type="tel" name="phone" class="form-control" id="phone" value="<?php echo $user_info['phone'] ?>" style="opacity:.7;" />
 										<?php } ?>
 									</div>
 									<div class="col-12">
 										<label for="address" class="form-label">Address</label>
-										<input type="text" name="address" class="form-control" value="<?php echo $user_info['address'] ?>" disabled style="opacity:.7;">
+										<input type="text" name="address" class="form-control" value="<?php echo $user_info['address'] ?>" style="opacity:.7;">
 									</div>
 									<div class="col-md-6">
 										<label for="city" class="form-label">City</label>
-										<input type="text" name="city" class="form-control" value="<?php echo $user_info['city'] ?>" disabled style="opacity:.7;">
+										<input type="text" name="city" class="form-control" value="<?php echo $user_info['city'] ?>" style="opacity:.7;">
 									</div>
 									<div class="col-md-4">
 										<label for="state" class="form-label">State</label>
-										<input type="text" name="state" class="form-control" value="<?php echo $user_info['state'] ?>" disabled style="opacity:.7;">
+										<input type="text" name="state" class="form-control" value="<?php echo $user_info['state'] ?>" style="opacity:.7;">
 									</div>
 									<div class="col-md-2">
 										<label for="zip" class="form-label">ZIP</label>
-										<input type="text" name="zip" class="form-control" value="<?php echo $user_info['zip'] ?>" disabled style="opacity:.7;">
+										<input type="text" name="zip" class="form-control" value="<?php echo $user_info['zip'] ?>" style="opacity:.7;">
 									</div>
 									<!-- <div class="col-12">
 										<label for="zip" class="form-label">Password</label>
@@ -136,7 +136,7 @@ if ( count($Controller->linkedAccounts('joint')) > 0 ) {
 										<small class="text-muted">Enter password to apply update</small>
 									</div> -->
 									<div class="col-12">
-										<button type="submit" class="btn bg-primary submit-btn text-light" disabled>Save Changes</button>
+										<button type="submit" class="btn bg-primary submit-btn text-light">Save Changes</button>
 									</div>
 								</div>
 							</form>
