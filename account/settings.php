@@ -130,11 +130,11 @@ if ( count($Controller->linkedAccounts('joint')) > 0 ) {
 										<label for="zip" class="form-label">ZIP</label>
 										<input type="text" name="zip" class="form-control" value="<?php echo $user_info['zip'] ?>" style="opacity:.7;">
 									</div>
-									<!-- <div class="col-12">
+									<div class="col-12">
 										<label for="zip" class="form-label">Password</label>
 										<input type="password" name="password" class="form-control" required />
 										<small class="text-muted">Enter password to apply update</small>
-									</div> -->
+									</div>
 									<div class="col-12">
 										<button type="submit" class="btn bg-primary submit-btn text-light">Save Changes</button>
 									</div>
