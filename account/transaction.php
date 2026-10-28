@@ -92,7 +92,10 @@ $transaction = $Controller->singleTransaction($_GET['trx']);
 							</div>
 							<div class="trx-item d-flex w-100 p-3 border-bottom">
 								<span style="opacity:.8;">Details</span>
-								<span class="text-capitalize ms-auto"><?php echo $transaction['details'] ?></span>
+								<div class="ms-auto text-end">
+									<span class="text-capitalize d-block"><?php echo $transaction['details'] ?></span>
+									<small class="d-block text-muted"><?php if ($transaction['type'] == 'withdrawal') echo $transaction['send_to'] ?></small>
+								</div>
 							</div>
 							<div class="trx-item d-flex w-100 p-3 border-bottom">
 								<span style="opacity:.8;">Invoice</span>
